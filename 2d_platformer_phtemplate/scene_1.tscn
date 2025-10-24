@@ -1,8 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=6 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://icon.svg" id="1_3sd7o"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://platform_static.tscn" id="2_1abo5"]
 [ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://UltimatePlatformerController.gd" id="2_3xosi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1abo5"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
 
@@ -20,6 +33,8 @@ idle = true
 walk = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_1abo5")
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CapsuleShape2D_1abo5")
