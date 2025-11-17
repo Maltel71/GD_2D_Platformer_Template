@@ -2,6 +2,7 @@ extends Node2D
 
 var speed = 500
 var direction = 1  # 1 for right, -1 for left
+var damage = 1
 
 @onready var area = $Area2D  # Reference to the Area2D child
 
@@ -24,7 +25,6 @@ func set_direction(dir):
 
 func _on_body_entered(body):
 	# Handle collision with enemies, walls, etc.
-	if body.is_in_group("enemy"):
-		# body.take_damage(10)  # Add damage logic here
-		pass
+	if body.has_method("take_damage"):
+		body.take_damage(damage)
 	queue_free()  # Destroy bullet on impact

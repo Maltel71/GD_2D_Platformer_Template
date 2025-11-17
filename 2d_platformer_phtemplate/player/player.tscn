@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dagyi6jlwbb0w"]
 
-[ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://UltimatePlatformerController.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://player/UltimatePlatformerController.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/icon.svg" id="2_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_yw30f"]
 
@@ -20,11 +20,11 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
+collision_mask = 10
 script = ExtResource("1_rkbax")
 PlayerSprite = NodePath("AnimatedSprite2D")
 PlayerCollider = NodePath("CollisionShape2D")
 wallJump = true
-wallLatching = true
 bullet_scene = ExtResource("2_yw30f")
 jump = true
 idle = true
@@ -40,6 +40,12 @@ shape = SubResource("CapsuleShape2D_1abo5")
 [node name="PlayerTempGraphic" type="Sprite2D" parent="."]
 modulate = Color(0.448905, 0.760345, 0, 1)
 scale = Vector2(0.171875, 0.320313)
+texture = ExtResource("2_g1dw6")
+
+[node name="PlayerTempGraphic2" type="Sprite2D" parent="."]
+modulate = Color(0.448905, 0.760345, 0, 1)
+position = Vector2(9, 0)
+scale = Vector2(0.171875, 0.0186183)
 texture = ExtResource("2_g1dw6")
 
 [node name="BulletSpawnPoint" type="Node2D" parent="."]

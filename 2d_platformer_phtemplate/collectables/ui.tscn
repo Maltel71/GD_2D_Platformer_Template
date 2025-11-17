@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjs1iiy85voo6"]
+
+[ext_resource type="Script" uid="uid://bw3cnixhoe7m4" path="res://collectables/ui.gd" id="1_43qpl"]
+
+[node name="ui" type="CanvasLayer"]
+script = ExtResource("1_43qpl")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 1019.0
+offset_top = 16.0
+offset_right = 1093.0
+offset_bottom = 65.0
+text = "Score: 0
+"
