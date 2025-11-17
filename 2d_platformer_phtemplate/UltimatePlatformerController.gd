@@ -92,6 +92,14 @@ class_name PlatformerController2D
 ##If enabled, pressing up will end the ground pound early
 @export var upToCancel: bool = false
 
+@export_category("Shooting")
+##Allows the player to shoot projectiles
+@export var can_shoot: bool = true
+##The bullet scene to instantiate
+@export var bullet_scene: PackedScene
+##Time between shots in seconds
+@export_range(0.1, 2.0) var shoot_cooldown: float = 0.3
+
 @export_category("Animations (Check Box if has animation)")
 ##Animations must be named "run" all lowercase as the check box says
 @export var run: bool
@@ -160,6 +168,9 @@ var groundPounding
 var anim
 var col
 var animScaleLock : Vector2
+
+var can_shoot_now: bool = true
+var shoot_tap
 
 #Input Variables for the whole script
 var upHold
@@ -343,6 +354,12 @@ func _physics_process(delta):
 	rollTap = Input.is_action_just_pressed("roll")
 	downTap = Input.is_action_just_pressed("down")
 	twirlTap = Input.is_action_just_pressed("twirl")
+	shoot_tap = Input.is_action_just_pressed("shoot")
+	
+	
+	#INFO Shooting
+	if can_shoot and shoot_tap and can_shoot_now and bullet_scene:
+		_shoot()
 	
 	
 	#INFO Left and Right Movement
@@ -660,6 +677,31 @@ func _endGroundPound():
 	groundPounding = false
 	appliedTerminalVelocity = terminalVelocity
 	gravityActive = true
+
+func _shoot():
+	can_shoot_now = false
+	
+	# Create bullet instance
+	var bullet = bullet_scene.instantiate()
+	
+	# Get the spawn point
+	var spawn_point = $BulletSpawnPoint
+	
+	# Determine shoot direction based on player facing
+	var shoot_direction = 1 if anim.scale.x > 0 else -1
+	
+	# Position bullet at spawn point
+	bullet.global_position = spawn_point.global_position
+	
+	# Set bullet direction
+	bullet.set_direction(shoot_direction)
+	
+	# Add bullet to the scene
+	get_parent().add_child(bullet)
+	
+	# Start cooldown timer
+	await get_tree().create_timer(shoot_cooldown).timeout
+	can_shoot_now = true
 
 func _placeHolder():
 	print("")

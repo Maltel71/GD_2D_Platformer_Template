@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dagyi6jlwbb0w"]
+
+[ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://UltimatePlatformerController.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/icon.svg" id="2_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_yw30f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1abo5"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
+script = ExtResource("1_rkbax")
+PlayerSprite = NodePath("AnimatedSprite2D")
+PlayerCollider = NodePath("CollisionShape2D")
+wallJump = true
+wallLatching = true
+bullet_scene = ExtResource("2_yw30f")
+jump = true
+idle = true
+walk = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1abo5")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1abo5")
+
+[node name="PlayerTempGraphic" type="Sprite2D" parent="."]
+modulate = Color(0.448905, 0.760345, 0, 1)
+scale = Vector2(0.171875, 0.320313)
+texture = ExtResource("2_g1dw6")
+
+[node name="BulletSpawnPoint" type="Node2D" parent="."]
