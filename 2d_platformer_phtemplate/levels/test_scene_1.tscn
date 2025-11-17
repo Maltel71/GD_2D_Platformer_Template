@@ -21,12 +21,13 @@ position = Vector2(389, 426)
 scale = Vector2(2.52, 1)
 
 [node name="platform_03" parent="." instance=ExtResource("3_6a74u")]
-position = Vector2(709, 403)
+position = Vector2(709, 384)
 scale = Vector2(4.12, 1)
 
 [node name="platform_04" parent="." instance=ExtResource("3_6a74u")]
-position = Vector2(856, 383)
-scale = Vector2(0.879738, 1.84942)
+position = Vector2(875, 403)
+rotation = -0.221406
+scale = Vector2(4.12, 1)
 
 [node name="platform_05" parent="." instance=ExtResource("3_6a74u")]
 position = Vector2(575, 383)
@@ -54,3 +55,6 @@ position = Vector2(613, 210)
 
 [node name="Enemy_01" parent="." instance=ExtResource("6_2mf20")]
 position = Vector2(708, 296)
+
+[node name="Enemy_02" parent="." instance=ExtResource("6_2mf20")]
+position = Vector2(397, 314)

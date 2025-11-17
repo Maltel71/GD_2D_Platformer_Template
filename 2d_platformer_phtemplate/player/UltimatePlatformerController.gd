@@ -100,6 +100,9 @@ class_name PlatformerController2D
 ##Time between shots in seconds
 @export_range(0.1, 2.0) var shoot_cooldown: float = 0.3
 
+@export_category("Health")
+@export var max_health: int = 3
+
 @export_category("Animations (Check Box if has animation)")
 ##Animations must be named "run" all lowercase as the check box says
 @export var run: bool
@@ -172,6 +175,8 @@ var animScaleLock : Vector2
 var can_shoot_now: bool = true
 var shoot_tap
 
+var current_health: int
+
 #Input Variables for the whole script
 var upHold
 var downHold
@@ -191,9 +196,11 @@ var downTap
 var twirlTap
 
 func _ready():
+	add_to_group("player")
 	wasMovingR = true
 	anim = PlayerSprite
 	col = PlayerCollider
+	current_health = max_health
 	
 	_updateData()
 	
@@ -705,3 +712,24 @@ func _shoot():
 
 func _placeHolder():
 	print("")
+	
+func take_damage(amount: int) -> void:
+	current_health -= amount
+	if current_health <= 0:
+		_die()
+
+func _die():
+	# Disable collision so player falls through ground
+	set_collision_layer_value(1, false)
+	set_collision_mask_value(4, false)
+	
+	# Jump up then fall (Mario style)
+	velocity.y = -jumpMagnitude * 0.8
+	gravityActive = true
+	
+	# Disable controls but keep physics running
+	set_process_input(false)
+	
+	# Wait for fall, then delete
+	await get_tree().create_timer(3.0).timeout
+	queue_free()

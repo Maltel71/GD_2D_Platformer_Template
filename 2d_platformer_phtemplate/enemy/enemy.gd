@@ -7,6 +7,8 @@ extends CharacterBody2D
 
 var direction: int = 1  # 1 = right, -1 = left
 var gravity: float = 980.0
+var can_damage: bool = true
+var damage_cooldown: float = 1.0
 
 @onready var wall_ray_right = $WallRayRight
 @onready var wall_ray_left = $WallRayLeft
@@ -51,6 +53,8 @@ func take_damage(amount: int):
 		queue_free()
 
 func _on_attack_area_entered(body):
-	if body is PlatformerController2D:
-		# Kill player (you can modify this to use a damage system)
-		body.queue_free()
+	if body is PlatformerController2D and can_damage:
+		body.take_damage(damage_to_player)
+		can_damage = false
+		await get_tree().create_timer(damage_cooldown).timeout
+		can_damage = true

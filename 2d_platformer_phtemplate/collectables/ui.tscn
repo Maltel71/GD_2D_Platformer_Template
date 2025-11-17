@@ -12,3 +12,10 @@ offset_right = 1093.0
 offset_bottom = 65.0
 text = "Score: 0
 "
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_left = 891.0
+offset_top = 17.0
+offset_right = 947.0
+offset_bottom = 40.0
+text = "Health:"

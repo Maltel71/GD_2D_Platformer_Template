@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/icon.svg" id="1_ld2qc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
-radius = 15.0
+height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
+radius = 18.0
 
 [node name="Enemy_01" type="CharacterBody2D"]
 collision_layer = 2
@@ -19,15 +20,17 @@ scale = Vector2(0.159998, 0.159998)
 texture = ExtResource("1_ld2qc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
+position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
 rotation = -1.5708
+target_position = Vector2(0, 20)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="."]
 rotation = 1.5708
+target_position = Vector2(0, 20)
 collision_mask = 9
 
 [node name="LedgeRayRight" type="RayCast2D" parent="."]
@@ -42,4 +45,5 @@ collision_mask = 9
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_ld2qc")
