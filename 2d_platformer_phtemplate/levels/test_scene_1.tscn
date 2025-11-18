@@ -21,6 +21,10 @@ scale = Vector2(2.52, 1)
 position = Vector2(389, 426)
 scale = Vector2(2.52, 1)
 
+[node name="platform_06" parent="." instance=ExtResource("3_6a74u")]
+position = Vector2(565, 101)
+scale = Vector2(2.52, 1)
+
 [node name="platform_03" parent="." instance=ExtResource("3_6a74u")]
 position = Vector2(709, 384)
 scale = Vector2(4.12, 1)
