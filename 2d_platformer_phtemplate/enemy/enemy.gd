@@ -38,6 +38,15 @@ func _physics_process(delta):
 	elif (wall_ray_left.is_colliding() or not ledge_ray_left.is_colliding()) and direction == -1:
 		_turn_around()
 	
+	# Continuous damage check
+	if can_damage and attack_area.has_overlapping_bodies():
+		for body in attack_area.get_overlapping_bodies():
+			if body is PlatformerController2D:
+				body.take_damage(damage_to_player)
+				can_damage = false
+				_reset_damage_cooldown()
+				break
+	
 	# Move
 	velocity.x = speed * direction
 	sprite.scale.x = abs(sprite.scale.x) * direction
@@ -56,5 +65,8 @@ func _on_attack_area_entered(body):
 	if body is PlatformerController2D and can_damage:
 		body.take_damage(damage_to_player)
 		can_damage = false
-		await get_tree().create_timer(damage_cooldown).timeout
-		can_damage = true
+		_reset_damage_cooldown()
+
+func _reset_damage_cooldown():
+	await get_tree().create_timer(damage_cooldown).timeout
+	can_damage = true

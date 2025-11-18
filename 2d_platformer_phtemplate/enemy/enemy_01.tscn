@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/icon.svg" id="1_ld2qc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
-height = 24.0
+radius = 21.0
+height = 44.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
-radius = 18.0
+radius = 20.0087
 
 [node name="Enemy_01" type="CharacterBody2D"]
 collision_layer = 2
@@ -16,21 +17,21 @@ script = ExtResource("1_laejb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.286013, 0.384735, 1)
-scale = Vector2(0.159998, 0.159998)
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(0.339489, 0.339489)
 texture = ExtResource("1_ld2qc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
 rotation = -1.5708
-target_position = Vector2(0, 20)
+target_position = Vector2(0, 35)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="."]
 rotation = 1.5708
-target_position = Vector2(0, 20)
+target_position = Vector2(0, 35)
 collision_mask = 9
 
 [node name="LedgeRayRight" type="RayCast2D" parent="."]
@@ -42,6 +43,8 @@ position = Vector2(-20, 0)
 collision_mask = 9
 
 [node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(0, 10)
+scale = Vector2(1.8, 1.56)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]

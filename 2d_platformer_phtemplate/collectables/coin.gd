@@ -30,5 +30,5 @@ func _collect():
 		audio_player.play()
 	
 	# Delete after sound finishes
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	queue_free()

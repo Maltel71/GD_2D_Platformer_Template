@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=8 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_6a74u"]
 [ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/icon.svg" id="2_b717y"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="4_b717y"]
 [ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_2mf20"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="6_rmem4"]
+[ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="7_2mf20"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -29,6 +30,21 @@ position = Vector2(875, 403)
 rotation = -0.221406
 scale = Vector2(4.12, 1)
 
+[node name="platform_06" parent="." instance=ExtResource("3_6a74u")]
+position = Vector2(1162, 535)
+rotation = 1.55335
+scale = Vector2(4.12, 1)
+
+[node name="platform_07" parent="." instance=ExtResource("3_6a74u")]
+position = Vector2(1313, 532)
+rotation = 1.55335
+scale = Vector2(4.12, 1)
+
+[node name="platform_08" parent="." instance=ExtResource("3_6a74u")]
+position = Vector2(1473, 529)
+rotation = 1.55335
+scale = Vector2(4.12, 1)
+
 [node name="platform_05" parent="." instance=ExtResource("3_6a74u")]
 position = Vector2(575, 383)
 scale = Vector2(0.879738, 1.84942)
@@ -37,8 +53,8 @@ scale = Vector2(0.879738, 1.84942)
 modulate = Color(3.36915e-07, 0, 0.26796, 0.45098)
 z_index = -20
 offset_top = -1.0
-offset_right = 1155.0
-offset_bottom = 643.0
+offset_right = 1921.0
+offset_bottom = 1081.0
 texture = ExtResource("2_b717y")
 stretch_mode = 1
 
@@ -58,3 +74,8 @@ position = Vector2(708, 296)
 
 [node name="Enemy_02" parent="." instance=ExtResource("6_2mf20")]
 position = Vector2(397, 314)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(182, 229)
+zoom = Vector2(2, 2)
+script = ExtResource("7_2mf20")

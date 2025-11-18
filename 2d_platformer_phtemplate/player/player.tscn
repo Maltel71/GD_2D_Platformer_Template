@@ -18,6 +18,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
+radius = 14.0
+height = 64.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
 collision_mask = 10
@@ -31,6 +33,7 @@ idle = true
 walk = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_1abo5")
 animation = &"walk"
 
@@ -39,7 +42,7 @@ shape = SubResource("CapsuleShape2D_1abo5")
 
 [node name="PlayerTempGraphic" type="Sprite2D" parent="."]
 modulate = Color(0.448905, 0.760345, 0, 1)
-scale = Vector2(0.171875, 0.320313)
+scale = Vector2(0.265625, 0.5)
 texture = ExtResource("2_g1dw6")
 
 [node name="PlayerTempGraphic2" type="Sprite2D" parent="."]

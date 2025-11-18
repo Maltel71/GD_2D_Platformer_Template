@@ -715,6 +715,13 @@ func _placeHolder():
 	
 func take_damage(amount: int) -> void:
 	current_health -= amount
+	
+	# Knockback
+	var knockback_force = 300.0
+	var knockback_direction = -1 if anim.scale.x > 0 else 1
+	velocity.x = knockback_force * knockback_direction
+	velocity.y = -jumpMagnitude * 0.3
+	
 	if current_health <= 0:
 		_die()
 
