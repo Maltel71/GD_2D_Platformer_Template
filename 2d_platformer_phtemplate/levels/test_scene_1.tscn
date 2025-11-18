@@ -34,17 +34,17 @@ position = Vector2(875, 403)
 rotation = -0.221406
 scale = Vector2(4.12, 1)
 
-[node name="platform_06" parent="." instance=ExtResource("3_6a74u")]
+[node name="platform_07" parent="." instance=ExtResource("3_6a74u")]
 position = Vector2(1162, 535)
 rotation = 1.55335
 scale = Vector2(4.12, 1)
 
-[node name="platform_07" parent="." instance=ExtResource("3_6a74u")]
+[node name="platform_08" parent="." instance=ExtResource("3_6a74u")]
 position = Vector2(1313, 532)
 rotation = 1.55335
 scale = Vector2(4.12, 1)
 
-[node name="platform_08" parent="." instance=ExtResource("3_6a74u")]
+[node name="platform_09" parent="." instance=ExtResource("3_6a74u")]
 position = Vector2(1473, 529)
 rotation = 1.55335
 scale = Vector2(4.12, 1)
