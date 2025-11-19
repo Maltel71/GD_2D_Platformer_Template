@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvbm0b511iwl"]
+
+[ext_resource type="Script" uid="uid://de1abq5qky54f" path="res://enemy/enemy_floating.gd" id="1_17dft"]
+[ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/icon.svg" id="2_acpmn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
+radius = 21.0
+height = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
+radius = 20.0087
+
+[node name="Enemy_Floating" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_17dft")
+patrol_time = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.7549617, 0.54743856, 1.92523e-07, 1)
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(0.339489, 0.339489)
+texture = ExtResource("2_acpmn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ffj3o")
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(0, 10)
+scale = Vector2(1.8, 1.56)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_ld2qc")
