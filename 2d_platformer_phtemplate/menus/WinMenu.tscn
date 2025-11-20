@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://cari2tg1labr3"]
+
+[ext_resource type="Script" uid="uid://csjbu0ksq5dmp" path="res://menus/start_menu.gd" id="1_74ymc"]
+[ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/click/click (1).wav" id="2_pivjg"]
+[ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/placeholders/icon.svg" id="3_eaowb"]
+[ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="4_kos7h"]
+
+[node name="WinMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_74ymc")
+game_scene_path = "res://levels/test_level_1.tscn"
+hover_sound = ExtResource("2_pivjg")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 347.0
+offset_right = 1343.0
+offset_bottom = 516.0
+theme_override_font_sizes/font_size = 117
+text = "Restart game"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 834.0
+offset_top = 555.0
+offset_right = 1117.0
+offset_bottom = 724.0
+theme_override_font_sizes/font_size = 117
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 566.0
+offset_top = 79.0
+offset_right = 1338.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(2.695322e-06, 0.575877, 0.4066573, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 100
+text = "YOU WIN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1554, 702.99994)
+scale = Vector2(3.5537133, 3.5537133)
+texture = ExtResource("3_eaowb")
+
+[node name="BG" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(965, 543)
+scale = Vector2(3.8400002, 2.1999993)
+texture = ExtResource("4_kos7h")
