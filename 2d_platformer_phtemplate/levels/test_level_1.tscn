@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=20 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -14,6 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
+[ext_resource type="Texture2D" uid="uid://be3jetacwxi2p" path="res://graphics/berg_01.png" id="15_t58ta"]
+[ext_resource type="Texture2D" uid="uid://c2e8ses6vxag6" path="res://graphics/Platform_01.png" id="16_1j1kj"]
+[ext_resource type="Texture2D" uid="uid://bkr2ndwfkklyi" path="res://graphics/platform_04.png" id="18_6q8gj"]
+[ext_resource type="Texture2D" uid="uid://6remyn0fi0mt" path="res://graphics/Platform_03.png" id="18_d31dk"]
+[ext_resource type="Texture2D" uid="uid://dnbpyxtp0p0ly" path="res://graphics/Plåttunna_01.png" id="19_5iaa6"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -72,15 +77,15 @@ rotation = 1.55335
 scale = Vector2(4.12, 1)
 
 [node name="platform_05" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(575, 383)
+position = Vector2(1062, 410)
 scale = Vector2(0.879738, 1.84942)
 
-[node name="background_01" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 z_index = -20
-offset_left = -3111.9998
-offset_top = -1792.9999
-offset_right = -1190.9998
-offset_bottom = -710.9999
+offset_left = -2988.0
+offset_top = -1637.9999
+offset_right = -1067.0
+offset_bottom = -555.9999
 scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("3_kql2n")
 stretch_mode = 1
@@ -92,17 +97,42 @@ position = Vector2(293, 281)
 position = Vector2(435, 321)
 
 [node name="coin3" parent="." instance=ExtResource("4_02ec3")]
-position = Vector2(613, 210)
+position = Vector2(-1035, 1423)
+scale = Vector2(-6.362553, 6.1350584)
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
 position = Vector2(59, 243)
 next_scene = ExtResource("13_aupmd")
 
 [node name="Enemy_01" parent="." instance=ExtResource("6_kgy88")]
-position = Vector2(708, 296)
-
-[node name="Enemy_02" parent="." instance=ExtResource("6_kgy88")]
-position = Vector2(397, 314)
+position = Vector2(745, 313)
 
 [node name="Enemy_Floating" parent="." instance=ExtResource("9_grhbk")]
-position = Vector2(776, 210)
+position = Vector2(897, 309)
+
+[node name="Berg01" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-4082, 856)
+texture = ExtResource("15_t58ta")
+offset = Vector2(6370, -895)
+
+[node name="Platform01" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-476, 395)
+texture = ExtResource("16_1j1kj")
+
+[node name="Platform04" type="Sprite2D" parent="."]
+position = Vector2(2464, 396)
+texture = ExtResource("18_d31dk")
+
+[node name="Platform03" type="Sprite2D" parent="."]
+position = Vector2(4334, 375)
+texture = ExtResource("18_d31dk")
+
+[node name="Platform05" type="Sprite2D" parent="."]
+position = Vector2(4331, -230)
+texture = ExtResource("18_6q8gj")
+
+[node name="Plåttunna01" type="Sprite2D" parent="."]
+position = Vector2(3251, 236)
+texture = ExtResource("19_5iaa6")
