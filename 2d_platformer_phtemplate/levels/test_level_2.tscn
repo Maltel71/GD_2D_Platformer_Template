@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cu1jrfb7oi86"]
+[gd_scene load_steps=15 format=3 uid="uid://cu1jrfb7oi86"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_mc1td"]
 [ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/jump/jump.wav" id="2_ukqis"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="12_ay0he"]
 [ext_resource type="PackedScene" uid="uid://cari2tg1labr3" path="res://menus/WinMenu.tscn" id="12_mc1td"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="13_td7uj"]
+[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="14_ukqis"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -34,16 +35,23 @@ script = ExtResource("11_wu0c2")
 
 [node name="ui" parent="." instance=ExtResource("9_kxfxx")]
 
+[node name="Label" type="Label" parent="."]
+offset_left = 1076.0
+offset_top = -105.0
+offset_right = 1323.0
+offset_bottom = -82.0
+
 [node name="platform_01" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(380.00006, 596)
+position = Vector2(-673.99994, 23)
 scale = Vector2(2.52, 1)
 
 [node name="platform_02" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(383, 488)
+position = Vector2(960, -305)
+rotation = 0.008764473
 scale = Vector2(2.52, 1)
 
 [node name="platform_03" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(465, 708)
+position = Vector2(479.00003, 670)
 scale = Vector2(4.12, 1)
 
 [node name="platform_04" parent="." instance=ExtResource("6_4auen")]
@@ -57,10 +65,10 @@ scale = Vector2(0.879738, 1.84942)
 
 [node name="background_01" type="TextureRect" parent="."]
 z_index = -20
-offset_left = -3111.9998
-offset_top = -1792.9999
-offset_right = -1190.9998
-offset_bottom = -710.9999
+offset_left = -2938.0
+offset_top = -2157.9998
+offset_right = -1017.0
+offset_bottom = -1075.9998
 scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("7_7rcka")
 stretch_mode = 1
@@ -80,3 +88,39 @@ next_scene = ExtResource("12_mc1td")
 
 [node name="Enemy_Floating" parent="." instance=ExtResource("13_td7uj")]
 position = Vector2(1022, 528)
+
+[node name="Enemy_01" parent="." instance=ExtResource("14_ukqis")]
+position = Vector2(606, 413)
+
+[node name="Enemy_02" parent="." instance=ExtResource("14_ukqis")]
+position = Vector2(347, 470)
+
+[node name="Enemy_03" parent="." instance=ExtResource("14_ukqis")]
+position = Vector2(802, 449)
+
+[node name="Enemy_04" parent="." instance=ExtResource("14_ukqis")]
+position = Vector2(1116, 390)
+
+[node name="Enemy_05" parent="." instance=ExtResource("14_ukqis")]
+position = Vector2(731, 555)
+
+[node name="Enemy_06" parent="." instance=ExtResource("14_ukqis")]
+position = Vector2(948, 321)
+
+[node name="Enemy_07" parent="." instance=ExtResource("14_ukqis")]
+position = Vector2(746, 293)
+
+[node name="Enemy_08" parent="." instance=ExtResource("14_ukqis")]
+position = Vector2(583, 541)
+
+[node name="Enemy_09" parent="." instance=ExtResource("14_ukqis")]
+position = Vector2(654, 477)
+
+[node name="Enemy_10" parent="." instance=ExtResource("14_ukqis")]
+position = Vector2(941, 423)
+
+[node name="Enemy_11" parent="." instance=ExtResource("14_ukqis")]
+position = Vector2(821, 340)
+
+[node name="Enemy_12" parent="." instance=ExtResource("14_ukqis")]
+position = Vector2(595, 310)
