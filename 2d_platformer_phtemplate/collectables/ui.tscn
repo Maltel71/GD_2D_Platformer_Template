@@ -6,16 +6,22 @@
 script = ExtResource("1_43qpl")
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = 1019.0
-offset_top = 16.0
-offset_right = 1093.0
-offset_bottom = 65.0
+offset_left = 1031.0
+offset_top = 30.0
+offset_right = 1276.0
+offset_bottom = 213.0
+scale = Vector2(0.6400024, 0.6400024)
+theme_override_colors/font_color = Color(1, 1, 0.23921569, 1)
+theme_override_font_sizes/font_size = 65
 text = "Score: 0
 "
 
 [node name="HealthLabel" type="Label" parent="."]
-offset_left = 891.0
-offset_top = 17.0
-offset_right = 947.0
-offset_bottom = 40.0
+offset_left = 671.0
+offset_top = 30.0
+offset_right = 898.0
+offset_bottom = 120.0
+scale = Vector2(0.6400024, 0.6400024)
+theme_override_colors/font_color = Color(3.080368e-06, 0.7965182, 0.30392742, 1)
+theme_override_font_sizes/font_size = 65
 text = "Health:"
