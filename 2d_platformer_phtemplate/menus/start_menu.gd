@@ -1,6 +1,6 @@
 extends Control
 
-@export var game_scene: PackedScene
+@export var game_scene_path: String = "res://path/to/your/game.tscn"
 @export var hover_sound: AudioStream
 
 @onready var start_button = $StartButton
@@ -14,10 +14,10 @@ func _ready():
 	quit_button.mouse_entered.connect(_on_button_hover)
 
 func _on_start_pressed():
-	if game_scene:
-		get_tree().change_scene_to_packed(game_scene)
+	if game_scene_path != "":
+		get_tree().change_scene_to_file(game_scene_path)
 	else:
-		print("Game scene not assigned!")
+		print("Game scene path not set!")
 
 func _on_quit_pressed():
 	get_tree().quit()

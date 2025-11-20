@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cin8nd38hbd17"]
+[gd_scene load_steps=5 format=3 uid="uid://cin8nd38hbd17"]
 
 [ext_resource type="Script" uid="uid://csjbu0ksq5dmp" path="res://menus/start_menu.gd" id="1_1mllw"]
-[ext_resource type="PackedScene" uid="uid://dkt0cxd2qefpc" path="res://levels/test_level_1.tscn" id="2_gmed4"]
 [ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/click/click (1).wav" id="3_uqa4f"]
 [ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/placeholders/icon.svg" id="4_rj5xk"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="5_wns2j"]
@@ -10,7 +9,7 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_1mllw")
-game_scene = ExtResource("2_gmed4")
+game_scene_path = "res://levels/test_level_1.tscn"
 hover_sound = ExtResource("3_uqa4f")
 
 [node name="StartButton" type="Button" parent="."]

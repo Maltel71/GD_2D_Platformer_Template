@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cu1jrfb7oi86"]
+[gd_scene load_steps=14 format=3 uid="uid://cu1jrfb7oi86"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_mc1td"]
 [ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/jump/jump.wav" id="2_ukqis"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="9_kxfxx"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="11_wu0c2"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="12_ay0he"]
+[ext_resource type="PackedScene" uid="uid://cin8nd38hbd17" path="res://menus/StartMenu.tscn" id="12_mc1td"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="13_td7uj"]
 
 [node name="Node2D" type="Node2D"]
@@ -75,6 +76,7 @@ position = Vector2(855, 516)
 
 [node name="GoalTrigger" parent="." instance=ExtResource("12_ay0he")]
 position = Vector2(1209, 508)
+next_scene = ExtResource("12_mc1td")
 
 [node name="Enemy_Floating" parent="." instance=ExtResource("13_td7uj")]
 position = Vector2(1022, 528)
