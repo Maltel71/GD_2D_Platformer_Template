@@ -1,13 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://xb2kvc5kjtfb"]
+[gd_scene load_steps=3 format=3 uid="uid://xb2kvc5kjtfb"]
 
 [ext_resource type="Texture2D" uid="uid://bkboavk20fy0x" path="res://graphics/Platform_04.png" id="1_i4l5g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml1gs"]
-size = Vector2(17.009653, 69.46132)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6sqe3"]
-radius = 15.546228
-height = 32.45474
+size = Vector2(18.996536, 70.41025)
 
 [node name="platform_01" type="StaticBody2D"]
 collision_layer = 8
@@ -15,29 +11,12 @@ collision_mask = 0
 
 [node name="Graphics_PH" type="Sprite2D" parent="."]
 position = Vector2(1.2382898, -2.541666)
+rotation = -0.1293437
 scale = Vector2(0.18010752, 0.18010752)
 texture = ExtResource("1_i4l5g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4.0300727, -2.7119532)
-rotation = 1.7117454
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(5.090849, -2.5173643)
+rotation = 1.5898939
 scale = Vector2(1, 1.4801728)
 shape = SubResource("RectangleShape2D_ml1gs")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-3.0000014, -7.0000005)
-rotation = 0.8214767
-scale = Vector2(1, 1.4801728)
-shape = SubResource("CapsuleShape2D_6sqe3")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(45, -2.000002)
-rotation = 0.3464764
-scale = Vector2(1, 1.4801728)
-shape = SubResource("CapsuleShape2D_6sqe3")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(-41, -8.999998)
-rotation = 0.8214767
-scale = Vector2(-0.7117266, 1.2581364)
-shape = SubResource("CapsuleShape2D_6sqe3")

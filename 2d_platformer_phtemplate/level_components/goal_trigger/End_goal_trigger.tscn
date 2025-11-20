@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5lo76u7bvo3w"]
+
+[ext_resource type="Script" uid="uid://b8dignih65ubw" path="res://level_components/goal_trigger/goal_trigger.gd" id="1_3wo3l"]
+[ext_resource type="Texture2D" uid="uid://dmge5tdwauxqg" path="res://graphics/Spaceship_01.png" id="2_3wo3l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nf8e"]
+size = Vector2(42, 90)
+
+[node name="GoalTrigger" type="Node2D"]
+script = ExtResource("1_3wo3l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.9999943, -24.000006)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_3wo3l")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -22)
+shape = SubResource("RectangleShape2D_4nf8e")

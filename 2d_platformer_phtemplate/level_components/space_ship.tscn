@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccjjl8udrqttj"]
+
+[ext_resource type="Texture2D" uid="uid://dmge5tdwauxqg" path="res://graphics/Spaceship_01.png" id="1_jxy3a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2vivr"]
+radius = 96.0
+height = 500.0
+
+[node name="SpaceShip" type="StaticBody2D"]
+
+[node name="Spaceship01" type="Sprite2D" parent="."]
+rotation = -0.065555364
+texture = ExtResource("1_jxy3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2vivr")

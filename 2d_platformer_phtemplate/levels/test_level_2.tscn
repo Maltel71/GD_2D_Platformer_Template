@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cu1jrfb7oi86"]
+[gd_scene load_steps=38 format=3 uid="uid://cu1jrfb7oi86"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_mc1td"]
 [ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/jump/jump.wav" id="2_ukqis"]
@@ -7,12 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://bf65jj4hxa28c" path="res://audio/hit_hurt/hitHurt.wav" id="5_x2a8b"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="6_4auen"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="7_7rcka"]
-[ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin_01.tscn" id="8_2sx82"]
+[ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin_10p.tscn" id="8_2sx82"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="9_kxfxx"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="11_wu0c2"]
-[ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="12_ay0he"]
 [ext_resource type="PackedScene" uid="uid://cari2tg1labr3" path="res://menus/WinMenu.tscn" id="12_mc1td"]
-[ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="13_td7uj"]
 [ext_resource type="PackedScene" uid="uid://crgxp28p1mrwi" path="res://level_components/platform_02.tscn" id="14_4auen"]
 [ext_resource type="PackedScene" uid="uid://cf2f0g8t0onlx" path="res://level_components/platform_03.tscn" id="15_7rcka"]
 [ext_resource type="PackedScene" uid="uid://xb2kvc5kjtfb" path="res://level_components/platform_04.tscn" id="16_2sx82"]
@@ -21,6 +19,24 @@
 [ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="19_kxfxx"]
 [ext_resource type="PackedScene" uid="uid://ctlv4mvijbdaa" path="res://enemy/enemy_02.tscn" id="20_i7a66"]
 [ext_resource type="PackedScene" uid="uid://ddpo886r0i2w4" path="res://enemy/enemy_03.tscn" id="21_wu0c2"]
+[ext_resource type="PackedScene" uid="uid://dgx2emlkhdhbb" path="res://collectables/coin_50p.tscn" id="22_wu0c2"]
+[ext_resource type="PackedScene" uid="uid://bwu4cgh5gcnxd" path="res://collectables/coin_70p.tscn" id="23_ay0he"]
+[ext_resource type="PackedScene" uid="uid://bom86kj1r7il0" path="res://collectables/coin_100p.tscn" id="24_td7uj"]
+[ext_resource type="PackedScene" uid="uid://mki2hnb3cnle" path="res://collectables/coin_1000p.tscn" id="25_2w4km"]
+[ext_resource type="Texture2D" uid="uid://d2cdh0v7dj21p" path="res://graphics/planet_Jorden_01.png" id="26_f77uk"]
+[ext_resource type="Texture2D" uid="uid://cocwb2keosqhe" path="res://graphics/planet_Jupiter_01.png" id="27_6dj8e"]
+[ext_resource type="Texture2D" uid="uid://5f32wvl3vmrh" path="res://graphics/planet_Mars_01.png" id="28_hxrs1"]
+[ext_resource type="Texture2D" uid="uid://300bw4rrhh0p" path="res://graphics/planet_Neptunus_01.png" id="29_abuaj"]
+[ext_resource type="Texture2D" uid="uid://cg0exrdmtovu4" path="res://graphics/planet_Saturnus_01.png" id="30_81l13"]
+[ext_resource type="PackedScene" uid="uid://b5lo76u7bvo3w" path="res://level_components/goal_trigger/End_goal_trigger.tscn" id="30_hwqmr"]
+[ext_resource type="Texture2D" uid="uid://c2tjsu8jgx383" path="res://graphics/planet_Solen_01.png" id="31_6e6u3"]
+[ext_resource type="Texture2D" uid="uid://dr3vgnc81ydrb" path="res://graphics/planet_Uranus_01.png" id="32_3khhj"]
+[ext_resource type="Texture2D" uid="uid://cbhixn4l7jcqo" path="res://graphics/Star_01.png" id="32_6e6u3"]
+[ext_resource type="Texture2D" uid="uid://dhbg16vp7o0g0" path="res://graphics/Star_02.png" id="33_3khhj"]
+[ext_resource type="Texture2D" uid="uid://03yp6dxmxbns" path="res://graphics/Star_03.png" id="34_qngnt"]
+[ext_resource type="Texture2D" uid="uid://c1wk5s6rv76it" path="res://graphics/Star_04.png" id="35_17ldw"]
+[ext_resource type="Texture2D" uid="uid://lary640ymqiu" path="res://graphics/Star_05.png" id="36_605fm"]
+[ext_resource type="Texture2D" uid="uid://bwaoyr4b6o0lm" path="res://graphics/Star_06.png" id="37_hq1tj"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -43,6 +59,7 @@ script = ExtResource("11_wu0c2")
 [node name="ui" parent="." instance=ExtResource("9_kxfxx")]
 
 [node name="background_01" type="TextureRect" parent="."]
+visible = false
 z_index = -20
 offset_left = -3111.9998
 offset_top = -1792.9999
@@ -54,19 +71,6 @@ stretch_mode = 1
 
 [node name="coin" parent="." instance=ExtResource("8_2sx82")]
 position = Vector2(499, 399)
-
-[node name="coin2" parent="." instance=ExtResource("8_2sx82")]
-position = Vector2(594, 399)
-
-[node name="coin3" parent="." instance=ExtResource("8_2sx82")]
-position = Vector2(689, 400)
-
-[node name="GoalTrigger" parent="." instance=ExtResource("12_ay0he")]
-position = Vector2(1209, 508)
-next_scene = ExtResource("12_mc1td")
-
-[node name="Enemy_Floating" parent="." instance=ExtResource("13_td7uj")]
-position = Vector2(1022, 528)
 
 [node name="platform_01" parent="." instance=ExtResource("6_4auen")]
 position = Vector2(307, 414)
@@ -81,10 +85,10 @@ position = Vector2(112, 416)
 position = Vector2(17, 416)
 
 [node name="platform_02" parent="." instance=ExtResource("14_4auen")]
-position = Vector2(409, 451)
+position = Vector2(405, 505)
 
 [node name="platform_03" parent="." instance=ExtResource("15_7rcka")]
-position = Vector2(509, 464)
+position = Vector2(499, 472)
 
 [node name="platform_04" parent="." instance=ExtResource("16_2sx82")]
 position = Vector2(622, 470)
@@ -103,3 +107,78 @@ position = Vector2(109, 337)
 
 [node name="Enemy_03" parent="." instance=ExtResource("21_wu0c2")]
 position = Vector2(188, 328)
+
+[node name="coin2" parent="." instance=ExtResource("22_wu0c2")]
+position = Vector2(534, 400)
+
+[node name="coin3" parent="." instance=ExtResource("23_ay0he")]
+position = Vector2(567, 396)
+
+[node name="coin4" parent="." instance=ExtResource("24_td7uj")]
+position = Vector2(596, 399)
+
+[node name="coin5" parent="." instance=ExtResource("25_2w4km")]
+position = Vector2(624, 397)
+
+[node name="PlanetJorden01" type="Sprite2D" parent="."]
+position = Vector2(253, 149)
+texture = ExtResource("26_f77uk")
+
+[node name="PlanetJupiter01" type="Sprite2D" parent="."]
+position = Vector2(434, 156)
+texture = ExtResource("27_6dj8e")
+
+[node name="PlanetMars01" type="Sprite2D" parent="."]
+position = Vector2(632, 189)
+texture = ExtResource("28_hxrs1")
+
+[node name="PlanetNeptunus01" type="Sprite2D" parent="."]
+position = Vector2(811, 181)
+texture = ExtResource("29_abuaj")
+
+[node name="PlanetSaturnus01" type="Sprite2D" parent="."]
+position = Vector2(997, 180)
+texture = ExtResource("30_81l13")
+
+[node name="PlanetSolen01" type="Sprite2D" parent="."]
+position = Vector2(1266, 181)
+texture = ExtResource("31_6e6u3")
+
+[node name="PlanetUranus01" type="Sprite2D" parent="."]
+position = Vector2(1499, 184)
+texture = ExtResource("32_3khhj")
+
+[node name="GoalTrigger" parent="." instance=ExtResource("30_hwqmr")]
+position = Vector2(778, 401)
+scale = Vector2(1.66, 1.66)
+next_scene = ExtResource("12_mc1td")
+
+[node name="Star01" type="Sprite2D" parent="."]
+position = Vector2(139.22298, 141.43185)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("32_6e6u3")
+
+[node name="Star02" type="Sprite2D" parent="."]
+position = Vector2(58.222992, 141.43185)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("33_3khhj")
+
+[node name="Star03" type="Sprite2D" parent="."]
+position = Vector2(-15, 139)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("34_qngnt")
+
+[node name="Star04" type="Sprite2D" parent="."]
+position = Vector2(-73, 137.00002)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("35_17ldw")
+
+[node name="Star05" type="Sprite2D" parent="."]
+position = Vector2(-160, 133)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("36_605fm")
+
+[node name="Star06" type="Sprite2D" parent="."]
+position = Vector2(-228.00002, 137.00002)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("37_hq1tj")

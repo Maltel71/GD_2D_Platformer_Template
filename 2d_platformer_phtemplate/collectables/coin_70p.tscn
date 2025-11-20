@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwu4cgh5gcnxd"]
+
+[ext_resource type="Script" uid="uid://f2shno0ghpwx" path="res://collectables/coin.gd" id="1_gis68"]
+[ext_resource type="AudioStream" uid="uid://cuodjbopyn2he" path="res://collectables/audio/sfx_pickup_coin_01.wav" id="2_dhwje"]
+[ext_resource type="Texture2D" uid="uid://yj5ao1y428yp" path="res://graphics/Points_70_01.png" id="3_gis68"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5uct3"]
+
+[node name="coin" type="Node2D"]
+script = ExtResource("1_gis68")
+point_value = 50
+collect_sound = ExtResource("2_dhwje")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.115809344, 0.115809344)
+texture = ExtResource("3_gis68")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_5uct3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -5.0
