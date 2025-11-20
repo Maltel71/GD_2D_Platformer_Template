@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://2sbchijd2mjp"]
 
 [ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://enemy/enemy.gd" id="1_laejb"]
-[ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/icon.svg" id="2_laejb"]
+[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="2_laejb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
 radius = 21.0
@@ -16,9 +16,9 @@ collision_mask = 8
 script = ExtResource("1_laejb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.286013, 0.384735, 1)
+modulate = Color(1, 0.7927212, 0.7945566, 1)
 position = Vector2(0, 3.8147e-06)
-scale = Vector2(0.339489, 0.339489)
+scale = Vector2(0.089, 0.089)
 texture = ExtResource("2_laejb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

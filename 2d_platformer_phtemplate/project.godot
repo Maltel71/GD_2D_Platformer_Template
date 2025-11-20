@@ -13,7 +13,7 @@ config_version=5
 config/name="2d_Platformer_PHTemplate"
 run/main_scene="uid://dkt0cxd2qefpc"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://graphics/icon.svg"
+config/icon="res://graphics/placeholders/icon.svg"
 
 [autoload]
 
@@ -27,7 +27,10 @@ window/size/viewport_height=1080
 [file_customization]
 
 folder_colors={
-"res://enemy/": "red"
+"res://audio/": "yellow",
+"res://enemy/": "red",
+"res://graphics/": "green",
+"res://player/": "pink"
 }
 
 [input]
