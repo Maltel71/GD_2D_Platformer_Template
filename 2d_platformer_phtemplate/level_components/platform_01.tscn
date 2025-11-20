@@ -1,17 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvjwkkynww5uf"]
 
-[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="1_j3sib"]
+[ext_resource type="Texture2D" uid="uid://bifgc8vbee14d" path="res://graphics/metalplatform lång _01.png" id="1_j3sib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmrlc"]
-size = Vector2(100, 100)
+size = Vector2(237, 36)
 
 [node name="platform_01" type="StaticBody2D"]
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.5, -3)
 shape = SubResource("RectangleShape2D_hmrlc")
 
 [node name="Graphics_PH" type="Sprite2D" parent="."]
-scale = Vector2(0.21, 0.21)
+scale = Vector2(0.6813187, 0.41945055)
 texture = ExtResource("1_j3sib")
