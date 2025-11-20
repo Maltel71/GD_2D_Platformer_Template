@@ -14,6 +14,7 @@
 
 [node name="Player" parent="." instance=ExtResource("1_plkrb")]
 position = Vector2(182, 224)
+jumps = 4
 
 [node name="platform_01" parent="." instance=ExtResource("2_grhbk")]
 position = Vector2(208, 357)

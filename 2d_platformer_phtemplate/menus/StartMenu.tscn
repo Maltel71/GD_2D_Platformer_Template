@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cin8nd38hbd17"]
+
+[ext_resource type="Script" uid="uid://csjbu0ksq5dmp" path="res://menus/start_menu.gd" id="1_1mllw"]
+[ext_resource type="PackedScene" uid="uid://dkt0cxd2qefpc" path="res://levels/test_level_1.tscn" id="2_gmed4"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1mllw")
+game_scene = ExtResource("2_gmed4")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 235.0
+offset_right = 1049.0
+offset_bottom = 404.0
+theme_override_font_sizes/font_size = 117
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 528.0
+offset_right = 1049.0
+offset_bottom = 697.0
+theme_override_font_sizes/font_size = 117
+text = "Quit"

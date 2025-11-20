@@ -1,53 +1,49 @@
 [gd_scene load_steps=6 format=3 uid="uid://dagyi6jlwbb0w"]
 
 [ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://player/UltimatePlatformerController.gd" id="1_rkbax"]
-[ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/icon.svg" id="2_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_yw30f"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1abo5"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/icon.svg" id="104_hgm8h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
 radius = 14.0
 height = 64.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_1abo5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("104_hgm8h")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("104_hgm8h")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 30.0
+}]
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
 collision_mask = 10
 script = ExtResource("1_rkbax")
-PlayerSprite = NodePath("AnimatedSprite2D")
+PlayerSprite = NodePath("AnimatedSprite2DMalte")
 PlayerCollider = NodePath("CollisionShape2D")
 wallJump = true
 bullet_scene = ExtResource("2_yw30f")
-jump = true
 idle = true
 walk = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-sprite_frames = SubResource("SpriteFrames_1abo5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1abo5")
 
-[node name="PlayerTempGraphic" type="Sprite2D" parent="."]
-modulate = Color(0.448905, 0.760345, 0, 1)
-scale = Vector2(0.265625, 0.5)
-texture = ExtResource("2_g1dw6")
-
-[node name="PlayerTempGraphic2" type="Sprite2D" parent="PlayerTempGraphic"]
-modulate = Color(0.448905, 0.760345, 0, 1)
-position = Vector2(33.882355, 0)
-scale = Vector2(0.64705884, 0.0372366)
-texture = ExtResource("2_g1dw6")
-
 [node name="BulletSpawnPoint" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2DMalte" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.842171e-14, -0.25)
+scale = Vector2(0.18749999, 0.49609375)
+sprite_frames = SubResource("SpriteFrames_1abo5")
+animation = &"walk"
