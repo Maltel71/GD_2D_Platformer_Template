@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqhg157bw66n3"]
+
+[ext_resource type="Texture2D" uid="uid://7qc1wefuppbt" path="res://graphics/spike_platform_01.png" id="1_byl25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ml1gs"]
+size = Vector2(17.565079, 10.512114)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1m6lj"]
+radius = 17.029116
+
+[node name="platform_01" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Graphics_PH" type="Sprite2D" parent="."]
+position = Vector2(1.2382898, -2.541666)
+scale = Vector2(0.18010752, 0.18010752)
+texture = ExtResource("1_byl25")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.0000005)
+rotation = 0.81424785
+scale = Vector2(1, 1.4801728)
+shape = SubResource("RectangleShape2D_ml1gs")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-13.000001, 2.9999995)
+rotation = 1.0601923
+scale = Vector2(1, 1.4801728)
+shape = SubResource("RectangleShape2D_ml1gs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(13, 4.000001)
+rotation = 0.64201796
+scale = Vector2(1, 1.4801728)
+shape = SubResource("RectangleShape2D_ml1gs")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(1.0000019, -6)
+rotation = 1.5418261
+scale = Vector2(1, 1.4801728)
+shape = SubResource("CircleShape2D_1m6lj")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(1.0000019, -6)
+rotation = 1.5418261
+scale = Vector2(1, 1.4801728)
+shape = SubResource("CircleShape2D_1m6lj")

@@ -1,37 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://2sbchijd2mjp"]
+[gd_scene load_steps=5 format=3 uid="uid://ctlv4mvijbdaa"]
 
-[ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://enemy/enemy.gd" id="1_laejb"]
-[ext_resource type="Texture2D" uid="uid://y6g3cjpqf7cp" path="res://graphics/alien_baby_01.png" id="2_laejb"]
+[ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://enemy/enemy.gd" id="1_6x63a"]
+[ext_resource type="Texture2D" uid="uid://dhkafpxqa46pp" path="res://graphics/alien_boss_01.png" id="2_6x63a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
-radius = 21.0
-height = 44.0
+radius = 30.0
+height = 106.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
-radius = 20.0087
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6x63a"]
+radius = 43.0
+height = 114.0
 
 [node name="Enemy_01" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 8
-script = ExtResource("1_laejb")
-health = 1
+script = ExtResource("1_6x63a")
+health = 10
+damage_to_player = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.9999999, -1.9999998)
-scale = Vector2(0.15189967, 0.15189967)
-texture = ExtResource("2_laejb")
+position = Vector2(-1.9999999, -9)
+scale = Vector2(0.22411512, 0.22411512)
+texture = ExtResource("2_6x63a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
 rotation = -1.5708
-target_position = Vector2(0, 35)
+target_position = Vector2(0, 44.205)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="."]
 rotation = 1.5708
-target_position = Vector2(0, 35)
+target_position = Vector2(0, 44.205)
 collision_mask = 9
 
 [node name="LedgeRayRight" type="RayCast2D" parent="."]
@@ -44,9 +47,8 @@ collision_mask = 9
 
 [node name="AttackArea" type="Area2D" parent="."]
 position = Vector2(0, 10)
-scale = Vector2(1.8, 1.56)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, -7)
-shape = SubResource("CircleShape2D_ld2qc")
+position = Vector2(1, -19)
+shape = SubResource("CapsuleShape2D_6x63a")
