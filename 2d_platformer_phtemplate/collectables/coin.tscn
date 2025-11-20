@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://f2shno0ghpwx" path="res://collectables/coin.gd" id="1_yjmdh"]
 [ext_resource type="AudioStream" uid="uid://cuodjbopyn2he" path="res://collectables/audio/sfx_pickup_coin_01.wav" id="2_k5m7g"]
-[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="3_k5m7g"]
+[ext_resource type="Texture2D" uid="uid://bt6bkj5fmm4yr" path="res://graphics/Coin_01.png" id="4_evfnm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5uct3"]
 
@@ -12,8 +12,8 @@ collect_sound = ExtResource("2_k5m7g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.8862745, 0.84705883, 0.5882353, 1)
-scale = Vector2(0.027845819, 0.027845819)
-texture = ExtResource("3_k5m7g")
+scale = Vector2(0.08587823, 0.067697085)
+texture = ExtResource("4_evfnm")
 
 [node name="Area2D" type="Area2D" parent="."]
 

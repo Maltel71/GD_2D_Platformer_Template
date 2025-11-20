@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=19 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -14,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
+[ext_resource type="Texture2D" uid="uid://dndgyviwdss6q" path="res://graphics/svamp_01.png" id="15_t58ta"]
+[ext_resource type="Texture2D" uid="uid://da0oahd4g3oyc" path="res://graphics/Woodenbox_01.png" id="16_pmbwx"]
+[ext_resource type="Texture2D" uid="uid://bcgdefnxlliak" path="res://graphics/kvist_01.png" id="17_lgfx6"]
+[ext_resource type="PackedScene" uid="uid://be8v378xri43h" path="res://level_components/platform_gräs.tscn" id="18_lgfx6"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -106,3 +110,30 @@ position = Vector2(397, 314)
 
 [node name="Enemy_Floating" parent="." instance=ExtResource("9_grhbk")]
 position = Vector2(776, 210)
+
+[node name="Svamp01" type="Sprite2D" parent="."]
+position = Vector2(1164, 252)
+scale = Vector2(0.40342268, 0.4836815)
+texture = ExtResource("15_t58ta")
+
+[node name="Label" type="Label" parent="Svamp01"]
+offset_left = -763.4673
+offset_top = -272.90686
+offset_right = 1260.5327
+offset_bottom = -203.90686
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "hello im the mushroom of idiotic people only the biggest idiots can see or talk to me"
+
+[node name="Woodenbox01" type="Sprite2D" parent="Svamp01"]
+position = Vector2(-1923.5408, -308.05396)
+texture = ExtResource("16_pmbwx")
+
+[node name="Kvist01" type="Sprite2D" parent="Svamp01"]
+position = Vector2(-2451.523, 124.048546)
+scale = Vector2(-1.4269125, -0.21206479)
+texture = ExtResource("17_lgfx6")
+
+[node name="platform_10" parent="." instance=ExtResource("18_lgfx6")]
+position = Vector2(1828, 349)
+scale = Vector2(5.065448, 3.7230613)
