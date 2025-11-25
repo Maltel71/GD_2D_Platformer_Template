@@ -1,36 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://2sbchijd2mjp"]
+[gd_scene load_steps=5 format=3 uid="uid://dci41ks6vt8dy"]
 
-[ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://enemy/enemy.gd" id="1_laejb"]
-[ext_resource type="Texture2D" uid="uid://bgj7j4ejsb552" path="res://graphics/bot_01_v1.png" id="2_laejb"]
+[ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://enemy/enemy.gd" id="1_on2tm"]
+[ext_resource type="Texture2D" uid="uid://lymba8y8fapc" path="res://graphics/char_enemy_drbot_01_v1.png" id="2_on2tm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
-radius = 21.0
-height = 44.0
+radius = 35.0
+height = 80.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
-radius = 20.0087
+radius = 50.0
 
 [node name="Enemy_01" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 8
-script = ExtResource("1_laejb")
+script = ExtResource("1_on2tm")
+health = 10
+damage_to_player = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(-3.999999, -31)
 scale = Vector2(0.22978725, 0.22978728)
-texture = ExtResource("2_laejb")
+texture = ExtResource("2_on2tm")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -19)
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
+position = Vector2(0, 8)
 rotation = -1.5708
-target_position = Vector2(0, 35)
+target_position = Vector2(0, 44.745)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 8)
 rotation = 1.5708
-target_position = Vector2(0, 35)
+target_position = Vector2(0, 44.745)
 collision_mask = 9
 
 [node name="LedgeRayRight" type="RayCast2D" parent="."]
@@ -43,9 +49,8 @@ collision_mask = 9
 
 [node name="AttackArea" type="Area2D" parent="."]
 position = Vector2(0, 10)
-scale = Vector2(1.8, 1.56)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, -7)
+position = Vector2(0, -29)
 shape = SubResource("CircleShape2D_ld2qc")

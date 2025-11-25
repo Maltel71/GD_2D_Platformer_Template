@@ -1,26 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvbm0b511iwl"]
+[gd_scene load_steps=5 format=3 uid="uid://dnfn0odq5q0nc"]
 
-[ext_resource type="Script" uid="uid://de1abq5qky54f" path="res://enemy/enemy_floating.gd" id="1_17dft"]
-[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="2_17dft"]
+[ext_resource type="Script" uid="uid://de1abq5qky54f" path="res://enemy/enemy_floating.gd" id="1_hw0w7"]
+[ext_resource type="Texture2D" uid="uid://cudumxvxstxfc" path="res://graphics/maggie_01.png" id="2_op1ct"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
 radius = 21.0
 height = 44.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
-radius = 18.523136
+radius = 2.7782512
 
 [node name="Enemy_Floating" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 8
-script = ExtResource("1_17dft")
+script = ExtResource("1_hw0w7")
 patrol_time = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.9999991, 0.6227512, 0.48015326, 1)
 position = Vector2(0, 2)
-scale = Vector2(0.05786991, 0.05786991)
-texture = ExtResource("2_17dft")
+scale = Vector2(0.42819774, 0.42819774)
+texture = ExtResource("2_op1ct")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ffj3o")
