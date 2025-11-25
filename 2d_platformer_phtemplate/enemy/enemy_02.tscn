@@ -1,39 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://2sbchijd2mjp"]
+[gd_scene load_steps=5 format=3 uid="uid://ctlv4mvijbdaa"]
 
-[ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://enemy/enemy.gd" id="1_laejb"]
-[ext_resource type="Texture2D" uid="uid://csj40c6eor23l" path="res://graphics/furnaceman_01.png" id="2_laejb"]
+[ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://enemy/enemy.gd" id="1_6x63a"]
+[ext_resource type="Texture2D" uid="uid://criaaeboq40l4" path="res://graphics/gräsklipparn_01.png" id="2_pbhnv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
-radius = 24.0
-height = 76.0
+radius = 21.0
+height = 44.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yl8y7"]
-radius = 43.0
-height = 130.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
+radius = 20.0087
 
 [node name="Enemy_01" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 8
-script = ExtResource("1_laejb")
+script = ExtResource("1_6x63a")
+health = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -2)
-scale = Vector2(0.28991997, 0.28991997)
-texture = ExtResource("2_laejb")
+scale = Vector2(0.132, 0.132)
+texture = ExtResource("2_pbhnv")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
-position = Vector2(0, 15)
 rotation = -1.5708
-target_position = Vector2(0, 60.915)
+target_position = Vector2(0, 35)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="."]
-position = Vector2(0, 15)
 rotation = 1.5708
-target_position = Vector2(0, 60.915)
+target_position = Vector2(0, 35)
 collision_mask = 9
 
 [node name="LedgeRayRight" type="RayCast2D" parent="."]
@@ -46,9 +45,9 @@ collision_mask = 9
 
 [node name="AttackArea" type="Area2D" parent="."]
 position = Vector2(0, 10)
+scale = Vector2(1.8, 1.56)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, -11)
-rotation = -1.5707964
-shape = SubResource("CapsuleShape2D_yl8y7")
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_ld2qc")
