@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dobd1oxd27upf"]
+
+[ext_resource type="Script" uid="uid://de1abq5qky54f" path="res://enemy/enemy_floating.gd" id="1_sgidt"]
+[ext_resource type="Texture2D" uid="uid://c0baa8hvm2mgr" path="res://graphics/Turtle_01.png" id="2_sgidt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
+radius = 21.0
+height = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
+radius = 20.0087
+
+[node name="Enemy_Floating" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 8
+up_direction = Vector2(0, 1)
+script = ExtResource("1_sgidt")
+patrol_time = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -0.9999999)
+scale = Vector2(0.21276592, 0.21276592)
+texture = ExtResource("2_sgidt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ffj3o")
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(0, 10)
+scale = Vector2(1.8, 1.56)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_ld2qc")

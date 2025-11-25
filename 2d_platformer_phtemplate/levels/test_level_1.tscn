@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=20 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -14,11 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/Shark_01.tscn" id="9_grhbk"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
 [ext_resource type="PackedScene" uid="uid://uq3idl18wqml" path="res://enemy/megalodon_01.tscn" id="14_aupmd"]
+[ext_resource type="PackedScene" uid="uid://crgxp28p1mrwi" path="res://level_components/platform_02.tscn" id="15_t58ta"]
+[ext_resource type="Texture2D" uid="uid://ccdllslqiselx" path="res://graphics/flask_01.png" id="16_1j1kj"]
+[ext_resource type="Texture2D" uid="uid://dlchx2q3utisn" path="res://graphics/dead_squid_01.png" id="17_pmbwx"]
+[ext_resource type="Texture2D" uid="uid://yj7ccyswket8" path="res://graphics/Grass_01.png" id="18_lgfx6"]
+[ext_resource type="Texture2D" uid="uid://c0baa8hvm2mgr" path="res://graphics/Turtle_01.png" id="19_d31dk"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_plkrb")]
-position = Vector2(182, 224)
+position = Vector2(203, 242)
 jump_sound = ExtResource("2_kgy88")
 jump_volume = -20.0
 damage_sound = ExtResource("3_aupmd")
@@ -29,53 +34,14 @@ death_sound = ExtResource("5_1j1kj")
 death_volume = -20.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(182, 229)
+position = Vector2(196, 281)
 zoom = Vector2(2, 2)
 script = ExtResource("7_aupmd")
 
 [node name="ui" parent="." instance=ExtResource("5_5vfu0")]
 
-[node name="platform_01" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(208, 357)
-scale = Vector2(2.52, 1)
-
-[node name="platform_02" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(389, 426)
-scale = Vector2(2.52, 1)
-
-[node name="platform_06" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(565, 101)
-scale = Vector2(2.52, 1)
-
-[node name="platform_03" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(709, 384)
-scale = Vector2(4.12, 1)
-
-[node name="platform_04" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(875, 403)
-rotation = -0.221406
-scale = Vector2(4.12, 1)
-
-[node name="platform_07" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(1162, 535)
-rotation = 1.55335
-scale = Vector2(4.12, 1)
-
-[node name="platform_08" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(1313, 532)
-rotation = 1.55335
-scale = Vector2(4.12, 1)
-
-[node name="platform_09" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(1473, 529)
-rotation = 1.55335
-scale = Vector2(4.12, 1)
-
-[node name="platform_05" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(575, 383)
-scale = Vector2(0.879738, 1.84942)
-
 [node name="background_01" type="TextureRect" parent="."]
+visible = false
 z_index = -20
 offset_left = -3111.9998
 offset_top = -1792.9999
@@ -86,16 +52,16 @@ texture = ExtResource("3_kql2n")
 stretch_mode = 1
 
 [node name="coin" parent="." instance=ExtResource("4_02ec3")]
-position = Vector2(293, 281)
+position = Vector2(302, 289)
 
 [node name="coin2" parent="." instance=ExtResource("4_02ec3")]
 position = Vector2(435, 321)
 
 [node name="coin3" parent="." instance=ExtResource("4_02ec3")]
-position = Vector2(613, 210)
+position = Vector2(807, 303)
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
-position = Vector2(59, 243)
+position = Vector2(46, 258)
 next_scene = ExtResource("13_aupmd")
 
 [node name="Enemy_Floating" parent="." instance=ExtResource("9_grhbk")]
@@ -108,3 +74,73 @@ patrol_time = 2.0
 
 [node name="Enemy_Floating3" parent="." instance=ExtResource("14_aupmd")]
 position = Vector2(708, 296)
+
+[node name="platform_01" parent="." instance=ExtResource("2_grhbk")]
+position = Vector2(181, 354)
+
+[node name="platform_04" parent="." instance=ExtResource("2_grhbk")]
+position = Vector2(383, 411)
+
+[node name="platform_02" parent="." instance=ExtResource("15_t58ta")]
+position = Vector2(289, 413)
+
+[node name="platform_03" parent="." instance=ExtResource("15_t58ta")]
+position = Vector2(481, 411)
+
+[node name="platform_05" parent="." instance=ExtResource("2_grhbk")]
+position = Vector2(669, 411)
+
+[node name="platform_06" parent="." instance=ExtResource("15_t58ta")]
+position = Vector2(575, 413)
+
+[node name="platform_07" parent="." instance=ExtResource("15_t58ta")]
+position = Vector2(767, 411)
+
+[node name="Flask01" type="Sprite2D" parent="."]
+position = Vector2(385, 355)
+rotation = 1.5124086
+scale = Vector2(0.47528768, 0.47528768)
+texture = ExtResource("16_1j1kj")
+
+[node name="Flask02" type="Sprite2D" parent="."]
+position = Vector2(312, 345)
+rotation = -0.104616284
+scale = Vector2(0.47528768, 0.47528768)
+texture = ExtResource("16_1j1kj")
+
+[node name="Flask03" type="Sprite2D" parent="."]
+position = Vector2(287.00003, 358)
+rotation = -1.6295637
+scale = Vector2(0.47528768, 0.47528768)
+texture = ExtResource("16_1j1kj")
+
+[node name="DeadSquid01" type="Sprite2D" parent="."]
+position = Vector2(670, 402.00003)
+scale = Vector2(0.65037596, 0.65037596)
+texture = ExtResource("17_pmbwx")
+
+[node name="Grass01" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(519, 315)
+scale = Vector2(0.4003984, 0.4003984)
+texture = ExtResource("18_lgfx6")
+
+[node name="Grass02" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(159, 271)
+scale = Vector2(0.27988046, 0.2798805)
+texture = ExtResource("18_lgfx6")
+flip_h = true
+
+[node name="Grass03" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(761.00006, 328)
+scale = Vector2(0.27988046, 0.2798805)
+texture = ExtResource("18_lgfx6")
+flip_h = true
+
+[node name="Turtle01" type="Sprite2D" parent="."]
+position = Vector2(157.00002, 339.00003)
+rotation = -1.0010754
+scale = Vector2(0.3181818, 0.3181818)
+texture = ExtResource("19_d31dk")

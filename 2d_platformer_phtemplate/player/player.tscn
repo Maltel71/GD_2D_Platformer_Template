@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://player/UltimatePlatformerController.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_yw30f"]
-[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://blp7vpar1yshl" path="res://graphics/Bläckfisk_01.png" id="3_g1dw6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
-radius = 14.0
-height = 64.0
+radius = 21.0
+height = 44.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1abo5"]
 animations = [{
@@ -43,6 +43,6 @@ shape = SubResource("CapsuleShape2D_1abo5")
 [node name="BulletSpawnPoint" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2DMalte" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.047, 0.125)
+scale = Vector2(0.165, 0.165)
 sprite_frames = SubResource("SpriteFrames_1abo5")
-animation = &"idle"
+animation = &"walk"
