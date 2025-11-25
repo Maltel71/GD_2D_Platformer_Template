@@ -5,13 +5,13 @@
 [ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/hit_hurt/hitHurt (1).wav" id="3_gqg56"]
 [ext_resource type="AudioStream" uid="uid://d3xekf1n6wys2" path="res://audio/laser_shoot/laserShoot (1).wav" id="4_3fvnl"]
 [ext_resource type="AudioStream" uid="uid://bf65jj4hxa28c" path="res://audio/hit_hurt/hitHurt.wav" id="5_x2a8b"]
-[ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="6_4auen"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="7_7rcka"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="8_2sx82"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="9_kxfxx"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="11_wu0c2"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="12_ay0he"]
 [ext_resource type="PackedScene" uid="uid://cari2tg1labr3" path="res://menus/WinMenu.tscn" id="12_mc1td"]
+[ext_resource type="PackedScene" uid="uid://c0hxjsckob8k7" path="res://level_components/platform_05.tscn" id="13_mc1td"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="13_td7uj"]
 
 [node name="Node2D" type="Node2D"]
@@ -34,28 +34,8 @@ script = ExtResource("11_wu0c2")
 
 [node name="ui" parent="." instance=ExtResource("9_kxfxx")]
 
-[node name="platform_01" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(380.00006, 596)
-scale = Vector2(2.52, 1)
-
-[node name="platform_02" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(383, 488)
-scale = Vector2(2.52, 1)
-
-[node name="platform_03" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(465, 708)
-scale = Vector2(4.12, 1)
-
-[node name="platform_04" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(836.00006, 673)
-rotation = -0.221406
-scale = Vector2(4.12, 1)
-
-[node name="platform_05" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(1184, 666)
-scale = Vector2(0.879738, 1.84942)
-
 [node name="background_01" type="TextureRect" parent="."]
+modulate = Color(0.9589817, 0.961914, 0.95312804, 1)
 z_index = -20
 offset_left = -3111.9998
 offset_top = -1792.9999
@@ -65,18 +45,43 @@ scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("7_7rcka")
 stretch_mode = 1
 
-[node name="coin" parent="." instance=ExtResource("8_2sx82")]
-position = Vector2(499, 399)
-
-[node name="coin2" parent="." instance=ExtResource("8_2sx82")]
-position = Vector2(556, 613)
-
-[node name="coin3" parent="." instance=ExtResource("8_2sx82")]
-position = Vector2(855, 516)
-
 [node name="GoalTrigger" parent="." instance=ExtResource("12_ay0he")]
 position = Vector2(1209, 508)
 next_scene = ExtResource("12_mc1td")
 
 [node name="Enemy_Floating" parent="." instance=ExtResource("13_td7uj")]
 position = Vector2(1022, 528)
+
+[node name="==COINS==" type="Node2D" parent="."]
+
+[node name="coin" parent="==COINS==" instance=ExtResource("8_2sx82")]
+position = Vector2(499, 399)
+
+[node name="coin2" parent="==COINS==" instance=ExtResource("8_2sx82")]
+position = Vector2(688, 407)
+
+[node name="coin3" parent="==COINS==" instance=ExtResource("8_2sx82")]
+position = Vector2(947, 434)
+
+[node name="==PLATFORM==" type="Node2D" parent="."]
+position = Vector2(1026, 433)
+
+[node name="platform_01" parent="==PLATFORM==" instance=ExtResource("13_mc1td")]
+position = Vector2(-713, -29)
+
+[node name="platform_02" parent="==PLATFORM==" instance=ExtResource("13_mc1td")]
+position = Vector2(-533, 8)
+
+[node name="platform_03" parent="==PLATFORM==" instance=ExtResource("13_mc1td")]
+position = Vector2(-354, 46)
+
+[node name="platform_04" parent="==PLATFORM==" instance=ExtResource("13_mc1td")]
+position = Vector2(-295, 7)
+
+[node name="platform_05" parent="==PLATFORM==" instance=ExtResource("13_mc1td")]
+position = Vector2(-125, 35)
+
+[node name="platform_06" parent="==PLATFORM==" instance=ExtResource("13_mc1td")]
+
+[node name="platform_07" parent="." instance=ExtResource("13_mc1td")]
+position = Vector2(1207, 569)

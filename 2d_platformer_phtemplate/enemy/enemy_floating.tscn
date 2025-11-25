@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvbm0b511iwl"]
+[gd_scene load_steps=6 format=3 uid="uid://bvbm0b511iwl"]
 
 [ext_resource type="Script" uid="uid://de1abq5qky54f" path="res://enemy/enemy_floating.gd" id="1_17dft"]
-[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="2_17dft"]
+[ext_resource type="Texture2D" uid="uid://dndgyviwdss6q" path="res://graphics/svamp_01.png" id="2_17dft"]
+[ext_resource type="Texture2D" uid="uid://c575f80o2dsi" path="res://graphics/MedicinFlower_01.png" id="3_acpmn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
 radius = 21.0
@@ -17,9 +18,8 @@ script = ExtResource("1_17dft")
 patrol_time = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.9999991, 0.6227512, 0.48015326, 1)
 position = Vector2(0, 3.8147e-06)
-scale = Vector2(0.09752346, 0.09752346)
+scale = Vector2(0.16896267, 0.16896267)
 texture = ExtResource("2_17dft")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -33,3 +33,15 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_ld2qc")
+
+[node name="MedicinFlower01" type="Sprite2D" parent="."]
+position = Vector2(-35.00001, 9.000008)
+rotation = -1.532675
+scale = Vector2(0.25989535, 0.25989535)
+texture = ExtResource("3_acpmn")
+
+[node name="MedicinFlower02" type="Sprite2D" parent="."]
+position = Vector2(30.999996, 8)
+rotation = 1.4939954
+scale = Vector2(0.25989535, 0.25989535)
+texture = ExtResource("3_acpmn")
