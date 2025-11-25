@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvbm0b511iwl"]
 
 [ext_resource type="Script" uid="uid://de1abq5qky54f" path="res://enemy/enemy_floating.gd" id="1_17dft"]
-[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="2_17dft"]
+[ext_resource type="Texture2D" uid="uid://dr0pwnpj7rcgf" path="res://graphics/shark.png" id="2_17dft"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
 radius = 21.0
@@ -17,9 +17,8 @@ script = ExtResource("1_17dft")
 patrol_time = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.9999991, 0.6227512, 0.48015326, 1)
-position = Vector2(0, 3.8147e-06)
-scale = Vector2(0.09752346, 0.09752346)
+position = Vector2(0, -0.9999999)
+scale = Vector2(0.21276592, 0.21276592)
 texture = ExtResource("2_17dft")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

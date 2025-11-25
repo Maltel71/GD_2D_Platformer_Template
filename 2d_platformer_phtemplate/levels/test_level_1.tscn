@@ -9,11 +9,11 @@
 [ext_resource type="AudioStream" uid="uid://d3xekf1n6wys2" path="res://audio/laser_shoot/laserShoot (1).wav" id="4_t58ta"]
 [ext_resource type="AudioStream" uid="uid://bf65jj4hxa28c" path="res://audio/hit_hurt/hitHurt.wav" id="5_1j1kj"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="5_5vfu0"]
-[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_kgy88"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="7_aupmd"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
-[ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
+[ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/Shark_01.tscn" id="9_grhbk"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
+[ext_resource type="PackedScene" uid="uid://uq3idl18wqml" path="res://enemy/megalodon_01.tscn" id="14_aupmd"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -98,11 +98,13 @@ position = Vector2(613, 210)
 position = Vector2(59, 243)
 next_scene = ExtResource("13_aupmd")
 
-[node name="Enemy_01" parent="." instance=ExtResource("6_kgy88")]
-position = Vector2(708, 296)
-
-[node name="Enemy_02" parent="." instance=ExtResource("6_kgy88")]
-position = Vector2(397, 314)
-
 [node name="Enemy_Floating" parent="." instance=ExtResource("9_grhbk")]
 position = Vector2(776, 210)
+patrol_time = 1.0
+
+[node name="Enemy_Floating2" parent="." instance=ExtResource("9_grhbk")]
+position = Vector2(455, 251)
+patrol_time = 2.0
+
+[node name="Enemy_Floating3" parent="." instance=ExtResource("14_aupmd")]
+position = Vector2(708, 296)
