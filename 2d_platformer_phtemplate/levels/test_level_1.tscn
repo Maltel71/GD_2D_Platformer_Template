@@ -41,7 +41,6 @@ script = ExtResource("7_aupmd")
 [node name="ui" parent="." instance=ExtResource("5_5vfu0")]
 
 [node name="background_01" type="TextureRect" parent="."]
-visible = false
 z_index = -20
 offset_left = -3111.9998
 offset_top = -1792.9999
@@ -51,96 +50,106 @@ scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("3_kql2n")
 stretch_mode = 1
 
-[node name="coin" parent="." instance=ExtResource("4_02ec3")]
-position = Vector2(302, 289)
-
-[node name="coin2" parent="." instance=ExtResource("4_02ec3")]
-position = Vector2(435, 321)
-
-[node name="coin3" parent="." instance=ExtResource("4_02ec3")]
-position = Vector2(807, 303)
-
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
 position = Vector2(46, 258)
 next_scene = ExtResource("13_aupmd")
 
-[node name="Enemy_Floating" parent="." instance=ExtResource("9_grhbk")]
-position = Vector2(776, 210)
+[node name="==ENEMIES==" type="Node2D" parent="."]
+position = Vector2(302, 289)
+
+[node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
+position = Vector2(474, -79)
 patrol_time = 1.0
 
-[node name="Enemy_Floating2" parent="." instance=ExtResource("9_grhbk")]
-position = Vector2(455, 251)
+[node name="Enemy_Floating2" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
+position = Vector2(153, -38)
 patrol_time = 2.0
 
-[node name="Enemy_Floating3" parent="." instance=ExtResource("14_aupmd")]
-position = Vector2(708, 296)
+[node name="Enemy_Floating3" parent="==ENEMIES==" instance=ExtResource("14_aupmd")]
+position = Vector2(406, 7)
 
-[node name="platform_01" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(181, 354)
+[node name="==COINS==" type="Node2D" parent="."]
+position = Vector2(302, 289)
 
-[node name="platform_04" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(383, 411)
+[node name="coin" parent="==COINS==" instance=ExtResource("4_02ec3")]
 
-[node name="platform_02" parent="." instance=ExtResource("15_t58ta")]
-position = Vector2(289, 413)
+[node name="coin2" parent="==COINS==" instance=ExtResource("4_02ec3")]
+position = Vector2(133, 32)
 
-[node name="platform_03" parent="." instance=ExtResource("15_t58ta")]
-position = Vector2(481, 411)
+[node name="coin3" parent="==COINS==" instance=ExtResource("4_02ec3")]
+position = Vector2(505, 14)
 
-[node name="platform_05" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(669, 411)
+[node name="==PLATFORMS==" type="Node2D" parent="."]
+position = Vector2(46, 258)
 
-[node name="platform_06" parent="." instance=ExtResource("15_t58ta")]
-position = Vector2(575, 413)
+[node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(135, 96)
 
-[node name="platform_07" parent="." instance=ExtResource("15_t58ta")]
-position = Vector2(767, 411)
+[node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(337, 153)
 
-[node name="Flask01" type="Sprite2D" parent="."]
-position = Vector2(385, 355)
-rotation = 1.5124086
-scale = Vector2(0.47528768, 0.47528768)
-texture = ExtResource("16_1j1kj")
+[node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("15_t58ta")]
+position = Vector2(243, 155)
 
-[node name="Flask02" type="Sprite2D" parent="."]
-position = Vector2(312, 345)
-rotation = -0.104616284
-scale = Vector2(0.47528768, 0.47528768)
-texture = ExtResource("16_1j1kj")
+[node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("15_t58ta")]
+position = Vector2(435, 153)
 
-[node name="Flask03" type="Sprite2D" parent="."]
-position = Vector2(287.00003, 358)
-rotation = -1.6295637
-scale = Vector2(0.47528768, 0.47528768)
-texture = ExtResource("16_1j1kj")
+[node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(623, 153)
 
-[node name="DeadSquid01" type="Sprite2D" parent="."]
+[node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("15_t58ta")]
+position = Vector2(529, 155)
+
+[node name="platform_07" parent="==PLATFORMS==" instance=ExtResource("15_t58ta")]
+position = Vector2(721, 153)
+
+[node name="==DECORATION==" type="Node2D" parent="."]
 position = Vector2(670, 402.00003)
 scale = Vector2(0.65037596, 0.65037596)
+
+[node name="Flask01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-438.20813, -72.26599)
+rotation = 1.5124086
+scale = Vector2(0.7307892, 0.7307892)
+texture = ExtResource("16_1j1kj")
+
+[node name="Flask02" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-550.4509, -87.64172)
+rotation = -0.104616284
+scale = Vector2(0.7307892, 0.7307892)
+texture = ExtResource("16_1j1kj")
+
+[node name="Flask03" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-588.89014, -67.65326)
+rotation = -1.6295637
+scale = Vector2(0.73078907, 0.73078907)
+texture = ExtResource("16_1j1kj")
+
+[node name="DeadSquid01" type="Sprite2D" parent="==DECORATION=="]
 texture = ExtResource("17_pmbwx")
 
-[node name="Grass01" type="Sprite2D" parent="."]
+[node name="Grass01" type="Sprite2D" parent="==DECORATION=="]
 z_index = -5
-position = Vector2(519, 315)
-scale = Vector2(0.4003984, 0.4003984)
+position = Vector2(-232.17346, -133.76886)
+scale = Vector2(0.6156415, 0.6156415)
 texture = ExtResource("18_lgfx6")
 
-[node name="Grass02" type="Sprite2D" parent="."]
+[node name="Grass02" type="Sprite2D" parent="==DECORATION=="]
 z_index = -5
-position = Vector2(159, 271)
-scale = Vector2(0.27988046, 0.2798805)
-texture = ExtResource("18_lgfx6")
-flip_h = true
-
-[node name="Grass03" type="Sprite2D" parent="."]
-z_index = -5
-position = Vector2(761.00006, 328)
-scale = Vector2(0.27988046, 0.2798805)
+position = Vector2(-785.69946, -201.42203)
+scale = Vector2(0.43033645, 0.43033648)
 texture = ExtResource("18_lgfx6")
 flip_h = true
 
-[node name="Turtle01" type="Sprite2D" parent="."]
-position = Vector2(157.00002, 339.00003)
+[node name="Grass03" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(139.91907, -113.780426)
+scale = Vector2(0.43033645, 0.43033648)
+texture = ExtResource("18_lgfx6")
+flip_h = true
+
+[node name="Turtle01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-788.7746, -96.867065)
 rotation = -1.0010754
-scale = Vector2(0.3181818, 0.3181818)
+scale = Vector2(0.4892275, 0.4892275)
 texture = ExtResource("19_d31dk")
