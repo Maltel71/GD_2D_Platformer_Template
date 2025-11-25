@@ -106,9 +106,6 @@ position = Vector2(433, 312)
 scale = Vector2(0.4302097, 0.4302097)
 texture = ExtResource("20_6q8gj")
 
-[node name="platform_06" parent="." instance=ExtResource("21_5iaa6")]
-position = Vector2(109, 430)
-
 [node name="coin_01" parent="." instance=ExtResource("4_02ec3")]
 position = Vector2(485, 328)
 
@@ -126,3 +123,10 @@ position = Vector2(574, 325)
 
 [node name="coin_06" parent="." instance=ExtResource("26_fxlwo")]
 position = Vector2(597, 326)
+
+[node name="Stone_01" parent="." instance=ExtResource("21_5iaa6")]
+position = Vector2(109, 433)
+
+[node name="Stone_02" parent="." instance=ExtResource("21_5iaa6")]
+position = Vector2(58, 438)
+rotation = -1.032697
