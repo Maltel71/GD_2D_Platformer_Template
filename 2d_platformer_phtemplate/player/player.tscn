@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dagyi6jlwbb0w"]
+[gd_scene load_steps=7 format=3 uid="uid://dagyi6jlwbb0w"]
 
 [ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://player/UltimatePlatformerController.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_yw30f"]
-[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://cqtu1df248rfa" path="res://graphics/Jordgubbe/jordgubbe_01_v2.png" id="4_yw30f"]
+[ext_resource type="Texture2D" uid="uid://qjdbjhcaty8m" path="res://graphics/Sawed_off_01.png" id="8_rgyib"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
 radius = 14.0
@@ -10,18 +11,12 @@ height = 64.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1abo5"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_g1dw6")
-}],
+"frames": [],
 "loop": true,
 "name": &"idle",
 "speed": 60.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_g1dw6")
-}],
+"frames": [],
 "loop": true,
 "name": &"walk",
 "speed": 30.0
@@ -41,8 +36,21 @@ walk = true
 shape = SubResource("CapsuleShape2D_1abo5")
 
 [node name="BulletSpawnPoint" type="Node2D" parent="."]
+position = Vector2(35, 4)
 
 [node name="AnimatedSprite2DMalte" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.047, 0.125)
+position = Vector2(0, 1.5)
+scale = Vector2(0.047, 0.13085938)
 sprite_frames = SubResource("SpriteFrames_1abo5")
 animation = &"idle"
+
+[node name="SawedOff01" type="Sprite2D" parent="."]
+position = Vector2(31.000002, 7)
+scale = Vector2(0.11737011, 0.11737011)
+texture = ExtResource("8_rgyib")
+
+[node name="Jordgubbe01V2" type="Sprite2D" parent="."]
+position = Vector2(1.0000001, 0.9999999)
+scale = Vector2(0.19236608, 0.19236608)
+texture = ExtResource("4_yw30f")
+flip_h = true

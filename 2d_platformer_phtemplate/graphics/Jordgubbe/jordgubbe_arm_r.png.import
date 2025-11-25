@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://criaaeboq40l4"
-path="res://.godot/imported/gräsklipparn_01.png-d2a866fea5ed474fb783eb878b95192b.ctex"
+uid="uid://bsmmxlugmbm4"
+path="res://.godot/imported/jordgubbe_arm_r.png-0ec794626f38265052aef48ff1482696.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/gräsklipparn_01.png"
-dest_files=["res://.godot/imported/gräsklipparn_01.png-d2a866fea5ed474fb783eb878b95192b.ctex"]
+source_file="res://graphics/Jordgubbe/jordgubbe_arm_r.png"
+dest_files=["res://.godot/imported/jordgubbe_arm_r.png-0ec794626f38265052aef48ff1482696.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnu5ld1dclans"
-path="res://.godot/imported/jordgubbe_01.png-080db8dc658ce7ef98953ac3a72d4183.ctex"
+uid="uid://bcsos7aeaa5jg"
+path="res://.godot/imported/jordgubbe_leg_r.png-81ac486c738802d6cd948d1cb81adfeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/jordgubbe_01.png"
-dest_files=["res://.godot/imported/jordgubbe_01.png-080db8dc658ce7ef98953ac3a72d4183.ctex"]
+source_file="res://graphics/Jordgubbe/jordgubbe_leg_r.png"
+dest_files=["res://.godot/imported/jordgubbe_leg_r.png-81ac486c738802d6cd948d1cb81adfeb.ctex"]
 
 [params]
 

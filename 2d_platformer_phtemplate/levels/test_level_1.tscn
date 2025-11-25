@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=25 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -14,6 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
+[ext_resource type="PackedScene" uid="uid://dluncto2rbg77" path="res://level_components/barrel_01.tscn" id="15_t58ta"]
+[ext_resource type="Texture2D" uid="uid://c3bkg67jmun07" path="res://graphics/blomma i kruka.png" id="16_1j1kj"]
+[ext_resource type="PackedScene" uid="uid://bb5r7vasxqlge" path="res://enemy/Boss_01.tscn" id="17_pmbwx"]
+[ext_resource type="PackedScene" uid="uid://mmnfevv57vri" path="res://level_components/stone_01.tscn" id="18_lgfx6"]
+[ext_resource type="PackedScene" uid="uid://bq46abwm67l53" path="res://level_components/stone_02.tscn" id="19_d31dk"]
+[ext_resource type="PackedScene" uid="uid://dbdw6eahywvpm" path="res://level_components/stone_03.tscn" id="20_6q8gj"]
+[ext_resource type="PackedScene" uid="uid://cbr4tvaijklk" path="res://level_components/stone_04.tscn" id="21_5iaa6"]
+[ext_resource type="PackedScene" uid="uid://bjbqui7eaupb5" path="res://level_components/stone_05.tscn" id="22_5au7l"]
+[ext_resource type="PackedScene" uid="uid://biu0wbue54lep" path="res://level_components/stone_06.tscn" id="23_rr58p"]
+[ext_resource type="PackedScene" uid="uid://c6iifk75psi37" path="res://level_components/stone_09.tscn" id="24_yoilj"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -47,7 +57,14 @@ position = Vector2(660, 357)
 [node name="platform_04" parent="." instance=ExtResource("2_grhbk")]
 position = Vector2(880, 357)
 
+[node name="platform_05" parent="." instance=ExtResource("2_grhbk")]
+position = Vector2(1098, 357)
+
+[node name="platform_06" parent="." instance=ExtResource("2_grhbk")]
+position = Vector2(1318, 357)
+
 [node name="background_01" type="TextureRect" parent="."]
+visible = false
 z_index = -20
 offset_left = -3111.9998
 offset_top = -1792.9999
@@ -67,7 +84,7 @@ position = Vector2(435, 321)
 position = Vector2(613, 210)
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
-position = Vector2(59, 243)
+position = Vector2(-348, 261)
 next_scene = ExtResource("13_aupmd")
 
 [node name="Enemy_01" parent="." instance=ExtResource("6_kgy88")]
@@ -78,3 +95,39 @@ position = Vector2(397, 314)
 
 [node name="Enemy_Floating" parent="." instance=ExtResource("9_grhbk")]
 position = Vector2(776, 210)
+
+[node name="Barrel_01" parent="." instance=ExtResource("15_t58ta")]
+position = Vector2(133, 319)
+
+[node name="Barrel_02" parent="." instance=ExtResource("15_t58ta")]
+position = Vector2(905, 319)
+scale = Vector2(1.3199999, 1.3199999)
+
+[node name="BlommaIKruka" type="Sprite2D" parent="."]
+position = Vector2(134, 275)
+scale = Vector2(0.08349091, 0.08349091)
+texture = ExtResource("16_1j1kj")
+
+[node name="Enemy_03" parent="." instance=ExtResource("17_pmbwx")]
+position = Vector2(1162, 225)
+
+[node name="Stone_01" parent="." instance=ExtResource("18_lgfx6")]
+position = Vector2(106, 391)
+
+[node name="Stone_02" parent="." instance=ExtResource("19_d31dk")]
+position = Vector2(150, 393)
+
+[node name="Stone_03" parent="." instance=ExtResource("20_6q8gj")]
+position = Vector2(190, 393)
+
+[node name="Stone_04" parent="." instance=ExtResource("21_5iaa6")]
+position = Vector2(231, 403)
+
+[node name="Stone_05" parent="." instance=ExtResource("22_5au7l")]
+position = Vector2(272, 395)
+
+[node name="Stone_06" parent="." instance=ExtResource("23_rr58p")]
+position = Vector2(321, 394)
+
+[node name="Stone_08" parent="." instance=ExtResource("24_yoilj")]
+position = Vector2(427, 431)

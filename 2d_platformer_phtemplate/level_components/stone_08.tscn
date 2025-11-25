@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://baxopseu5yj4q"]
+
+[ext_resource type="Texture2D" uid="uid://ptkvbb24iu7f" path="res://graphics/mossten_08.png" id="1_qjm6i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wl0dh"]
+radius = 23.021729
+
+[node name="Stone_08" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_wl0dh")
+
+[node name="Graphics_PH" type="Sprite2D" parent="."]
+texture = ExtResource("1_qjm6i")
