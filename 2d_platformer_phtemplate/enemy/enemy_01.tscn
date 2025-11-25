@@ -16,7 +16,6 @@ collision_mask = 8
 script = ExtResource("1_laejb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.7927212, 0.7945566, 1)
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(0.089, 0.089)
 texture = ExtResource("2_laejb")
@@ -25,13 +24,15 @@ texture = ExtResource("2_laejb")
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
+position = Vector2(0, 2)
 rotation = -1.5708
-target_position = Vector2(0, 35)
+target_position = Vector2(0, 35.015)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 2)
 rotation = 1.5708
-target_position = Vector2(0, 35)
+target_position = Vector2(0, 35.015)
 collision_mask = 9
 
 [node name="LedgeRayRight" type="RayCast2D" parent="."]
