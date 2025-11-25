@@ -3,131 +3,87 @@ extends CharacterBody2D
 class_name PlatformerController2D
 
 @export var README: String = "IMPORTANT: MAKE SURE TO ASSIGN 'left' 'right' 'jump' 'dash' 'up' 'down' in the project settings input map. Usage tips. 1. Hover over each toggle and variable to read what it does and to make sure nothing bugs. 2. Animations are very primitive. To make full use of your custom art, you may want to slightly change the code for the animations"
-#INFO READEME 
-#IMPORTANT: MAKE SURE TO ASSIGN 'left' 'right' 'jump' 'dash' 'up' 'down' in the project settings input map. THIS IS REQUIRED
-#Usage tips. 
-#1. Hover over each toggle and variable to read what it does and to make sure nothing bugs. 
-#2. Animations are very primitive. To make full use of your custom art, you may want to slightly change the code for the animations
 
 @export_category("Necesary Child Nodes")
 @export var PlayerSprite: AnimatedSprite2D
 @export var PlayerCollider: CollisionShape2D
 
-#INFO HORIZONTAL MOVEMENT 
 @export_category("L/R Movement")
-##The max speed your player will move
 @export_range(50, 500) var maxSpeed: float = 200.0
-##How fast your player will reach max speed from rest (in seconds)
 @export_range(0, 4) var timeToReachMaxSpeed: float = 0.2
-##How fast your player will reach zero speed from max speed (in seconds)
 @export_range(0, 4) var timeToReachZeroSpeed: float = 0.2
-##If true, player will instantly move and switch directions. Overrides the "timeToReach" variables, setting them to 0.
 @export var directionalSnap: bool = false
-##If enabled, the default movement speed will by 1/2 of the maxSpeed and the player must hold a "run" button to accelerate to max speed. Assign "run" (case sensitive) in the project input settings.
 @export var runningModifier: bool = false
 
-#INFO JUMPING 
 @export_category("Jumping and Gravity")
-##The peak height of your player's jump
 @export_range(0, 20) var jumpHeight: float = 2.0
-##How many jumps your character can do before needing to touch the ground again. Giving more than 1 jump disables jump buffering and coyote time.
 @export_range(0, 4) var jumps: int = 1
-##The strength at which your character will be pulled to the ground.
 @export_range(0, 100) var gravityScale: float = 20.0
-##The fastest your player can fall
 @export_range(0, 1000) var terminalVelocity: float = 500.0
-##Your player will move this amount faster when falling providing a less floaty jump curve.
 @export_range(0.5, 3) var descendingGravityFactor: float = 1.3
-##Enabling this toggle makes it so that when the player releases the jump key while still ascending, their vertical velocity will cut in half, providing variable jump height.
 @export var shortHopAkaVariableJumpHeight: bool = true
-##How much extra time (in seconds) your player will be given to jump after falling off an edge. This is set to 0.2 seconds by default.
 @export_range(0, 0.5) var coyoteTime: float = 0.2
-##The window of time (in seconds) that your player can press the jump button before hitting the ground and still have their input registered as a jump. This is set to 0.2 seconds by default.
 @export_range(0, 0.5) var jumpBuffering: float = 0.2
 
-#INFO EXTRAS
 @export_category("Wall Jumping")
-##Allows your player to jump off of walls. Without a Wall Kick Angle, the player will be able to scale the wall.
 @export var wallJump: bool = false
-##How long the player's movement input will be ignored after wall jumping.
 @export_range(0, 0.5) var inputPauseAfterWallJump: float = 0.1
-##The angle at which your player will jump away from the wall. 0 is straight away from the wall, 90 is straight up. Does not account for gravity
 @export_range(0, 90) var wallKickAngle: float = 60.0
-##The player's gravity will be divided by this number when touch a wall and descending. Set to 1 by default meaning no change will be made to the gravity and there is effectively no wall sliding. THIS IS OVERRIDDED BY WALL LATCH.
 @export_range(1, 20) var wallSliding: float = 1.0
-##If enabled, the player's gravity will be set to 0 when touching a wall and descending. THIS WILL OVERRIDE WALLSLIDING.
 @export var wallLatching: bool = false
-##wall latching must be enabled for this to work. #If enabled, the player must hold down the "latch" key to wall latch. Assign "latch" in the project input settings. The player's input will be ignored when latching.
 @export var wallLatchingModifer: bool = false
+
 @export_category("Dashing")
-##The type of dashes the player can do.
 @export_enum("None", "Horizontal", "Vertical", "Four Way", "Eight Way") var dashType: int
-##How many dashes your player can do before needing to hit the ground.
 @export_range(0, 10) var dashes: int = 1
-##If enabled, pressing the opposite direction of a dash, during a dash, will zero the player's velocity.
 @export var dashCancel: bool = true
-##How far the player will dash. One of the dashing toggles must be on for this to be used.
 @export_range(1.5, 4) var dashLength: float = 2.5
+
 @export_category("Corner Cutting/Jump Correct")
-##If the player's head is blocked by a jump but only by a little, the player will be nudged in the right direction and their jump will execute as intended. NEEDS RAYCASTS TO BE ATTACHED TO THE PLAYER NODE. AND ASSIGNED TO MOUNTING RAYCAST. DISTANCE OF MOUNTING DETERMINED BY PLACEMENT OF RAYCAST.
 @export var cornerCutting: bool = false
-##How many pixels the player will be pushed (per frame) if corner cutting is needed to correct a jump.
 @export_range(1, 5) var correctionAmount: float = 1.5
-##Raycast used for corner cutting calculations. Place above and to the left of the players head point up. ALL ARE NEEDED FOR IT TO WORK.
 @export var leftRaycast: RayCast2D
-##Raycast used for corner cutting calculations. Place above of the players head point up. ALL ARE NEEDED FOR IT TO WORK.
 @export var middleRaycast: RayCast2D
-##Raycast used for corner cutting calculations. Place above and to the right of the players head point up. ALL ARE NEEDED FOR IT TO WORK.
 @export var rightRaycast: RayCast2D
+
 @export_category("Down Input")
-##Holding down will crouch the player. Crouching script may need to be changed depending on how your player's size proportions are. It is built for 32x player's sprites.
 @export var crouch: bool = false
-##Holding down and pressing the input for "roll" will execute a roll if the player is grounded. Assign a "roll" input in project settings input.
 @export var canRoll: bool
 @export_range(1.25, 2) var rollLength: float = 2
-##If enabled, the player will stop all horizontal movement midair, wait (groundPoundPause) seconds, and then slam down into the ground when down is pressed. 
 @export var groundPound: bool
-##The amount of time the player will hover in the air before completing a ground pound (in seconds)
 @export_range(0.05, 0.75) var groundPoundPause: float = 0.25
-##If enabled, pressing up will end the ground pound early
 @export var upToCancel: bool = false
 
 @export_category("Shooting")
-##Allows the player to shoot projectiles
 @export var can_shoot: bool = true
-##The bullet scene to instantiate
 @export var bullet_scene: PackedScene
-##Time between shots in seconds
 @export_range(0.1, 2.0) var shoot_cooldown: float = 0.3
 
 @export_category("Health")
 @export var max_health: int = 3
 
+@export_category("Sound Effects")
+@export var jump_sound: AudioStream
+@export_range(-80, 24) var jump_volume: float = 0.0
+@export var damage_sound: AudioStream
+@export_range(-80, 24) var damage_volume: float = 0.0
+@export var shoot_sound: AudioStream
+@export_range(-80, 24) var shoot_volume: float = 0.0
+@export var death_sound: AudioStream
+@export_range(-80, 24) var death_volume: float = 0.0
+
 @export_category("Animations (Check Box if has animation)")
-##Animations must be named "run" all lowercase as the check box says
 @export var run: bool
-##Animations must be named "jump" all lowercase as the check box says
 @export var jump: bool
-##Animations must be named "idle" all lowercase as the check box says
 @export var idle: bool
-##Animations must be named "walk" all lowercase as the check box says
 @export var walk: bool
-##Animations must be named "slide" all lowercase as the check box says
 @export var slide: bool
-##Animations must be named "latch" all lowercase as the check box says
 @export var latch: bool
-##Animations must be named "falling" all lowercase as the check box says
 @export var falling: bool
-##Animations must be named "crouch_idle" all lowercase as the check box says
 @export var crouch_idle: bool
-##Animations must be named "crouch_walk" all lowercase as the check box says
 @export var crouch_walk: bool
-##Animations must be named "roll" all lowercase as the check box says
 @export var roll: bool
 
-
-
-#Variables determined by the developer set ones.
 var appliedGravity: float
 var maxSpeedLock: float
 var appliedTerminalVelocity: float
@@ -154,7 +110,7 @@ var eightWayDash
 
 var wasMovingR: bool
 var wasPressingR: bool
-var movementInputMonitoring: Vector2 = Vector2(true, true) #movementInputMonitoring.x addresses right direction while .y addresses left direction
+var movementInputMonitoring: Vector2 = Vector2(true, true)
 
 var gdelta: float = 1
 
@@ -177,7 +133,6 @@ var shoot_tap
 
 var current_health: int
 
-#Input Variables for the whole script
 var upHold
 var downHold
 var leftHold
@@ -201,6 +156,11 @@ func _ready():
 	anim = PlayerSprite
 	col = PlayerCollider
 	current_health = max_health
+	
+	# Add audio player node
+	var audio_player = AudioStreamPlayer.new()
+	audio_player.name = "AudioPlayer"
+	add_child(audio_player)
 	
 	_updateData()
 	
@@ -249,7 +209,6 @@ func _updateData():
 		instantAccel = true
 		instantStop = true
 	
-	
 	twoWayDashHorizontal = false
 	twoWayDashVertical = false
 	eightWayDash = false
@@ -264,12 +223,8 @@ func _updateData():
 		twoWayDashVertical = true
 	elif dashType == 4:
 		eightWayDash = true
-	
-	
 
 func _process(_delta):
-	#INFO animations
-	#directions
 	if is_on_wall() and !is_on_floor() and latch and wallLatching and ((wallLatchingModifer and latchHold) or !wallLatchingModifer):
 		latched = true
 	else:
@@ -282,7 +237,6 @@ func _process(_delta):
 	if leftHold and !latched:
 		anim.scale.x = animScaleLock.x * -1
 	
-	#run
 	if run and idle and !dashing and !crouching:
 		if abs(velocity.x) > 0.1 and is_on_floor() and !is_on_wall():
 			anim.speed_scale = abs(velocity.x / 150)
@@ -301,7 +255,6 @@ func _process(_delta):
 			anim.speed_scale = 1
 			anim.play("idle")
 		
-	#jump
 	if velocity.y < 0 and jump and !dashing:
 		anim.speed_scale = 1
 		anim.play("jump")
@@ -311,7 +264,6 @@ func _process(_delta):
 		anim.play("falling")
 		
 	if latch and slide:
-		#wall slide and latch
 		if latched and !wasLatched:
 			anim.speed_scale = 1
 			anim.play("latch")
@@ -319,12 +271,10 @@ func _process(_delta):
 			anim.speed_scale = 1
 			anim.play("slide")
 			
-		#dash
 		if dashing:
 			anim.speed_scale = 1
 			anim.play("dash")
 			
-		#crouch
 		if crouching and !rolling:
 			if abs(velocity.x) > 10:
 				anim.speed_scale = 1
@@ -336,15 +286,12 @@ func _process(_delta):
 		if rollTap and canRoll and roll:
 			anim.speed_scale = 1
 			anim.play("roll")
-		
-		
-		
 
 func _physics_process(delta):
 	if !dset:
 		gdelta = delta
 		dset = true
-	#INFO Input Detectio. Define your inputs from the project settings here.
+		
 	leftHold = Input.is_action_pressed("left")
 	rightHold = Input.is_action_pressed("right")
 	upHold = Input.is_action_pressed("up")
@@ -363,13 +310,8 @@ func _physics_process(delta):
 	twirlTap = Input.is_action_just_pressed("twirl")
 	shoot_tap = Input.is_action_just_pressed("shoot")
 	
-	
-	#INFO Shooting
 	if can_shoot and shoot_tap and can_shoot_now and bullet_scene:
 		_shoot()
-	
-	
-	#INFO Left and Right Movement
 	
 	if rightHold and leftHold and movementInputMonitoring:
 		if !instantStop:
@@ -418,7 +360,6 @@ func _physics_process(delta):
 		else:
 			velocity.x = 0
 			
-	#INFO Crouching
 	if crouch:
 		if downHold and is_on_floor():
 			crouching = true
@@ -437,7 +378,6 @@ func _physics_process(delta):
 		col.scale.y = colliderScaleLockY
 		col.position.y = colliderPosLockY
 		
-	#INFO Rolling
 	if canRoll and is_on_floor() and rollTap and crouching:
 		_rollingTime(0.75)
 		if wasPressingR and !(upHold):
@@ -454,10 +394,8 @@ func _physics_process(delta):
 			_inputPauseReset(rollLength * 0.0625)
 		
 	if canRoll and rolling:
-		#if you want your player to become immune or do something else while rolling, add that here.
 		pass
 			
-	#INFO Jump and Gravity
 	if velocity.y > 0:
 		appliedGravity = gravityScale * descendingGravityFactor
 	else:
@@ -513,8 +451,6 @@ func _physics_process(delta):
 		elif jumpTap and is_on_floor():
 			_jump()
 		
-		
-			
 		if is_on_floor():
 			jumpCount = jumps
 			coyoteActive = true
@@ -525,14 +461,11 @@ func _physics_process(delta):
 		if is_on_floor():
 			jumpCount = jumps
 		if jumpTap and jumpCount > 0 and !is_on_wall():
-			velocity.y = -jumpMagnitude
-			jumpCount = jumpCount - 1
+			_jump()
 			_endGroundPound()
 		elif jumpTap and is_on_wall() and wallJump:
 			_wallJump()
 			
-			
-	#INFO dashing
 	if is_on_floor():
 		dashCount = dashes
 	if eightWayDash and dashTap and dashCount > 0 and !rolling:
@@ -590,14 +523,12 @@ func _physics_process(delta):
 	if dashing and velocity.x < 0 and rightTap and dashCancel:
 		velocity.x = 0
 	
-	#INFO Corner Cutting
 	if cornerCutting:
 		if velocity.y < 0 and leftRaycast.is_colliding() and !rightRaycast.is_colliding() and !middleRaycast.is_colliding():
 			position.x += correctionAmount
 		if velocity.y < 0 and !leftRaycast.is_colliding() and rightRaycast.is_colliding() and !middleRaycast.is_colliding():
 			position.x -= correctionAmount
 			
-	#INFO Ground Pound
 	if groundPound and downTap and !is_on_floor() and !is_on_wall():
 		groundPounding = true
 		gravityActive = false
@@ -619,13 +550,13 @@ func _coyoteTime():
 	await get_tree().create_timer(coyoteTime).timeout
 	coyoteActive = false
 	jumpCount += -1
-
 	
 func _jump():
 	if jumpCount > 0:
 		velocity.y = -jumpMagnitude
 		jumpCount += -1
 		jumpWasPressed = false
+		_play_sound(jump_sound, jump_volume)
 		
 func _wallJump():
 	var horizontalWallKick = abs(jumpMagnitude * cos(wallKickAngle * (PI / 180)))
@@ -641,6 +572,7 @@ func _wallJump():
 	if inputPauseAfterWallJump != 0:
 		movementInputMonitoring = Vector2(false, false)
 		_inputPauseReset(inputPauseAfterWallJump)
+	_play_sound(jump_sound, jump_volume)
 			
 func _setLatch(delay, setBool):
 	await get_tree().create_timer(delay).timeout
@@ -649,7 +581,6 @@ func _setLatch(delay, setBool):
 func _inputPauseReset(time):
 	await get_tree().create_timer(time).timeout
 	movementInputMonitoring = Vector2(true, true)
-	
 
 func _decelerate(delta, vertical):
 	if !vertical:
@@ -659,7 +590,6 @@ func _decelerate(delta, vertical):
 			velocity.x -= deceleration * delta
 	elif vertical and velocity.y > 0:
 		velocity.y += deceleration * delta
-
 
 func _pauseGravity(time):
 	gravityActive = false
@@ -687,26 +617,16 @@ func _endGroundPound():
 
 func _shoot():
 	can_shoot_now = false
+	_play_sound(shoot_sound, shoot_volume)
 	
-	# Create bullet instance
 	var bullet = bullet_scene.instantiate()
-	
-	# Get the spawn point
 	var spawn_point = $BulletSpawnPoint
-	
-	# Determine shoot direction based on player facing
 	var shoot_direction = 1 if anim.scale.x > 0 else -1
 	
-	# Position bullet at spawn point
 	bullet.global_position = spawn_point.global_position
-	
-	# Set bullet direction
 	bullet.set_direction(shoot_direction)
-	
-	# Add bullet to the scene
 	get_parent().add_child(bullet)
 	
-	# Start cooldown timer
 	await get_tree().create_timer(shoot_cooldown).timeout
 	can_shoot_now = true
 
@@ -715,8 +635,8 @@ func _placeHolder():
 	
 func take_damage(amount: int) -> void:
 	current_health -= amount
+	_play_sound(damage_sound, damage_volume)
 	
-	# Knockback
 	var knockback_force = 300.0
 	var knockback_direction = -1 if anim.scale.x > 0 else 1
 	velocity.x = knockback_force * knockback_direction
@@ -726,17 +646,23 @@ func take_damage(amount: int) -> void:
 		_die()
 
 func _die():
-	# Disable collision so player falls through ground
+	_play_sound(death_sound, death_volume)
+	
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(4, false)
 	
-	# Jump up then fall (Mario style)
 	velocity.y = -jumpMagnitude * 0.8
 	gravityActive = true
 	
-	# Disable controls but keep physics running
 	set_process_input(false)
 	
-	# Wait for fall, then delete
 	await get_tree().create_timer(3.0).timeout
 	queue_free()
+
+func _play_sound(sound: AudioStream, volume: float = 0.0):
+	if sound:
+		var player = get_node_or_null("AudioPlayer")
+		if player:
+			player.stream = sound
+			player.volume_db = volume
+			player.play()

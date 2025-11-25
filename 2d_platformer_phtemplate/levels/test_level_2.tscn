@@ -1,85 +1,82 @@
-[gd_scene load_steps=9 format=3 uid="uid://cu1jrfb7oi86"]
+[gd_scene load_steps=14 format=3 uid="uid://cu1jrfb7oi86"]
 
-[ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_hw23t"]
-[ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_mimsd"]
-[ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/icon.svg" id="3_ryfec"]
-[ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="4_gtf73"]
-[ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="5_gm8vl"]
-[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_mc1td"]
-[ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="7_ukqis"]
-[ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_gqg56"]
+[ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_mc1td"]
+[ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/jump/jump.wav" id="2_ukqis"]
+[ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/hit_hurt/hitHurt (1).wav" id="3_gqg56"]
+[ext_resource type="AudioStream" uid="uid://d3xekf1n6wys2" path="res://audio/laser_shoot/laserShoot (1).wav" id="4_3fvnl"]
+[ext_resource type="AudioStream" uid="uid://bf65jj4hxa28c" path="res://audio/hit_hurt/hitHurt.wav" id="5_x2a8b"]
+[ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="6_4auen"]
+[ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="7_7rcka"]
+[ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="8_2sx82"]
+[ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="9_kxfxx"]
+[ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="11_wu0c2"]
+[ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="12_ay0he"]
+[ext_resource type="PackedScene" uid="uid://cari2tg1labr3" path="res://menus/WinMenu.tscn" id="12_mc1td"]
+[ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="13_td7uj"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_hw23t")]
-position = Vector2(182, 224)
+[node name="Player" parent="." instance=ExtResource("1_mc1td")]
+position = Vector2(309, 345)
+jump_sound = ExtResource("2_ukqis")
+jump_volume = -20.0
+damage_sound = ExtResource("3_gqg56")
+damage_volume = -20.0
+shoot_sound = ExtResource("4_3fvnl")
+shoot_volume = -20.0
+death_sound = ExtResource("5_x2a8b")
+death_volume = -20.0
 
-[node name="platform_01" parent="." instance=ExtResource("2_mimsd")]
-position = Vector2(208, 357)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(311, 352)
+zoom = Vector2(2, 2)
+script = ExtResource("11_wu0c2")
+
+[node name="ui" parent="." instance=ExtResource("9_kxfxx")]
+
+[node name="platform_01" parent="." instance=ExtResource("6_4auen")]
+position = Vector2(380.00006, 596)
 scale = Vector2(2.52, 1)
 
-[node name="platform_02" parent="." instance=ExtResource("2_mimsd")]
-position = Vector2(389, 426)
+[node name="platform_02" parent="." instance=ExtResource("6_4auen")]
+position = Vector2(383, 488)
 scale = Vector2(2.52, 1)
 
-[node name="platform_03" parent="." instance=ExtResource("2_mimsd")]
-position = Vector2(709, 384)
+[node name="platform_03" parent="." instance=ExtResource("6_4auen")]
+position = Vector2(465, 708)
 scale = Vector2(4.12, 1)
 
-[node name="platform_04" parent="." instance=ExtResource("2_mimsd")]
-position = Vector2(875, 403)
+[node name="platform_04" parent="." instance=ExtResource("6_4auen")]
+position = Vector2(836.00006, 673)
 rotation = -0.221406
 scale = Vector2(4.12, 1)
 
-[node name="platform_07" parent="." instance=ExtResource("2_mimsd")]
-position = Vector2(1162, 535)
-rotation = 1.55335
-scale = Vector2(4.12, 1)
-
-[node name="platform_08" parent="." instance=ExtResource("2_mimsd")]
-position = Vector2(1313, 532)
-rotation = 1.55335
-scale = Vector2(4.12, 1)
-
-[node name="platform_09" parent="." instance=ExtResource("2_mimsd")]
-position = Vector2(1473, 529)
-rotation = 1.55335
-scale = Vector2(4.12, 1)
-
-[node name="platform_05" parent="." instance=ExtResource("2_mimsd")]
-position = Vector2(575, 383)
+[node name="platform_05" parent="." instance=ExtResource("6_4auen")]
+position = Vector2(1184, 666)
 scale = Vector2(0.879738, 1.84942)
 
 [node name="background_01" type="TextureRect" parent="."]
-modulate = Color(0.38379177, 0.16685274, 0, 0.4509804)
 z_index = -20
-offset_top = -1.0
-offset_right = 1921.0
-offset_bottom = 1081.0
-texture = ExtResource("3_ryfec")
+offset_left = -3111.9998
+offset_top = -1792.9999
+offset_right = -1190.9998
+offset_bottom = -710.9999
+scale = Vector2(4.3200006, 4.3200006)
+texture = ExtResource("7_7rcka")
 stretch_mode = 1
 
-[node name="coin" parent="." instance=ExtResource("4_gtf73")]
-position = Vector2(293, 281)
+[node name="coin" parent="." instance=ExtResource("8_2sx82")]
+position = Vector2(499, 399)
 
-[node name="coin2" parent="." instance=ExtResource("4_gtf73")]
-position = Vector2(435, 321)
+[node name="coin2" parent="." instance=ExtResource("8_2sx82")]
+position = Vector2(556, 613)
 
-[node name="coin3" parent="." instance=ExtResource("4_gtf73")]
-position = Vector2(613, 210)
+[node name="coin3" parent="." instance=ExtResource("8_2sx82")]
+position = Vector2(855, 516)
 
-[node name="ui" parent="." instance=ExtResource("5_gm8vl")]
+[node name="GoalTrigger" parent="." instance=ExtResource("12_ay0he")]
+position = Vector2(1209, 508)
+next_scene = ExtResource("12_mc1td")
 
-[node name="Enemy_01" parent="." instance=ExtResource("6_mc1td")]
-position = Vector2(708, 296)
-
-[node name="Enemy_02" parent="." instance=ExtResource("6_mc1td")]
-position = Vector2(397, 314)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(182, 229)
-zoom = Vector2(2, 2)
-script = ExtResource("7_ukqis")
-
-[node name="GoalTrigger" parent="." instance=ExtResource("8_gqg56")]
-position = Vector2(59, 243)
+[node name="Enemy_Floating" parent="." instance=ExtResource("13_td7uj")]
+position = Vector2(1022, 528)
