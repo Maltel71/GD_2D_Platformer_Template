@@ -1,24 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctlv4mvijbdaa"]
+[gd_scene load_steps=5 format=3 uid="uid://ddpo886r0i2w4"]
 
-[ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://enemy/enemy.gd" id="1_6x63a"]
-[ext_resource type="Texture2D" uid="uid://dqjqmwv737x6r" path="res://graphics/Infekterad_tomat_01.png" id="2_6x63a"]
+[ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://enemy/enemy.gd" id="1_qljw4"]
+[ext_resource type="Texture2D" uid="uid://criaaeboq40l4" path="res://graphics/gräsklipparn_01.png" id="2_1d31i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
-radius = 14.0
-height = 34.0
+radius = 21.0
+height = 44.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
-radius = 11.815867
+radius = 20.0087
 
 [node name="Enemy_01" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 8
-script = ExtResource("1_6x63a")
+script = ExtResource("1_qljw4")
 health = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
 scale = Vector2(0.132, 0.132)
-texture = ExtResource("2_6x63a")
+texture = ExtResource("2_1d31i")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -45,10 +46,10 @@ position = Vector2(-20, 0)
 collision_mask = 9
 
 [node name="AttackArea" type="Area2D" parent="."]
-position = Vector2(0, 11)
+position = Vector2(0, 10)
 scale = Vector2(1.8, 1.56)
-collision_layer = 3
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, -7.6923075)
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_ld2qc")

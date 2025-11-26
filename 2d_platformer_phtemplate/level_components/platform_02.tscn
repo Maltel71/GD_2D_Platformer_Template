@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://crgxp28p1mrwi"]
+
+[ext_resource type="Texture2D" uid="uid://dg66lfk5fnmyv" path="res://graphics/Platfrom_rötter_01.png" id="1_2eswe"]
+
+[node name="platform_01" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Graphics_PH" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(0, 9.084609)
+scale = Vector2(0.6813187, 0.39782053)
+texture = ExtResource("1_2eswe")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-10.100006, -6.5104218)
+scale = Vector2(1.0201677, 1.0274123)
+polygon = PackedVector2Array(-313, -110, 313, -133, 325.5347, -103.64834, -10.684512, 156.22784)
