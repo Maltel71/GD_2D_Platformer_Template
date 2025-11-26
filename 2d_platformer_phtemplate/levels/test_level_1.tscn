@@ -35,46 +35,6 @@ script = ExtResource("7_aupmd")
 
 [node name="ui" parent="." instance=ExtResource("5_5vfu0")]
 
-[node name="platform_01" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(208, 357)
-scale = Vector2(2.52, 1)
-
-[node name="platform_02" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(389, 426)
-scale = Vector2(2.52, 1)
-
-[node name="platform_06" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(565, 101)
-scale = Vector2(2.52, 1)
-
-[node name="platform_03" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(709, 384)
-scale = Vector2(4.12, 1)
-
-[node name="platform_04" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(875, 403)
-rotation = -0.221406
-scale = Vector2(4.12, 1)
-
-[node name="platform_07" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(1162, 535)
-rotation = 1.55335
-scale = Vector2(4.12, 1)
-
-[node name="platform_08" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(1313, 532)
-rotation = 1.55335
-scale = Vector2(4.12, 1)
-
-[node name="platform_09" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(1473, 529)
-rotation = 1.55335
-scale = Vector2(4.12, 1)
-
-[node name="platform_05" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(575, 383)
-scale = Vector2(0.879738, 1.84942)
-
 [node name="background_01" type="TextureRect" parent="."]
 z_index = -20
 offset_left = -3111.9998
@@ -85,24 +45,70 @@ scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("3_kql2n")
 stretch_mode = 1
 
-[node name="coin" parent="." instance=ExtResource("4_02ec3")]
-position = Vector2(293, 281)
-
-[node name="coin2" parent="." instance=ExtResource("4_02ec3")]
-position = Vector2(435, 321)
-
-[node name="coin3" parent="." instance=ExtResource("4_02ec3")]
-position = Vector2(613, 210)
-
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
 position = Vector2(59, 243)
 next_scene = ExtResource("13_aupmd")
 
-[node name="Enemy_01" parent="." instance=ExtResource("6_kgy88")]
+[node name="==PLATFORMS==" type="Node2D" parent="."]
+
+[node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(208, 357)
+scale = Vector2(2.52, 1)
+
+[node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(389, 426)
+scale = Vector2(2.52, 1)
+
+[node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(565, 101)
+scale = Vector2(2.52, 1)
+
+[node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(709, 384)
+scale = Vector2(4.12, 1)
+
+[node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(875, 403)
+rotation = -0.221406
+scale = Vector2(4.12, 0.99999994)
+
+[node name="platform_07" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(1162, 535)
+rotation = 1.55335
+scale = Vector2(4.12, 1)
+
+[node name="platform_08" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(1313, 532)
+rotation = 1.55335
+scale = Vector2(4.12, 1)
+
+[node name="platform_09" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(1473, 529)
+rotation = 1.55335
+scale = Vector2(4.12, 1)
+
+[node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(575, 383)
+scale = Vector2(0.879738, 1.84942)
+
+[node name="==COLLECTABLES==" type="Node2D" parent="."]
+position = Vector2(293, 281)
+
+[node name="coin" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+
+[node name="coin2" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(142, 40)
+
+[node name="coin3" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(320, -71)
+
+[node name="==ENEMIES==" type="Node2D" parent="."]
+
+[node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
 position = Vector2(708, 296)
 
-[node name="Enemy_02" parent="." instance=ExtResource("6_kgy88")]
+[node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
 position = Vector2(397, 314)
 
-[node name="Enemy_Floating" parent="." instance=ExtResource("9_grhbk")]
+[node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
 position = Vector2(776, 210)
