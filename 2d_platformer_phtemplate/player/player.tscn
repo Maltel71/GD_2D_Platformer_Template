@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dagyi6jlwbb0w"]
+[gd_scene load_steps=7 format=3 uid="uid://dagyi6jlwbb0w"]
 
 [ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://player/UltimatePlatformerController.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_yw30f"]
 [ext_resource type="Texture2D" uid="uid://blp7vpar1yshl" path="res://graphics/Bläckfisk_01.png" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://ccdllslqiselx" path="res://graphics/flask_01.png" id="4_yw30f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
 radius = 21.0
@@ -30,17 +31,70 @@ animations = [{
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
 collision_mask = 10
 script = ExtResource("1_rkbax")
+README = null
 PlayerSprite = NodePath("AnimatedSprite2DMalte")
 PlayerCollider = NodePath("CollisionShape2D")
+maxSpeed = null
+timeToReachMaxSpeed = null
+timeToReachZeroSpeed = null
+directionalSnap = null
+runningModifier = null
+jumpHeight = null
+jumps = null
+gravityScale = null
+terminalVelocity = null
+descendingGravityFactor = null
+shortHopAkaVariableJumpHeight = null
+coyoteTime = null
+jumpBuffering = null
 wallJump = true
+inputPauseAfterWallJump = null
+wallKickAngle = null
+wallSliding = null
+wallLatching = null
+wallLatchingModifer = null
+dashType = null
+dashes = null
+dashCancel = null
+dashLength = null
+cornerCutting = null
+correctionAmount = null
+crouch = null
+canRoll = null
+rollLength = null
+groundPound = null
+groundPoundPause = null
+upToCancel = null
+can_shoot = null
 bullet_scene = ExtResource("2_yw30f")
+shoot_cooldown = null
+max_health = null
+jump_volume = null
+damage_volume = null
+shoot_volume = null
+death_volume = null
+run = null
+jump = null
 idle = true
 walk = true
+slide = null
+latch = null
+falling = null
+crouch_idle = null
+crouch_walk = null
+roll = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1abo5")
 
 [node name="BulletSpawnPoint" type="Node2D" parent="."]
+position = Vector2(23, -1)
+
+[node name="WeaponSprite" type="Sprite2D" parent="BulletSpawnPoint"]
+position = Vector2(8, 1)
+rotation = 1.5858841
+scale = Vector2(0.32371417, 0.32371417)
+texture = ExtResource("4_yw30f")
 
 [node name="AnimatedSprite2DMalte" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.165, 0.165)

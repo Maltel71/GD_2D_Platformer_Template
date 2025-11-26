@@ -234,8 +234,14 @@ func _process(_delta):
 
 	if rightHold and !latched:
 		anim.scale.x = animScaleLock.x
+		$BulletSpawnPoint.position.x = abs($BulletSpawnPoint.position.x)
+	if $BulletSpawnPoint.get_child_count() > 0:
+		$BulletSpawnPoint.get_child(0).scale.x = abs($BulletSpawnPoint.get_child(0).scale.x)
 	if leftHold and !latched:
 		anim.scale.x = animScaleLock.x * -1
+		$BulletSpawnPoint.position.x = -abs($BulletSpawnPoint.position.x)
+	if $BulletSpawnPoint.get_child_count() > 0:
+		$BulletSpawnPoint.get_child(0).scale.x = -abs($BulletSpawnPoint.get_child(0).scale.x)
 	
 	if run and idle and !dashing and !crouching:
 		if abs(velocity.x) > 0.1 and is_on_floor() and !is_on_wall():
