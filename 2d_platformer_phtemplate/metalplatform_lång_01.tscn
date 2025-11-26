@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bysqem4eo0564"]
+
+[ext_resource type="Texture2D" uid="uid://bifgc8vbee14d" path="res://graphics/metalplatform lång _01.png" id="1_b04tp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b04tp"]
+size = Vector2(582.2785, 118)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="MetalplatformLång01" type="Sprite2D" parent="."]
+position = Vector2(1138, 407.5)
+scale = Vector2(6.230769, 5.377551)
+texture = ExtResource("1_b04tp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1159, 377)
+scale = Vector2(3.476, 3)
+shape = SubResource("RectangleShape2D_b04tp")

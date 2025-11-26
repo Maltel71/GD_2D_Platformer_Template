@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/hit_hurt/hitHurt (1).wav" id="3_gqg56"]
 [ext_resource type="AudioStream" uid="uid://d3xekf1n6wys2" path="res://audio/laser_shoot/laserShoot (1).wav" id="4_3fvnl"]
 [ext_resource type="AudioStream" uid="uid://bf65jj4hxa28c" path="res://audio/hit_hurt/hitHurt.wav" id="5_x2a8b"]
-[ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="6_4auen"]
+[ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://platform_01.tscn" id="6_4auen"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="7_7rcka"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="8_2sx82"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="9_kxfxx"]
@@ -70,7 +70,6 @@ script = ExtResource("11_wu0c2")
 
 [node name="GoalTrigger" parent="." instance=ExtResource("12_ay0he")]
 position = Vector2(-434, 349)
-next_scene = null
 
 [node name="background_01" type="TextureRect" parent="."]
 modulate = Color(0.96569866, 0.9715839, 0.9613423, 1)
@@ -115,21 +114,6 @@ position = Vector2(133, 319)
 position = Vector2(75, 38)
 
 [node name="platform_01" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("6_4auen")]
-
-[node name="platform_02" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("6_4auen")]
-position = Vector2(223, 0)
-
-[node name="platform_03" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("6_4auen")]
-position = Vector2(452, 0)
-
-[node name="platform_04" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("6_4auen")]
-position = Vector2(672, 0)
-
-[node name="platform_05" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("6_4auen")]
-position = Vector2(890, 0)
-
-[node name="platform_06" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("6_4auen")]
-position = Vector2(1110, 0)
 
 [node name="Barrel_01" parent="==ENVIROMENT==" instance=ExtResource("16_fwee2")]
 
