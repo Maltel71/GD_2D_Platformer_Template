@@ -157,6 +157,6 @@ texture = ExtResource("19_d31dk")
 
 [node name="Tree01" type="Sprite2D" parent="==DECORATION=="]
 z_index = -10
-position = Vector2(938.5871, -61.70636)
+position = Vector2(844.4035, -42.220215)
 scale = Vector2(1.3971947, 1.3971949)
 texture = ExtResource("20_6q8gj")
