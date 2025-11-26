@@ -96,8 +96,12 @@ scale = Vector2(0.3968254, 1)
 position = Vector2(269.04764, 73)
 scale = Vector2(0.3968254, 1)
 
+[node name="platform_10" parent="==PLATFORMS==" instance=ExtResource("18_lgfx6")]
+position = Vector2(478.17462, 73)
+scale = Vector2(-0.397, 1)
+
 [node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("19_d31dk")]
-position = Vector2(485.3175, 88)
+position = Vector2(692.59985, 118.32114)
 scale = Vector2(0.3968254, 1)
 
 [node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("20_6q8gj")]
@@ -117,27 +121,31 @@ position = Vector2(-270.23807, 39)
 scale = Vector2(0.82539713, 1)
 
 [node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("33_mtesb")]
-position = Vector2(482.93652, 50)
+position = Vector2(690.2189, 80.32114)
 scale = Vector2(0.3968254, 1)
 
 [node name="Sten_01" parent="==PLATFORMS==" instance=ExtResource("36_5w0hf")]
-position = Vector2(471.82544, 65)
+position = Vector2(679.1078, 95.32114)
 scale = Vector2(0.3968254, 1)
 
 [node name="Sten_02" parent="==PLATFORMS==" instance=ExtResource("37_kx420")]
-position = Vector2(462.30164, 66)
+position = Vector2(669.584, 96.32114)
 scale = Vector2(0.3968254, 1)
 
 [node name="Sten_03" parent="==PLATFORMS==" instance=ExtResource("38_8qcgp")]
-position = Vector2(430.5556, 69)
+position = Vector2(637.8379, 99.32114)
 scale = Vector2(0.3968254, 1)
 
 [node name="WoodenBox_01" parent="==PLATFORMS==" instance=ExtResource("42_4spla")]
-position = Vector2(202.7778, 49)
+position = Vector2(218.25397, 29)
+scale = Vector2(0.3968254, 1)
+
+[node name="WoodenBox_03" parent="==PLATFORMS==" instance=ExtResource("42_4spla")]
+position = Vector2(528.5714, 30)
 scale = Vector2(0.3968254, 1)
 
 [node name="WoodenBox_02" parent="==PLATFORMS==" instance=ExtResource("43_hvusa")]
-position = Vector2(498.41272, 31)
+position = Vector2(705.69507, 61.321136)
 scale = Vector2(0.3968254, 1)
 
 [node name="==ENEMIES==" type="Node2D" parent="."]
@@ -145,7 +153,7 @@ position = Vector2(-3111.9998, -1792.9999)
 scale = Vector2(4.3200006, 4.3200006)
 
 [node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
-position = Vector2(884.2591, 483.56476)
+position = Vector2(910.648, 497.22214)
 scale = Vector2(0.23148146, 0.23148146)
 
 [node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
@@ -173,7 +181,7 @@ position = Vector2(904.39795, 496.7592)
 scale = Vector2(0.23148146, 0.23148146)
 
 [node name="GoldNugget" parent="==COLLECTABLES==" instance=ExtResource("24_yoilj")]
-position = Vector2(878.0091, 503.70364)
+position = Vector2(895.83325, 497.91656)
 scale = Vector2(0.23148146, 0.23148146)
 
 [node name="==DECOR" type="Node2D" parent="."]
@@ -182,7 +190,7 @@ scale = Vector2(0.41358024, 0.41358024)
 
 [node name="Berg01" type="Sprite2D" parent="==DECOR"]
 z_index = -10
-position = Vector2(4151.5522, 50.77619)
+position = Vector2(4156.388, 101.55231)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("15_1j1kj")
 
@@ -199,18 +207,18 @@ scale = Vector2(0.518124, 0.5181239)
 texture = ExtResource("21_5iaa6")
 
 [node name="Banner01" type="Sprite2D" parent="==DECOR"]
-position = Vector2(3486.627, 440.05978)
+position = Vector2(4749.626, 513.3736)
 scale = Vector2(0.46746373, 0.46746376)
 texture = ExtResource("22_5au7l")
 
 [node name="Flower01" type="Sprite2D" parent="==DECOR"]
 z_index = -3
-position = Vector2(2258.3284, 394.1194)
+position = Vector2(2164.0298, 444.89566)
 scale = Vector2(0.2070273, 0.2070273)
 texture = ExtResource("23_rr58p")
 
 [node name="MedicinFlower01" type="Sprite2D" parent="==DECOR"]
-position = Vector2(4490.06, 367.5225)
+position = Vector2(5753.059, 440.8363)
 scale = Vector2(0.5671673, 0.5671673)
 texture = ExtResource("25_5f30t")
 
@@ -242,13 +250,13 @@ scale = Vector2(0.37341633, 0.37341633)
 texture = ExtResource("26_ly28y")
 
 [node name="Hus01" type="Sprite2D" parent="==DECOR"]
-z_index = -3
+z_index = -4
 position = Vector2(2371.97, 278.0597)
 scale = Vector2(1.2550106, 1.2550106)
 texture = ExtResource("27_wh4jk")
 
 [node name="Kvist01" type="Sprite2D" parent="==DECOR"]
-position = Vector2(3356.0596, 502.9254)
+position = Vector2(4619.0586, 576.2392)
 rotation = 1.7086726
 scale = Vector2(0.34473187, 0.34473187)
 texture = ExtResource("28_h5kva")
@@ -286,7 +294,7 @@ texture = ExtResource("39_epd4w")
 
 [node name="Svamp01" type="Sprite2D" parent="==DECOR"]
 z_index = -4
-position = Vector2(3638.955, 473.9104)
+position = Vector2(4901.954, 547.2242)
 scale = Vector2(0.23086715, 0.23086715)
 texture = ExtResource("40_t2uqm")
 

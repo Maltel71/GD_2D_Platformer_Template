@@ -10,7 +10,7 @@ radius = 21.0
 height = 44.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
-radius = 20.0087
+radius = 16.719917
 
 [node name="Enemy_01" type="CharacterBody2D"]
 collision_layer = 2
@@ -36,23 +36,23 @@ texture = ExtResource("4_ge483")
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 20)
 rotation = -1.5708
-target_position = Vector2(0, 35.015)
+target_position = Vector2(0, 27.45)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 20)
 rotation = 1.5708
-target_position = Vector2(0, 35.015)
+target_position = Vector2(0, 27.45)
 collision_mask = 9
 
 [node name="LedgeRayRight" type="RayCast2D" parent="."]
-position = Vector2(20, 0)
+position = Vector2(13, 0)
 collision_mask = 9
 
 [node name="LedgeRayLeft" type="RayCast2D" parent="."]
-position = Vector2(-20, 0)
+position = Vector2(-13, 0)
 collision_mask = 9
 
 [node name="AttackArea" type="Area2D" parent="."]

@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://xb2kvc5kjtfb"]
+[gd_scene load_steps=2 format=3 uid="uid://xb2kvc5kjtfb"]
 
 [ext_resource type="Texture2D" uid="uid://bkr2ndwfkklyi" path="res://graphics/platform_04.png" id="1_i4l5g"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmrlc"]
-size = Vector2(530, 46)
 
 [node name="platform_01" type="StaticBody2D"]
 collision_layer = 8
@@ -15,6 +12,5 @@ position = Vector2(-10, -9)
 scale = Vector2(0.27528185, 0.27528185)
 texture = ExtResource("1_i4l5g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-12, 6)
-shape = SubResource("RectangleShape2D_hmrlc")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(14, -38, 252, -41, 253, 27, -277, 28, -277, -6, 13, -13)
