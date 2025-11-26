@@ -15,11 +15,11 @@
 [ext_resource type="AudioStream" uid="uid://b2ftmc3j0e67r" path="res://audio/music/i-love-my-8-bit-game-console-301272.mp3" id="11_6q8gj"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
 [ext_resource type="PackedScene" uid="uid://uq3idl18wqml" path="res://enemy/megalodon_01.tscn" id="14_aupmd"]
-[ext_resource type="PackedScene" uid="uid://crgxp28p1mrwi" path="res://level_components/platform_02.tscn" id="15_t58ta"]
 [ext_resource type="Texture2D" uid="uid://ccdllslqiselx" path="res://graphics/flask_01.png" id="16_1j1kj"]
 [ext_resource type="Texture2D" uid="uid://dlchx2q3utisn" path="res://graphics/dead_squid_01.png" id="17_pmbwx"]
 [ext_resource type="Texture2D" uid="uid://yj7ccyswket8" path="res://graphics/Grass_01.png" id="18_lgfx6"]
 [ext_resource type="Texture2D" uid="uid://c0baa8hvm2mgr" path="res://graphics/Turtle_01.png" id="19_d31dk"]
+[ext_resource type="PackedScene" uid="uid://004imdkjvhi3" path="res://level_components/platform_long_01.tscn" id="20_6q8gj"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -52,10 +52,10 @@ autoplay = true
 
 [node name="background_01" type="TextureRect" parent="."]
 z_index = -20
-offset_left = -3111.9998
-offset_top = -1792.9999
-offset_right = -1190.9998
-offset_bottom = -710.9999
+offset_left = -3498.9998
+offset_top = -1987.9999
+offset_right = -1577.9998
+offset_bottom = -905.9999
 scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("3_kql2n")
 stretch_mode = 1
@@ -83,7 +83,7 @@ position = Vector2(302, 289)
 position = Vector2(133, 32)
 
 [node name="coin3" parent="==COINS==" instance=ExtResource("4_02ec3")]
-position = Vector2(505, 14)
+position = Vector2(286, 34)
 
 [node name="==PLATFORMS==" type="Node2D" parent="."]
 position = Vector2(46, 258)
@@ -91,23 +91,11 @@ position = Vector2(46, 258)
 [node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
 position = Vector2(135, 96)
 
-[node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(337, 153)
+[node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("20_6q8gj")]
+position = Vector2(504, 153)
 
-[node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("15_t58ta")]
-position = Vector2(243, 155)
-
-[node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("15_t58ta")]
-position = Vector2(435, 153)
-
-[node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(623, 153)
-
-[node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("15_t58ta")]
-position = Vector2(529, 155)
-
-[node name="platform_07" parent="==PLATFORMS==" instance=ExtResource("15_t58ta")]
-position = Vector2(721, 153)
+[node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("20_6q8gj")]
+position = Vector2(504, 153)
 
 [node name="==DECORATION==" type="Node2D" parent="."]
 position = Vector2(670, 402.00003)
@@ -132,6 +120,7 @@ scale = Vector2(0.73078907, 0.73078907)
 texture = ExtResource("16_1j1kj")
 
 [node name="DeadSquid01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-121.46821, 3.0750976)
 texture = ExtResource("17_pmbwx")
 
 [node name="Grass01" type="Sprite2D" parent="==DECORATION=="]

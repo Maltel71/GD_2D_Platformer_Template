@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cari2tg1labr3"]
+[gd_scene load_steps=8 format=3 uid="uid://cari2tg1labr3"]
 
 [ext_resource type="Script" uid="uid://csjbu0ksq5dmp" path="res://menus/start_menu.gd" id="1_74ymc"]
 [ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/soundeffects/click/click (1).wav" id="2_pivjg"]
 [ext_resource type="AudioStream" uid="uid://dvju43jy6tn2q" path="res://audio/music/game-8-bit-on-278083.mp3" id="3_pivjg"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="4_kos7h"]
+[ext_resource type="Texture2D" uid="uid://dr0pwnpj7rcgf" path="res://graphics/shark.png" id="5_kos7h"]
+[ext_resource type="Texture2D" uid="uid://c0baa8hvm2mgr" path="res://graphics/Turtle_01.png" id="6_78o3g"]
+[ext_resource type="Texture2D" uid="uid://blp7vpar1yshl" path="res://graphics/Bläckfisk_01.png" id="7_1q4qq"]
 
 [node name="WinMenu" type="Control"]
 layout_mode = 3
@@ -54,3 +57,15 @@ z_index = -5
 position = Vector2(965, 543)
 scale = Vector2(3.8400002, 2.1999993)
 texture = ExtResource("4_kos7h")
+
+[node name="Shark" type="Sprite2D" parent="."]
+position = Vector2(577, 723)
+texture = ExtResource("5_kos7h")
+
+[node name="Turtle01" type="Sprite2D" parent="."]
+position = Vector2(1442, 253)
+texture = ExtResource("6_78o3g")
+
+[node name="Bläckfisk01" type="Sprite2D" parent="."]
+position = Vector2(543, 184)
+texture = ExtResource("7_1q4qq")

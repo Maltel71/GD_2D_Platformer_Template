@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://004imdkjvhi3"]
+
+[ext_resource type="Texture2D" uid="uid://bw5yfvyjhik7r" path="res://graphics/Platform_02.png" id="1_odxl3"]
+[ext_resource type="Texture2D" uid="uid://bjr2wl0he3uqy" path="res://graphics/Platform_01.png" id="2_5m5vx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmrlc"]
+size = Vector2(592, 90)
+
+[node name="PlatformLong" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-8, -1)
+shape = SubResource("RectangleShape2D_hmrlc")
+
+[node name="Graphics_PH" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-267.45758, 0)
+scale = Vector2(0.4575646, 0.4575646)
+texture = ExtResource("1_odxl3")
+
+[node name="Graphics_PH2" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-56.457596, -0.9999999)
+rotation = -3.1415927
+scale = Vector2(0.4575646, 0.4575646)
+texture = ExtResource("1_odxl3")
+
+[node name="Graphics_PH3" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(141.54242, -0.9999999)
+rotation = -4.712389
+scale = Vector2(0.4575646, 0.4575646)
+texture = ExtResource("1_odxl3")
+
+[node name="Platform01" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-165.45755, -2.9999995)
+scale = Vector2(0.45502764, 0.4550277)
+texture = ExtResource("2_5m5vx")
+
+[node name="Platform02" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(43.54248, -2.9999995)
+rotation = 1.5707964
+scale = Vector2(0.41502735, 0.4550277)
+texture = ExtResource("2_5m5vx")
+
+[node name="Platform03" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(243.54248, 1.999999)
+rotation = 3.1415927
+scale = Vector2(0.41502735, 0.4550277)
+texture = ExtResource("2_5m5vx")
