@@ -12,30 +12,23 @@ radius = 56.0
 height = 164.0
 
 [node name="Enemy_01" type="CharacterBody2D"]
-modulate = Color(0.9937057, 0.8957735, 0.93243265, 1)
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_nl1jt")
 speed = 60.0
 health = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, -2)
-scale = Vector2(0.13226579, 0.13226579)
-texture = ExtResource("2_nl1jt")
-flip_h = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
-position = Vector2(0, 40)
+position = Vector2(0, 57)
 rotation = -1.5708
 target_position = Vector2(0, 56.2)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="."]
-position = Vector2(0, 40)
+position = Vector2(0, 57)
 rotation = 1.5708
 target_position = Vector2(0, 56.2)
 collision_mask = 9
@@ -55,3 +48,9 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_pagv6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+scale = Vector2(0.13226579, 0.13226579)
+texture = ExtResource("2_nl1jt")
+flip_h = true

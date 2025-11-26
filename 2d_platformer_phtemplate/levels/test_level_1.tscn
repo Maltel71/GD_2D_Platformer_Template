@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=50 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="7_aupmd"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
+[ext_resource type="AudioStream" uid="uid://djjfua45vw2b1" path="res://audio/music/arcade-beat-323176.mp3" id="11_bbmfv"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
 [ext_resource type="PackedScene" uid="uid://dluncto2rbg77" path="res://level_components/barrel_01.tscn" id="15_t58ta"]
 [ext_resource type="Texture2D" uid="uid://c3bkg67jmun07" path="res://graphics/blomma i kruka.png" id="16_1j1kj"]
@@ -69,23 +70,9 @@ script = ExtResource("7_aupmd")
 
 [node name="ui" parent="." instance=ExtResource("5_5vfu0")]
 
-[node name="platform_01" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(208, 357)
-
-[node name="platform_02" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(431, 357)
-
-[node name="platform_03" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(660, 357)
-
-[node name="platform_04" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(880, 357)
-
-[node name="platform_05" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(1098, 357)
-
-[node name="platform_06" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(1318, 357)
+[node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
+position = Vector2(-434, 349)
+next_scene = ExtResource("13_aupmd")
 
 [node name="background_01" type="TextureRect" parent="."]
 modulate = Color(0.96569866, 0.9715839, 0.9613423, 1)
@@ -98,216 +85,247 @@ scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("3_kql2n")
 stretch_mode = 1
 
-[node name="coin" parent="." instance=ExtResource("4_02ec3")]
-position = Vector2(293, 281)
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_bbmfv")
+volume_db = -10.0
+autoplay = true
 
-[node name="coin2" parent="." instance=ExtResource("4_02ec3")]
-position = Vector2(435, 321)
-
-[node name="coin3" parent="." instance=ExtResource("4_02ec3")]
-position = Vector2(613, 210)
-
-[node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
-position = Vector2(-434, 349)
-next_scene = ExtResource("13_aupmd")
-
-[node name="Enemy_Floating" parent="." instance=ExtResource("9_grhbk")]
+[node name="==ENEMIES==" type="Node2D" parent="."]
 position = Vector2(776, 210)
 
-[node name="Barrel_01" parent="." instance=ExtResource("15_t58ta")]
+[node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
+
+[node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("17_pmbwx")]
+position = Vector2(386, 15)
+
+[node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
+position = Vector2(-67, 64)
+
+[node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("27_wh4jk")]
+position = Vector2(-393, 81)
+
+[node name="==COLLECTABLES==" type="Node2D" parent="."]
+position = Vector2(293, 281)
+
+[node name="coin" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+
+[node name="coin2" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(142, 40)
+
+[node name="coin3" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(320, -71)
+
+[node name="==ENVIROMENT==" type="Node2D" parent="."]
 position = Vector2(133, 319)
 
-[node name="Barrel_02" parent="." instance=ExtResource("15_t58ta")]
-position = Vector2(905, 319)
+[node name="=PLATFORMS=" type="Node2D" parent="==ENVIROMENT=="]
+position = Vector2(75, 38)
+
+[node name="platform_01" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("2_grhbk")]
+
+[node name="platform_02" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("2_grhbk")]
+position = Vector2(223, 0)
+
+[node name="platform_03" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("2_grhbk")]
+position = Vector2(452, 0)
+
+[node name="platform_04" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("2_grhbk")]
+position = Vector2(672, 0)
+
+[node name="platform_05" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("2_grhbk")]
+position = Vector2(890, 0)
+
+[node name="platform_06" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("2_grhbk")]
+position = Vector2(1110, 0)
+
+[node name="Barrel_01" parent="==ENVIROMENT==" instance=ExtResource("15_t58ta")]
+
+[node name="Barrel_02" parent="==ENVIROMENT==" instance=ExtResource("15_t58ta")]
+position = Vector2(772, 0)
 scale = Vector2(1.3199999, 1.3199999)
 
-[node name="BlommaIKruka" type="Sprite2D" parent="."]
-position = Vector2(136.86815, 269.09888)
+[node name="Stone_01" parent="==ENVIROMENT==" instance=ExtResource("18_lgfx6")]
+position = Vector2(-331, 35)
+
+[node name="Stone_02" parent="==ENVIROMENT==" instance=ExtResource("19_d31dk")]
+position = Vector2(-250, 41)
+
+[node name="Stone_03" parent="==ENVIROMENT==" instance=ExtResource("20_6q8gj")]
+position = Vector2(-408, 30)
+
+[node name="Stone_04" parent="==ENVIROMENT==" instance=ExtResource("21_5iaa6")]
+position = Vector2(-368, 36)
+
+[node name="Stone_05" parent="==ENVIROMENT==" instance=ExtResource("22_5au7l")]
+position = Vector2(-292, 34)
+
+[node name="Stone_06" parent="==ENVIROMENT==" instance=ExtResource("23_rr58p")]
+position = Vector2(-215, 30)
+
+[node name="Stone_08" parent="==ENVIROMENT==" instance=ExtResource("24_yoilj")]
+position = Vector2(-117, 19)
+
+[node name="==DECORATION==" type="Node2D" parent="."]
+position = Vector2(133, 319)
+
+[node name="BlommaIKruka" type="Sprite2D" parent="==DECORATION=="]
+z_index = -1
+position = Vector2(2, -42)
 scale = Vector2(0.11645809, 0.1164581)
 texture = ExtResource("16_1j1kj")
 
-[node name="Enemy_03" parent="." instance=ExtResource("17_pmbwx")]
-position = Vector2(1162, 225)
-
-[node name="Stone_01" parent="." instance=ExtResource("18_lgfx6")]
-position = Vector2(-198, 354)
-
-[node name="Stone_02" parent="." instance=ExtResource("19_d31dk")]
-position = Vector2(-117, 360)
-
-[node name="Stone_03" parent="." instance=ExtResource("20_6q8gj")]
-position = Vector2(-275, 349)
-
-[node name="Stone_04" parent="." instance=ExtResource("21_5iaa6")]
-position = Vector2(-235, 355)
-
-[node name="Stone_05" parent="." instance=ExtResource("22_5au7l")]
-position = Vector2(-159, 353)
-
-[node name="Stone_06" parent="." instance=ExtResource("23_rr58p")]
-position = Vector2(-82, 349)
-
-[node name="Stone_08" parent="." instance=ExtResource("24_yoilj")]
-position = Vector2(16, 338)
-
-[node name="Brunsvamp01" type="Sprite2D" parent="."]
-position = Vector2(-4, 263.99997)
+[node name="Brunsvamp01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-137, -55.00003)
 scale = Vector2(0.1969697, 0.19696972)
 texture = ExtResource("25_tworg")
 
-[node name="Flugsvamp01" type="Sprite2D" parent="."]
-position = Vector2(-46.999985, 282)
+[node name="Flugsvamp01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-179.99998, -37)
 scale = Vector2(0.2041146, 0.2041146)
 texture = ExtResource("26_ly28y")
 
-[node name="Enemy_01" parent="." instance=ExtResource("6_kgy88")]
-position = Vector2(709, 274)
-
-[node name="Enemy_02" parent="." instance=ExtResource("27_wh4jk")]
-position = Vector2(383, 291)
-
-[node name="GlasLiten01" type="Sprite2D" parent="."]
+[node name="GlasLiten01" type="Sprite2D" parent="==DECORATION=="]
 z_index = -5
-position = Vector2(973, 320.00003)
+position = Vector2(840, 1.0000305)
 scale = Vector2(0.3366418, 0.3366418)
 texture = ExtResource("28_fxlwo")
 
-[node name="GlasMellan01" type="Sprite2D" parent="."]
+[node name="GlasMellan01" type="Sprite2D" parent="==DECORATION=="]
 z_index = -5
-position = Vector2(971, 276)
+position = Vector2(838, -43)
 scale = Vector2(0.2771605, 0.2771605)
 texture = ExtResource("29_b0b66")
 
-[node name="GlasStor01" type="Sprite2D" parent="."]
+[node name="GlasStor01" type="Sprite2D" parent="==DECORATION=="]
 z_index = -5
-position = Vector2(973.99994, 207.99998)
+position = Vector2(840.99994, -111.000015)
 scale = Vector2(0.25185814, 0.25185814)
 texture = ExtResource("30_bhyje")
 
-[node name="GlasLiten02" type="Sprite2D" parent="."]
+[node name="GlasLiten02" type="Sprite2D" parent="==DECORATION=="]
 z_index = -5
-position = Vector2(1400.0901, 320.00003)
+position = Vector2(1267.0901, 1.0000305)
 scale = Vector2(0.3366418, 0.3366418)
 texture = ExtResource("28_fxlwo")
 
-[node name="GlasMellan02" type="Sprite2D" parent="."]
+[node name="GlasMellan02" type="Sprite2D" parent="==DECORATION=="]
 z_index = -5
-position = Vector2(1398.0901, 276)
+position = Vector2(1265.0901, -43)
 scale = Vector2(0.2771605, 0.2771605)
 texture = ExtResource("29_b0b66")
 
-[node name="GlasStor02" type="Sprite2D" parent="."]
+[node name="GlasStor02" type="Sprite2D" parent="==DECORATION=="]
 z_index = -5
-position = Vector2(1401.0901, 207.99998)
+position = Vector2(1268.0901, -111.000015)
 scale = Vector2(0.25185814, 0.25185814)
 texture = ExtResource("30_bhyje")
 
-[node name="GolvsEllerBordsLampa01" type="Sprite2D" parent="."]
+[node name="GolvsEllerBordsLampa01" type="Sprite2D" parent="==DECORATION=="]
 z_index = -4
-position = Vector2(946.99994, 146.99995)
+position = Vector2(813.99994, -172.00005)
 scale = Vector2(0.21537107, 0.21537107)
 texture = ExtResource("31_b0b66")
 
-[node name="GrässTova201" type="Sprite2D" parent="."]
+[node name="GrässTova201" type="Sprite2D" parent="==DECORATION=="]
 z_index = -5
-position = Vector2(-88, 319)
+position = Vector2(-221, 0)
 scale = Vector2(0.42372927, 0.42372927)
 texture = ExtResource("32_75rtf")
 
-[node name="GrässTova301" type="Sprite2D" parent="."]
+[node name="GrässTova301" type="Sprite2D" parent="==DECORATION=="]
 z_index = -5
-position = Vector2(-173, 329)
+position = Vector2(-306, 10)
 scale = Vector2(0.39150962, 0.39150962)
 texture = ExtResource("33_h8sgn")
 
-[node name="GrässTova302" type="Sprite2D" parent="."]
+[node name="GrässTova302" type="Sprite2D" parent="==DECORATION=="]
 z_index = -5
-position = Vector2(108, 320)
+position = Vector2(-25, 1)
 scale = Vector2(0.39150962, 0.39150962)
 texture = ExtResource("33_h8sgn")
 
-[node name="GrässTova01" type="Sprite2D" parent="."]
+[node name="GrässTova01" type="Sprite2D" parent="==DECORATION=="]
 z_index = -6
-position = Vector2(-114, 322)
+position = Vector2(-247, 3)
 scale = Vector2(0.4130435, 0.41304347)
 texture = ExtResource("34_5w0hf")
 
-[node name="Grässtrå01" type="Sprite2D" parent="."]
+[node name="Grässtrå01" type="Sprite2D" parent="==DECORATION=="]
 z_index = -6
-position = Vector2(173, 325.58066)
+position = Vector2(40, 6.580658)
 scale = Vector2(0.19354838, 0.19354837)
 texture = ExtResource("35_5w0hf")
 
-[node name="Grässtrå02" type="Sprite2D" parent="."]
+[node name="Grässtrå02" type="Sprite2D" parent="==DECORATION=="]
 z_index = -6
-position = Vector2(216.00002, 328.58063)
+position = Vector2(83.000015, 9.580627)
 scale = Vector2(0.11363637, 0.113636374)
 texture = ExtResource("36_kx420")
 
-[node name="Gräs01" type="Sprite2D" parent="."]
+[node name="Gräs01" type="Sprite2D" parent="==DECORATION=="]
 z_index = -6
-position = Vector2(297, 325)
+position = Vector2(164, 6)
 scale = Vector2(0.06475466, 0.06475467)
 texture = ExtResource("37_kx420")
 
-[node name="Gurka01" type="Sprite2D" parent="."]
-position = Vector2(1063, 334.99997)
+[node name="Gurka01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(930, 15.9999695)
 rotation = 1.109757
 scale = Vector2(0.19215187, 0.19215187)
 texture = ExtResource("38_8qcgp")
 
-[node name="InfekteradTomat01" type="Sprite2D" parent="."]
-position = Vector2(1348, 327)
+[node name="InfekteradTomat01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(1215, 8)
 rotation = 1.0338221
 scale = Vector2(0.17226405, 0.17226405)
 texture = ExtResource("39_epd4w")
 
-[node name="Kantarell01" type="Sprite2D" parent="."]
-position = Vector2(58.000008, 289)
+[node name="Kantarell01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-74.99999, -30)
 rotation = 0.11986616
-scale = Vector2(0.2472931, 0.20472598)
+scale = Vector2(0.2472931, 0.204726)
 texture = ExtResource("40_t2uqm")
 flip_h = true
 
-[node name="Karljohan01" type="Sprite2D" parent="."]
-position = Vector2(-146.00002, 323)
+[node name="Karljohan01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-279, 4)
 scale = Vector2(0.2156251, 0.21562514)
 texture = ExtResource("41_08wk4")
 
-[node name="RödBlomma01" type="Sprite2D" parent="."]
-position = Vector2(94, 312)
+[node name="RödBlomma01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-39, -7)
 scale = Vector2(0.1589286, 0.1589286)
 texture = ExtResource("42_4spla")
 
-[node name="Skog01" type="Sprite2D" parent="."]
+[node name="Skog01" type="Sprite2D" parent="==DECORATION=="]
 z_index = -10
-position = Vector2(-603, 198)
+position = Vector2(-736, -121)
 texture = ExtResource("43_hvusa")
 
-[node name="SvampRöd01" type="Sprite2D" parent="."]
-position = Vector2(-255.99998, 310)
+[node name="SvampRöd01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-389, -9)
 scale = Vector2(0.263285, 0.26328504)
 texture = ExtResource("44_pq2bj")
 
-[node name="SönderKabbel01" type="Sprite2D" parent="."]
-position = Vector2(1357.0001, 303.00003)
+[node name="SönderKabbel01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(1224.0001, -15.9999695)
 rotation = 0.7703038
 scale = Vector2(0.23863636, 0.23863636)
 texture = ExtResource("45_eg16o")
 
-[node name="Taklampa01" type="Sprite2D" parent="."]
-position = Vector2(1299, 134)
+[node name="Taklampa01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(1166, -185)
 scale = Vector2(0.32, 0.32)
 texture = ExtResource("46_ne3g0")
 
-[node name="Tomat01" type="Sprite2D" parent="."]
-position = Vector2(1228, 337)
+[node name="Tomat01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(1095, 18)
 rotation = -1.4673034
-scale = Vector2(0.17578125, 0.17578125)
+scale = Vector2(0.17578126, 0.17578126)
 texture = ExtResource("47_80jea")
 
-[node name="Vattenkana01" type="Sprite2D" parent="."]
+[node name="Vattenkana01" type="Sprite2D" parent="==DECORATION=="]
 z_index = -1
-position = Vector2(889.99994, 280)
+position = Vector2(756.99994, -39)
 scale = Vector2(0.23736891, 0.23736891)
 texture = ExtResource("48_aic7k")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cu1jrfb7oi86"]
+[gd_scene load_steps=48 format=3 uid="uid://cu1jrfb7oi86"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_mc1td"]
 [ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/jump/jump.wav" id="2_ukqis"]
@@ -9,15 +9,49 @@
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="7_7rcka"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="8_2sx82"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="9_kxfxx"]
+[ext_resource type="PackedScene" uid="uid://bb5r7vasxqlge" path="res://enemy/Boss_01.tscn" id="11_l6632"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="11_wu0c2"]
+[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="12_8lbrq"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="12_ay0he"]
-[ext_resource type="PackedScene" uid="uid://cari2tg1labr3" path="res://menus/WinMenu.tscn" id="12_mc1td"]
+[ext_resource type="PackedScene" uid="uid://ctlv4mvijbdaa" path="res://enemy/enemy_02.tscn" id="13_oipf5"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="13_td7uj"]
+[ext_resource type="PackedScene" uid="uid://dluncto2rbg77" path="res://level_components/barrel_01.tscn" id="16_fwee2"]
+[ext_resource type="PackedScene" uid="uid://mmnfevv57vri" path="res://level_components/stone_01.tscn" id="17_b4o3i"]
+[ext_resource type="PackedScene" uid="uid://bq46abwm67l53" path="res://level_components/stone_02.tscn" id="18_6ib3j"]
+[ext_resource type="PackedScene" uid="uid://dbdw6eahywvpm" path="res://level_components/stone_03.tscn" id="19_5vmti"]
+[ext_resource type="PackedScene" uid="uid://cbr4tvaijklk" path="res://level_components/stone_04.tscn" id="20_skimt"]
+[ext_resource type="PackedScene" uid="uid://bjbqui7eaupb5" path="res://level_components/stone_05.tscn" id="21_k5hrq"]
+[ext_resource type="PackedScene" uid="uid://biu0wbue54lep" path="res://level_components/stone_06.tscn" id="22_vsth7"]
+[ext_resource type="PackedScene" uid="uid://c6iifk75psi37" path="res://level_components/stone_09.tscn" id="23_dd3pd"]
+[ext_resource type="Texture2D" uid="uid://c3bkg67jmun07" path="res://graphics/blomma i kruka.png" id="24_7sbnf"]
+[ext_resource type="Texture2D" uid="uid://b8d1cexsdbp14" path="res://graphics/brunsvamp_01.png" id="25_mfpjq"]
+[ext_resource type="Texture2D" uid="uid://c3rfha3t5wkmb" path="res://graphics/flugsvamp_01.png" id="26_bl6jh"]
+[ext_resource type="Texture2D" uid="uid://vknph7qr3k4i" path="res://graphics/Glas_liten_01.png" id="27_7lwxl"]
+[ext_resource type="Texture2D" uid="uid://bxqseh86nhyxt" path="res://graphics/Glas_mellan_01.png" id="28_k2v0g"]
+[ext_resource type="Texture2D" uid="uid://b4y7gu65njqns" path="res://graphics/Glas_stor_01.png" id="29_t83n1"]
+[ext_resource type="Texture2D" uid="uid://m0g504ratppd" path="res://graphics/golvs eller bords lampa_01.png" id="30_awrr6"]
+[ext_resource type="Texture2D" uid="uid://wxuk5ti0mirl" path="res://graphics/gräss tova 2 _01.png" id="31_m1jon"]
+[ext_resource type="Texture2D" uid="uid://cx7xupc4h3j0" path="res://graphics/gräss tova 3 _01.png" id="32_3q8r6"]
+[ext_resource type="Texture2D" uid="uid://dyjxeq64d6ycu" path="res://graphics/gräss tova_01.png" id="33_dhb3y"]
+[ext_resource type="Texture2D" uid="uid://mdbymo1qk0dp" path="res://graphics/grässtrå_01.png" id="34_58g82"]
+[ext_resource type="Texture2D" uid="uid://brl8ndad4hpw0" path="res://graphics/grässtrå_02.png" id="35_1ws1x"]
+[ext_resource type="Texture2D" uid="uid://b8deogveucikk" path="res://graphics/gräs_01.png" id="36_mp7ra"]
+[ext_resource type="Texture2D" uid="uid://cfp8jul2tfgth" path="res://graphics/Gurka_01.png" id="37_k7pb7"]
+[ext_resource type="Texture2D" uid="uid://dqjqmwv737x6r" path="res://graphics/Infekterad_tomat_01.png" id="38_ilh8k"]
+[ext_resource type="Texture2D" uid="uid://cgubjy3lg4iwl" path="res://graphics/kantarell_01.png" id="39_4tadd"]
+[ext_resource type="Texture2D" uid="uid://d02h75sw6kvwk" path="res://graphics/karljohan_01.png" id="40_78crg"]
+[ext_resource type="Texture2D" uid="uid://clnpddcukpc3m" path="res://graphics/röd blomma_01.png" id="41_wrhks"]
+[ext_resource type="Texture2D" uid="uid://bav8x2ewlgrfu" path="res://graphics/skog_01.png" id="42_a7ree"]
+[ext_resource type="Texture2D" uid="uid://b6ky241sswvg7" path="res://graphics/Svamp_ röd_01.png" id="43_fj603"]
+[ext_resource type="Texture2D" uid="uid://msfsxk63275n" path="res://graphics/sönder kabbel_01.png" id="44_8enkw"]
+[ext_resource type="Texture2D" uid="uid://bcg6t8p70ux40" path="res://graphics/taklampa_01.png" id="45_rtm21"]
+[ext_resource type="Texture2D" uid="uid://c2esw0cnvi80p" path="res://graphics/Tomat_01.png" id="46_obsla"]
+[ext_resource type="Texture2D" uid="uid://tr8eau34qcso" path="res://graphics/vattenkana_01.png" id="47_rqqic"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_mc1td")]
-position = Vector2(309, 345)
+position = Vector2(182, 224)
 jump_sound = ExtResource("2_ukqis")
 jump_volume = -20.0
 damage_sound = ExtResource("3_gqg56")
@@ -28,34 +62,18 @@ death_sound = ExtResource("5_x2a8b")
 death_volume = -20.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(311, 352)
+position = Vector2(182, 229)
 zoom = Vector2(2, 2)
 script = ExtResource("11_wu0c2")
 
 [node name="ui" parent="." instance=ExtResource("9_kxfxx")]
 
-[node name="platform_01" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(380.00006, 596)
-scale = Vector2(2.52, 1)
-
-[node name="platform_02" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(383, 488)
-scale = Vector2(2.52, 1)
-
-[node name="platform_03" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(465, 708)
-scale = Vector2(4.12, 1)
-
-[node name="platform_04" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(836.00006, 673)
-rotation = -0.221406
-scale = Vector2(4.12, 1)
-
-[node name="platform_05" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(1184, 666)
-scale = Vector2(0.879738, 1.84942)
+[node name="GoalTrigger" parent="." instance=ExtResource("12_ay0he")]
+position = Vector2(-434, 349)
+next_scene = null
 
 [node name="background_01" type="TextureRect" parent="."]
+modulate = Color(0.96569866, 0.9715839, 0.9613423, 1)
 z_index = -20
 offset_left = -3111.9998
 offset_top = -1792.9999
@@ -65,18 +83,241 @@ scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("7_7rcka")
 stretch_mode = 1
 
-[node name="coin" parent="." instance=ExtResource("8_2sx82")]
-position = Vector2(499, 399)
+[node name="==ENEMIES==" type="Node2D" parent="."]
+position = Vector2(776, 210)
 
-[node name="coin2" parent="." instance=ExtResource("8_2sx82")]
-position = Vector2(556, 613)
+[node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("13_td7uj")]
 
-[node name="coin3" parent="." instance=ExtResource("8_2sx82")]
-position = Vector2(855, 516)
+[node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("11_l6632")]
+position = Vector2(386, 15)
 
-[node name="GoalTrigger" parent="." instance=ExtResource("12_ay0he")]
-position = Vector2(1209, 508)
-next_scene = ExtResource("12_mc1td")
+[node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("12_8lbrq")]
+position = Vector2(-67, 64)
 
-[node name="Enemy_Floating" parent="." instance=ExtResource("13_td7uj")]
-position = Vector2(1022, 528)
+[node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("13_oipf5")]
+position = Vector2(-393, 81)
+
+[node name="==COLLECTABLES==" type="Node2D" parent="."]
+position = Vector2(293, 281)
+
+[node name="coin" parent="==COLLECTABLES==" instance=ExtResource("8_2sx82")]
+
+[node name="coin2" parent="==COLLECTABLES==" instance=ExtResource("8_2sx82")]
+position = Vector2(142, 40)
+
+[node name="coin3" parent="==COLLECTABLES==" instance=ExtResource("8_2sx82")]
+position = Vector2(320, -71)
+
+[node name="==ENVIROMENT==" type="Node2D" parent="."]
+position = Vector2(133, 319)
+
+[node name="=PLATFORMS=" type="Node2D" parent="==ENVIROMENT=="]
+position = Vector2(75, 38)
+
+[node name="platform_01" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("6_4auen")]
+
+[node name="platform_02" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("6_4auen")]
+position = Vector2(223, 0)
+
+[node name="platform_03" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("6_4auen")]
+position = Vector2(452, 0)
+
+[node name="platform_04" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("6_4auen")]
+position = Vector2(672, 0)
+
+[node name="platform_05" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("6_4auen")]
+position = Vector2(890, 0)
+
+[node name="platform_06" parent="==ENVIROMENT==/=PLATFORMS=" instance=ExtResource("6_4auen")]
+position = Vector2(1110, 0)
+
+[node name="Barrel_01" parent="==ENVIROMENT==" instance=ExtResource("16_fwee2")]
+
+[node name="Barrel_02" parent="==ENVIROMENT==" instance=ExtResource("16_fwee2")]
+position = Vector2(772, 0)
+scale = Vector2(1.3199999, 1.3199999)
+
+[node name="Stone_01" parent="==ENVIROMENT==" instance=ExtResource("17_b4o3i")]
+position = Vector2(-331, 35)
+
+[node name="Stone_02" parent="==ENVIROMENT==" instance=ExtResource("18_6ib3j")]
+position = Vector2(-250, 41)
+
+[node name="Stone_03" parent="==ENVIROMENT==" instance=ExtResource("19_5vmti")]
+position = Vector2(-408, 30)
+
+[node name="Stone_04" parent="==ENVIROMENT==" instance=ExtResource("20_skimt")]
+position = Vector2(-368, 36)
+
+[node name="Stone_05" parent="==ENVIROMENT==" instance=ExtResource("21_k5hrq")]
+position = Vector2(-292, 34)
+
+[node name="Stone_06" parent="==ENVIROMENT==" instance=ExtResource("22_vsth7")]
+position = Vector2(-215, 30)
+
+[node name="Stone_08" parent="==ENVIROMENT==" instance=ExtResource("23_dd3pd")]
+position = Vector2(-117, 19)
+
+[node name="==DECORATION==" type="Node2D" parent="."]
+position = Vector2(133, 319)
+
+[node name="BlommaIKruka" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(3.8681488, -49.901123)
+scale = Vector2(0.11645809, 0.1164581)
+texture = ExtResource("24_7sbnf")
+
+[node name="Brunsvamp01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-137, -55.00003)
+scale = Vector2(0.1969697, 0.19696972)
+texture = ExtResource("25_mfpjq")
+
+[node name="Flugsvamp01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-179.99998, -37)
+scale = Vector2(0.2041146, 0.2041146)
+texture = ExtResource("26_bl6jh")
+
+[node name="GlasLiten01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(840, 1.0000305)
+scale = Vector2(0.3366418, 0.3366418)
+texture = ExtResource("27_7lwxl")
+
+[node name="GlasMellan01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(838, -43)
+scale = Vector2(0.2771605, 0.2771605)
+texture = ExtResource("28_k2v0g")
+
+[node name="GlasStor01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(840.99994, -111.000015)
+scale = Vector2(0.25185814, 0.25185814)
+texture = ExtResource("29_t83n1")
+
+[node name="GlasLiten02" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(1267.0901, 1.0000305)
+scale = Vector2(0.3366418, 0.3366418)
+texture = ExtResource("27_7lwxl")
+
+[node name="GlasMellan02" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(1265.0901, -43)
+scale = Vector2(0.2771605, 0.2771605)
+texture = ExtResource("28_k2v0g")
+
+[node name="GlasStor02" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(1268.0901, -111.000015)
+scale = Vector2(0.25185814, 0.25185814)
+texture = ExtResource("29_t83n1")
+
+[node name="GolvsEllerBordsLampa01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -4
+position = Vector2(813.99994, -172.00005)
+scale = Vector2(0.21537107, 0.21537107)
+texture = ExtResource("30_awrr6")
+
+[node name="GrässTova201" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(-221, 0)
+scale = Vector2(0.42372927, 0.42372927)
+texture = ExtResource("31_m1jon")
+
+[node name="GrässTova301" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(-306, 10)
+scale = Vector2(0.39150962, 0.39150962)
+texture = ExtResource("32_3q8r6")
+
+[node name="GrässTova302" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(-25, 1)
+scale = Vector2(0.39150962, 0.39150962)
+texture = ExtResource("32_3q8r6")
+
+[node name="GrässTova01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -6
+position = Vector2(-247, 3)
+scale = Vector2(0.4130435, 0.41304347)
+texture = ExtResource("33_dhb3y")
+
+[node name="Grässtrå01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -6
+position = Vector2(40, 6.580658)
+scale = Vector2(0.19354838, 0.19354837)
+texture = ExtResource("34_58g82")
+
+[node name="Grässtrå02" type="Sprite2D" parent="==DECORATION=="]
+z_index = -6
+position = Vector2(83.000015, 9.580627)
+scale = Vector2(0.11363637, 0.113636374)
+texture = ExtResource("35_1ws1x")
+
+[node name="Gräs01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -6
+position = Vector2(164, 6)
+scale = Vector2(0.06475466, 0.06475467)
+texture = ExtResource("36_mp7ra")
+
+[node name="Gurka01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(930, 15.9999695)
+rotation = 1.109757
+scale = Vector2(0.19215187, 0.19215187)
+texture = ExtResource("37_k7pb7")
+
+[node name="InfekteradTomat01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(1215, 8)
+rotation = 1.0338221
+scale = Vector2(0.17226405, 0.17226405)
+texture = ExtResource("38_ilh8k")
+
+[node name="Kantarell01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-74.99999, -30)
+rotation = 0.11986616
+scale = Vector2(0.2472931, 0.204726)
+texture = ExtResource("39_4tadd")
+flip_h = true
+
+[node name="Karljohan01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-279, 4)
+scale = Vector2(0.2156251, 0.21562514)
+texture = ExtResource("40_78crg")
+
+[node name="RödBlomma01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-39, -7)
+scale = Vector2(0.1589286, 0.1589286)
+texture = ExtResource("41_wrhks")
+
+[node name="Skog01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -10
+position = Vector2(-736, -121)
+texture = ExtResource("42_a7ree")
+
+[node name="SvampRöd01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-389, -9)
+scale = Vector2(0.263285, 0.26328504)
+texture = ExtResource("43_fj603")
+
+[node name="SönderKabbel01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(1224.0001, -15.9999695)
+rotation = 0.7703038
+scale = Vector2(0.23863636, 0.23863636)
+texture = ExtResource("44_8enkw")
+
+[node name="Taklampa01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(1166, -185)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("45_rtm21")
+
+[node name="Tomat01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(1095, 18)
+rotation = -1.4673034
+scale = Vector2(0.17578126, 0.17578126)
+texture = ExtResource("46_obsla")
+
+[node name="Vattenkana01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -1
+position = Vector2(756.99994, -39)
+scale = Vector2(0.23736891, 0.23736891)
+texture = ExtResource("47_rqqic")

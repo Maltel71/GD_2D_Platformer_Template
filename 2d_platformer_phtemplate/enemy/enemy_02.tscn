@@ -26,11 +26,13 @@ flip_h = true
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
+position = Vector2(0, 14)
 rotation = -1.5708
 target_position = Vector2(0, 35)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 14)
 rotation = 1.5708
 target_position = Vector2(0, 35)
 collision_mask = 9
