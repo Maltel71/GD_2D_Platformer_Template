@@ -11,7 +11,7 @@ height = 160.0
 radius = 56.0
 height = 164.0
 
-[node name="Enemy_01" type="CharacterBody2D"]
+[node name="Boss" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_nl1jt")

@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxxnugbtmtyqd"]
+
+[ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://enemy/enemy.gd" id="1_qljw4"]
+[ext_resource type="Texture2D" uid="uid://dqjqmwv737x6r" path="res://graphics/Infekterad_tomat_01.png" id="2_qljw4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
+radius = 17.0
+height = 36.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
+radius = 12.222223
+
+[node name="Enemy_01" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_qljw4")
+health = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 4)
+scale = Vector2(0.132, 0.132)
+texture = ExtResource("2_qljw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_ffj3o")
+
+[node name="WallRayRight" type="RayCast2D" parent="."]
+position = Vector2(0, 14)
+rotation = -1.5708
+target_position = Vector2(0, 35)
+collision_mask = 9
+
+[node name="WallRayLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 14)
+rotation = 1.5708
+target_position = Vector2(0, 35)
+collision_mask = 9
+
+[node name="LedgeRayRight" type="RayCast2D" parent="."]
+position = Vector2(20, 0)
+target_position = Vector2(0, 25)
+collision_mask = 9
+
+[node name="LedgeRayLeft" type="RayCast2D" parent="."]
+position = Vector2(-20, 0)
+target_position = Vector2(0, 25)
+collision_mask = 9
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(0, 10)
+scale = Vector2(1.8, 1.56)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, -8.333334)
+shape = SubResource("CircleShape2D_ld2qc")
