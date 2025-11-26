@@ -45,7 +45,6 @@ shape = SubResource("CapsuleShape2D_1abo5")
 position = Vector2(35, 4)
 
 [node name="WeaponSprite" type="Sprite2D" parent="BulletSpawnPoint"]
-visible = false
 position = Vector2(-1, 4)
 scale = Vector2(0.1817713, 0.1817713)
 texture = ExtResource("8_rgyib")
