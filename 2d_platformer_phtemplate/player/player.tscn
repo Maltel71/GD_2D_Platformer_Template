@@ -11,12 +11,18 @@ height = 64.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1abo5"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_yw30f")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 60.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_yw30f")
+}],
 "loop": true,
 "name": &"walk",
 "speed": 30.0
@@ -38,19 +44,15 @@ shape = SubResource("CapsuleShape2D_1abo5")
 [node name="BulletSpawnPoint" type="Node2D" parent="."]
 position = Vector2(35, 4)
 
-[node name="AnimatedSprite2DMalte" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 1.5)
-scale = Vector2(0.047, 0.13085938)
-sprite_frames = SubResource("SpriteFrames_1abo5")
-animation = &"idle"
-
-[node name="SawedOff01" type="Sprite2D" parent="."]
-position = Vector2(31.000002, 7)
-scale = Vector2(0.11737011, 0.11737011)
+[node name="WeaponSprite" type="Sprite2D" parent="BulletSpawnPoint"]
+visible = false
+position = Vector2(-1, 4)
+scale = Vector2(0.1817713, 0.1817713)
 texture = ExtResource("8_rgyib")
 
-[node name="Jordgubbe01V2" type="Sprite2D" parent="."]
-position = Vector2(1.0000001, 0.9999999)
-scale = Vector2(0.19236608, 0.19236608)
-texture = ExtResource("4_yw30f")
+[node name="AnimatedSprite2DMalte" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1.5)
+scale = Vector2(0.205, 0.205)
+sprite_frames = SubResource("SpriteFrames_1abo5")
+animation = &"walk"
 flip_h = true
