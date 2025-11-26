@@ -41,6 +41,7 @@ walk = true
 shape = SubResource("CapsuleShape2D_1abo5")
 
 [node name="BulletSpawnPoint" type="Node2D" parent="."]
+position = Vector2(17, 3)
 
 [node name="AnimatedSprite2DMalte" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.11764706, 0.28333333)
