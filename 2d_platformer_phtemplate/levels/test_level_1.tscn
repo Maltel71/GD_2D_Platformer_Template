@@ -77,10 +77,10 @@ next_scene = ExtResource("13_aupmd")
 [node name="background_01" type="TextureRect" parent="."]
 modulate = Color(0.96569866, 0.9715839, 0.9613423, 1)
 z_index = -20
-offset_left = -3111.9998
-offset_top = -1792.9999
-offset_right = -1190.9998
-offset_bottom = -710.9999
+offset_left = -2980.0
+offset_top = -1846.9999
+offset_right = -1059.0
+offset_bottom = -764.9999
 scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("3_kql2n")
 stretch_mode = 1

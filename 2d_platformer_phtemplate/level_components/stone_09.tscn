@@ -3,15 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://btoiis4q4io7f" path="res://graphics/mossten_09.png" id="1_bynnj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wl0dh"]
-radius = 57.07889
+radius = 34.09076
 
 [node name="Stone_9" type="StaticBody2D"]
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0.7, 0.7)
 shape = SubResource("CircleShape2D_wl0dh")
 
 [node name="Graphics_PH" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_bynnj")
