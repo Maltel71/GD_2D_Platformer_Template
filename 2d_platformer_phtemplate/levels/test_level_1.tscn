@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=39 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="5_5vfu0"]
 [ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_kgy88"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="7_aupmd"]
+[ext_resource type="AudioStream" uid="uid://bb32ol7vh7gcr" path="res://audio/music/a-video-game-248444.mp3" id="11_8qcgp"]
 [ext_resource type="PackedScene" uid="uid://crgxp28p1mrwi" path="res://level_components/platform_02.tscn" id="11_kx420"]
 [ext_resource type="PackedScene" uid="uid://cf2f0g8t0onlx" path="res://level_components/platform_03.tscn" id="12_8qcgp"]
 [ext_resource type="PackedScene" uid="uid://xb2kvc5kjtfb" path="res://level_components/platform_04.tscn" id="13_epd4w"]
@@ -41,7 +42,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_plkrb")]
-position = Vector2(309, 345)
+position = Vector2(-75, 292)
 jump_sound = ExtResource("2_kgy88")
 jump_volume = -20.0
 damage_sound = ExtResource("3_aupmd")
@@ -52,14 +53,11 @@ death_sound = ExtResource("5_1j1kj")
 death_volume = -20.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(311, 352)
+position = Vector2(-78, 291)
 zoom = Vector2(2, 2)
 script = ExtResource("7_aupmd")
 
 [node name="ui" parent="." instance=ExtResource("5_5vfu0")]
-
-[node name="coin" parent="." instance=ExtResource("4_02ec3")]
-position = Vector2(499, 399)
 
 [node name="background_01" type="TextureRect" parent="."]
 visible = false
@@ -72,134 +70,152 @@ scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("3_kql2n")
 stretch_mode = 1
 
-[node name="Platforms" type="Node2D" parent="."]
-position = Vector2(-3111.9998, -1792.9999)
-scale = Vector2(4.3200006, 4.3200006)
-
-[node name="platform_01" parent="Platforms" instance=ExtResource("2_grhbk")]
-position = Vector2(791.43506, 510.87958)
-scale = Vector2(0.23148146, 0.23148146)
-
-[node name="platform_07" parent="Platforms" instance=ExtResource("2_grhbk")]
-position = Vector2(769.44434, 511.34253)
-scale = Vector2(0.23148146, 0.23148146)
-
-[node name="platform_08" parent="Platforms" instance=ExtResource("2_grhbk")]
-position = Vector2(746.29614, 511.34253)
-scale = Vector2(0.23148146, 0.23148146)
-
-[node name="platform_09" parent="Platforms" instance=ExtResource("2_grhbk")]
-position = Vector2(724.3054, 511.34253)
-scale = Vector2(0.23148146, 0.23148146)
-
-[node name="platform_02" parent="Platforms" instance=ExtResource("11_kx420")]
-position = Vector2(814.12024, 531.9444)
-scale = Vector2(0.23148146, 0.23148146)
-
-[node name="platform_03" parent="Platforms" instance=ExtResource("12_8qcgp")]
-position = Vector2(835.8795, 524.3055)
-scale = Vector2(0.23148146, 0.23148146)
-
-[node name="platform_04" parent="Platforms" instance=ExtResource("13_epd4w")]
-position = Vector2(864.3517, 523.8425)
-scale = Vector2(0.23148146, 0.23148146)
-
-[node name="platform_05" parent="Platforms" instance=ExtResource("14_t2uqm")]
-position = Vector2(886.34247, 523.1481)
-scale = Vector2(0.23148146, 0.23148146)
-
-[node name="platform_06" parent="Platforms" instance=ExtResource("15_08wk4")]
-position = Vector2(899.9999, 522.4536)
-scale = Vector2(0.23148146, 0.23148146)
-
-[node name="Enemy_01" parent="." instance=ExtResource("6_kgy88")]
-position = Vector2(27, 341)
-
-[node name="Enemy_02" parent="." instance=ExtResource("17_4spla")]
-position = Vector2(109, 337)
-
-[node name="Enemy_03" parent="." instance=ExtResource("18_hvusa")]
-position = Vector2(188, 328)
-
-[node name="PlanetJorden01" type="Sprite2D" parent="."]
-position = Vector2(253, 149)
-texture = ExtResource("19_pq2bj")
-
-[node name="PlanetJupiter01" type="Sprite2D" parent="."]
-position = Vector2(434, 156)
-texture = ExtResource("20_eg16o")
-
-[node name="PlanetMars01" type="Sprite2D" parent="."]
-position = Vector2(632, 189)
-texture = ExtResource("21_ne3g0")
-
-[node name="PlanetNeptunus01" type="Sprite2D" parent="."]
-position = Vector2(811, 181)
-texture = ExtResource("22_80jea")
-
-[node name="PlanetSaturnus01" type="Sprite2D" parent="."]
-position = Vector2(997, 180)
-texture = ExtResource("23_aic7k")
-
-[node name="PlanetSolen01" type="Sprite2D" parent="."]
-position = Vector2(1266, 181)
-texture = ExtResource("24_bbmfv")
-
-[node name="PlanetUranus01" type="Sprite2D" parent="."]
-position = Vector2(1499, 184)
-texture = ExtResource("25_781c4")
-
 [node name="GoalTrigger" parent="." instance=ExtResource("26_eo6ht")]
 position = Vector2(778, 401)
 scale = Vector2(1.66, 1.66)
 next_scene = ExtResource("27_ump1x")
 
-[node name="Star01" type="Sprite2D" parent="."]
-position = Vector2(139.22298, 141.43185)
-scale = Vector2(0.407407, 0.407407)
-texture = ExtResource("28_jjbbu")
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_8qcgp")
+volume_db = -20.0
+autoplay = true
 
-[node name="Star02" type="Sprite2D" parent="."]
-position = Vector2(58.222992, 141.43185)
-scale = Vector2(0.4294061, 0.4294061)
-texture = ExtResource("29_of0cm")
+[node name="==PLATFORMS==" type="Node2D" parent="."]
+position = Vector2(-3111.9998, -1792.9999)
+scale = Vector2(4.3200006, 4.3200006)
 
-[node name="Star03" type="Sprite2D" parent="."]
-position = Vector2(-15, 139)
-scale = Vector2(0.4550802, 0.4550802)
-texture = ExtResource("30_0yeek")
+[node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(795.6017, 513.42584)
+scale = Vector2(0.23148146, 0.23148146)
 
-[node name="Star04" type="Sprite2D" parent="."]
-position = Vector2(-73, 137.00002)
-scale = Vector2(0.2593345, 0.2593345)
-texture = ExtResource("31_6h26u")
+[node name="platform_07" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(773.61096, 513.8888)
+scale = Vector2(0.23148146, 0.23148146)
 
-[node name="Star05" type="Sprite2D" parent="."]
-position = Vector2(-160, 133)
-scale = Vector2(0.45574567, 0.45574567)
-texture = ExtResource("32_7ewf0")
+[node name="platform_08" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(750.46277, 513.8888)
+scale = Vector2(0.23148146, 0.23148146)
 
-[node name="Star06" type="Sprite2D" parent="."]
-position = Vector2(-228.00002, 137.00002)
-scale = Vector2(0.6132878, 0.6132878)
-texture = ExtResource("33_bkak0")
+[node name="platform_09" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(728.47205, 513.8888)
+scale = Vector2(0.23148146, 0.23148146)
 
-[node name="Pickups" type="Node2D" parent="."]
+[node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("11_kx420")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("12_8qcgp")]
+position = Vector2(835.8795, 524.3055)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("13_epd4w")]
+position = Vector2(864.3517, 523.8425)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("14_t2uqm")]
+position = Vector2(886.34247, 523.1481)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("15_08wk4")]
+position = Vector2(899.9999, 522.4536)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="==ENEMIES==" type="Node2D" parent="."]
+position = Vector2(-3111.9998, -1792.9999)
+scale = Vector2(4.3200006, 4.3200006)
+
+[node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
+position = Vector2(726.62024, 493.9814)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("17_4spla")]
+position = Vector2(835.648, 503.00916)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("18_hvusa")]
+position = Vector2(763.88873, 490.97217)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="==COLLECTABLES==" type="Node2D" parent="."]
 position = Vector2(307.00024, 414.00012)
 scale = Vector2(1.0000001, 1.0000001)
 
-[node name="coin2" parent="Pickups" instance=ExtResource("34_gg41s")]
-position = Vector2(226.99973, -14.000122)
+[node name="coin2" parent="==COLLECTABLES==" instance=ExtResource("34_gg41s")]
+position = Vector2(310.99973, -8.000122)
 scale = Vector2(0.9999999, 0.9999999)
 
-[node name="coin3" parent="Pickups" instance=ExtResource("35_x1gpf")]
-position = Vector2(259.99973, -18.000122)
+[node name="coin3" parent="==COLLECTABLES==" instance=ExtResource("35_x1gpf")]
+position = Vector2(338.99973, -7.000122)
 scale = Vector2(0.9999999, 0.9999999)
 
-[node name="coin4" parent="Pickups" instance=ExtResource("36_ojkuq")]
-position = Vector2(288.99973, -15.000122)
+[node name="coin4" parent="==COLLECTABLES==" instance=ExtResource("36_ojkuq")]
+position = Vector2(363.99973, -5.000122)
 scale = Vector2(0.9999999, 0.9999999)
 
-[node name="coin5" parent="Pickups" instance=ExtResource("37_26rj0")]
-position = Vector2(316.99973, -17.000122)
+[node name="coin5" parent="==COLLECTABLES==" instance=ExtResource("37_26rj0")]
+position = Vector2(388.99973, -6.000122)
 scale = Vector2(0.9999999, 0.9999999)
+
+[node name="coin" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(281.99973, -8.000122)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="==DECORATION==" type="Node2D" parent="."]
+position = Vector2(253, 149)
+
+[node name="PlanetJorden01" type="Sprite2D" parent="==DECORATION=="]
+texture = ExtResource("19_pq2bj")
+
+[node name="PlanetJupiter01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(181, 7)
+texture = ExtResource("20_eg16o")
+
+[node name="PlanetMars01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(379, 40)
+texture = ExtResource("21_ne3g0")
+
+[node name="PlanetNeptunus01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(558, 32)
+texture = ExtResource("22_80jea")
+
+[node name="PlanetSaturnus01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(744, 31)
+texture = ExtResource("23_aic7k")
+
+[node name="PlanetSolen01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(1013, 32)
+texture = ExtResource("24_bbmfv")
+
+[node name="PlanetUranus01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(1246, 35)
+texture = ExtResource("25_781c4")
+
+[node name="Star01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("28_jjbbu")
+
+[node name="Star02" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("29_of0cm")
+
+[node name="Star03" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("30_0yeek")
+
+[node name="Star04" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("31_6h26u")
+
+[node name="Star05" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("32_7ewf0")
+
+[node name="Star06" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("33_bkak0")
