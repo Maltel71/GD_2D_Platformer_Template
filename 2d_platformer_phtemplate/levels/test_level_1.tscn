@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=28 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_kgy88"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="7_aupmd"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
+[ext_resource type="AudioStream" uid="uid://bffv7v00r0jok" path="res://audio/Music/i-love-my-8-bit-game-console-301272.mp3" id="8_wh4jk"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
 [ext_resource type="PackedScene" uid="uid://crgxp28p1mrwi" path="res://level_components/platform_02.tscn" id="15_t58ta"]
@@ -47,8 +48,13 @@ script = ExtResource("7_aupmd")
 
 [node name="ui" parent="." instance=ExtResource("5_5vfu0")]
 
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_wh4jk")
+volume_db = -20.0
+autoplay = true
+
 [node name="background_01" type="TextureRect" parent="."]
-visible = false
+modulate = Color(0.96653885, 0.95949465, 0.9446348, 1)
 z_index = -20
 offset_left = -3111.9998
 offset_top = -1792.9999
@@ -59,74 +65,98 @@ texture = ExtResource("3_kql2n")
 stretch_mode = 1
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
-position = Vector2(87, 293)
+position = Vector2(857, 338)
 next_scene = ExtResource("13_aupmd")
 
-[node name="Enemy_01" parent="." instance=ExtResource("6_kgy88")]
+[node name="==PLATFORMS==" type="Node2D" parent="."]
 position = Vector2(351, 361)
 
-[node name="Enemy_Floating" parent="." instance=ExtResource("9_grhbk")]
-position = Vector2(776, 210)
+[node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(-115, 34)
 
-[node name="platform_01" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(236, 395)
+[node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(-179, 34)
 
-[node name="platform_05" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(172, 395)
+[node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("15_t58ta")]
+position = Vector2(-5, 65)
 
-[node name="platform_02" parent="." instance=ExtResource("15_t58ta")]
-position = Vector2(346, 426)
+[node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("15_t58ta")]
+position = Vector2(147, 65)
 
-[node name="platform_03" parent="." instance=ExtResource("15_t58ta")]
-position = Vector2(498, 426)
+[node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("15_t58ta")]
+position = Vector2(299, 65)
 
-[node name="platform_04" parent="." instance=ExtResource("15_t58ta")]
-position = Vector2(650, 426)
+[node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("15_t58ta")]
+position = Vector2(454, 65)
 
-[node name="Enemy_02" parent="." instance=ExtResource("16_1j1kj")]
-position = Vector2(668, 363)
+[node name="==ENEMIES==" type="Node2D" parent="."]
+position = Vector2(351, 361)
 
-[node name="Flower01" type="Sprite2D" parent="."]
-position = Vector2(144, 331)
-scale = Vector2(0.3079096, 0.30790958)
-texture = ExtResource("17_pmbwx")
+[node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
 
-[node name="Enemy_Floating2" parent="." instance=ExtResource("18_lgfx6")]
+[node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
+position = Vector2(425, -151)
+
+[node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("16_1j1kj")]
+position = Vector2(317, 2)
+
+[node name="Enemy_Floating2" parent="==ENEMIES==" instance=ExtResource("18_lgfx6")]
+position = Vector2(-79, -168)
+
+[node name="==COLLECTABLES==" type="Node2D" parent="."]
 position = Vector2(272, 193)
 
-[node name="Svamp01" type="Sprite2D" parent="."]
-z_index = -5
+[node name="coin_01" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(213, 135)
+
+[node name="coin_02" parent="==COLLECTABLES==" instance=ExtResource("22_ly28y")]
+position = Vector2(236, 135)
+
+[node name="coin_03" parent="==COLLECTABLES==" instance=ExtResource("23_wh4jk")]
+position = Vector2(261, 136)
+
+[node name="coin_04" parent="==COLLECTABLES==" instance=ExtResource("24_h5kva")]
+position = Vector2(302, 139)
+
+[node name="coin_05" parent="==COLLECTABLES==" instance=ExtResource("25_5f30t")]
+position = Vector2(496, 167)
+
+[node name="coin_06" parent="==COLLECTABLES==" instance=ExtResource("26_fxlwo")]
+position = Vector2(529, 167)
+
+[node name="==ENVIROMENT==" type="Node2D" parent="."]
 position = Vector2(457, 379)
 scale = Vector2(0.40154755, 0.40154755)
+
+[node name="Stone_01" parent="==ENVIROMENT==" instance=ExtResource("21_5iaa6")]
+position = Vector2(-866.6471, 134.47968)
+scale = Vector2(2.4903653, 2.4903653)
+
+[node name="Stone_02" parent="==ENVIROMENT==" instance=ExtResource("21_5iaa6")]
+position = Vector2(-993.65576, 146.93158)
+rotation = -1.032697
+scale = Vector2(2.4903653, 2.4903653)
+
+[node name="Stone_03" parent="==ENVIROMENT==" instance=ExtResource("21_5iaa6")]
+position = Vector2(276.43054, 19.922913)
+rotation = -0.39868164
+scale = Vector2(2.4903653, 2.4903653)
+
+[node name="==DECORATION==" type="Node2D" parent="."]
+position = Vector2(144, 331)
+scale = Vector2(0.3079096, 0.30790958)
+
+[node name="Flower01" type="Sprite2D" parent="==DECORATION=="]
+texture = ExtResource("17_pmbwx")
+
+[node name="Svamp01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(1016.53204, 155.89001)
+scale = Vector2(1.3041085, 1.3041086)
 texture = ExtResource("19_d31dk")
 
-[node name="Tree01" type="Sprite2D" parent="."]
+[node name="Tree01" type="Sprite2D" parent="==DECORATION=="]
 z_index = -10
-position = Vector2(433, 312)
-scale = Vector2(0.4302097, 0.4302097)
+position = Vector2(938.5871, -61.70636)
+scale = Vector2(1.3971947, 1.3971949)
 texture = ExtResource("20_6q8gj")
-
-[node name="coin_01" parent="." instance=ExtResource("4_02ec3")]
-position = Vector2(485, 328)
-
-[node name="coin_02" parent="." instance=ExtResource("22_ly28y")]
-position = Vector2(508, 328)
-
-[node name="coin_03" parent="." instance=ExtResource("23_wh4jk")]
-position = Vector2(530, 327)
-
-[node name="coin_04" parent="." instance=ExtResource("24_h5kva")]
-position = Vector2(552, 326)
-
-[node name="coin_05" parent="." instance=ExtResource("25_5f30t")]
-position = Vector2(574, 325)
-
-[node name="coin_06" parent="." instance=ExtResource("26_fxlwo")]
-position = Vector2(597, 326)
-
-[node name="Stone_01" parent="." instance=ExtResource("21_5iaa6")]
-position = Vector2(109, 433)
-
-[node name="Stone_02" parent="." instance=ExtResource("21_5iaa6")]
-position = Vector2(58, 438)
-rotation = -1.032697

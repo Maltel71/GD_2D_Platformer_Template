@@ -24,17 +24,17 @@ texture = ExtResource("2_on2tm")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -19)
+position = Vector2(0, -23)
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(0, 12)
 rotation = -1.5708
 target_position = Vector2(0, 44.745)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(0, 12)
 rotation = 1.5708
 target_position = Vector2(0, 44.745)
 collision_mask = 9

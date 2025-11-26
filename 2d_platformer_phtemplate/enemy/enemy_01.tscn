@@ -19,16 +19,19 @@ script = ExtResource("1_laejb")
 position = Vector2(0, -2)
 scale = Vector2(0.22978725, 0.22978728)
 texture = ExtResource("2_laejb")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
+position = Vector2(0, 14)
 rotation = -1.5708
 target_position = Vector2(0, 35)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 14)
 rotation = 1.5708
 target_position = Vector2(0, 35)
 collision_mask = 9
