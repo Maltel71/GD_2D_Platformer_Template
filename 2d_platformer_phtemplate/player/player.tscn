@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dagyi6jlwbb0w"]
+[gd_scene load_steps=7 format=3 uid="uid://dagyi6jlwbb0w"]
 
 [ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://player/UltimatePlatformerController.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_yw30f"]
 [ext_resource type="Texture2D" uid="uid://cc84v4g55qmqr" path="res://graphics/player_astronaut_01.png" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://cc6enhi45yrdk" path="res://graphics/coin_01.png" id="3_yw30f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
 radius = 14.0
@@ -41,7 +42,13 @@ walk = true
 shape = SubResource("CapsuleShape2D_1abo5")
 
 [node name="BulletSpawnPoint" type="Node2D" parent="."]
-position = Vector2(17, 3)
+position = Vector2(18, 3)
+
+[node name="WeaponSprite" type="Sprite2D" parent="BulletSpawnPoint"]
+visible = false
+position = Vector2(-1.9073486e-06, 2.3841858e-07)
+scale = Vector2(0.10495944, 0.10495944)
+texture = ExtResource("3_yw30f")
 
 [node name="AnimatedSprite2DMalte" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.11764706, 0.28333333)
