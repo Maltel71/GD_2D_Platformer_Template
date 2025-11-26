@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cari2tg1labr3"]
+[gd_scene load_steps=8 format=3 uid="uid://cari2tg1labr3"]
 
 [ext_resource type="Script" uid="uid://csjbu0ksq5dmp" path="res://menus/start_menu.gd" id="1_74ymc"]
 [ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/click/click (1).wav" id="2_pivjg"]
-[ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/placeholders/icon.svg" id="3_eaowb"]
+[ext_resource type="Texture2D" uid="uid://cudumxvxstxfc" path="res://graphics/maggie_01.png" id="3_kos7h"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="4_kos7h"]
+[ext_resource type="AudioStream" uid="uid://burl5a0avvnuc" path="res://audio/Music/arcade-beat-323176.mp3" id="5_pivjg"]
+[ext_resource type="Texture2D" uid="uid://dcjpidaug5ypv" path="res://graphics/char_flob_6_7_01_v1.png" id="6_78o3g"]
+[ext_resource type="Texture2D" uid="uid://8oauimdh1mlg" path="res://graphics/flower_01.png" id="7_1q4qq"]
 
 [node name="WinMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_74ymc")
-game_scene_path = "res://levels/test_level_1.tscn"
+game_scene_path = "res://levels/karol67_level.tscn"
 hover_sound = ExtResource("2_pivjg")
 
 [node name="StartButton" type="Button" parent="."]
@@ -49,10 +52,22 @@ vertical_alignment = 1
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1554, 702.99994)
 scale = Vector2(3.5537133, 3.5537133)
-texture = ExtResource("3_eaowb")
+texture = ExtResource("3_kos7h")
 
 [node name="BG" type="Sprite2D" parent="."]
 z_index = -5
 position = Vector2(965, 543)
 scale = Vector2(3.8400002, 2.1999993)
 texture = ExtResource("4_kos7h")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_pivjg")
+autoplay = true
+
+[node name="CharFlob6701V1" type="Sprite2D" parent="."]
+position = Vector2(363, 730)
+texture = ExtResource("6_78o3g")
+
+[node name="Flower01" type="Sprite2D" parent="."]
+position = Vector2(933, 925)
+texture = ExtResource("7_1q4qq")

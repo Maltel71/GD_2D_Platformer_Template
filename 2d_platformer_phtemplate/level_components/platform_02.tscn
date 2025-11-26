@@ -14,6 +14,7 @@ position = Vector2(-4.5, -1)
 shape = SubResource("RectangleShape2D_hmrlc")
 
 [node name="Graphics_PH" type="Sprite2D" parent="."]
+modulate = Color(0.033853278, 0.033853278, 0.033853274, 1)
 z_index = -5
 position = Vector2(-4, -28.999996)
 scale = Vector2(0.44642863, 0.44642857)

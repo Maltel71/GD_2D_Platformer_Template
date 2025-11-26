@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_kgy88"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="7_aupmd"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
-[ext_resource type="AudioStream" uid="uid://bffv7v00r0jok" path="res://audio/Music/i-love-my-8-bit-game-console-301272.mp3" id="8_wh4jk"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
 [ext_resource type="PackedScene" uid="uid://crgxp28p1mrwi" path="res://level_components/platform_02.tscn" id="15_t58ta"]
@@ -27,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b7j1xmvymoswh" path="res://collectables/coin_04.tscn" id="24_h5kva"]
 [ext_resource type="PackedScene" uid="uid://bgecv8lof6ofr" path="res://collectables/coin_05.tscn" id="25_5f30t"]
 [ext_resource type="PackedScene" uid="uid://wik5isbmra3m" path="res://collectables/coin_06.tscn" id="26_fxlwo"]
+[ext_resource type="AudioStream" uid="uid://cnh0j4mx7f6fm" path="res://audio/Music/jungle-ish-beat-for-video-games-314073.mp3" id="28_h5kva"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -47,11 +47,6 @@ zoom = Vector2(2, 2)
 script = ExtResource("7_aupmd")
 
 [node name="ui" parent="." instance=ExtResource("5_5vfu0")]
-
-[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_wh4jk")
-volume_db = -20.0
-autoplay = true
 
 [node name="background_01" type="TextureRect" parent="."]
 modulate = Color(0.96653885, 0.95949465, 0.9446348, 1)
@@ -160,3 +155,8 @@ z_index = -10
 position = Vector2(844.4035, -42.220215)
 scale = Vector2(1.3971947, 1.3971949)
 texture = ExtResource("20_6q8gj")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("28_h5kva")
+volume_db = -20.0
+autoplay = true

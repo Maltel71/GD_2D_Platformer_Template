@@ -1,0 +1,325 @@
+[gd_scene load_steps=28 format=3 uid="uid://cyvwb2rco7m4"]
+
+[ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_ijg6v"]
+[ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/jump/jump.wav" id="2_al8mx"]
+[ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/hit_hurt/hitHurt (1).wav" id="3_8in2f"]
+[ext_resource type="AudioStream" uid="uid://d3xekf1n6wys2" path="res://audio/laser_shoot/laserShoot (1).wav" id="4_mags5"]
+[ext_resource type="AudioStream" uid="uid://bf65jj4hxa28c" path="res://audio/hit_hurt/hitHurt.wav" id="5_gsaaa"]
+[ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="6_rxou1"]
+[ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="7_6scem"]
+[ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="8_is1ai"]
+[ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="9_gjxkx"]
+[ext_resource type="PackedScene" uid="uid://cari2tg1labr3" path="res://menus/WinMenu.tscn" id="10_ijg6v"]
+[ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="11_ip0a0"]
+[ext_resource type="PackedScene" uid="uid://crgxp28p1mrwi" path="res://level_components/platform_02.tscn" id="12_ky5dp"]
+[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="13_gb1s5"]
+[ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="14_4504i"]
+[ext_resource type="PackedScene" uid="uid://dci41ks6vt8dy" path="res://enemy/DrBot.tscn" id="15_54yva"]
+[ext_resource type="PackedScene" uid="uid://dnfn0odq5q0nc" path="res://enemy/maggie.tscn" id="16_7gimj"]
+[ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin_01.tscn" id="17_iqcgb"]
+[ext_resource type="PackedScene" uid="uid://dgx2emlkhdhbb" path="res://collectables/coin_02.tscn" id="18_54dpn"]
+[ext_resource type="PackedScene" uid="uid://coi71o3os1eyl" path="res://collectables/coin_03.tscn" id="19_d2tr5"]
+[ext_resource type="PackedScene" uid="uid://b7j1xmvymoswh" path="res://collectables/coin_04.tscn" id="20_lpmym"]
+[ext_resource type="PackedScene" uid="uid://bgecv8lof6ofr" path="res://collectables/coin_05.tscn" id="21_vc2ac"]
+[ext_resource type="PackedScene" uid="uid://wik5isbmra3m" path="res://collectables/coin_06.tscn" id="22_cds72"]
+[ext_resource type="PackedScene" uid="uid://t4l5coni1xc2" path="res://level_components/Stone.tscn" id="23_vvs5f"]
+[ext_resource type="Texture2D" uid="uid://8oauimdh1mlg" path="res://graphics/flower_01.png" id="24_40wb3"]
+[ext_resource type="Texture2D" uid="uid://0hqbwhmaib0c" path="res://graphics/svamp_01.png" id="25_vhxks"]
+[ext_resource type="Texture2D" uid="uid://cei54a6h3jdl6" path="res://graphics/tree_01.png" id="26_brg0q"]
+[ext_resource type="AudioStream" uid="uid://cgxkqqajnr5f" path="res://audio/Music/dark-horror-suspense-442042.mp3" id="27_ijg6v"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ijg6v")]
+position = Vector2(184, 310)
+scale = Vector2(1.0074533, 1)
+jumps = 3
+shortHopAkaVariableJumpHeight = false
+jump_sound = ExtResource("2_al8mx")
+jump_volume = -20.0
+damage_sound = ExtResource("3_8in2f")
+damage_volume = -20.0
+shoot_sound = ExtResource("4_mags5")
+shoot_volume = -20.0
+death_sound = ExtResource("5_gsaaa")
+death_volume = -20.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(183, 310)
+zoom = Vector2(2, 2)
+script = ExtResource("6_rxou1")
+
+[node name="ui" parent="." instance=ExtResource("7_6scem")]
+
+[node name="background_01" type="TextureRect" parent="."]
+modulate = Color(0.16256794, 0.12940675, 0.14929584, 1)
+z_index = -20
+offset_left = -2905.9998
+offset_top = -1816.9999
+offset_right = -984.99976
+offset_bottom = -734.9999
+scale = Vector2(4.3200006, 4.3200006)
+texture = ExtResource("8_is1ai")
+stretch_mode = 1
+
+[node name="GoalTrigger" parent="." instance=ExtResource("9_gjxkx")]
+position = Vector2(182, 707)
+next_scene = ExtResource("10_ijg6v")
+
+[node name="==PLATFORMS==" type="Node2D" parent="."]
+position = Vector2(351, 361)
+
+[node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("11_ip0a0")]
+modulate = Color(0.043039158, 0.04303915, 0.04303915, 1)
+position = Vector2(-115, 34)
+
+[node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("11_ip0a0")]
+modulate = Color(0.06053035, 0.06053035, 0.060530342, 1)
+position = Vector2(-179, 34)
+
+[node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("12_ky5dp")]
+position = Vector2(-5, 65)
+
+[node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("12_ky5dp")]
+position = Vector2(147, 65)
+
+[node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("12_ky5dp")]
+position = Vector2(299, 65)
+
+[node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("12_ky5dp")]
+position = Vector2(454, 65)
+
+[node name="platform_07" parent="==PLATFORMS==" instance=ExtResource("12_ky5dp")]
+position = Vector2(727, 73)
+
+[node name="platform_08" parent="==PLATFORMS==" instance=ExtResource("12_ky5dp")]
+position = Vector2(1115, -7)
+
+[node name="platform_09" parent="==PLATFORMS==" instance=ExtResource("12_ky5dp")]
+position = Vector2(618, 414)
+
+[node name="platform_13" parent="==PLATFORMS==" instance=ExtResource("12_ky5dp")]
+position = Vector2(454, 418)
+
+[node name="platform_10" parent="==PLATFORMS==" instance=ExtResource("12_ky5dp")]
+position = Vector2(942, 424)
+
+[node name="platform_11" parent="==PLATFORMS==" instance=ExtResource("12_ky5dp")]
+position = Vector2(1115, 428)
+
+[node name="platform_12" parent="==PLATFORMS==" instance=ExtResource("12_ky5dp")]
+position = Vector2(1304, 274)
+
+[node name="==ENEMIES==" type="Node2D" parent="."]
+position = Vector2(351, 361)
+
+[node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("13_gb1s5")]
+position = Vector2(-14, 11)
+
+[node name="Enemy_04" parent="==ENEMIES==" instance=ExtResource("13_gb1s5")]
+position = Vector2(427, 364)
+
+[node name="Enemy_05" parent="==ENEMIES==" instance=ExtResource("13_gb1s5")]
+position = Vector2(905, 377)
+
+[node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("13_gb1s5")]
+position = Vector2(1142, -136)
+
+[node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("14_4504i")]
+position = Vector2(425, -151)
+
+[node name="Enemy_Floating3" parent="==ENEMIES==" instance=ExtResource("14_4504i")]
+position = Vector2(965, 124)
+
+[node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("15_54yva")]
+position = Vector2(317, 2)
+
+[node name="Enemy_Floating2" parent="==ENEMIES==" instance=ExtResource("16_7gimj")]
+position = Vector2(-6, -205)
+
+[node name="Enemy_Floating4" parent="==ENEMIES==" instance=ExtResource("16_7gimj")]
+position = Vector2(106, 328)
+
+[node name="Enemy_Floating8" parent="==ENEMIES==" instance=ExtResource("16_7gimj")]
+position = Vector2(160, 329)
+
+[node name="Enemy_Floating9" parent="==ENEMIES==" instance=ExtResource("16_7gimj")]
+position = Vector2(206, 329)
+
+[node name="Enemy_Floating5" parent="==ENEMIES==" instance=ExtResource("16_7gimj")]
+position = Vector2(-62, 333)
+
+[node name="Enemy_Floating6" parent="==ENEMIES==" instance=ExtResource("16_7gimj")]
+position = Vector2(-4, 332)
+
+[node name="Enemy_Floating7" parent="==ENEMIES==" instance=ExtResource("16_7gimj")]
+position = Vector2(53, 329)
+
+[node name="==COLLECTABLES==" type="Node2D" parent="."]
+position = Vector2(272, 193)
+
+[node name="coin_01" parent="==COLLECTABLES==" instance=ExtResource("17_iqcgb")]
+position = Vector2(213, 135)
+
+[node name="coin_02" parent="==COLLECTABLES==" instance=ExtResource("18_54dpn")]
+position = Vector2(236, 135)
+
+[node name="coin_03" parent="==COLLECTABLES==" instance=ExtResource("19_d2tr5")]
+position = Vector2(261, 136)
+
+[node name="coin_04" parent="==COLLECTABLES==" instance=ExtResource("20_lpmym")]
+position = Vector2(302, 139)
+
+[node name="coin_05" parent="==COLLECTABLES==" instance=ExtResource("21_vc2ac")]
+position = Vector2(496, 167)
+
+[node name="coin_06" parent="==COLLECTABLES==" instance=ExtResource("22_cds72")]
+position = Vector2(529, 167)
+
+[node name="==COLLECTABLES==2" type="Node2D" parent="."]
+position = Vector2(738, 583)
+
+[node name="coin_01" parent="==COLLECTABLES==2" instance=ExtResource("17_iqcgb")]
+position = Vector2(213, 135)
+
+[node name="coin_02" parent="==COLLECTABLES==2" instance=ExtResource("18_54dpn")]
+position = Vector2(236, 135)
+
+[node name="coin_03" parent="==COLLECTABLES==2" instance=ExtResource("19_d2tr5")]
+position = Vector2(261, 136)
+
+[node name="coin_04" parent="==COLLECTABLES==2" instance=ExtResource("20_lpmym")]
+position = Vector2(302, 139)
+
+[node name="coin_05" parent="==COLLECTABLES==2" instance=ExtResource("21_vc2ac")]
+position = Vector2(496, 167)
+
+[node name="coin_06" parent="==COLLECTABLES==2" instance=ExtResource("22_cds72")]
+position = Vector2(529, 167)
+
+[node name="==COLLECTABLES==3" type="Node2D" parent="."]
+position = Vector2(991, 576)
+
+[node name="coin_01" parent="==COLLECTABLES==3" instance=ExtResource("17_iqcgb")]
+position = Vector2(528, 169)
+
+[node name="coin_02" parent="==COLLECTABLES==3" instance=ExtResource("18_54dpn")]
+position = Vector2(330, 166)
+
+[node name="coin_03" parent="==COLLECTABLES==3" instance=ExtResource("19_d2tr5")]
+position = Vector2(462, 171)
+
+[node name="coin_04" parent="==COLLECTABLES==3" instance=ExtResource("20_lpmym")]
+position = Vector2(394, 167)
+
+[node name="coin_05" parent="==COLLECTABLES==3" instance=ExtResource("21_vc2ac")]
+position = Vector2(615, 21)
+
+[node name="coin_06" parent="==COLLECTABLES==3" instance=ExtResource("22_cds72")]
+position = Vector2(697, 24)
+point_value = 5
+
+[node name="==ENVIROMENT==" type="Node2D" parent="."]
+position = Vector2(457, 379)
+scale = Vector2(0.40154755, 0.40154755)
+
+[node name="Stone_01" parent="==ENVIROMENT==" instance=ExtResource("23_vvs5f")]
+modulate = Color(0.072842635, 0.072842635, 0.072842635, 1)
+position = Vector2(2966.0247, 97.12427)
+scale = Vector2(2.4903653, 2.4903653)
+
+[node name="Stone_02" parent="==ENVIROMENT==" instance=ExtResource("23_vvs5f")]
+position = Vector2(-993.65576, 146.93158)
+rotation = -1.032697
+scale = Vector2(2.4903653, 2.4903653)
+
+[node name="Stone_04" parent="==ENVIROMENT==" instance=ExtResource("23_vvs5f")]
+modulate = Color(0.056291588, 0.056291603, 0.056291595, 1)
+position = Vector2(2039.6089, -22.413239)
+rotation = -0.5096223
+scale = Vector2(-5.872719, 3.4967935)
+
+[node name="Stone_03" parent="==ENVIROMENT==" instance=ExtResource("23_vvs5f")]
+position = Vector2(276.43054, 19.922913)
+rotation = -0.39868164
+scale = Vector2(2.4903653, 2.4903653)
+
+[node name="==DECORATION==" type="Node2D" parent="."]
+position = Vector2(144, 331)
+scale = Vector2(0.3079096, 0.30790958)
+
+[node name="Flower01" type="Sprite2D" parent="==DECORATION=="]
+texture = ExtResource("24_40wb3")
+
+[node name="Svamp01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(1016.53204, 155.89001)
+scale = Vector2(1.3041085, 1.3041086)
+texture = ExtResource("25_vhxks")
+
+[node name="Svamp02" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(2838.495, 181.87157)
+scale = Vector2(1.3041085, 1.3041086)
+texture = ExtResource("25_vhxks")
+
+[node name="Tree01" type="Sprite2D" parent="==DECORATION=="]
+modulate = Color(0.07683582, 0.07683582, 0.07683582, 1)
+z_index = -10
+position = Vector2(844.4035, -42.220215)
+scale = Vector2(1.3971947, 1.3971949)
+texture = ExtResource("26_brg0q")
+
+[node name="Tree02" type="Sprite2D" parent="==DECORATION=="]
+modulate = Color(0.07683582, 0.07683582, 0.07683582, 1)
+z_index = -10
+position = Vector2(1162.679, -29.229387)
+scale = Vector2(1.3971947, 1.3971949)
+texture = ExtResource("26_brg0q")
+
+[node name="Tree03" type="Sprite2D" parent="==DECORATION=="]
+modulate = Color(0.07683582, 0.07683582, 0.07683582, 1)
+z_index = -10
+position = Vector2(1428.9907, -42.220215)
+scale = Vector2(1.3971947, 1.3971949)
+texture = ExtResource("26_brg0q")
+
+[node name="Tree04" type="Sprite2D" parent="==DECORATION=="]
+modulate = Color(0.07683582, 0.07683582, 0.07683582, 1)
+z_index = -10
+position = Vector2(2127.2476, -19.486267)
+scale = Vector2(1.3971947, 1.3971949)
+texture = ExtResource("26_brg0q")
+
+[node name="Tree06" type="Sprite2D" parent="==DECORATION=="]
+modulate = Color(0.07683582, 0.07683582, 0.07683582, 1)
+z_index = -10
+position = Vector2(3065.835, -12.990853)
+scale = Vector2(1.3971947, 1.3971949)
+texture = ExtResource("26_brg0q")
+
+[node name="Tree07" type="Sprite2D" parent="==DECORATION=="]
+modulate = Color(0.07683582, 0.07683582, 0.07683582, 1)
+z_index = -10
+position = Vector2(3939.468, -162.38538)
+scale = Vector2(1.3971947, 1.3971949)
+texture = ExtResource("26_brg0q")
+
+[node name="Tree08" type="Sprite2D" parent="==DECORATION=="]
+modulate = Color(0.07683582, 0.07683582, 0.07683582, 1)
+z_index = -10
+position = Vector2(3364.6243, 35.724747)
+scale = Vector2(1.3971947, 1.3971949)
+texture = ExtResource("26_brg0q")
+
+[node name="Tree05" type="Sprite2D" parent="==DECORATION=="]
+modulate = Color(0.07683582, 0.07683582, 0.07683582, 1)
+z_index = -10
+position = Vector2(1799.2292, -35.7248)
+scale = Vector2(1.3971947, 1.3971949)
+texture = ExtResource("26_brg0q")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("27_ijg6v")
+volume_db = -20.0
+autoplay = true
