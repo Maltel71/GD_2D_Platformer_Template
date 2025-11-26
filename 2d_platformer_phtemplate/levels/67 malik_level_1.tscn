@@ -1,0 +1,5394 @@
+[gd_scene load_steps=34 format=3 uid="uid://etcq67swsk12"]
+
+[ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_p060u"]
+[ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/jump/jump.wav" id="2_kq1lw"]
+[ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/hit_hurt/hitHurt (1).wav" id="3_hg2to"]
+[ext_resource type="AudioStream" uid="uid://d3xekf1n6wys2" path="res://audio/laser_shoot/laserShoot (1).wav" id="4_auopa"]
+[ext_resource type="AudioStream" uid="uid://bf65jj4hxa28c" path="res://audio/hit_hurt/hitHurt.wav" id="5_xw5my"]
+[ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="6_vajwd"]
+[ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="7_1bevd"]
+[ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="8_kc7cy"]
+[ext_resource type="PackedScene" uid="uid://b5lo76u7bvo3w" path="res://level_components/goal_trigger/End_goal_trigger.tscn" id="9_qo6xl"]
+[ext_resource type="PackedScene" uid="uid://cari2tg1labr3" path="res://menus/WinMenu.tscn" id="10_8i72k"]
+[ext_resource type="AudioStream" uid="uid://bb32ol7vh7gcr" path="res://audio/music/a-video-game-248444.mp3" id="11_nra20"]
+[ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="12_f3ytg"]
+[ext_resource type="PackedScene" uid="uid://crgxp28p1mrwi" path="res://level_components/platform_02.tscn" id="13_2kxip"]
+[ext_resource type="PackedScene" uid="uid://cf2f0g8t0onlx" path="res://level_components/platform_03.tscn" id="14_hsgpm"]
+[ext_resource type="PackedScene" uid="uid://c0hxjsckob8k7" path="res://level_components/platform_05.tscn" id="16_m3luf"]
+[ext_resource type="PackedScene" uid="uid://cqhg157bw66n3" path="res://level_components/platform_spiked_01.tscn" id="17_rrc36"]
+[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="18_wau43"]
+[ext_resource type="PackedScene" uid="uid://ctlv4mvijbdaa" path="res://enemy/enemy_02.tscn" id="19_u1x3w"]
+[ext_resource type="PackedScene" uid="uid://ddpo886r0i2w4" path="res://enemy/enemy_03.tscn" id="20_n4fjs"]
+[ext_resource type="PackedScene" uid="uid://mki2hnb3cnle" path="res://collectables/coin_1000p.tscn" id="24_4lfqm"]
+[ext_resource type="Texture2D" uid="uid://d2cdh0v7dj21p" path="res://graphics/planet_Jorden_01.png" id="26_pvk28"]
+[ext_resource type="Texture2D" uid="uid://cocwb2keosqhe" path="res://graphics/planet_Jupiter_01.png" id="27_gx6g8"]
+[ext_resource type="Texture2D" uid="uid://5f32wvl3vmrh" path="res://graphics/planet_Mars_01.png" id="28_e8wls"]
+[ext_resource type="Texture2D" uid="uid://300bw4rrhh0p" path="res://graphics/planet_Neptunus_01.png" id="29_j3acy"]
+[ext_resource type="Texture2D" uid="uid://cg0exrdmtovu4" path="res://graphics/planet_Saturnus_01.png" id="30_s0608"]
+[ext_resource type="Texture2D" uid="uid://c2tjsu8jgx383" path="res://graphics/planet_Solen_01.png" id="31_yreqk"]
+[ext_resource type="Texture2D" uid="uid://dr3vgnc81ydrb" path="res://graphics/planet_Uranus_01.png" id="32_mg1ij"]
+[ext_resource type="Texture2D" uid="uid://cbhixn4l7jcqo" path="res://graphics/Star_01.png" id="33_n3w2u"]
+[ext_resource type="Texture2D" uid="uid://dhbg16vp7o0g0" path="res://graphics/Star_02.png" id="34_jt3es"]
+[ext_resource type="Texture2D" uid="uid://03yp6dxmxbns" path="res://graphics/Star_03.png" id="35_irhr4"]
+[ext_resource type="Texture2D" uid="uid://c1wk5s6rv76it" path="res://graphics/Star_04.png" id="36_0je8j"]
+[ext_resource type="Texture2D" uid="uid://lary640ymqiu" path="res://graphics/Star_05.png" id="37_82sye"]
+[ext_resource type="Texture2D" uid="uid://bwaoyr4b6o0lm" path="res://graphics/Star_06.png" id="38_r11r7"]
+
+[node name="Node2D" type="Node2D"]
+metadata/_edit_vertical_guides_ = [-275.0]
+
+[node name="Player" parent="." instance=ExtResource("1_p060u")]
+position = Vector2(-75, 292)
+jump_sound = ExtResource("2_kq1lw")
+jump_volume = -20.0
+damage_sound = ExtResource("3_hg2to")
+damage_volume = -20.0
+shoot_sound = ExtResource("4_auopa")
+shoot_volume = -20.0
+death_sound = ExtResource("5_xw5my")
+death_volume = -20.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-78, 291)
+zoom = Vector2(2, 2)
+script = ExtResource("6_vajwd")
+
+[node name="ui" parent="." instance=ExtResource("7_1bevd")]
+
+[node name="background_01" type="TextureRect" parent="."]
+visible = false
+z_index = -20
+offset_left = -3111.9998
+offset_top = -1792.9999
+offset_right = -1190.9998
+offset_bottom = -710.9999
+scale = Vector2(4.3200006, 4.3200006)
+texture = ExtResource("8_kc7cy")
+stretch_mode = 1
+
+[node name="GoalTrigger" parent="." instance=ExtResource("9_qo6xl")]
+position = Vector2(1624, 295)
+scale = Vector2(1.66, 1.66)
+next_scene = ExtResource("10_8i72k")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_nra20")
+volume_db = -20.0
+autoplay = true
+
+[node name="==PLATFORMS==" type="Node2D" parent="."]
+position = Vector2(-3111.9998, -1792.9999)
+scale = Vector2(4.3200006, 4.3200006)
+
+[node name="platform_25" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(1077.7776, 513.6573)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_26" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(1053.2405, 525.4629)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_27" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(1005.5553, 505.09247)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_28" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(1028.9349, 514.8147)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_29" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(985.4165, 517.1295)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_30" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(962.2684, 529.1665)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_31" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(937.4999, 518.9813)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_32" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(913.19434, 508.3332)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_33" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(888.8888, 497.4536)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_34" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(863.88873, 484.49063)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_35" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(855.324, 498.37952)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_36" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(840.27765, 511.80542)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_40" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(821.2961, 524.76843)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_41" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(801.62024, 538.4258)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_42" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(778.24066, 547.91656)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_12" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(752.7777, 559.25916)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_08" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(724.5369, 559.7221)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_09" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(696.0647, 553.00916)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_10" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(669.2127, 544.2129)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_11" parent="==PLATFORMS==" instance=ExtResource("12_f3ytg")]
+position = Vector2(677.7775, 520.60175)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_80" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_81" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_82" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_83" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_84" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_85" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_86" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_87" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_88" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_89" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_90" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_91" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_92" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_93" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_94" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_95" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_96" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_97" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_98" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_99" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_100" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_101" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_102" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_103" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_104" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_105" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_106" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_107" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_108" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_109" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_110" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_111" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_112" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_113" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_114" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_115" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_116" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_117" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_118" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_119" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_120" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_121" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_122" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_123" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_124" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_125" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_126" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_127" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(702.0832, 497.68506)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_128" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(826.38873, 480.0925)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_129" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(798.61096, 478.9351)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_130" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(772.68506, 481.94434)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_131" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(747.9165, 484.72214)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_132" parent="==PLATFORMS==" instance=ExtResource("13_2kxip")]
+position = Vector2(725.2313, 490.50916)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("14_hsgpm")]
+position = Vector2(694.9072, 508.79617)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("16_m3luf")]
+position = Vector2(1096.296, 528.00916)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("17_rrc36")]
+position = Vector2(1096.9905, 497.45358)
+scale = Vector2(0.23148146, 0.23148146)
+
+[node name="==ENEMIES==" type="Node2D" parent="."]
+position = Vector2(-3111.9998, -1792.9999)
+scale = Vector2(4.3200006, 4.3200006)
+
+[node name="==COLLECTABLES==" type="Node2D" parent="."]
+position = Vector2(77, 408)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="==DECORATION==" type="Node2D" parent="."]
+position = Vector2(253, 149)
+
+[node name="PlanetJorden01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star02" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star03" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star04" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star05" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star06" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden02" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter02" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars02" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus02" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus02" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen02" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus02" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star07" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star08" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star09" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star10" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star11" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star12" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden03" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter03" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars03" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus03" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus03" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen03" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus03" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star13" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star14" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star15" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star16" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star17" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star18" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden04" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter04" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars04" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus04" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus04" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen04" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus04" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star19" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star20" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star21" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star22" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star23" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star24" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden05" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter05" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars05" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus05" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus05" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen05" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus05" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star25" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star26" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star27" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star28" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star29" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star30" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden06" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter06" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars06" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus06" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus06" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen06" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus06" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star31" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star32" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star33" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star34" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star35" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star36" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden07" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter07" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars07" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus07" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus07" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen07" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus07" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star37" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star38" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star39" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star40" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star41" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star42" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden08" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter08" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars08" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus08" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus08" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen08" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus08" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star43" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star44" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star45" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star46" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star47" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star48" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden09" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter09" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars09" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus09" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus09" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen09" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus09" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star49" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star50" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star51" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star52" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star53" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star54" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden10" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter10" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars10" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus10" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus10" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen10" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus10" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star55" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star56" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star57" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star58" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star59" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star60" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden11" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter11" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars11" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus11" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus11" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen11" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus11" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star61" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star62" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star63" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star64" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star65" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star66" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden12" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter12" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars12" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus12" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus12" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen12" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus12" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star67" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star68" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star69" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star70" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star71" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star72" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden13" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter13" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars13" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus13" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus13" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen13" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus13" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star73" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star74" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star75" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star76" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star77" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star78" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden14" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter14" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars14" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus14" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus14" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen14" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus14" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star79" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star80" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star81" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star82" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star83" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star84" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden15" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter15" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars15" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus15" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus15" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen15" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus15" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star85" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star86" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star87" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star88" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star89" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star90" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden16" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter16" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars16" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus16" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus16" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen16" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus16" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star91" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star92" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star93" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star94" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star95" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star96" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden17" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter17" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars17" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus17" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus17" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen17" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus17" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star97" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star98" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star99" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star100" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star101" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star102" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden18" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter18" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars18" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus18" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus18" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen18" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus18" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star103" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star104" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star105" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star106" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star107" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star108" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden19" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter19" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars19" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus19" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus19" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen19" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus19" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star109" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star110" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star111" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star112" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star113" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star114" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden20" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter20" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars20" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus20" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus20" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen20" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus20" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star115" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star116" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star117" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star118" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star119" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star120" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden21" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter21" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars21" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus21" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus21" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen21" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus21" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star121" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star122" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star123" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star124" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star125" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star126" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden22" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter22" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars22" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus22" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus22" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen22" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus22" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star127" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star128" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star129" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star130" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star131" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star132" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden23" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter23" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars23" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus23" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus23" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen23" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus23" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star133" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star134" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star135" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star136" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star137" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star138" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden24" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter24" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars24" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus24" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus24" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen24" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus24" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star139" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star140" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star141" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star142" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star143" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star144" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden25" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter25" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars25" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus25" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus25" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen25" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus25" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star145" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star146" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star147" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star148" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star149" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star150" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden26" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter26" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars26" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus26" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus26" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen26" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus26" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star151" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star152" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star153" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star154" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star155" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star156" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden27" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter27" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars27" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus27" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus27" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen27" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus27" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star157" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star158" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star159" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star160" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star161" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star162" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden28" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter28" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars28" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus28" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus28" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen28" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus28" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star163" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star164" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star165" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star166" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star167" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star168" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden29" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter29" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars29" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus29" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus29" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen29" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus29" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star169" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star170" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star171" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star172" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star173" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star174" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden30" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter30" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars30" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus30" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus30" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen30" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus30" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star175" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star176" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star177" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star178" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star179" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star180" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden31" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter31" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars31" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus31" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus31" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen31" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus31" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star181" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star182" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star183" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star184" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star185" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star186" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden32" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter32" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars32" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus32" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus32" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen32" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus32" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star187" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star188" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star189" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star190" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star191" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star192" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden33" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter33" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars33" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus33" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus33" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen33" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus33" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star193" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star194" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star195" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star196" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star197" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star198" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden34" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter34" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars34" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus34" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus34" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen34" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus34" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star199" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star200" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star201" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star202" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star203" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star204" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden35" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter35" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars35" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus35" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus35" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen35" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus35" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star205" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star206" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star207" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star208" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star209" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star210" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden36" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter36" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars36" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus36" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus36" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen36" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus36" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star211" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star212" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star213" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star214" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star215" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star216" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden37" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter37" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars37" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus37" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus37" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen37" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus37" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star217" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star218" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star219" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star220" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star221" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star222" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden38" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter38" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars38" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus38" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus38" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen38" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus38" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star223" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star224" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star225" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star226" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star227" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star228" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden39" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter39" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars39" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus39" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus39" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen39" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus39" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star229" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star230" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star231" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star232" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star233" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star234" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden40" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter40" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars40" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus40" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus40" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen40" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus40" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star235" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star236" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star237" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star238" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star239" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star240" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden41" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter41" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars41" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus41" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus41" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen41" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus41" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star241" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star242" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star243" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star244" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star245" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star246" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden42" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter42" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars42" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus42" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus42" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen42" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus42" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star247" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star248" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star249" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star250" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star251" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star252" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden43" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter43" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars43" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus43" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus43" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen43" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus43" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star253" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star254" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star255" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star256" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star257" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star258" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden44" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter44" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars44" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus44" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus44" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen44" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus44" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star259" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star260" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star261" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star262" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star263" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star264" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden45" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter45" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars45" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus45" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus45" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen45" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus45" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star265" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star266" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star267" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star268" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star269" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star270" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden46" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter46" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars46" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus46" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus46" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen46" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus46" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star271" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star272" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star273" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star274" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star275" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star276" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden47" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter47" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars47" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus47" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus47" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen47" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus47" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star277" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star278" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star279" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star280" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star281" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star282" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden48" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter48" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars48" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus48" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus48" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen48" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus48" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star283" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star284" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star285" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star286" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star287" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star288" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden49" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter49" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars49" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus49" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus49" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen49" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus49" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star289" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star290" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star291" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star292" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star293" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star294" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden50" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter50" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars50" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus50" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus50" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen50" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus50" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star295" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star296" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star297" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star298" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star299" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star300" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden51" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter51" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars51" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus51" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus51" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen51" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus51" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star301" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star302" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star303" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star304" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star305" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star306" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden52" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter52" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars52" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus52" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus52" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen52" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus52" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star307" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star308" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star309" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star310" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star311" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star312" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden53" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter53" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars53" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus53" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus53" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen53" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus53" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star313" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star314" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star315" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star316" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star317" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star318" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden54" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter54" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars54" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus54" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus54" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen54" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus54" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star319" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star320" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star321" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star322" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star323" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star324" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden55" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter55" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars55" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus55" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus55" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen55" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus55" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star325" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star326" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star327" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star328" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star329" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star330" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden56" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter56" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars56" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus56" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus56" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen56" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus56" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star331" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star332" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star333" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star334" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star335" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star336" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden57" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter57" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars57" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus57" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus57" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen57" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus57" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star337" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star338" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star339" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star340" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star341" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star342" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden58" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter58" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars58" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus58" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus58" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen58" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus58" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star343" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star344" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star345" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star346" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star347" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star348" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden59" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter59" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars59" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus59" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus59" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen59" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, 32)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus59" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star349" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star350" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star351" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star352" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star353" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star354" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden60" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter60" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars60" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus60" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus60" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen60" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1035, -94)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus60" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star355" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star356" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star357" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star358" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star359" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star360" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden61" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter61" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars61" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus61" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus61" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen61" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1036, -95)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus61" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star361" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star362" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star363" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star364" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star365" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star366" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden62" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter62" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars62" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus62" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus62" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen62" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1034, -93)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus62" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star367" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star368" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star369" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star370" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star371" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star372" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden63" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter63" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars63" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus63" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus63" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen63" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1038, -55)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus63" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star373" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star374" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star375" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star376" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star377" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star378" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden64" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter64" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars64" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus64" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus64" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen64" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1022, -62)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus64" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star379" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star380" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star381" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star382" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star383" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star384" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden65" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter65" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars65" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus65" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus65" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen65" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1013, -72)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus65" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star385" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star386" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star387" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star388" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star389" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star390" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden66" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter66" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars66" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus66" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus66" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen66" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1012, -33)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus66" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star391" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star392" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star393" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star394" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star395" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star396" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden67" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter67" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars67" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus67" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus67" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen67" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1014, -64)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus67" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star397" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star398" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star399" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star400" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star401" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star402" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="PlanetJorden68" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+texture = ExtResource("26_pvk28")
+
+[node name="PlanetJupiter68" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(181, 7)
+texture = ExtResource("27_gx6g8")
+
+[node name="PlanetMars68" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(379, 40)
+texture = ExtResource("28_e8wls")
+
+[node name="PlanetNeptunus68" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(558, 32)
+texture = ExtResource("29_j3acy")
+
+[node name="PlanetSaturnus68" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(744, 31)
+texture = ExtResource("30_s0608")
+
+[node name="PlanetSolen68" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(992, -76)
+texture = ExtResource("31_yreqk")
+
+[node name="PlanetUranus68" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(1246, 35)
+texture = ExtResource("32_mg1ij")
+
+[node name="Star403" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-113.77702, -7.5681458)
+scale = Vector2(0.407407, 0.407407)
+texture = ExtResource("33_n3w2u")
+
+[node name="Star404" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-194.77701, -7.5681458)
+scale = Vector2(0.4294061, 0.4294061)
+texture = ExtResource("34_jt3es")
+
+[node name="Star405" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-268, -10)
+scale = Vector2(0.4550802, 0.4550802)
+texture = ExtResource("35_irhr4")
+
+[node name="Star406" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-326, -11.999985)
+scale = Vector2(0.2593345, 0.2593345)
+texture = ExtResource("36_0je8j")
+
+[node name="Star407" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-413, -16)
+scale = Vector2(0.45574567, 0.45574567)
+texture = ExtResource("37_82sye")
+
+[node name="Star408" type="Sprite2D" parent="==DECORATION=="]
+z_index = -2
+position = Vector2(-481, -11.999985)
+scale = Vector2(0.6132878, 0.6132878)
+texture = ExtResource("38_r11r7")
+
+[node name="Enemy_01" parent="." instance=ExtResource("20_n4fjs")]
+position = Vector2(221, 519)
+
+[node name="Enemy_02" parent="." instance=ExtResource("20_n4fjs")]
+position = Vector2(376, 473)
+
+[node name="Enemy_03" parent="." instance=ExtResource("20_n4fjs")]
+position = Vector2(316, 479)
+
+[node name="Enemy_04" parent="." instance=ExtResource("20_n4fjs")]
+position = Vector2(278, 521)
+
+[node name="Enemy_05" parent="." instance=ExtResource("20_n4fjs")]
+position = Vector2(189, 552)
+
+[node name="Enemy_06" parent="." instance=ExtResource("20_n4fjs")]
+position = Vector2(79, 562)
+
+[node name="Enemy_07" parent="." instance=ExtResource("20_n4fjs")]
+position = Vector2(-30, 559)
+
+[node name="Enemy_08" parent="." instance=ExtResource("20_n4fjs")]
+position = Vector2(-98, 532)
+
+[node name="Enemy_09" parent="." instance=ExtResource("20_n4fjs")]
+position = Vector2(21, 547)
+
+[node name="Enemy_10" parent="." instance=ExtResource("20_n4fjs")]
+position = Vector2(135, 551)
+
+[node name="Enemy_11" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(136, 226)
+
+[node name="Enemy_12" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(136, 226)
+
+[node name="Enemy_13" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(136, 226)
+
+[node name="Enemy_14" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(136, 226)
+
+[node name="Enemy_15" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(136, 226)
+
+[node name="Enemy_16" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(136, 226)
+
+[node name="Enemy_17" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(788, 322)
+
+[node name="Enemy_18" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(115, 257)
+
+[node name="Enemy_19" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(156, 238)
+
+[node name="Enemy_20" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(878, 331)
+
+[node name="Enemy_21" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(983, 393)
+
+[node name="Enemy_22" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(722, 282)
+
+[node name="Enemy_23" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(843, 325)
+
+[node name="Enemy_24" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(1136, 366)
+
+[node name="Enemy_25" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(934, 376)
+
+[node name="Enemy_26" parent="." instance=ExtResource("19_u1x3w")]
+position = Vector2(1048, 414)
+
+[node name="Enemy_27" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(16, 265)
+
+[node name="Enemy_28" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(16, 265)
+
+[node name="Enemy_29" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(16, 265)
+
+[node name="Enemy_30" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(16, 265)
+
+[node name="Enemy_31" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(16, 265)
+
+[node name="Enemy_32" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(16, 265)
+
+[node name="Enemy_33" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(16, 265)
+
+[node name="Enemy_34" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(16, 265)
+
+[node name="Enemy_35" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(16, 265)
+
+[node name="Enemy_36" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(16, 265)
+
+[node name="Enemy_37" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(7, 286)
+
+[node name="Enemy_38" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(28, 292)
+
+[node name="Enemy_39" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(25, 287)
+
+[node name="Enemy_40" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(17, 284)
+
+[node name="Enemy_41" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(28, 286)
+
+[node name="Enemy_42" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(30, 287)
+
+[node name="Enemy_43" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(-11, 280)
+
+[node name="Enemy_44" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(42, 283)
+
+[node name="Enemy_45" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(13, 289)
+
+[node name="Enemy_46" parent="." instance=ExtResource("18_wau43")]
+position = Vector2(40, 296)
+
+[node name="coin" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin2" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin3" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin4" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin5" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin6" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin7" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin8" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin9" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin10" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin11" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin12" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin13" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin14" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin15" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin16" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin17" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin18" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin19" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin20" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin21" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin22" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin23" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin24" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin25" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin26" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin27" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin28" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin29" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin30" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin31" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
+
+[node name="coin32" parent="." instance=ExtResource("24_4lfqm")]
+position = Vector2(1627, 443)
