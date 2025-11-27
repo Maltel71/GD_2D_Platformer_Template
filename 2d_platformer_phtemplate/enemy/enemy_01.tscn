@@ -16,6 +16,7 @@ radius = 16.719917
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_laejb")
+damage_to_player = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -1)
@@ -28,8 +29,8 @@ scale = Vector2(0.054864787, 0.054864787)
 texture = ExtResource("3_yl8y7")
 
 [node name="Sten02" type="Sprite2D" parent="."]
-position = Vector2(-1, -27)
-scale = Vector2(0.17730941, 0.17730941)
+position = Vector2(2.0905156, -15.001861)
+scale = Vector2(0.10100038, 0.48105976)
 texture = ExtResource("4_ge483")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -61,5 +62,5 @@ scale = Vector2(1.8, 1.56)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, -7)
+position = Vector2(0.5555556, 7.051282)
 shape = SubResource("CircleShape2D_ld2qc")
