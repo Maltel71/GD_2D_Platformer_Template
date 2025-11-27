@@ -1,16 +1,17 @@
-[gd_scene load_steps=45 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=46 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
-[ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/jump/jump.wav" id="2_kgy88"]
-[ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/hit_hurt/hitHurt (1).wav" id="3_aupmd"]
+[ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/soundeffects/jump/jump.wav" id="2_kgy88"]
+[ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/soundeffects/hit_hurt/hitHurt (1).wav" id="3_aupmd"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="3_kql2n"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="4_02ec3"]
-[ext_resource type="AudioStream" uid="uid://d3xekf1n6wys2" path="res://audio/laser_shoot/laserShoot (1).wav" id="4_t58ta"]
-[ext_resource type="AudioStream" uid="uid://bf65jj4hxa28c" path="res://audio/hit_hurt/hitHurt.wav" id="5_1j1kj"]
+[ext_resource type="AudioStream" uid="uid://d3xekf1n6wys2" path="res://audio/soundeffects/laser_shoot/laserShoot (1).wav" id="4_t58ta"]
+[ext_resource type="AudioStream" uid="uid://bf65jj4hxa28c" path="res://audio/soundeffects/hit_hurt/hitHurt.wav" id="5_1j1kj"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="5_5vfu0"]
 [ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_kgy88"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="7_aupmd"]
+[ext_resource type="AudioStream" uid="uid://b2ftmc3j0e67r" path="res://audio/music/i-love-my-8-bit-game-console-301272.mp3" id="8_eg16o"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
@@ -65,24 +66,31 @@ script = ExtResource("7_aupmd")
 
 [node name="ui" parent="." instance=ExtResource("5_5vfu0")]
 
-[node name="background_01" type="TextureRect" parent="."]
-z_index = -20
-offset_left = -3111.9998
-offset_top = -1792.9999
-offset_right = -1190.9998
-offset_bottom = -710.9999
-scale = Vector2(4.3200006, 4.3200006)
-texture = ExtResource("3_kql2n")
-stretch_mode = 1
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_eg16o")
+volume_db = -20.0
+autoplay = true
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
 modulate = Color(0.94587797, 0.94935495, 0.93564534, 1)
 position = Vector2(-169, 320)
 next_scene = ExtResource("13_aupmd")
 
+[node name="background_01" type="TextureRect" parent="."]
+z_index = -20
+offset_left = -2402.0
+offset_top = -1914.9999
+offset_right = -481.0
+offset_bottom = -832.9999
+scale = Vector2(4.3200006, 4.3200006)
+texture = ExtResource("3_kql2n")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
 [node name="==PLATFORMS==" type="Node2D" parent="."]
 position = Vector2(208, 357)
 scale = Vector2(2.52, 1)
+metadata/_edit_lock_ = true
 
 [node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
 position = Vector2(9.126991, 26)
@@ -193,6 +201,7 @@ z_index = -10
 position = Vector2(4156.388, 101.55231)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("15_1j1kj")
+metadata/_edit_lock_ = true
 
 [node name="Bushblue01" type="Sprite2D" parent="==DECOR"]
 z_index = -5
