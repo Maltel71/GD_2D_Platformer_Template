@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="2d_Platformer_PHTemplate"
-run/main_scene="uid://dkt0cxd2qefpc"
+run/main_scene="uid://benhonj6xesil"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://graphics/placeholders/icon.svg"
 
 [autoload]
 
 GameManager="*res://scripts/game_manager.gd"
+QuitGame="*res://scripts/quit_game.gd"
 
 [display]
 

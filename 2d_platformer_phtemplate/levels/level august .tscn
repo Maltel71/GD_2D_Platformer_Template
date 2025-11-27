@@ -75,16 +75,16 @@ position = Vector2(-434, 349)
 next_scene = ExtResource("9_t7kqf")
 
 [node name="background_01" type="TextureRect" parent="."]
-visible = false
 modulate = Color(0.96569866, 0.9715839, 0.9613423, 1)
 z_index = -20
-offset_left = -1953.0002
-offset_top = -1025.0
-offset_right = -32.000244
-offset_bottom = 57.0
+offset_left = -3537.0
+offset_top = -4080.0002
+offset_right = 2801.1938
+offset_bottom = -2290.8245
 scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("10_vwnq3")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_103nu")
