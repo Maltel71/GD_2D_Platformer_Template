@@ -61,7 +61,6 @@ script = ExtResource("6_tgqn1")
 [node name="ui" parent="." instance=ExtResource("7_ceb77")]
 
 [node name="background_01" type="TextureRect" parent="."]
-visible = false
 z_index = -20
 offset_left = -3111.9998
 offset_top = -1792.9999
