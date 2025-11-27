@@ -46,12 +46,13 @@ shape = SubResource("CapsuleShape2D_1abo5")
 position = Vector2(21, -15)
 
 [node name="WeaponSprite" type="Sprite2D" parent="BulletSpawnPoint"]
-position = Vector2(0, 3.9999993)
-scale = Vector2(0.054808665, 0.054808665)
+position = Vector2(0, 4.450622)
+scale = Vector2(0.054808665, 0.05703396)
 texture = ExtResource("3_yw30f")
 flip_h = true
 
 [node name="AnimatedSprite2DMalte" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 4)
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_1abo5")
 animation = &"walk"
