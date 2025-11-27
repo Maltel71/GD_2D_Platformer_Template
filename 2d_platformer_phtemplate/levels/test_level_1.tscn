@@ -35,22 +35,24 @@ death_sound = ExtResource("5_1j1kj")
 death_volume = -20.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(196, 281)
+position = Vector2(205, 243)
 zoom = Vector2(2, 2)
 script = ExtResource("7_aupmd")
 
 [node name="ui" parent="." instance=ExtResource("5_5vfu0")]
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
-position = Vector2(46, 258)
+position = Vector2(1371, 310)
 next_scene = ExtResource("13_aupmd")
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_6q8gj")
 volume_db = -20.0
 autoplay = true
+metadata/_edit_lock_ = true
 
 [node name="background_01" type="TextureRect" parent="."]
+modulate = Color(0.9662526, 0.96509105, 0.9581631, 1)
 z_index = -20
 offset_left = -3498.9998
 offset_top = -1987.9999
@@ -59,6 +61,7 @@ offset_bottom = -905.9999
 scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("3_kql2n")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="==ENEMIES==" type="Node2D" parent="."]
 position = Vector2(302, 289)
@@ -95,25 +98,28 @@ position = Vector2(135, 96)
 position = Vector2(504, 153)
 
 [node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("20_6q8gj")]
-position = Vector2(504, 153)
+position = Vector2(1092, 155)
 
 [node name="==DECORATION==" type="Node2D" parent="."]
 position = Vector2(670, 402.00003)
 scale = Vector2(0.65037596, 0.65037596)
 
-[node name="Flask01" type="Sprite2D" parent="==DECORATION=="]
+[node name="Flask04" type="Sprite2D" parent="==DECORATION=="]
+z_index = -1
 position = Vector2(-438.20813, -72.26599)
 rotation = 1.5124086
 scale = Vector2(0.7307892, 0.7307892)
 texture = ExtResource("16_1j1kj")
 
-[node name="Flask02" type="Sprite2D" parent="==DECORATION=="]
+[node name="Flask05" type="Sprite2D" parent="==DECORATION=="]
+z_index = -1
 position = Vector2(-550.4509, -87.64172)
 rotation = -0.104616284
 scale = Vector2(0.7307892, 0.7307892)
 texture = ExtResource("16_1j1kj")
 
 [node name="Flask03" type="Sprite2D" parent="==DECORATION=="]
+z_index = -1
 position = Vector2(-588.89014, -67.65326)
 rotation = -1.6295637
 scale = Vector2(0.73078907, 0.73078907)

@@ -13,5 +13,6 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_hmrlc")
 
 [node name="Graphics_PH" type="Sprite2D" parent="."]
+z_index = -5
 scale = Vector2(0.4575646, 0.4575646)
 texture = ExtResource("1_j3sib")

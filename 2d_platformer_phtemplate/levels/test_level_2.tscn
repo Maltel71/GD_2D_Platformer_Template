@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cu1jrfb7oi86"]
+[gd_scene load_steps=20 format=3 uid="uid://cu1jrfb7oi86"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_mc1td"]
 [ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/soundeffects/jump/jump.wav" id="2_ukqis"]
@@ -8,16 +8,22 @@
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="6_4auen"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="7_7rcka"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="8_2sx82"]
+[ext_resource type="AudioStream" uid="uid://b2ftmc3j0e67r" path="res://audio/music/i-love-my-8-bit-game-console-301272.mp3" id="9_7rcka"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="9_kxfxx"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="11_wu0c2"]
+[ext_resource type="PackedScene" uid="uid://uq3idl18wqml" path="res://enemy/megalodon_01.tscn" id="12_2sx82"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="12_ay0he"]
-[ext_resource type="PackedScene" uid="uid://cari2tg1labr3" path="res://menus/WinMenu.tscn" id="12_mc1td"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/Shark_01.tscn" id="13_td7uj"]
+[ext_resource type="PackedScene" uid="uid://004imdkjvhi3" path="res://level_components/platform_long_01.tscn" id="15_kxfxx"]
+[ext_resource type="Texture2D" uid="uid://ccdllslqiselx" path="res://graphics/flask_01.png" id="16_i7a66"]
+[ext_resource type="Texture2D" uid="uid://dlchx2q3utisn" path="res://graphics/dead_squid_01.png" id="17_wu0c2"]
+[ext_resource type="Texture2D" uid="uid://yj7ccyswket8" path="res://graphics/Grass_01.png" id="18_ay0he"]
+[ext_resource type="Texture2D" uid="uid://c0baa8hvm2mgr" path="res://graphics/Turtle_01.png" id="19_td7uj"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_mc1td")]
-position = Vector2(309, 345)
+position = Vector2(203, 242)
 jump_sound = ExtResource("2_ukqis")
 jump_volume = -20.0
 damage_sound = ExtResource("3_gqg56")
@@ -28,55 +34,108 @@ death_sound = ExtResource("5_x2a8b")
 death_volume = -20.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(311, 352)
+position = Vector2(205, 243)
 zoom = Vector2(2, 2)
 script = ExtResource("11_wu0c2")
 
 [node name="ui" parent="." instance=ExtResource("9_kxfxx")]
 
-[node name="platform_01" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(380.00006, 596)
-scale = Vector2(2.52, 1)
+[node name="GoalTrigger" parent="." instance=ExtResource("12_ay0he")]
+position = Vector2(895, 317)
+next_scene = null
 
-[node name="platform_02" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(383, 488)
-scale = Vector2(2.52, 1)
-
-[node name="platform_03" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(465, 708)
-scale = Vector2(4.12, 1)
-
-[node name="platform_04" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(836.00006, 673)
-rotation = -0.221406
-scale = Vector2(4.12, 1)
-
-[node name="platform_05" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(1184, 666)
-scale = Vector2(0.879738, 1.84942)
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_7rcka")
+volume_db = -20.0
+autoplay = true
+metadata/_edit_lock_ = true
 
 [node name="background_01" type="TextureRect" parent="."]
+modulate = Color(0.9662526, 0.96509105, 0.9581631, 1)
 z_index = -20
-offset_left = -3111.9998
-offset_top = -1792.9999
-offset_right = -1190.9998
-offset_bottom = -710.9999
+offset_left = -3498.9998
+offset_top = -1987.9999
+offset_right = -1577.9998
+offset_bottom = -905.9999
 scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("7_7rcka")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
-[node name="coin" parent="." instance=ExtResource("8_2sx82")]
-position = Vector2(499, 399)
+[node name="==ENEMIES==" type="Node2D" parent="."]
+position = Vector2(302, 289)
 
-[node name="coin2" parent="." instance=ExtResource("8_2sx82")]
-position = Vector2(556, 613)
+[node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("13_td7uj")]
+position = Vector2(351, 38)
+patrol_time = 1.0
 
-[node name="coin3" parent="." instance=ExtResource("8_2sx82")]
-position = Vector2(855, 516)
+[node name="Enemy_Floating2" parent="==ENEMIES==" instance=ExtResource("13_td7uj")]
+position = Vector2(153, -38)
+patrol_time = 2.0
 
-[node name="GoalTrigger" parent="." instance=ExtResource("12_ay0he")]
-position = Vector2(1209, 508)
-next_scene = ExtResource("12_mc1td")
+[node name="Enemy_Floating3" parent="==ENEMIES==" instance=ExtResource("12_2sx82")]
+position = Vector2(-407, -28)
 
-[node name="Enemy_Floating" parent="." instance=ExtResource("13_td7uj")]
-position = Vector2(1022, 528)
+[node name="==COINS==" type="Node2D" parent="."]
+position = Vector2(302, 289)
+
+[node name="coin" parent="==COINS==" instance=ExtResource("8_2sx82")]
+
+[node name="coin2" parent="==COINS==" instance=ExtResource("8_2sx82")]
+position = Vector2(133, 32)
+
+[node name="coin3" parent="==COINS==" instance=ExtResource("8_2sx82")]
+position = Vector2(286, 34)
+
+[node name="==PLATFORMS==" type="Node2D" parent="."]
+position = Vector2(46, 258)
+
+[node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("6_4auen")]
+position = Vector2(135, 96)
+
+[node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("15_kxfxx")]
+position = Vector2(504, 153)
+
+[node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("15_kxfxx")]
+position = Vector2(-106, 155)
+
+[node name="==DECORATION==" type="Node2D" parent="."]
+position = Vector2(670, 402.00003)
+scale = Vector2(0.65037596, 0.65037596)
+
+[node name="Flask05" type="Sprite2D" parent="==DECORATION=="]
+z_index = -1
+position = Vector2(-816.45087, -175.2833)
+rotation = -0.104616284
+scale = Vector2(0.84875166, 0.8060305)
+texture = ExtResource("16_i7a66")
+
+[node name="DeadSquid01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-121.46821, 3.0750976)
+texture = ExtResource("17_wu0c2")
+
+[node name="Grass01" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(-232.17346, -133.76886)
+scale = Vector2(0.6156415, 0.6156415)
+texture = ExtResource("18_ay0he")
+
+[node name="Grass02" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(-954.83234, -112.242836)
+scale = Vector2(0.43033645, 0.43033648)
+texture = ExtResource("18_ay0he")
+flip_h = true
+
+[node name="Grass03" type="Sprite2D" parent="==DECORATION=="]
+z_index = -5
+position = Vector2(139.91907, -113.780426)
+scale = Vector2(0.43033645, 0.43033648)
+texture = ExtResource("18_ay0he")
+flip_h = true
+
+[node name="Turtle01" type="Sprite2D" parent="==DECORATION=="]
+position = Vector2(-788.7746, -96.867065)
+rotation = -1.0010754
+scale = Vector2(0.4892275, 0.4892275)
+texture = ExtResource("19_td7uj")
