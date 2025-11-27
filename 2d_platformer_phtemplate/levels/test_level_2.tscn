@@ -46,11 +46,11 @@ texture = ExtResource("7_7rcka")
 stretch_mode = 1
 
 [node name="GoalTrigger" parent="." instance=ExtResource("12_ay0he")]
-position = Vector2(1209, 508)
+position = Vector2(1084, 425)
 next_scene = ExtResource("12_mc1td")
 
 [node name="Enemy_Floating" parent="." instance=ExtResource("13_td7uj")]
-position = Vector2(1022, 528)
+position = Vector2(975, 355)
 
 [node name="==COINS==" type="Node2D" parent="."]
 
@@ -81,7 +81,5 @@ position = Vector2(-295, 7)
 [node name="platform_05" parent="==PLATFORM==" instance=ExtResource("13_mc1td")]
 position = Vector2(-125, 35)
 
-[node name="platform_06" parent="==PLATFORM==" instance=ExtResource("13_mc1td")]
-
 [node name="platform_07" parent="." instance=ExtResource("13_mc1td")]
-position = Vector2(1207, 569)
+position = Vector2(1084, 490)
