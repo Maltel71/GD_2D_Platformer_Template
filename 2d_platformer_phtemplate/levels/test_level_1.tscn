@@ -77,6 +77,7 @@ position = Vector2(-169, 320)
 next_scene = ExtResource("13_aupmd")
 
 [node name="background_01" type="TextureRect" parent="."]
+modulate = Color(0.9697879, 0.9697922, 0.96276456, 1)
 z_index = -20
 offset_left = -2402.0
 offset_top = -1914.9999
