@@ -2,7 +2,7 @@ extends Node2D
 
 var speed = 500
 var direction = 1  # 1 for right, -1 for left
-var damage = 1
+var damage = INF
 
 @onready var area = $Area2D  # Reference to the Area2D child
 
