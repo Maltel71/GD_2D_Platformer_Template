@@ -7,14 +7,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_5uct3"]
 
 [node name="coin" type="Node2D"]
-scale = Vector2(-1.1760266, 0.2846919)
 script = ExtResource("1_yjmdh")
-point_value = 200000
 collect_sound = ExtResource("2_k5m7g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.8862745, 0.84705883, 0.5882353, 1)
-scale = Vector2(0.0702729, -0.30046725)
+scale = Vector2(0.09515526, 0.09515526)
 texture = ExtResource("3_k5m7g")
 
 [node name="Area2D" type="Area2D" parent="."]

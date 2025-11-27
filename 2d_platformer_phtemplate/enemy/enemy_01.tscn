@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://2sbchijd2mjp"]
+[gd_scene load_steps=7 format=3 uid="uid://2sbchijd2mjp"]
 
 [ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://enemy/enemy.gd" id="1_laejb"]
-[ext_resource type="Texture2D" uid="uid://dndgyviwdss6q" path="res://graphics/svamp_01.png" id="2_laejb"]
+[ext_resource type="Texture2D" uid="uid://drlairdnk7o4x" path="res://graphics/Bäver_01.png" id="2_laejb"]
+[ext_resource type="Texture2D" uid="uid://bcgdefnxlliak" path="res://graphics/kvist_01.png" id="3_yl8y7"]
+[ext_resource type="Texture2D" uid="uid://by7n48d18q505" path="res://graphics/sten_02.png" id="4_ge483"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
 radius = 21.0
 height = 44.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
-radius = 20.0087
+radius = 16.719917
 
 [node name="Enemy_01" type="CharacterBody2D"]
 collision_layer = 2
@@ -16,30 +18,41 @@ collision_mask = 8
 script = ExtResource("1_laejb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, 5)
-scale = Vector2(-0.3455705, 0.26009095)
+position = Vector2(-1, -1)
+scale = Vector2(0.12560423, 0.12560423)
 texture = ExtResource("2_laejb")
-offset = Vector2(-19.139404, -48.04651)
+
+[node name="Kvist01" type="Sprite2D" parent="."]
+position = Vector2(-19, -10)
+scale = Vector2(0.054864787, 0.054864787)
+texture = ExtResource("3_yl8y7")
+
+[node name="Sten02" type="Sprite2D" parent="."]
+position = Vector2(-1, -27)
+scale = Vector2(0.17730941, 0.17730941)
+texture = ExtResource("4_ge483")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
+position = Vector2(0, 20)
 rotation = -1.5708
-target_position = Vector2(0, 35)
+target_position = Vector2(0, 27.45)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 20)
 rotation = 1.5708
-target_position = Vector2(0, 35)
+target_position = Vector2(0, 27.45)
 collision_mask = 9
 
 [node name="LedgeRayRight" type="RayCast2D" parent="."]
-position = Vector2(20, 0)
+position = Vector2(13, 0)
 collision_mask = 9
 
 [node name="LedgeRayLeft" type="RayCast2D" parent="."]
-position = Vector2(-20, 0)
+position = Vector2(-13, 0)
 collision_mask = 9
 
 [node name="AttackArea" type="Area2D" parent="."]

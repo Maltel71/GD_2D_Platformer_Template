@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dagyi6jlwbb0w"]
+[gd_scene load_steps=7 format=3 uid="uid://dagyi6jlwbb0w"]
 
 [ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://player/UltimatePlatformerController.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_yw30f"]
 [ext_resource type="Texture2D" uid="uid://drlairdnk7o4x" path="res://graphics/Bäver_01.png" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://dxxuv3283jsks" path="res://graphics/Flower_01.png" id="3_yw30f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
 radius = 14.0
-height = 64.0
+height = 56.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1abo5"]
 animations = [{
@@ -15,16 +16,16 @@ animations = [{
 "texture": ExtResource("3_g1dw6")
 }],
 "loop": true,
-"name": &"WALK",
-"speed": 5.0
+"name": &"idle",
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_g1dw6")
 }],
 "loop": true,
-"name": &"idle",
-"speed": 60.0
+"name": &"walk",
+"speed": 30.0
 }]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
@@ -38,13 +39,19 @@ idle = true
 walk = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_1abo5")
 
 [node name="BulletSpawnPoint" type="Node2D" parent="."]
+position = Vector2(21, -15)
+
+[node name="WeaponSprite" type="Sprite2D" parent="BulletSpawnPoint"]
+position = Vector2(0, 3.9999993)
+scale = Vector2(0.054808665, 0.054808665)
+texture = ExtResource("3_yw30f")
+flip_h = true
 
 [node name="AnimatedSprite2DMalte" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, 6)
-scale = Vector2(0.14, 0.14)
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_1abo5")
-animation = &"WALK"
-offset = Vector2(-18.395813, -16.285736)
+animation = &"walk"

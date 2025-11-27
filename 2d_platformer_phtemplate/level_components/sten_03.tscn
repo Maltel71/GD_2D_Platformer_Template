@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://oouluuejby7u"]
+
+[ext_resource type="Texture2D" uid="uid://du1dx223smmdh" path="res://graphics/sten_03.png" id="1_imvb7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_72bgt"]
+height = 31.427265
+
+[node name="Sten_01" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Graphics_PH" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(-9.536743e-07, 0)
+scale = Vector2(0.30158362, 0.30158362)
+texture = ExtResource("1_imvb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+rotation = 1.5780127
+shape = SubResource("CapsuleShape2D_72bgt")
