@@ -74,8 +74,12 @@ patrol_time = 1.0
 position = Vector2(153, -38)
 patrol_time = 2.0
 
+[node name="Enemy_Floating4" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
+position = Vector2(-261, -28)
+patrol_time = 2.0
+
 [node name="Enemy_Floating3" parent="==ENEMIES==" instance=ExtResource("14_aupmd")]
-position = Vector2(406, 7)
+position = Vector2(121, 332)
 
 [node name="==COINS==" type="Node2D" parent="."]
 position = Vector2(302, 289)
@@ -92,13 +96,20 @@ position = Vector2(286, 34)
 position = Vector2(46, 258)
 
 [node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(135, 96)
+position = Vector2(126, 49)
+
+[node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(627, 109)
+scale = Vector2(0.6337876, 0.98683304)
 
 [node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("20_6q8gj")]
-position = Vector2(504, 153)
+position = Vector2(495, 146)
 
 [node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("20_6q8gj")]
 position = Vector2(1092, 155)
+
+[node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("20_6q8gj")]
+position = Vector2(1807, 172)
 
 [node name="==DECORATION==" type="Node2D" parent="."]
 position = Vector2(670, 402.00003)
