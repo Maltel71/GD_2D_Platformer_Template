@@ -19,7 +19,9 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_plkrb")]
-position = Vector2(182, 224)
+position = Vector2(193, 214)
+jumps = 2
+max_health = 50
 jump_sound = ExtResource("2_kgy88")
 jump_volume = -20.0
 damage_sound = ExtResource("3_aupmd")
@@ -30,7 +32,7 @@ death_sound = ExtResource("5_1j1kj")
 death_volume = -20.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(182, 229)
+position = Vector2(190, 216)
 zoom = Vector2(2, 2)
 script = ExtResource("7_aupmd")
 
@@ -45,6 +47,7 @@ offset_bottom = -710.9999
 scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("3_kql2n")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
 position = Vector2(59, 243)
@@ -57,11 +60,35 @@ position = Vector2(208, 357)
 scale = Vector2(2.52, 1)
 
 [node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(389, 426)
+position = Vector2(2233, 580)
 scale = Vector2(2.52, 1)
 
 [node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(565, 101)
+position = Vector2(3028, 707)
+scale = Vector2(2.52, 1)
+
+[node name="platform_12" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+modulate = Color(0.6031764, 0.5279769, 0.9371976, 1)
+position = Vector2(3784, 612)
+scale = Vector2(2.52, 1)
+
+[node name="platform_13" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+modulate = Color(0.5529412, 0.039215688, 0.18431373, 1)
+position = Vector2(3405, 659)
+scale = Vector2(2.52, 1)
+
+[node name="platform_14" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+modulate = Color(0.5444087, 0.08749486, 0.150785, 1)
+position = Vector2(4117, 740)
+scale = Vector2(2.52, 1)
+
+[node name="platform_10" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(2557, 496)
+scale = Vector2(2.52, 1)
+
+[node name="platform_11" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(1662, 749)
+rotation = -1.5697618
 scale = Vector2(2.52, 1)
 
 [node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
@@ -69,28 +96,24 @@ position = Vector2(709, 384)
 scale = Vector2(4.12, 1)
 
 [node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(875, 403)
+position = Vector2(1915, 623)
 rotation = -0.221406
 scale = Vector2(4.12, 0.99999994)
 
 [node name="platform_07" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(1162, 535)
+position = Vector2(1114.9999, 662)
 rotation = 1.55335
 scale = Vector2(4.12, 1)
 
 [node name="platform_08" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(1313, 532)
+position = Vector2(-1214, -1402)
 rotation = 1.55335
 scale = Vector2(4.12, 1)
 
 [node name="platform_09" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(1473, 529)
+position = Vector2(1383.0001, 597)
 rotation = 1.55335
 scale = Vector2(4.12, 1)
-
-[node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(575, 383)
-scale = Vector2(0.879738, 1.84942)
 
 [node name="==COLLECTABLES==" type="Node2D" parent="."]
 position = Vector2(293, 281)
@@ -103,16 +126,41 @@ position = Vector2(142, 40)
 [node name="coin3" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
 position = Vector2(320, -71)
 
+[node name="coin4" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(3831.9998, 382)
+scale = Vector2(6.997162, 3.2915797)
+point_value = 1000000000
+
 [node name="==ENEMIES==" type="Node2D" parent="."]
 
 [node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
-position = Vector2(708, 296)
+position = Vector2(738, 288)
+damage_to_player = 20
 
 [node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
-position = Vector2(397, 314)
+position = Vector2(564, 296)
+health = 2
+damage_to_player = 20
+
+[node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
+position = Vector2(2956, 618)
+health = 1
+damage_to_player = 30
+
+[node name="Enemy_04" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
+position = Vector2(2557, 398)
+health = 10
+damage_to_player = 5
+
+[node name="Enemy_05" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
+modulate = Color(0.4222509, 0, 0, 0.16600001)
+position = Vector2(3786, 532)
+health = 125
+wall_detection_distance = 0.0
+damage_to_player = 45
 
 [node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
-position = Vector2(1205, 210)
+position = Vector2(1209, 256)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_t58ta")
