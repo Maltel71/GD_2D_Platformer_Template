@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=23 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/sfx/jump/jump.wav" id="2_kgy88"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dbfdyfs6rxiij" path="res://graphics/env_foliage_shroom4_sprite_01_v1.png" id="18_6q8gj"]
 [ext_resource type="Texture2D" uid="uid://01qklncpw2bs" path="res://graphics/env_foliage_shroom5_sprite_01_v1.png" id="19_5iaa6"]
 [ext_resource type="PackedScene" uid="uid://cnaoi575kkfjy" path="res://level_components/shroom_decoration_prefab.tscn" id="20_5iaa6"]
+[ext_resource type="PackedScene" uid="uid://ctlv4mvijbdaa" path="res://enemy/enemy_02.tscn" id="21_5au7l"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -70,6 +71,18 @@ scale = Vector2(1.5698402, 1.5698402)
 
 [node name="SpikedPlatform_06" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
 position = Vector2(334, 333)
+scale = Vector2(1.5698402, 1.5698402)
+
+[node name="SpikedPlatform_13" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(750, 372)
+scale = Vector2(1.5698402, 1.5698402)
+
+[node name="SpikedPlatform_14" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(794, 345)
+scale = Vector2(1.5698402, 1.5698402)
+
+[node name="SpikedPlatform_15" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(742.00006, 322)
 scale = Vector2(1.5698402, 1.5698402)
 
 [node name="SpikedPlatform_07" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
@@ -125,7 +138,7 @@ position = Vector2(320, -71)
 
 [node name="==ENEMIES==" type="Node2D" parent="."]
 
-[node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
+[node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
 position = Vector2(458, 347)
 
 [node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
@@ -159,6 +172,10 @@ position = Vector2(879, 371.00003)
 position = Vector2(774, 373.00003)
 rotation = 0.2452149
 scale = Vector2(0.22503194, 0.23819186)
+
+[node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("21_5au7l")]
+position = Vector2(607, 338)
+scale = Vector2(0.78052604, 0.78052604)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_pmbwx")

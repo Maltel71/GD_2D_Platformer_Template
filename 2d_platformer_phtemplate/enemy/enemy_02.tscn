@@ -1,39 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://2sbchijd2mjp"]
+[gd_scene load_steps=5 format=3 uid="uid://ctlv4mvijbdaa"]
 
-[ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://enemy/enemy.gd" id="1_laejb"]
-[ext_resource type="Texture2D" uid="uid://fkm3xpfxyjdj" path="res://graphics/char_enemy_croc_sprite_01_v1.png" id="2_laejb"]
+[ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://enemy/enemy.gd" id="1_6x63a"]
+[ext_resource type="Texture2D" uid="uid://bd5acl1wu5hks" path="res://graphics/char_enemy_cat_sprite_01_v1.png" id="2_6x63a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_laejb"]
-height = 122.0
+height = 52.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yl8y7"]
-height = 83.33334
+radius = 19.871794
+height = 55.555553
 
 [node name="Enemy_01" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 8
-script = ExtResource("1_laejb")
+script = ExtResource("1_6x63a")
 speed = 125.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 3.8147e-06)
-scale = Vector2(0.24719101, 0.24719094)
-texture = ExtResource("2_laejb")
+position = Vector2(12.000001, -16)
+scale = Vector2(0.30095398, 0.30095387)
+texture = ExtResource("2_6x63a")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 5)
+position = Vector2(-1, 4)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_laejb")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
-position = Vector2(40, 0)
+position = Vector2(3, 6)
 rotation = -1.5708
-target_position = Vector2(0, 35)
+target_position = Vector2(0, 42.76)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="."]
-position = Vector2(-24, 0)
-rotation = 1.5708
+position = Vector2(0.9999981, 0)
+rotation = 1.5719507
 target_position = Vector2(0, 35)
 collision_mask = 9
 
@@ -51,6 +53,6 @@ scale = Vector2(1.8, 1.56)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(7.2222223, -9.615385)
+position = Vector2(7.222223, -16.025642)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_yl8y7")
