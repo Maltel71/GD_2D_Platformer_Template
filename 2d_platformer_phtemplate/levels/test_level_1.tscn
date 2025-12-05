@@ -161,7 +161,13 @@ position = Vector2(795, 96)
 position = Vector2(723, 64)
 
 [node name="SpikedPlatform_44" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
-position = Vector2(1165, 48)
+position = Vector2(1141, 117)
+
+[node name="SpikedPlatform_51" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(1157, 88)
+
+[node name="SpikedPlatform_52" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(1172, 29)
 
 [node name="SpikedPlatform_45" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
 position = Vector2(1089, 1)
@@ -173,14 +179,21 @@ position = Vector2(1054, -1)
 position = Vector2(1024, -20)
 
 [node name="SpikedPlatform_48" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
-position = Vector2(957, -78)
+position = Vector2(976, -50)
+
+[node name="SpikedPlatform_53" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(959, -86)
+
+[node name="SpikedPlatform_54" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(944, -123)
 
 [node name="SpikedPlatform_50" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
 position = Vector2(1066, -127)
 rotation = -2.0567966
 
 [node name="SpikedPlatform_49" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
-position = Vector2(923, -162)
+position = Vector2(924, -147.00002)
+rotation = 1.606867
 
 [node name="SpikedPlatform_20" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
 position = Vector2(648, 37)
