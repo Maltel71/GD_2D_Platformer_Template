@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=24 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
+[ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
 [ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/sfx/jump/jump.wav" id="2_kgy88"]
 [ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_pmbwx"]
 [ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/sfx/hit_hurt/hitHurt (1).wav" id="3_aupmd"]
@@ -58,7 +59,7 @@ stretch_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
-position = Vector2(13, 318)
+position = Vector2(919, 314)
 next_scene = ExtResource("13_aupmd")
 
 [node name="==PLATFORMS==" type="Node2D" parent="."]
@@ -141,9 +142,6 @@ position = Vector2(320, -71)
 [node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
 position = Vector2(458, 347)
 
-[node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
-position = Vector2(1205, 210)
-
 [node name="EnvFoliageShroom3Sprite01V1" type="Sprite2D" parent="==ENEMIES=="]
 z_index = -2
 position = Vector2(639, 322)
@@ -158,7 +156,7 @@ texture = ExtResource("18_6q8gj")
 
 [node name="EnvFoliageShroom5Sprite01V1" type="Sprite2D" parent="==ENEMIES=="]
 z_index = -2
-position = Vector2(130.99994, 335)
+position = Vector2(145.99998, 236)
 scale = Vector2(0.29553902, 0.29553905)
 texture = ExtResource("19_5iaa6")
 
@@ -177,7 +175,29 @@ scale = Vector2(0.22503194, 0.23819186)
 position = Vector2(607, 338)
 scale = Vector2(0.78052604, 0.78052604)
 
+[node name="Enemy_Floating2" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
+position = Vector2(490, 175)
+scale = Vector2(2.3693724, 2.3693724)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_pmbwx")
 volume_db = -20.0
 autoplay = true
+
+[node name="platform_01" parent="." instance=ExtResource("2_grhbk")]
+position = Vector2(1132, 332)
+
+[node name="platform_03" parent="." instance=ExtResource("2_grhbk")]
+position = Vector2(1132, 232)
+
+[node name="platform_02" parent="." instance=ExtResource("2_grhbk")]
+position = Vector2(1032, 332)
+
+[node name="platform_04" parent="." instance=ExtResource("2_grhbk")]
+position = Vector2(142, 332)
+
+[node name="platform_05" parent="." instance=ExtResource("2_grhbk")]
+position = Vector2(41, 232)
+
+[node name="platform_06" parent="." instance=ExtResource("2_grhbk")]
+position = Vector2(42, 332)

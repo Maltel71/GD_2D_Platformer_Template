@@ -1,14 +1,74 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvbm0b511iwl"]
+[gd_scene load_steps=9 format=3 uid="uid://bvbm0b511iwl"]
 
 [ext_resource type="Script" uid="uid://de1abq5qky54f" path="res://enemy/enemy_floating.gd" id="1_17dft"]
-[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="2_17dft"]
+[ext_resource type="Texture2D" uid="uid://fkm3xpfxyjdj" path="res://graphics/char_enemy_croc_sprite_01_v1.png" id="2_17dft"]
+[ext_resource type="Texture2D" uid="uid://01qklncpw2bs" path="res://graphics/env_foliage_shroom5_sprite_01_v1.png" id="3_acpmn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
-radius = 21.0
-height = 44.0
+radius = 3.0
+height = 52.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
-radius = 20.0087
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_17dft"]
+radius = 5.7692304
+height = 31.111113
+
+[sub_resource type="Animation" id="Animation_acpmn"]
+resource_name = "flycroc"
+loop_mode = 1
+step = 0.004761905
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Pivot2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(-0.65085834, -0.25, 0, 0.25, 0, -1.3095944, -0.083333336, 0.10978934, 0, 0, -0.65085834, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(-0.65085834, -0.25, 0, 0.25, 0, -0.112734556, -0.083333336, -0.0896873, 0, 0, -0.65085834, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="Animation" id="Animation_pc1o1"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Pivot2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.65085834, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.65085834, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vrx05"]
+_data = {
+&"RESET": SubResource("Animation_pc1o1"),
+&"flycroc": SubResource("Animation_acpmn")
+}
 
 [node name="Enemy_Floating" type="CharacterBody2D"]
 collision_layer = 2
@@ -17,12 +77,13 @@ script = ExtResource("1_17dft")
 patrol_time = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.9999991, 0.6227512, 0.48015326, 1)
+z_index = -2
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(0.09752346, 0.09752346)
 texture = ExtResource("2_17dft")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="AttackArea" type="Area2D" parent="."]
@@ -31,5 +92,34 @@ scale = Vector2(1.8, 1.56)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, -7)
-shape = SubResource("CircleShape2D_ld2qc")
+position = Vector2(1.6666667, -7.051282)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_17dft")
+
+[node name="Pivot2" type="Node2D" parent="."]
+position = Vector2(1.000001, -1.0000005)
+rotation = -0.65085834
+scale = Vector2(0.05525366, 0.05525366)
+
+[node name="EnvFoliageShroom5Sprite01V1" type="Sprite2D" parent="Pivot2"]
+z_index = -1
+position = Vector2(15.729931, -170.01334)
+texture = ExtResource("3_acpmn")
+
+[node name="Pivot3" type="Node2D" parent="."]
+position = Vector2(7, -4)
+rotation = -0.65085834
+scale = Vector2(0.05525366, 0.05525366)
+
+[node name="EnvFoliageShroom5Sprite01V2" type="Sprite2D" parent="Pivot3"]
+z_index = -3
+position = Vector2(123.38501, -42.529415)
+rotation = 1.189468
+texture = ExtResource("3_acpmn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Pivot3")
+libraries = {
+&"": SubResource("AnimationLibrary_vrx05")
+}
+autoplay = "flycroc"
