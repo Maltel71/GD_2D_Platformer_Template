@@ -25,23 +25,64 @@ rotation = 2.8263419
 scale = Vector2(0.9304531, 1.4238651)
 texture = ExtResource("2_pmdui")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D"]
-position = Vector2(65.115135, 170.44128)
-rotation = 2.5951552
-scale = Vector2(0.93045294, 1.4238646)
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D/Sprite2D2"]
+position = Vector2(-46.519787, 3.9590836)
+rotation = -0.15262753
+scale = Vector2(0.98484385, 1.0346235)
+skew = -0.19312608
 texture = ExtResource("3_qe353")
 
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D/Sprite2D2"]
+position = Vector2(-105.5169, 24.437447)
+rotation = -0.15262754
+scale = Vector2(0.98484373, 1.0346235)
+skew = -0.19312608
+texture = ExtResource("4_up2yj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(98.56597, 122.26239)
+rotation = 5.752974
+scale = Vector2(0.93, -0.8192835)
+texture = ExtResource("2_pmdui")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D/Sprite2D3"]
+position = Vector2(-46.519787, 3.9590836)
+rotation = -0.15262753
+scale = Vector2(0.98484385, 1.0346235)
+skew = -0.19312608
+texture = ExtResource("3_qe353")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D/Sprite2D3"]
+position = Vector2(-105.5169, 24.437447)
+rotation = -0.15262754
+scale = Vector2(0.98484373, 1.0346235)
+skew = -0.19312608
+texture = ExtResource("4_up2yj")
+
 [node name="Sprite2D4" type="Sprite2D" parent="Sprite2D"]
-position = Vector2(108.263214, 125.69965)
-rotation = 2.5951552
-scale = Vector2(0.9304528, 1.4238646)
+position = Vector2(20.066254, 143.55771)
+rotation = 5.934016
+scale = Vector2(-0.60589075, -0.39907727)
+texture = ExtResource("2_pmdui")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D/Sprite2D4"]
+position = Vector2(-46.519787, 3.9590836)
+rotation = -0.15262753
+scale = Vector2(0.98484385, 1.0346235)
+skew = -0.19312608
+texture = ExtResource("3_qe353")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D/Sprite2D4"]
+position = Vector2(-105.5169, 24.437447)
+rotation = -0.15262754
+scale = Vector2(0.98484373, 1.0346235)
+skew = -0.19312608
 texture = ExtResource("4_up2yj")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("2_nibys")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 position = Vector2(0, 27)
 shape = SubResource("RectangleShape2D_wxo6x")
 metadata/_edit_lock_ = true
@@ -51,6 +92,5 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_nibys")

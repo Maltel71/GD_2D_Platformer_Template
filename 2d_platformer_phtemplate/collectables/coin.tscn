@@ -4,6 +4,42 @@
 [ext_resource type="AudioStream" uid="uid://cuodjbopyn2he" path="res://collectables/audio/sfx_pickup_coin_01.wav" id="2_k5m7g"]
 [ext_resource type="Texture2D" uid="uid://dm0j5em4o5gqc" path="res://graphics/env_pickup_star1_sprite_01_v1.png" id="3_k5m7g"]
 
+[sub_resource type="Animation" id="Animation_evfnm"]
+length = 2.075
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.23447298, 0, 0, 0),
+"times": PackedFloat32Array(0, 1.4068378)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.23447298, 0, 0, 0),
+"times": PackedFloat32Array(0, 1.4068378)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0.09688623, -0.25, 0, 0.25, 0, 0.09688623, -0.23447298, 0, 0, 0),
+"times": PackedFloat32Array(0, 1.4068378)
+}
+
 [sub_resource type="Animation" id="Animation_k5m7g"]
 resource_name = "star_rotate"
 length = 1.733
@@ -28,7 +64,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.09312151, -0.16666669, 0, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.8, 1.7333333)
+"times": PackedFloat32Array(0, 0.8, 1.6666666)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -39,7 +75,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -3, -0.09312151, 0.50000006, 0, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.8, 1.7333333)
+"times": PackedFloat32Array(0, 0.8, 1.6666666)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -48,45 +84,9 @@ tracks/3/path = NodePath(".:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 2, 0),
+"handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0.09688623, -0.25, 0, 0.25, 0, -0.0644985, -0.13416687, 0.026897456, 0, 0, 0.09688623, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.80500114, 1.733)
-}
-
-[sub_resource type="Animation" id="Animation_evfnm"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.09688623, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0, 0.80500114, 1.6663333)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ss5e"]
@@ -120,5 +120,3 @@ shape = SubResource("CircleShape2D_5uct3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = -5.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

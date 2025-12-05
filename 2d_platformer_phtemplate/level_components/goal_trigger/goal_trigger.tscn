@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci5f2w8ckk06a"]
+[gd_scene load_steps=8 format=3 uid="uid://ci5f2w8ckk06a"]
 
 [ext_resource type="Script" uid="uid://b8dignih65ubw" path="res://scripts/goal_trigger.gd" id="1_21bs6"]
 [ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="2_21bs6"]
+[ext_resource type="Texture2D" uid="uid://d02fvsq0h6y1o" path="res://graphics/env_foliage_shroom_small1_sprite_01_v1.png" id="3_iol5s"]
+[ext_resource type="Texture2D" uid="uid://c4steqkev1k0d" path="res://graphics/env_foliage_shroom_small2_sprite_01_v1.png" id="4_hcrir"]
+[ext_resource type="Texture2D" uid="uid://c84ogfdb45or3" path="res://graphics/env_foliage_shroom_small3_sprite_01_v1.png" id="5_2v3qa"]
+[ext_resource type="Texture2D" uid="uid://o3ggnh01rnis" path="res://graphics/env_platform_box1_sprite_01_v1.png" id="6_hcrir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4nf8e"]
 size = Vector2(42, 128)
@@ -18,3 +22,121 @@ texture = ExtResource("2_21bs6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_4nf8e")
+
+[node name="EnvFoliageShroomSmall1Sprite01V1" type="Sprite2D" parent="."]
+position = Vector2(-29.535873, -89.21509)
+scale = Vector2(0.28668845, 0.28668845)
+texture = ExtResource("3_iol5s")
+
+[node name="EnvFoliageShroomSmall2Sprite01V1" type="Sprite2D" parent="."]
+position = Vector2(-46.535873, -91.21509)
+scale = Vector2(0.28668845, 0.28668845)
+texture = ExtResource("4_hcrir")
+
+[node name="EnvFoliageShroomSmall3Sprite01V1" type="Sprite2D" parent="."]
+position = Vector2(-57.535873, -85.21508)
+scale = Vector2(0.28668845, 0.28668845)
+texture = ExtResource("5_2v3qa")
+
+[node name="EnvFoliageShroomSmall1Sprite01V2" type="Sprite2D" parent="."]
+position = Vector2(33.464127, -109.21509)
+scale = Vector2(0.28668845, 0.28668845)
+texture = ExtResource("3_iol5s")
+
+[node name="EnvFoliageShroomSmall2Sprite01V2" type="Sprite2D" parent="."]
+position = Vector2(16.464127, -111.21509)
+scale = Vector2(0.28668845, 0.28668845)
+texture = ExtResource("4_hcrir")
+
+[node name="EnvFoliageShroomSmall3Sprite01V2" type="Sprite2D" parent="."]
+position = Vector2(5.4641266, -105.21508)
+scale = Vector2(0.28668845, 0.28668845)
+texture = ExtResource("5_2v3qa")
+
+[node name="EnvFoliageShroomSmall1Sprite01V3" type="Sprite2D" parent="."]
+position = Vector2(73.5132, -68.11112)
+rotation = 0.6677841
+scale = Vector2(0.28668845, 0.28668845)
+texture = ExtResource("3_iol5s")
+
+[node name="EnvFoliageShroomSmall2Sprite01V3" type="Sprite2D" parent="."]
+position = Vector2(56.513195, -70.11112)
+rotation = 0.6677841
+scale = Vector2(0.28668845, 0.28668845)
+texture = ExtResource("4_hcrir")
+
+[node name="EnvFoliageShroomSmall3Sprite01V3" type="Sprite2D" parent="."]
+position = Vector2(45.513195, -64.111115)
+rotation = 0.6677841
+scale = Vector2(0.28668845, 0.28668845)
+texture = ExtResource("5_2v3qa")
+
+[node name="EnvPlatformBox1Sprite01V1" type="Sprite2D" parent="."]
+position = Vector2(-45, 52)
+scale = Vector2(0.17626785, 0.17626785)
+texture = ExtResource("6_hcrir")
+
+[node name="EnvPlatformBox1Sprite01V2" type="Sprite2D" parent="."]
+position = Vector2(-45, 26)
+scale = Vector2(0.17626785, 0.17626785)
+texture = ExtResource("6_hcrir")
+
+[node name="EnvPlatformBox1Sprite01V3" type="Sprite2D" parent="."]
+position = Vector2(-45, 0)
+scale = Vector2(0.17626785, 0.17626785)
+texture = ExtResource("6_hcrir")
+
+[node name="EnvPlatformBox1Sprite01V4" type="Sprite2D" parent="."]
+position = Vector2(-45, -27)
+scale = Vector2(0.17626785, 0.17626785)
+texture = ExtResource("6_hcrir")
+
+[node name="EnvPlatformBox1Sprite01V5" type="Sprite2D" parent="."]
+position = Vector2(-45, -53)
+scale = Vector2(0.17626785, 0.17626785)
+texture = ExtResource("6_hcrir")
+
+[node name="EnvPlatformBox1Sprite01V11" type="Sprite2D" parent="."]
+position = Vector2(-33, -77)
+scale = Vector2(0.17626785, 0.17626785)
+texture = ExtResource("6_hcrir")
+
+[node name="EnvPlatformBox1Sprite01V12" type="Sprite2D" parent="."]
+position = Vector2(-8, -84)
+scale = Vector2(0.17626785, 0.17626785)
+texture = ExtResource("6_hcrir")
+
+[node name="EnvPlatformBox1Sprite01V13" type="Sprite2D" parent="."]
+position = Vector2(13, -84)
+scale = Vector2(0.17626785, 0.17626785)
+texture = ExtResource("6_hcrir")
+
+[node name="EnvPlatformBox1Sprite01V14" type="Sprite2D" parent="."]
+position = Vector2(36, -73)
+scale = Vector2(0.17626785, 0.17626785)
+texture = ExtResource("6_hcrir")
+
+[node name="EnvPlatformBox1Sprite01V6" type="Sprite2D" parent="."]
+position = Vector2(42.880844, 52)
+scale = Vector2(0.17626785, 0.17626785)
+texture = ExtResource("6_hcrir")
+
+[node name="EnvPlatformBox1Sprite01V7" type="Sprite2D" parent="."]
+position = Vector2(42.880844, 26)
+scale = Vector2(0.17626785, 0.17626785)
+texture = ExtResource("6_hcrir")
+
+[node name="EnvPlatformBox1Sprite01V8" type="Sprite2D" parent="."]
+position = Vector2(42.880844, 0)
+scale = Vector2(0.17626785, 0.17626785)
+texture = ExtResource("6_hcrir")
+
+[node name="EnvPlatformBox1Sprite01V9" type="Sprite2D" parent="."]
+position = Vector2(42.880844, -27)
+scale = Vector2(0.17626785, 0.17626785)
+texture = ExtResource("6_hcrir")
+
+[node name="EnvPlatformBox1Sprite01V10" type="Sprite2D" parent="."]
+position = Vector2(42.880844, -53)
+scale = Vector2(0.17626785, 0.17626785)
+texture = ExtResource("6_hcrir")

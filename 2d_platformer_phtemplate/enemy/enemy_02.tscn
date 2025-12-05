@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bd5acl1wu5hks" path="res://graphics/char_enemy_cat_sprite_01_v1.png" id="2_6x63a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_laejb"]
-height = 52.0
+radius = 28.0
+height = 56.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yl8y7"]
 radius = 19.871794
@@ -23,7 +24,7 @@ texture = ExtResource("2_6x63a")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 4)
+position = Vector2(3, -13)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_laejb")
 

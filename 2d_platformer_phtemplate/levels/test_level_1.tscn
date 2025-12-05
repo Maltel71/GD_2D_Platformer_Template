@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=27 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -14,15 +14,18 @@
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="7_aupmd"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
+[ext_resource type="PackedScene" uid="uid://cari2tg1labr3" path="res://menus/WinMenu.tscn" id="11_ly28y"]
 [ext_resource type="PackedScene" uid="uid://by5ey1qvje21g" path="res://level_components/spiked_platform_01.tscn" id="12_5vfu0"]
-[ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
 [ext_resource type="PackedScene" uid="uid://cj5jqks3r6o8w" path="res://level_components/platform_01_long.tscn" id="13_pmbwx"]
-[ext_resource type="Texture2D" uid="uid://cp7kwrw1g1w3t" path="res://graphics/env_foliage_shroom3_sprite_01_v1.png" id="17_lgfx6"]
+[ext_resource type="PackedScene" uid="uid://bnke83usaa6dd" path="res://level_components/platform_01_looonger_01.tscn" id="14_ly28y"]
 [ext_resource type="AudioStream" uid="uid://dunhfackor0ob" path="res://audio/music/bill_music/DGBMjams - Fained Forest 3 (recovered).mp3" id="17_pmbwx"]
-[ext_resource type="Texture2D" uid="uid://dbfdyfs6rxiij" path="res://graphics/env_foliage_shroom4_sprite_01_v1.png" id="18_6q8gj"]
-[ext_resource type="Texture2D" uid="uid://01qklncpw2bs" path="res://graphics/env_foliage_shroom5_sprite_01_v1.png" id="19_5iaa6"]
 [ext_resource type="PackedScene" uid="uid://cnaoi575kkfjy" path="res://level_components/shroom_decoration_prefab.tscn" id="20_5iaa6"]
 [ext_resource type="PackedScene" uid="uid://ctlv4mvijbdaa" path="res://enemy/enemy_02.tscn" id="21_5au7l"]
+[ext_resource type="PackedScene" uid="uid://dtwmd0f53axsi" path="res://level_components/platform_shroom_01.tscn" id="21_5iaa6"]
+[ext_resource type="PackedScene" uid="uid://7rv4fxu5jidg" path="res://level_components/platform_shroom_02.tscn" id="22_5au7l"]
+[ext_resource type="PackedScene" uid="uid://bbpftdtnhxpqg" path="res://level_components/platform_shroom_03.tscn" id="23_rr58p"]
+[ext_resource type="PackedScene" uid="uid://dxij1n0hp2g7s" path="res://level_components/platform_shroom_04.tscn" id="24_yoilj"]
+[ext_resource type="PackedScene" uid="uid://wvtoy0xvah3p" path="res://level_components/platform_shroom_05.tscn" id="25_tworg"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -59,8 +62,8 @@ stretch_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
-position = Vector2(919, 314)
-next_scene = ExtResource("13_aupmd")
+position = Vector2(1107, -472)
+next_scene = ExtResource("11_ly28y")
 
 [node name="==PLATFORMS==" type="Node2D" parent="."]
 
@@ -87,7 +90,7 @@ position = Vector2(742.00006, 322)
 scale = Vector2(1.5698402, 1.5698402)
 
 [node name="SpikedPlatform_07" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
-position = Vector2(245, 384)
+position = Vector2(252.00002, 387.00003)
 scale = Vector2(1.5698402, 1.5698402)
 
 [node name="SpikedPlatform_11" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
@@ -114,22 +117,326 @@ position = Vector2(371, 449.00003)
 rotation = 0.28657103
 scale = Vector2(1.5698402, 1.5698402)
 
+[node name="SpikedPlatform_16" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(940, 321)
+rotation = 3.0432506
+scale = Vector2(1.5698402, 1.5698402)
+
+[node name="SpikedPlatform_28" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(14.000004, -205)
+rotation = 3.0432506
+scale = Vector2(1.5698402, 1.5698402)
+
+[node name="SpikedPlatform_29" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(44.000004, -210)
+rotation = 3.2072427
+scale = Vector2(1.5698402, 1.5698402)
+
+[node name="SpikedPlatform_30" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(69, -204.00002)
+rotation = 3.2072427
+scale = Vector2(1.5698402, 1.5698402)
+
+[node name="SpikedPlatform_17" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(955.99994, 375)
+rotation = 0.74072266
+scale = Vector2(1.5698402, 1.5698402)
+
+[node name="SpikedPlatform_01" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(931, 96)
+
+[node name="SpikedPlatform_02" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(897, 96)
+
+[node name="SpikedPlatform_03" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(863, 96)
+
+[node name="SpikedPlatform_04" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(829, 96)
+
+[node name="SpikedPlatform_18" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(795, 96)
+
+[node name="SpikedPlatform_19" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(723, 64)
+
+[node name="SpikedPlatform_44" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(1165, 48)
+
+[node name="SpikedPlatform_45" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(1089, 1)
+
+[node name="SpikedPlatform_46" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(1054, -1)
+
+[node name="SpikedPlatform_47" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(1024, -20)
+
+[node name="SpikedPlatform_48" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(957, -78)
+
+[node name="SpikedPlatform_50" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(1066, -127)
+rotation = -2.0567966
+
+[node name="SpikedPlatform_49" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(923, -162)
+
+[node name="SpikedPlatform_20" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(648, 37)
+
+[node name="SpikedPlatform_21" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(613, 37)
+
+[node name="SpikedPlatform_22" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(530, 60)
+
+[node name="SpikedPlatform_23" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(498, 41)
+
+[node name="SpikedPlatform_24" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(469, 74.000015)
+rotation = 0.6537932
+
+[node name="SpikedPlatform_25" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(463.00003, 46)
+rotation = -0.8507403
+
+[node name="SpikedPlatform_32" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(444, -368)
+rotation = -0.8507403
+
+[node name="SpikedPlatform_33" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(480, -369)
+rotation = 0.31607544
+
+[node name="SpikedPlatform_34" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(460, -392.00003)
+rotation = -2.108307
+
+[node name="SpikedPlatform_35" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(493.00006, -337.00006)
+rotation = -2.108307
+
+[node name="SpikedPlatform_36" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(444.00003, -330.00003)
+rotation = 0.639359
+
+[node name="SpikedPlatform_37" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(468, -322)
+rotation = -0.16033405
+
+[node name="SpikedPlatform_38" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(626, -309.99997)
+rotation = -3.8838363
+
+[node name="SpikedPlatform_39" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(662, -310.99997)
+rotation = -2.7170205
+
+[node name="SpikedPlatform_40" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(642, -334)
+rotation = -5.1414027
+
+[node name="SpikedPlatform_41" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(675.00006, -279.00003)
+rotation = -5.1414027
+
+[node name="SpikedPlatform_42" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(626, -272)
+rotation = -2.3937368
+
+[node name="SpikedPlatform_43" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(650, -263.99997)
+rotation = -3.19343
+
+[node name="SpikedPlatform_31" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(-3.9999847, -316)
+rotation = 0.7147026
+
+[node name="SpikedPlatform_27" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(403, -130.00002)
+rotation = -0.8507403
+
+[node name="SpikedPlatform_26" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(502, 82.999985)
+rotation = -0.8507403
+
+[node name="=SHROOM=" type="Node2D" parent="==PLATFORMS=="]
+
+[node name="platform_shroom_02" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("22_5au7l")]
+position = Vector2(87, 166)
+
+[node name="platform_shroom_06" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("22_5au7l")]
+position = Vector2(634, 10)
+rotation = 0.21259105
+
+[node name="platform_shroom_09" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("22_5au7l")]
+position = Vector2(267, -328.00003)
+rotation = 0.11369446
+
+[node name="platform_shroom_14" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("22_5au7l")]
+position = Vector2(1116.0001, -591.99994)
+rotation = 0.11369446
+
+[node name="platform_shroom_03" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("23_rr58p")]
+position = Vector2(206, 337)
+
+[node name="platform_shroom_04" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("24_yoilj")]
+position = Vector2(555, 324)
+
+[node name="platform_shroom_07" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("24_yoilj")]
+position = Vector2(501, -20)
+
+[node name="platform_shroom_18" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("24_yoilj")]
+position = Vector2(123, -59.999992)
+rotation = 2.6439347
+
+[node name="platform_shroom_19" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("24_yoilj")]
+position = Vector2(132.00002, -102)
+rotation = 1.9197804
+scale = Vector2(0.81580365, 0.62529135)
+
+[node name="platform_shroom_11" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("24_yoilj")]
+position = Vector2(538, -382.99997)
+rotation = 1.1045195
+scale = Vector2(0.7973794, 0.75401723)
+
+[node name="platform_shroom_12" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("24_yoilj")]
+position = Vector2(514, -399.00003)
+rotation = 0.6401454
+scale = Vector2(0.6730902, 0.6707727)
+
+[node name="platform_shroom_13" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("24_yoilj")]
+position = Vector2(499, -429.00003)
+rotation = 0.16808966
+
+[node name="platform_shroom_15" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("24_yoilj")]
+position = Vector2(676.00006, -363)
+rotation = 0.22022867
+scale = Vector2(0.5314387, 0.47662747)
+
+[node name="platform_shroom_16" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("24_yoilj")]
+position = Vector2(645, -380.00003)
+rotation = -0.010205746
+scale = Vector2(-1, 1)
+
+[node name="platform_shroom_10" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("24_yoilj")]
+position = Vector2(14.000004, -369)
+rotation = 0.24475913
+
+[node name="platform_shroom_05" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("25_tworg")]
+position = Vector2(877, 343)
+
+[node name="platform_shroom_20" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("25_tworg")]
+position = Vector2(13.000004, 55)
+rotation = 0.86554825
+
+[node name="platform_shroom_08" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("25_tworg")]
+position = Vector2(168, -350)
+
+[node name="platform_shroom_17" parent="==PLATFORMS==/=SHROOM=" instance=ExtResource("25_tworg")]
+position = Vector2(997, -431)
+rotation = 0.03135501
+scale = Vector2(1.0796309, 1.0796309)
+
 [node name="platform01_long" parent="==PLATFORMS==" instance=ExtResource("13_pmbwx")]
 position = Vector2(186, 432)
-metadata/_edit_lock_ = true
 
 [node name="platform01_long2" parent="==PLATFORMS==" instance=ExtResource("13_pmbwx")]
 position = Vector2(581, 432)
 
+[node name="platform01_long4" parent="==PLATFORMS==" instance=ExtResource("13_pmbwx")]
+position = Vector2(186, -164)
+
+[node name="platform01_long5" parent="==PLATFORMS==" instance=ExtResource("13_pmbwx")]
+position = Vector2(978, -361)
+
 [node name="platform01_long3" parent="==PLATFORMS==" instance=ExtResource("13_pmbwx")]
 position = Vector2(978, 432)
+
+[node name="platform_01_looonger_01" parent="==PLATFORMS==" instance=ExtResource("14_ly28y")]
+position = Vector2(-57, -109)
+rotation = -1.5707964
+
+[node name="platform_01_looonger_03" parent="==PLATFORMS==" instance=ExtResource("14_ly28y")]
+position = Vector2(1232, -108)
+rotation = -1.5707964
+
+[node name="platform_01_looonger_02" parent="==PLATFORMS==" instance=ExtResource("14_ly28y")]
+position = Vector2(583, -659)
+
+[node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(1132, 332)
+
+[node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(1132, 232)
+
+[node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(1032, 332)
+
+[node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(142, 332)
+
+[node name="platform_09" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(140, -263)
+
+[node name="platform_17" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(238, -66)
+
+[node name="platform_14" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(42, -560)
+
+[node name="platform_10" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(240, -263)
+
+[node name="platform_11" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(341, -562)
+
+[node name="platform_12" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(1132, -163)
+
+[node name="platform_13" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(42, -65)
+
+[node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(41, 232)
+
+[node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(42, 332)
+
+[node name="platform_07" parent="==PLATFORMS==" instance=ExtResource("21_5iaa6")]
+position = Vector2(317.99997, 284.00003)
+rotation = 0.13082585
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="platform_08" parent="==PLATFORMS==" instance=ExtResource("21_5iaa6")]
+position = Vector2(416, -161.99998)
+rotation = 0.61172676
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="platform_16" parent="==PLATFORMS==" instance=ExtResource("21_5iaa6")]
+position = Vector2(1058, -158.00002)
+rotation = 0.083680764
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="platform_15" parent="==PLATFORMS==" instance=ExtResource("21_5iaa6")]
+position = Vector2(865.00006, -434.00003)
+rotation = 0.22333032
+scale = Vector2(0.99999994, 0.99999994)
 
 [node name="==COLLECTABLES==" type="Node2D" parent="."]
 position = Vector2(293, 281)
 
 [node name="coin" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
-position = Vector2(58, 0)
+position = Vector2(26, -51)
 scale = Vector2(1.7600799, 1.7600799)
+point_value = 10
+
+[node name="coin4" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(-265, -757.00006)
+scale = Vector2(2.9519353, 2.9519353)
+point_value = 10
 
 [node name="coin2" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
 position = Vector2(142, 40)
@@ -137,67 +444,108 @@ position = Vector2(142, 40)
 [node name="coin3" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
 position = Vector2(320, -71)
 
+[node name="coin15" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(-213, -147)
+
+[node name="coin5" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(446, -1)
+
+[node name="coin6" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(729, -17)
+
+[node name="coin7" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(812, -116)
+
+[node name="coin8" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(768, -314)
+
+[node name="coin9" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(803, -514)
+
+[node name="coin10" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(830, -547)
+
+[node name="coin11" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(844, -514)
+
+[node name="coin12" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(867, -556)
+
+[node name="coin13" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(872, -517)
+
+[node name="coin14" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(841, -574)
+
+[node name="==DECORATIONS===" type="Node2D" parent="."]
+position = Vector2(693.00006, 371)
+scale = Vector2(0.29996586, 0.29996586)
+
+[node name="EnvFoliageShroomSmall1Sprite01V1" parent="==DECORATIONS===" instance=ExtResource("20_5iaa6")]
+scale = Vector2(1, 1)
+
+[node name="EnvFoliageShroomSmall1Sprite01V2" parent="==DECORATIONS===" instance=ExtResource("20_5iaa6")]
+position = Vector2(620.0703, 0.00012207031)
+scale = Vector2(1, 1)
+
+[node name="EnvFoliageShroomSmall1Sprite01V4" parent="==DECORATIONS===" instance=ExtResource("20_5iaa6")]
+position = Vector2(1036.7844, -333.37122)
+scale = Vector2(1, 1)
+
+[node name="EnvFoliageShroomSmall1Sprite01V3" parent="==DECORATIONS===" instance=ExtResource("20_5iaa6")]
+position = Vector2(270.03052, 6.6674805)
+rotation = 0.2452149
+scale = Vector2(0.7501919, 0.79406327)
+
+[node name="EnvFoliageShroomSmall1Sprite01V5" parent="==DECORATIONS===" instance=ExtResource("20_5iaa6")]
+position = Vector2(330.03735, -990.11273)
+rotation = 0.2452149
+scale = Vector2(0.7501919, 0.79406327)
+
+[node name="EnvFoliageShroomSmall1Sprite01V6" parent="==DECORATIONS===" instance=ExtResource("20_5iaa6")]
+position = Vector2(-1253.4762, -1993.5602)
+rotation = 0.12748343
+scale = Vector2(0.7501919, 0.79406327)
+
+[node name="EnvFoliageShroomSmall1Sprite01V7" parent="==DECORATIONS===" instance=ExtResource("20_5iaa6")]
+position = Vector2(-1960.2234, -2290.2607)
+rotation = -0.023931634
+scale = Vector2(0.7501919, 0.79406327)
+
+[node name="EnvFoliageShroomSmall1Sprite01V8" parent="==DECORATIONS===" instance=ExtResource("20_5iaa6")]
+position = Vector2(360.04077, -2630.2996)
+rotation = -0.023931634
+scale = Vector2(0.7501919, 0.79406327)
+
+[node name="EnvFoliageShroomSmall1Sprite01V9" parent="==DECORATIONS===" instance=ExtResource("20_5iaa6")]
+position = Vector2(966.7765, -2626.9653)
+rotation = -0.023931634
+scale = Vector2(0.7501919, 0.79406327)
+
+[node name="EnvFoliageShroomSmall1Sprite01V10" parent="==DECORATIONS===" instance=ExtResource("20_5iaa6")]
+position = Vector2(770.0874, -2630.2993)
+rotation = -0.023931634
+scale = Vector2(0.5819203, 0.7683202)
+
 [node name="==ENEMIES==" type="Node2D" parent="."]
 
 [node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
 position = Vector2(458, 347)
 
-[node name="EnvFoliageShroom3Sprite01V1" type="Sprite2D" parent="==ENEMIES=="]
-z_index = -2
-position = Vector2(639, 322)
-scale = Vector2(0.27565274, 0.27565274)
-texture = ExtResource("17_lgfx6")
-
-[node name="EnvFoliageShroom4Sprite01V1" type="Sprite2D" parent="==ENEMIES=="]
-z_index = -2
-position = Vector2(821, 293.00003)
-scale = Vector2(0.2925403, 0.2925403)
-texture = ExtResource("18_6q8gj")
-
-[node name="EnvFoliageShroom5Sprite01V1" type="Sprite2D" parent="==ENEMIES=="]
-z_index = -2
-position = Vector2(145.99998, 236)
-scale = Vector2(0.29553902, 0.29553905)
-texture = ExtResource("19_5iaa6")
-
-[node name="EnvFoliageShroomSmall1Sprite01V1" parent="==ENEMIES==" instance=ExtResource("20_5iaa6")]
-position = Vector2(693.00006, 371)
-
-[node name="EnvFoliageShroomSmall1Sprite01V2" parent="==ENEMIES==" instance=ExtResource("20_5iaa6")]
-position = Vector2(879, 371.00003)
-
-[node name="EnvFoliageShroomSmall1Sprite01V3" parent="==ENEMIES==" instance=ExtResource("20_5iaa6")]
-position = Vector2(774, 373.00003)
-rotation = 0.2452149
-scale = Vector2(0.22503194, 0.23819186)
-
-[node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("21_5au7l")]
-position = Vector2(607, 338)
+[node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("21_5au7l")]
+position = Vector2(850, 63.00003)
 scale = Vector2(0.78052604, 0.78052604)
 
 [node name="Enemy_Floating2" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
 position = Vector2(490, 175)
 scale = Vector2(2.3693724, 2.3693724)
 
+[node name="Enemy_Floating3" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
+position = Vector2(618, -40)
+scale = Vector2(2.3693724, 2.3693724)
+patrol_time = 2.0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_pmbwx")
 volume_db = -20.0
 autoplay = true
-
-[node name="platform_01" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(1132, 332)
-
-[node name="platform_03" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(1132, 232)
-
-[node name="platform_02" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(1032, 332)
-
-[node name="platform_04" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(142, 332)
-
-[node name="platform_05" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(41, 232)
-
-[node name="platform_06" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(42, 332)
