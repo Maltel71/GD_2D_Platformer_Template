@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://qu8m7sepra3w"]
 
-[ext_resource type="Script" uid="uid://blysyranoa4rw" path="res://player/Bullet.gd" id="1_j40gx"]
+[ext_resource type="Script" uid="uid://blysyranoa4rw" path="res://scripts/Bullet.gd" id="1_j40gx"]
 [ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="2_j40gx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6bq6f"]

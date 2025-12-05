@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvbm0b511iwl"]
 
-[ext_resource type="Script" uid="uid://de1abq5qky54f" path="res://enemy/enemy_floating.gd" id="1_17dft"]
+[ext_resource type="Script" uid="uid://de1abq5qky54f" path="res://scripts/enemy_floating.gd" id="1_17dft"]
 [ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="2_17dft"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]

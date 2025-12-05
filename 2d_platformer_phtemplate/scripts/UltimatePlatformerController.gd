@@ -137,6 +137,7 @@ var can_shoot_now: bool = true
 var shoot_tap
 
 var current_health: int
+var is_dead: bool = false
 
 var upHold
 var downHold
@@ -305,6 +306,16 @@ func _physics_process(delta):
 	if !dset:
 		gdelta = delta
 		dset = true
+	
+	# Block input when dead, but still allow physics/gravity
+	if is_dead:
+		if gravityActive:
+			if velocity.y < appliedTerminalVelocity:
+				velocity.y += appliedGravity
+			elif velocity.y > appliedTerminalVelocity:
+				velocity.y = appliedTerminalVelocity
+		move_and_slide()
+		return
 		
 	leftHold = Input.is_action_pressed("left")
 	rightHold = Input.is_action_pressed("right")
@@ -666,17 +677,27 @@ func take_damage(amount: int) -> void:
 		_die()
 
 func _die():
+	is_dead = true
 	_play_sound(death_sound, death_volume)
 	
+	# Disable the collision shape directly
+	if PlayerCollider:
+		PlayerCollider.set_deferred("disabled", true)
+	
+	# Also disable collision layers/masks as backup
 	set_collision_layer_value(1, false)
+	set_collision_mask_value(1, false)
+	set_collision_mask_value(2, false)
+	set_collision_mask_value(3, false)
 	set_collision_mask_value(4, false)
 	
+	# Death animation - bounce up like Mario
 	velocity.y = -jumpMagnitude * 0.8
+	velocity.x = 0
 	gravityActive = true
 	
-	set_process_input(false)
-	
-	await get_tree().create_timer(3.0).timeout
+	# Wait then remove
+	await get_tree().create_timer(1.5).timeout
 	queue_free()
 
 func _play_sound(sound: AudioStream, volume: float = 0.0):

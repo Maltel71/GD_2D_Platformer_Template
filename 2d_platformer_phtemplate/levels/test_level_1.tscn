@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=17 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -10,11 +10,12 @@
 [ext_resource type="AudioStream" uid="uid://bf65jj4hxa28c" path="res://audio/sfx/hit_hurt/hitHurt.wav" id="5_1j1kj"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="5_5vfu0"]
 [ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_kgy88"]
-[ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="7_aupmd"]
+[ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="7_aupmd"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
 [ext_resource type="AudioStream" uid="uid://djjfua45vw2b1" path="res://audio/music/arcade-beat-323176.mp3" id="15_t58ta"]
+[ext_resource type="PackedScene" uid="uid://cy52jhaed1ci1" path="res://level_components/platform_spiked_01.tscn" id="16_1j1kj"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -37,6 +38,7 @@ script = ExtResource("7_aupmd")
 [node name="ui" parent="." instance=ExtResource("5_5vfu0")]
 
 [node name="background_01" type="TextureRect" parent="."]
+modulate = Color(0.8260184, 0.78445035, 0.8802144, 1)
 z_index = -20
 offset_left = -3111.9998
 offset_top = -1792.9999
@@ -53,15 +55,50 @@ next_scene = ExtResource("13_aupmd")
 [node name="==PLATFORMS==" type="Node2D" parent="."]
 
 [node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(208, 357)
-scale = Vector2(2.52, 1)
+position = Vector2(111, 359)
+scale = Vector2(4.3200006, 1)
+
+[node name="platform_11" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(-66, 94)
+rotation = 1.5707964
+scale = Vector2(4.3200006, 1)
+
+[node name="platform_13" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(191, -339)
+rotation = 1.5707964
+scale = Vector2(4.3200006, 1)
+
+[node name="platform_15" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(1471, -314)
+rotation = 1.5707964
+scale = Vector2(4.3200006, 1)
+
+[node name="platform_12" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(20, -168)
+scale = Vector2(4.3200006, 1)
+
+[node name="platform_16" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(1962, -104)
+scale = Vector2(10.320001, 1)
+
+[node name="platform_14" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(838, -569)
+scale = Vector2(13.68, 1)
+
+[node name="platform_17" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(1814, 920)
+scale = Vector2(13.68, 1)
 
 [node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
 position = Vector2(389, 426)
 scale = Vector2(2.52, 1)
 
 [node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(565, 101)
+position = Vector2(548, 96)
+scale = Vector2(2.52, 1)
+
+[node name="platform_10" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(546, -3)
 scale = Vector2(2.52, 1)
 
 [node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
@@ -69,22 +106,27 @@ position = Vector2(709, 384)
 scale = Vector2(4.12, 1)
 
 [node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(875, 403)
+position = Vector2(913, 382)
 rotation = -0.221406
 scale = Vector2(4.12, 0.99999994)
 
 [node name="platform_07" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(1162, 535)
+position = Vector2(1161.9999, 606)
 rotation = 1.55335
-scale = Vector2(4.12, 1)
+scale = Vector2(5.6818566, 1)
+
+[node name="platform_18" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(2450, 395)
+rotation = 1.55335
+scale = Vector2(10.446714, 1)
 
 [node name="platform_08" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(1313, 532)
+position = Vector2(1338, 529.00006)
 rotation = 1.55335
 scale = Vector2(4.12, 1)
 
 [node name="platform_09" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(1473, 529)
+position = Vector2(1517.0001, 529)
 rotation = 1.55335
 scale = Vector2(4.12, 1)
 
@@ -117,3 +159,22 @@ position = Vector2(1205, 210)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_t58ta")
 volume_db = -20.0
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+modulate = Color(0.71676594, 0.76059234, 0.71526664, 1)
+color = Color(0, 0, 0, 1)
+invert_enabled = true
+polygon = PackedVector2Array(-78, -155, 200, -170, 210, -569, 1473, -559, 1473, -129, 2444, -109, 2459, 942, 1150, 922, 1150, 356, 543, 376, 538, 452, 306, 437, 265, 356, -53, 351)
+metadata/_edit_lock_ = true
+
+[node name="Node2D" parent="." instance=ExtResource("16_1j1kj")]
+position = Vector2(465, 157)
+scale = Vector2(1.0035948, 1)
+
+[node name="Node2D2" parent="." instance=ExtResource("16_1j1kj")]
+position = Vector2(550, 158)
+scale = Vector2(1.0035948, 1)
+
+[node name="Node2D3" parent="." instance=ExtResource("16_1j1kj")]
+position = Vector2(635, 157)
+scale = Vector2(1.0035948, 1)

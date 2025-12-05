@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy52jhaed1ci1"]
+
+[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="1_7162s"]
+[ext_resource type="Script" uid="uid://b5er7b3ye4uqg" path="res://scripts/danger_area.gd" id="2_f8pg8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8pg8"]
+size = Vector2(82, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7162s"]
+size = Vector2(60, 20)
+
+[node name="PlatformSpiked_01" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.17578125, 0.04493795)
+texture = ExtResource("1_7162s")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+modulate = Color(0.9256918, 0.56404394, 0.49481535, 1)
+position = Vector2(0, 11)
+scale = Vector2(0.13522996, 0.022609755)
+texture = ExtResource("1_7162s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.8705995, 0.43598482, 0.47669715, 1)
+position = Vector2(-28, 18.000002)
+rotation = 1.5707964
+scale = Vector2(0.04499983, 0.0076304786)
+texture = ExtResource("1_7162s")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(0.8705995, 0.43598482, 0.47669715, 1)
+position = Vector2(-15, 18)
+rotation = 1.5707964
+scale = Vector2(0.04499983, 0.0076304786)
+texture = ExtResource("1_7162s")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+modulate = Color(0.8705995, 0.43598482, 0.47669715, 1)
+position = Vector2(-1, 18.000002)
+rotation = 1.5707964
+scale = Vector2(0.04499983, 0.0076304786)
+texture = ExtResource("1_7162s")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+modulate = Color(0.8705995, 0.43598482, 0.47669715, 1)
+position = Vector2(15, 18)
+rotation = 1.5707964
+scale = Vector2(0.04499983, 0.0076304786)
+texture = ExtResource("1_7162s")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+modulate = Color(0.8705995, 0.43598482, 0.47669715, 1)
+position = Vector2(28, 18.000002)
+rotation = 1.5707964
+scale = Vector2(0.04499983, 0.0076304786)
+texture = ExtResource("1_7162s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+shape = SubResource("RectangleShape2D_f8pg8")
+
+[node name="DangerArea" type="Area2D" parent="."]
+collision_mask = 0
+script = ExtResource("2_f8pg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DangerArea"]
+visible = false
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_7162s")
