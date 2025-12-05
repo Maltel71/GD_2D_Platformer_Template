@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dagyi6jlwbb0w"]
+[gd_scene load_steps=6 format=3 uid="uid://dagyi6jlwbb0w"]
 
 [ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://scripts/UltimatePlatformerController.gd" id="1_rkbax"]
-[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://dbfdyfs6rxiij" path="res://graphics/env_foliage_shroom4_sprite_01_v1.png" id="2_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://bw31r8unmvii7" path="res://graphics/char_player_sprite_01_v1.png" id="3_yw30f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
 radius = 14.0
@@ -11,7 +12,7 @@ height = 64.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("3_yw30f")
 }],
 "loop": true,
 "name": &"idle",
@@ -19,7 +20,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("3_yw30f")
 }],
 "loop": true,
 "name": &"walk",
@@ -31,20 +32,23 @@ collision_mask = 10
 script = ExtResource("1_rkbax")
 PlayerSprite = NodePath("AnimatedSprite2DMalte")
 PlayerCollider = NodePath("CollisionShape2D")
+jumps = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1abo5")
 
 [node name="BulletSpawnPoint" type="Node2D" parent="."]
-position = Vector2(16, -1)
+position = Vector2(9, 6)
 
 [node name="WeaponSprite" type="Sprite2D" parent="BulletSpawnPoint"]
-modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
+visible = false
 position = Vector2(-4.7683716e-07, 0)
+rotation = 1.7007514
 scale = Vector2(0.021337198, 0.021337198)
-texture = ExtResource("3_g1dw6")
+texture = ExtResource("2_g1dw6")
 
 [node name="AnimatedSprite2DMalte" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.047, 0.125)
+position = Vector2(1, -6)
+scale = Vector2(0.158356, 0.158356)
 sprite_frames = SubResource("SpriteFrames_1abo5")
-animation = &"idle"
+animation = &"walk"

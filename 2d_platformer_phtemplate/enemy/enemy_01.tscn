@@ -1,35 +1,39 @@
 [gd_scene load_steps=5 format=3 uid="uid://2sbchijd2mjp"]
 
 [ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://enemy/enemy.gd" id="1_laejb"]
-[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="2_laejb"]
+[ext_resource type="Texture2D" uid="uid://fkm3xpfxyjdj" path="res://graphics/char_enemy_croc_sprite_01_v1.png" id="2_laejb"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
-radius = 21.0
-height = 44.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_laejb"]
+height = 122.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
-radius = 20.0087
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yl8y7"]
+height = 68.88889
 
 [node name="Enemy_01" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_laejb")
+speed = 125.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.7927212, 0.7945566, 1)
 position = Vector2(0, 3.8147e-06)
-scale = Vector2(0.089, 0.089)
+scale = Vector2(0.24719101, 0.24719094)
 texture = ExtResource("2_laejb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_ffj3o")
+position = Vector2(8, 5)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_laejb")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
+position = Vector2(40, 0)
 rotation = -1.5708
 target_position = Vector2(0, 35)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="."]
+position = Vector2(-24, 0)
 rotation = 1.5708
 target_position = Vector2(0, 35)
 collision_mask = 9
@@ -48,5 +52,6 @@ scale = Vector2(1.8, 1.56)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, -7)
-shape = SubResource("CircleShape2D_ld2qc")
+position = Vector2(7.2222223, -9.615385)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_yl8y7")

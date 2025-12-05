@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=22 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
-[ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
 [ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/sfx/jump/jump.wav" id="2_kgy88"]
 [ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_pmbwx"]
 [ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/sfx/hit_hurt/hitHurt (1).wav" id="3_aupmd"]
@@ -16,7 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
 [ext_resource type="PackedScene" uid="uid://by5ey1qvje21g" path="res://level_components/spiked_platform_01.tscn" id="12_5vfu0"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
+[ext_resource type="PackedScene" uid="uid://cj5jqks3r6o8w" path="res://level_components/platform_01_long.tscn" id="13_pmbwx"]
+[ext_resource type="Texture2D" uid="uid://cp7kwrw1g1w3t" path="res://graphics/env_foliage_shroom3_sprite_01_v1.png" id="17_lgfx6"]
 [ext_resource type="AudioStream" uid="uid://dunhfackor0ob" path="res://audio/music/bill_music/DGBMjams - Fained Forest 3 (recovered).mp3" id="17_pmbwx"]
+[ext_resource type="Texture2D" uid="uid://dbfdyfs6rxiij" path="res://graphics/env_foliage_shroom4_sprite_01_v1.png" id="18_6q8gj"]
+[ext_resource type="Texture2D" uid="uid://01qklncpw2bs" path="res://graphics/env_foliage_shroom5_sprite_01_v1.png" id="19_5iaa6"]
+[ext_resource type="PackedScene" uid="uid://cnaoi575kkfjy" path="res://level_components/shroom_decoration_prefab.tscn" id="20_5iaa6"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -50,65 +54,68 @@ offset_bottom = -710.9999
 scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("3_kql2n")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
-position = Vector2(59, 243)
+position = Vector2(13, 318)
 next_scene = ExtResource("13_aupmd")
 
 [node name="==PLATFORMS==" type="Node2D" parent="."]
 
 [node name="=SPIKED=" type="Node2D" parent="==PLATFORMS=="]
 
-[node name="SpikedPlatform_01" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
-position = Vector2(233, 288)
+[node name="SpikedPlatform_05" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(290, 358)
+scale = Vector2(1.5698402, 1.5698402)
 
-[node name="SpikedPlatform_02" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
-position = Vector2(279, 165)
+[node name="SpikedPlatform_06" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(334, 333)
+scale = Vector2(1.5698402, 1.5698402)
 
-[node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(208, 357)
-scale = Vector2(2.52, 1)
+[node name="SpikedPlatform_07" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(245, 384)
+scale = Vector2(1.5698402, 1.5698402)
 
-[node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(389, 426)
-scale = Vector2(2.52, 1)
+[node name="SpikedPlatform_11" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(197, 410.00003)
+rotation = -0.20711298
+scale = Vector2(1.5698402, 1.5698402)
 
-[node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(565, 101)
-scale = Vector2(2.52, 1)
+[node name="SpikedPlatform_12" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(148, 434.00003)
+rotation = -0.46067175
+scale = Vector2(1.5698402, 1.5698402)
 
-[node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(709, 384)
-scale = Vector2(4.12, 1)
+[node name="SpikedPlatform_08" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(314, 384.00003)
+scale = Vector2(1.5698402, 1.5698402)
 
-[node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(875, 403)
-rotation = -0.221406
-scale = Vector2(4.12, 0.99999994)
+[node name="SpikedPlatform_09" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(342.00003, 417.00003)
+rotation = 0.13246778
+scale = Vector2(1.5698402, 1.5698402)
 
-[node name="platform_07" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(1162, 535)
-rotation = 1.55335
-scale = Vector2(4.12, 1)
+[node name="SpikedPlatform_10" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(371, 449.00003)
+rotation = 0.28657103
+scale = Vector2(1.5698402, 1.5698402)
 
-[node name="platform_08" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(1313, 532)
-rotation = 1.55335
-scale = Vector2(4.12, 1)
+[node name="platform01_long" parent="==PLATFORMS==" instance=ExtResource("13_pmbwx")]
+position = Vector2(186, 432)
+metadata/_edit_lock_ = true
 
-[node name="platform_09" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(1473, 529)
-rotation = 1.55335
-scale = Vector2(4.12, 1)
+[node name="platform01_long2" parent="==PLATFORMS==" instance=ExtResource("13_pmbwx")]
+position = Vector2(581, 432)
 
-[node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(575, 383)
-scale = Vector2(0.879738, 1.84942)
+[node name="platform01_long3" parent="==PLATFORMS==" instance=ExtResource("13_pmbwx")]
+position = Vector2(978, 432)
 
 [node name="==COLLECTABLES==" type="Node2D" parent="."]
 position = Vector2(293, 281)
 
 [node name="coin" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+position = Vector2(58, 0)
+scale = Vector2(1.7600799, 1.7600799)
 
 [node name="coin2" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
 position = Vector2(142, 40)
@@ -118,14 +125,40 @@ position = Vector2(320, -71)
 
 [node name="==ENEMIES==" type="Node2D" parent="."]
 
-[node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
-position = Vector2(708, 296)
-
 [node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
-position = Vector2(397, 314)
+position = Vector2(458, 347)
 
 [node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
 position = Vector2(1205, 210)
+
+[node name="EnvFoliageShroom3Sprite01V1" type="Sprite2D" parent="==ENEMIES=="]
+z_index = -2
+position = Vector2(639, 322)
+scale = Vector2(0.27565274, 0.27565274)
+texture = ExtResource("17_lgfx6")
+
+[node name="EnvFoliageShroom4Sprite01V1" type="Sprite2D" parent="==ENEMIES=="]
+z_index = -2
+position = Vector2(821, 293.00003)
+scale = Vector2(0.2925403, 0.2925403)
+texture = ExtResource("18_6q8gj")
+
+[node name="EnvFoliageShroom5Sprite01V1" type="Sprite2D" parent="==ENEMIES=="]
+z_index = -2
+position = Vector2(130.99994, 335)
+scale = Vector2(0.29553902, 0.29553905)
+texture = ExtResource("19_5iaa6")
+
+[node name="EnvFoliageShroomSmall1Sprite01V1" parent="==ENEMIES==" instance=ExtResource("20_5iaa6")]
+position = Vector2(693.00006, 371)
+
+[node name="EnvFoliageShroomSmall1Sprite01V2" parent="==ENEMIES==" instance=ExtResource("20_5iaa6")]
+position = Vector2(879, 371.00003)
+
+[node name="EnvFoliageShroomSmall1Sprite01V3" parent="==ENEMIES==" instance=ExtResource("20_5iaa6")]
+position = Vector2(774, 373.00003)
+rotation = 0.2452149
+scale = Vector2(0.22503194, 0.23819186)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_pmbwx")
