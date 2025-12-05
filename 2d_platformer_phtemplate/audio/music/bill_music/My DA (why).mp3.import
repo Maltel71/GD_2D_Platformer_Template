@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fgy4bfppp3hi"
+path="res://.godot/imported/My DA (why).mp3-f32b06255e4433efe242f64a3b1ac74d.mp3str"
+
+[deps]
+
+source_file="res://audio/music/bill_music/My DA (why).mp3"
+dest_files=["res://.godot/imported/My DA (why).mp3-f32b06255e4433efe242f64a3b1ac74d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

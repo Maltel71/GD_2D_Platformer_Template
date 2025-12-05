@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ci5f2w8ckk06a"]
 
-[ext_resource type="Script" uid="uid://b8dignih65ubw" path="res://level_components/goal_trigger/goal_trigger.gd" id="1_21bs6"]
+[ext_resource type="Script" uid="uid://b8dignih65ubw" path="res://scripts/goal_trigger.gd" id="1_21bs6"]
 [ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="2_21bs6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4nf8e"]

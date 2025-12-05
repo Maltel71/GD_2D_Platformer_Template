@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://by5ey1qvje21g"]
+
+[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="1_wxo6x"]
+[ext_resource type="Script" uid="uid://b5er7b3ye4uqg" path="res://scripts/danger_area.gd" id="2_nibys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxo6x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nibys"]
+size = Vector2(34, 34)
+
+[node name="SpikedPlatform_01" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.07617441, 0.07617441)
+texture = ExtResource("1_wxo6x")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.87242484, 0.43413064, 0.34680325, 1)
+position = Vector2(-6, 28)
+scale = Vector2(0.011718749, 0.04296875)
+texture = ExtResource("1_wxo6x")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(0.87242484, 0.43413064, 0.34680325, 1)
+position = Vector2(6, 28)
+scale = Vector2(0.011718749, 0.04296875)
+texture = ExtResource("1_wxo6x")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_nibys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 27)
+shape = SubResource("RectangleShape2D_wxo6x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_nibys")

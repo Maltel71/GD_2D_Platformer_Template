@@ -1,25 +1,28 @@
-[gd_scene load_steps=16 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=18 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
 [ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/sfx/jump/jump.wav" id="2_kgy88"]
+[ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_pmbwx"]
 [ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/sfx/hit_hurt/hitHurt (1).wav" id="3_aupmd"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="3_kql2n"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="4_02ec3"]
 [ext_resource type="AudioStream" uid="uid://d3xekf1n6wys2" path="res://audio/sfx/laser_shoot/laserShoot (1).wav" id="4_t58ta"]
-[ext_resource type="AudioStream" uid="uid://bf65jj4hxa28c" path="res://audio/sfx/hit_hurt/hitHurt.wav" id="5_1j1kj"]
+[ext_resource type="AudioStream" uid="uid://bimb12dxnnxm0" path="res://audio/sfx/synth/synth (1).wav" id="5_1j1kj"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="5_5vfu0"]
 [ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_kgy88"]
-[ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="7_aupmd"]
+[ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="7_aupmd"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
+[ext_resource type="PackedScene" uid="uid://by5ey1qvje21g" path="res://level_components/spiked_platform_01.tscn" id="12_5vfu0"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
-[ext_resource type="AudioStream" uid="uid://djjfua45vw2b1" path="res://audio/music/arcade-beat-323176.mp3" id="15_t58ta"]
+[ext_resource type="AudioStream" uid="uid://dunhfackor0ob" path="res://audio/music/bill_music/DGBMjams - Fained Forest 3 (recovered).mp3" id="17_pmbwx"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_plkrb")]
 position = Vector2(182, 224)
+bullet_scene = ExtResource("2_pmbwx")
 jump_sound = ExtResource("2_kgy88")
 jump_volume = -20.0
 damage_sound = ExtResource("3_aupmd")
@@ -27,7 +30,9 @@ damage_volume = -20.0
 shoot_sound = ExtResource("4_t58ta")
 shoot_volume = -20.0
 death_sound = ExtResource("5_1j1kj")
-death_volume = -20.0
+death_volume = -25.0
+idle = true
+walk = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(182, 229)
@@ -51,6 +56,14 @@ position = Vector2(59, 243)
 next_scene = ExtResource("13_aupmd")
 
 [node name="==PLATFORMS==" type="Node2D" parent="."]
+
+[node name="=SPIKED=" type="Node2D" parent="==PLATFORMS=="]
+
+[node name="SpikedPlatform_01" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(233, 288)
+
+[node name="SpikedPlatform_02" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(279, 165)
 
 [node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
 position = Vector2(208, 357)
@@ -115,6 +128,6 @@ position = Vector2(397, 314)
 position = Vector2(1205, 210)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_t58ta")
+stream = ExtResource("17_pmbwx")
 volume_db = -20.0
 autoplay = true

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="7_7rcka"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="8_2sx82"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="9_kxfxx"]
-[ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://player/camera.gd" id="11_wu0c2"]
+[ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="11_wu0c2"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="12_ay0he"]
 [ext_resource type="PackedScene" uid="uid://cari2tg1labr3" path="res://menus/WinMenu.tscn" id="12_mc1td"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="13_td7uj"]
