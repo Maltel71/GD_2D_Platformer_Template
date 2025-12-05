@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
 radius = 14.0
-height = 64.0
+height = 32.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1abo5"]
 animations = [{
@@ -32,6 +32,11 @@ collision_mask = 10
 script = ExtResource("1_rkbax")
 PlayerSprite = NodePath("AnimatedSprite2DMalte")
 PlayerCollider = NodePath("CollisionShape2D")
+maxSpeed = 50.0
+useAirSpeed = true
+maxAirSpeed = 200.0
+timeToReachMaxAirSpeed = 0.5
+jumps = 9000
 wallJump = true
 bullet_scene = ExtResource("2_yw30f")
 idle = true
@@ -50,6 +55,6 @@ scale = Vector2(0.021337198, 0.021337198)
 texture = ExtResource("3_g1dw6")
 
 [node name="AnimatedSprite2DMalte" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.047, 0.125)
+scale = Vector2(0.05859375, 0.0703125)
 sprite_frames = SubResource("SpriteFrames_1abo5")
 animation = &"idle"

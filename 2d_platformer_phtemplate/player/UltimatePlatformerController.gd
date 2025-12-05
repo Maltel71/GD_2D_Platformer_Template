@@ -14,10 +14,14 @@ class_name PlatformerController2D
 @export_range(0, 4) var timeToReachZeroSpeed: float = 0.2
 @export var directionalSnap: bool = false
 @export var runningModifier: bool = false
+@export_subgroup("Air Movement")
+@export var useAirSpeed: bool = false
+@export_range(50, 1000) var maxAirSpeed: float = 300.0
+@export_range(0, 4) var timeToReachMaxAirSpeed: float = 0.15
 
 @export_category("Jumping and Gravity")
 @export_range(0, 20) var jumpHeight: float = 2.0
-@export_range(0, 4) var jumps: int = 1
+@export_range(0, 20) var jumps: int = 1
 @export_range(0, 100) var gravityScale: float = 20.0
 @export_range(0, 1000) var terminalVelocity: float = 500.0
 @export_range(0.5, 3) var descendingGravityFactor: float = 1.3
@@ -91,6 +95,7 @@ var appliedTerminalVelocity: float
 var friction: float
 var acceleration: float
 var deceleration: float
+var airAcceleration: float
 var instantAccel: bool = false
 var instantStop: bool = false
 
@@ -167,6 +172,11 @@ func _ready():
 func _updateData():
 	acceleration = maxSpeed / timeToReachMaxSpeed
 	deceleration = -maxSpeed / timeToReachZeroSpeed
+	
+	if useAirSpeed:
+		airAcceleration = maxAirSpeed / timeToReachMaxAirSpeed
+	else:
+		airAcceleration = acceleration
 	
 	jumpMagnitude = (10.0 * jumpHeight) * gravityScale
 	jumpCount = jumps
@@ -323,20 +333,26 @@ func _physics_process(delta):
 		else:
 			velocity.x = -0.1
 	elif rightHold and movementInputMonitoring.x:
-		if velocity.x > maxSpeed or instantAccel:
-			velocity.x = maxSpeed
+		var targetSpeed = maxAirSpeed if (useAirSpeed and !is_on_floor()) else maxSpeed
+		var currentAccel = airAcceleration if (useAirSpeed and !is_on_floor()) else acceleration
+		
+		if velocity.x > targetSpeed or instantAccel:
+			velocity.x = targetSpeed
 		else:
-			velocity.x += acceleration * delta
+			velocity.x += currentAccel * delta
 		if velocity.x < 0:
 			if !instantStop:
 				_decelerate(delta, false)
 			else:
 				velocity.x = -0.1
 	elif leftHold and movementInputMonitoring.y:
-		if velocity.x < -maxSpeed or instantAccel:
-			velocity.x = -maxSpeed
+		var targetSpeed = maxAirSpeed if (useAirSpeed and !is_on_floor()) else maxSpeed
+		var currentAccel = airAcceleration if (useAirSpeed and !is_on_floor()) else acceleration
+		
+		if velocity.x < -targetSpeed or instantAccel:
+			velocity.x = -targetSpeed
 		else:
-			velocity.x -= acceleration * delta
+			velocity.x -= currentAccel * delta
 		if velocity.x > 0:
 			if !instantStop:
 				_decelerate(delta, false)
