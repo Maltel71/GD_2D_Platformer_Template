@@ -10,7 +10,7 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_74ymc")
-game_scene_path = "res://levels/test_level_1.tscn"
+game_scene_path = "res://levels/test_level_2.tscn"
 hover_sound = ExtResource("2_pivjg")
 
 [node name="StartButton" type="Button" parent="."]
@@ -55,6 +55,7 @@ z_index = -5
 position = Vector2(965, 543)
 scale = Vector2(3.8400002, 2.1999993)
 texture = ExtResource("4_kos7h")
+metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_pivjg")
