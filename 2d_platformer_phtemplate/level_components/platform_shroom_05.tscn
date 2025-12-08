@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjvf0s1qth21c"]
+
+[ext_resource type="Texture2D" path="res://graphics/env_foliage_shroom5_sprite_01_v1.png" id="1_0uqf3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmrlc"]
+size = Vector2(38.001205, 6.509368)
+
+[node name="platform_shroom_03" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.9999807, -10.257379)
+rotation = 0.0026824325
+shape = SubResource("RectangleShape2D_hmrlc")
+one_way_collision = true
+
+[node name="Graphics_PH" type="Sprite2D" parent="."]
+z_index = -3
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("1_0uqf3")

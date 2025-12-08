@@ -1,14 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=15 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
-[ext_resource type="AudioStream" uid="uid://b8lq66ueecr47" path="res://audio/sfx/jump/jump.wav" id="2_kgy88"]
-[ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_pmbwx"]
-[ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/sfx/hit_hurt/hitHurt (1).wav" id="3_aupmd"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="3_kql2n"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="4_02ec3"]
-[ext_resource type="AudioStream" uid="uid://d3xekf1n6wys2" path="res://audio/sfx/laser_shoot/laserShoot (1).wav" id="4_t58ta"]
-[ext_resource type="AudioStream" uid="uid://bimb12dxnnxm0" path="res://audio/sfx/synth/synth (1).wav" id="5_1j1kj"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="5_5vfu0"]
 [ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_kgy88"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="7_aupmd"]
@@ -17,22 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://by5ey1qvje21g" path="res://level_components/spiked_platform_01.tscn" id="12_5vfu0"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
 [ext_resource type="AudioStream" uid="uid://dunhfackor0ob" path="res://audio/music/bill_music/DGBMjams - Fained Forest 3 (recovered).mp3" id="17_pmbwx"]
+[ext_resource type="PackedScene" uid="uid://dn28jqjtuhjse" path="res://level_components/oneway_platform_01.tscn" id="18_lgfx6"]
+[ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_pickup_01.tscn" id="19_d31dk"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_plkrb")]
-position = Vector2(182, 224)
-bullet_scene = ExtResource("2_pmbwx")
-jump_sound = ExtResource("2_kgy88")
-jump_volume = -20.0
-damage_sound = ExtResource("3_aupmd")
-damage_volume = -20.0
-shoot_sound = ExtResource("4_t58ta")
-shoot_volume = -20.0
-death_sound = ExtResource("5_1j1kj")
-death_volume = -25.0
-idle = true
-walk = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(182, 229)
@@ -52,7 +35,7 @@ texture = ExtResource("3_kql2n")
 stretch_mode = 1
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
-position = Vector2(59, 243)
+position = Vector2(-11, 170)
 next_scene = ExtResource("13_aupmd")
 
 [node name="==PLATFORMS==" type="Node2D" parent="."]
@@ -68,6 +51,10 @@ position = Vector2(279, 165)
 [node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
 position = Vector2(208, 357)
 scale = Vector2(2.52, 1)
+
+[node name="platform_10" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(-149, 410)
+scale = Vector2(7.359999, 1)
 
 [node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
 position = Vector2(389, 426)
@@ -124,6 +111,9 @@ position = Vector2(708, 296)
 [node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
 position = Vector2(397, 314)
 
+[node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
+position = Vector2(-129, 310)
+
 [node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
 position = Vector2(1205, 210)
 
@@ -131,3 +121,20 @@ position = Vector2(1205, 210)
 stream = ExtResource("17_pmbwx")
 volume_db = -20.0
 autoplay = true
+
+[node name="platform_01" parent="." instance=ExtResource("18_lgfx6")]
+position = Vector2(95, 259)
+
+[node name="platform_02" parent="." instance=ExtResource("18_lgfx6")]
+position = Vector2(75, 210)
+
+[node name="HealthPickup_01" parent="." instance=ExtResource("19_d31dk")]
+position = Vector2(527, 292)
+scale = Vector2(0.6023685, 0.6023685)
+
+[node name="HealthPickup_02" parent="." instance=ExtResource("19_d31dk")]
+position = Vector2(579, 256)
+health_amount = 3
+
+[node name="Player" parent="." instance=ExtResource("1_plkrb")]
+position = Vector2(180, 256)

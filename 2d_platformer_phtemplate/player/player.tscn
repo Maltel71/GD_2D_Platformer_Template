@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dagyi6jlwbb0w"]
+[gd_scene load_steps=11 format=3 uid="uid://dagyi6jlwbb0w"]
 
 [ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://scripts/UltimatePlatformerController.gd" id="1_rkbax"]
+[ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_yw30f"]
 [ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="3_g1dw6"]
+[ext_resource type="AudioStream" uid="uid://cpgff5po1ijfl" path="res://audio/sfx/jump/jump (1).wav" id="3_rgyib"]
+[ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="3_yw30f"]
+[ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/sfx/hit_hurt/hitHurt (1).wav" id="4_hg6s5"]
+[ext_resource type="AudioStream" uid="uid://d3xekf1n6wys2" path="res://audio/sfx/laser_shoot/laserShoot (1).wav" id="5_8t03j"]
+[ext_resource type="AudioStream" uid="uid://bimb12dxnnxm0" path="res://audio/sfx/synth/synth (1).wav" id="6_2ieo8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
 radius = 14.0
@@ -20,10 +26,13 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_g1dw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yw30f")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 30.0
+"speed": 6.0
 }]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
@@ -31,6 +40,15 @@ collision_mask = 10
 script = ExtResource("1_rkbax")
 PlayerSprite = NodePath("AnimatedSprite2DMalte")
 PlayerCollider = NodePath("CollisionShape2D")
+bullet_scene = ExtResource("2_yw30f")
+jump_sound = ExtResource("3_rgyib")
+jump_volume = -25.0
+damage_sound = ExtResource("4_hg6s5")
+damage_volume = -20.0
+shoot_sound = ExtResource("5_8t03j")
+shoot_volume = -25.0
+death_sound = ExtResource("6_2ieo8")
+death_volume = -23.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1abo5")
