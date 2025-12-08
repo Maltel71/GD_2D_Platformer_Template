@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var health: int = 3
 @export var wall_detection_distance: float = 30.0
 @export var damage_to_player: int = 1
+@export var drop_item: PackedScene  # Assign coin, health pickup, etc.
 
 var direction: int = 1  # 1 = right, -1 = left
 var gravity: float = 980.0
@@ -59,7 +60,14 @@ func _turn_around():
 func take_damage(amount: int):
 	health -= amount
 	if health <= 0:
+		_drop_item()
 		queue_free()
+
+func _drop_item():
+	if drop_item:
+		var item = drop_item.instantiate()
+		item.global_position = global_position
+		get_parent().add_child(item)
 
 func _on_attack_area_entered(body):
 	if body is PlatformerController2D and can_damage:
