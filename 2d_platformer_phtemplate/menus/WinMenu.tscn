@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csjbu0ksq5dmp" path="res://scripts/start_menu.gd" id="1_74ymc"]
 [ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/sfx/click/click (1).wav" id="2_pivjg"]
-[ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/placeholders/icon.svg" id="3_eaowb"]
+[ext_resource type="Script" uid="uid://dy8bwfirpr11v" path="res://scripts/score_display.gd" id="4_74ymc"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="4_kos7h"]
 
 [node name="WinMenu" type="Control"]
@@ -46,13 +46,22 @@ vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1554, 702.99994)
-scale = Vector2(3.5537133, 3.5537133)
-texture = ExtResource("3_eaowb")
-
 [node name="BG" type="Sprite2D" parent="."]
 z_index = -5
 position = Vector2(965, 543)
 scale = Vector2(3.8400002, 2.1999993)
 texture = ExtResource("4_kos7h")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 814.0
+offset_top = 764.0
+offset_right = 1136.0
+offset_bottom = 930.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 121
+text = "Score"
+script = ExtResource("4_74ymc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(957, 539)

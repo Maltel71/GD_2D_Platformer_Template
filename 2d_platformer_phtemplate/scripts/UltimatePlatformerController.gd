@@ -7,6 +7,7 @@ class_name PlatformerController2D
 @export_category("Necesary Child Nodes")
 @export var PlayerSprite: AnimatedSprite2D
 @export var PlayerCollider: CollisionShape2D
+@export var MuzzleFlash: AnimatedSprite2D
 
 @export_category("L/R Movement")
 @export_range(50, 500) var maxSpeed: float = 200.0
@@ -166,6 +167,7 @@ func _ready():
 	# Add audio player node
 	var audio_player = AudioStreamPlayer.new()
 	audio_player.name = "AudioPlayer"
+	audio_player.bus = "sfx" 
 	add_child(audio_player)
 	
 	_updateData()
@@ -248,6 +250,7 @@ func _process(_delta):
 		$BulletSpawnPoint.position.x = abs($BulletSpawnPoint.position.x)
 		$BulletSpawnPoint/WeaponSprite.scale.x = abs($BulletSpawnPoint/WeaponSprite.scale.x)
 	if leftHold and !latched:
+		MuzzleFlash.scale.x = abs(MuzzleFlash.scale.x)
 		anim.scale.x = animScaleLock.x * -1
 		$BulletSpawnPoint.position.x = -abs($BulletSpawnPoint.position.x)
 		$BulletSpawnPoint/WeaponSprite.scale.x = -abs($BulletSpawnPoint/WeaponSprite.scale.x)
@@ -650,6 +653,12 @@ func _shoot():
 	can_shoot_now = false
 	_play_sound(shoot_sound, shoot_volume)
 	
+	# Play muzzle flash animation (non-blocking)
+	if MuzzleFlash:
+		MuzzleFlash.visible = true
+		MuzzleFlash.play("muzzleflash")
+		_hide_muzzle_flash_when_done()
+	
 	var bullet = bullet_scene.instantiate()
 	var spawn_point = $BulletSpawnPoint
 	var shoot_direction = 1 if anim.scale.x > 0 else -1
@@ -660,6 +669,10 @@ func _shoot():
 	
 	await get_tree().create_timer(shoot_cooldown).timeout
 	can_shoot_now = true
+
+func _hide_muzzle_flash_when_done():
+	await MuzzleFlash.animation_finished
+	MuzzleFlash.visible = false
 
 func _placeHolder():
 	print("")

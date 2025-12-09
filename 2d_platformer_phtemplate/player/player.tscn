@@ -1,35 +1,54 @@
-[gd_scene load_steps=12 format=3 uid="uid://dagyi6jlwbb0w"]
+[gd_scene load_steps=18 format=3 uid="uid://dagyi6jlwbb0w"]
 
 [ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://scripts/UltimatePlatformerController.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_yw30f"]
 [ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="3_g1dw6"]
 [ext_resource type="AudioStream" uid="uid://cpgff5po1ijfl" path="res://audio/sfx/jump/jump (1).wav" id="3_rgyib"]
-[ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="3_yw30f"]
 [ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/sfx/hit_hurt/hitHurt (1).wav" id="4_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://d3xekf1n6wys2" path="res://audio/sfx/laser_shoot/laserShoot (1).wav" id="5_8t03j"]
 [ext_resource type="AudioStream" uid="uid://bimb12dxnnxm0" path="res://audio/sfx/synth/synth (1).wav" id="6_2ieo8"]
-[ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/placeholders/icon.svg" id="8_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://combsgjmuvrko" path="res://graphics/player/sprites/idle/player_idle_02.png" id="8_ebec5"]
+[ext_resource type="Texture2D" uid="uid://b0dgcoca74g4w" path="res://graphics/player/sprites/idle/player_idle_01.png" id="9_yllr7"]
+[ext_resource type="Texture2D" uid="uid://duggw1ty8d7h2" path="res://graphics/player/sprites/jump/player_jump_01.png" id="10_kb6p2"]
+[ext_resource type="Texture2D" uid="uid://cv1k4wf2s7jdh" path="res://graphics/player/sprites/walk/player_walk_01.png" id="11_wodsf"]
+[ext_resource type="Texture2D" uid="uid://ckyokqqhogsnd" path="res://graphics/player/sprites/walk/player_walk_02.png" id="12_32hag"]
+[ext_resource type="Texture2D" uid="uid://mn00whqu4hnm" path="res://graphics/player/muzzleflash/gun_muzzleflash_01.png" id="13_kb6p2"]
+[ext_resource type="Texture2D" uid="uid://kv6vke2tvtq8" path="res://graphics/player/muzzleflash/gun_muzzleflash_02.png" id="14_wodsf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
 radius = 14.0
 height = 64.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebec5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_kb6p2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wodsf")
+}],
+"loop": false,
+"name": &"muzzleflash",
+"speed": 12.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_1abo5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("8_ebec5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yllr7")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 60.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_hg6s5")
+"texture": ExtResource("10_kb6p2")
 }],
 "loop": true,
 "name": &"jump",
@@ -37,33 +56,33 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("11_wodsf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_yw30f")
+"texture": ExtResource("12_32hag")
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("11_wodsf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_yw30f")
+"texture": ExtResource("12_32hag")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 6.0
+"speed": 12.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
-position = Vector2(20, 15)
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider", "MuzzleFlash")]
 collision_mask = 10
 script = ExtResource("1_rkbax")
-PlayerSprite = NodePath("AnimatedSprite2DMalte")
+PlayerSprite = NodePath("AnimatedSprite2D_Player")
 PlayerCollider = NodePath("CollisionShape2D")
+MuzzleFlash = NodePath("BulletSpawnPoint/AnimatedSprite2D_MuzzleFlash")
 bullet_scene = ExtResource("2_yw30f")
 jump_sound = ExtResource("3_rgyib")
 jump_volume = -25.0
@@ -82,15 +101,26 @@ walk = true
 shape = SubResource("CapsuleShape2D_1abo5")
 
 [node name="BulletSpawnPoint" type="Node2D" parent="."]
-position = Vector2(16, -1)
+position = Vector2(33, 3)
 
 [node name="WeaponSprite" type="Sprite2D" parent="BulletSpawnPoint"]
+visible = false
 modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
 position = Vector2(-4.7683716e-07, 0)
 scale = Vector2(0.021337198, 0.021337198)
 texture = ExtResource("3_g1dw6")
 
-[node name="AnimatedSprite2DMalte" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.047, 0.125)
+[node name="AnimatedSprite2D_MuzzleFlash" type="AnimatedSprite2D" parent="BulletSpawnPoint"]
+z_index = 2
+sprite_frames = SubResource("SpriteFrames_ebec5")
+animation = &"muzzleflash"
+frame = 1
+frame_progress = 0.52455634
+
+[node name="AnimatedSprite2D_Player" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 0)
+scale = Vector2(1.1132813, 1.1132813)
 sprite_frames = SubResource("SpriteFrames_1abo5")
-animation = &"jump"
+animation = &"walk"
+frame = 1
+frame_progress = 0.19595402
