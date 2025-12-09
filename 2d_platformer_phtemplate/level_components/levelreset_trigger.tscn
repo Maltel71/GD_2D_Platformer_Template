@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8bx012vl4vv0"]
+
+[ext_resource type="Script" uid="uid://desb75lycet8b" path="res://scripts/level_reset_trigger.gd" id="1_s33qh"]
+[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="2_b2cij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2cij"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_s33qh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(20.590086, 6.3932886)
+shape = SubResource("RectangleShape2D_b2cij")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.86741567, 0.41373166, 0.64446634, 1)
+scale = Vector2(0.8732826, 0.282573)
+texture = ExtResource("2_b2cij")

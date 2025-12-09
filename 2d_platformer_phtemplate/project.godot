@@ -18,7 +18,7 @@ config/icon="res://graphics/placeholders/icon.svg"
 [autoload]
 
 GameManager="*res://scripts/game_manager.gd"
-QuitGame="*res://scripts/quit_game.gd"
+EscMenu="*res://level_components/esc_menu.tscn"
 
 [display]
 

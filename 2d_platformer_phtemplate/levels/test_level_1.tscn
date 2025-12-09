@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=16 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
 [ext_resource type="PackedScene" uid="uid://by5ey1qvje21g" path="res://level_components/spiked_platform_01.tscn" id="12_5vfu0"]
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
+[ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="15_t58ta"]
 [ext_resource type="AudioStream" uid="uid://dunhfackor0ob" path="res://audio/music/bill_music/DGBMjams - Fained Forest 3 (recovered).mp3" id="17_pmbwx"]
 [ext_resource type="PackedScene" uid="uid://dn28jqjtuhjse" path="res://level_components/oneway_platform_01.tscn" id="18_lgfx6"]
 [ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_pickup_01.tscn" id="19_d31dk"]
@@ -24,6 +25,11 @@ position = Vector2(180, 256)
 position = Vector2(182, 229)
 zoom = Vector2(2, 2)
 script = ExtResource("7_aupmd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_pmbwx")
+volume_db = -20.0
+autoplay = true
 
 [node name="ui" parent="." instance=ExtResource("5_5vfu0")]
 
@@ -95,16 +101,30 @@ scale = Vector2(4.12, 1)
 position = Vector2(575, 383)
 scale = Vector2(0.879738, 1.84942)
 
-[node name="==COLLECTABLES==" type="Node2D" parent="."]
+[node name="platform_11" parent="==PLATFORMS==" instance=ExtResource("18_lgfx6")]
+position = Vector2(95, 259)
+
+[node name="platform_12" parent="==PLATFORMS==" instance=ExtResource("18_lgfx6")]
+position = Vector2(75, 210)
+
+[node name="==PICKUPS==" type="Node2D" parent="."]
 position = Vector2(293, 281)
 
-[node name="coin" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+[node name="coin" parent="==PICKUPS==" instance=ExtResource("4_02ec3")]
 
-[node name="coin2" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+[node name="coin2" parent="==PICKUPS==" instance=ExtResource("4_02ec3")]
 position = Vector2(142, 40)
 
-[node name="coin3" parent="==COLLECTABLES==" instance=ExtResource("4_02ec3")]
+[node name="coin3" parent="==PICKUPS==" instance=ExtResource("4_02ec3")]
 position = Vector2(320, -71)
+
+[node name="HealthPickup_01" parent="==PICKUPS==" instance=ExtResource("19_d31dk")]
+position = Vector2(234, 11)
+scale = Vector2(0.6023685, 0.6023685)
+
+[node name="HealthPickup_02" parent="==PICKUPS==" instance=ExtResource("19_d31dk")]
+position = Vector2(286, -25)
+health_amount = 3
 
 [node name="==ENEMIES==" type="Node2D" parent="."]
 
@@ -122,21 +142,5 @@ drop_item = ExtResource("4_02ec3")
 [node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
 position = Vector2(1205, 210)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_pmbwx")
-volume_db = -20.0
-autoplay = true
-
-[node name="platform_01" parent="." instance=ExtResource("18_lgfx6")]
-position = Vector2(95, 259)
-
-[node name="platform_02" parent="." instance=ExtResource("18_lgfx6")]
-position = Vector2(75, 210)
-
-[node name="HealthPickup_01" parent="." instance=ExtResource("19_d31dk")]
-position = Vector2(527, 292)
-scale = Vector2(0.6023685, 0.6023685)
-
-[node name="HealthPickup_02" parent="." instance=ExtResource("19_d31dk")]
-position = Vector2(579, 256)
-health_amount = 3
+[node name="Node2D" parent="." instance=ExtResource("15_t58ta")]
+position = Vector2(-541, 523)

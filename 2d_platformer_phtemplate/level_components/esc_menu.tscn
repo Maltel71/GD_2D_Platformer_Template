@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://cswsstxolvh11"]
+
+[ext_resource type="Script" uid="uid://bfijjwfqxgs76" path="res://scripts/esc_menu.gd" id="1_tpjvt"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_tpjvt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -369.00006
+offset_top = -400.9999
+offset_right = -329.00006
+offset_bottom = -360.9999
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20.968714, 19.797844)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 0
+offset_left = 10.587201
+offset_top = 10.607216
+offset_right = 80.587204
+offset_bottom = 76.607216
+scale = Vector2(0.25675678, 0.24839388)
+
+[node name="ResumeButton" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
