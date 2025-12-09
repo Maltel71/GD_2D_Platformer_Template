@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=18 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
 [ext_resource type="AudioStream" uid="uid://djjfua45vw2b1" path="res://audio/music/arcade-beat-323176.mp3" id="15_t58ta"]
 [ext_resource type="PackedScene" uid="uid://cy52jhaed1ci1" path="res://level_components/platform_spiked_01.tscn" id="16_1j1kj"]
+[ext_resource type="PackedScene" uid="uid://bhkv6gam43fmv" path="res://level_components/levelreset_trigger_01.tscn" id="17_pmbwx"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -178,3 +179,7 @@ scale = Vector2(1.0035948, 1)
 [node name="Node2D3" parent="." instance=ExtResource("16_1j1kj")]
 position = Vector2(635, 157)
 scale = Vector2(1.0035948, 1)
+
+[node name="Node2D4" parent="." instance=ExtResource("17_pmbwx")]
+position = Vector2(1333, 616)
+scale = Vector2(0.56, 1)
