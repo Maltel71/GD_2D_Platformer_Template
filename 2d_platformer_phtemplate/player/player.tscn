@@ -101,13 +101,13 @@ walk = true
 shape = SubResource("CapsuleShape2D_1abo5")
 
 [node name="BulletSpawnPoint" type="Node2D" parent="."]
-position = Vector2(33, 3)
+position = Vector2(37, 3)
 
 [node name="WeaponSprite" type="Sprite2D" parent="BulletSpawnPoint"]
 visible = false
 modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
 position = Vector2(-4.7683716e-07, 0)
-scale = Vector2(0.021337198, 0.021337198)
+scale = Vector2(0.079990916, 0.03604869)
 texture = ExtResource("3_g1dw6")
 
 [node name="AnimatedSprite2D_MuzzleFlash" type="AnimatedSprite2D" parent="BulletSpawnPoint"]

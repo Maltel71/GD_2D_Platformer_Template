@@ -1,7 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu1jrfb7oi86"]
+[gd_scene load_steps=9 format=3 uid="uid://cu1jrfb7oi86"]
 
-[ext_resource type="PackedScene" uid="uid://dkt0cxd2qefpc" path="res://levels/test_level_1.tscn" id="1_53yng"]
+[ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_mc1td"]
+[ext_resource type="AudioStream" uid="uid://fgy4bfppp3hi" path="res://audio/music/bill_music/My DA (why).mp3" id="3_mc1td"]
+[ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="6_4auen"]
+[ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="7_7rcka"]
+[ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="9_kxfxx"]
+[ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="11_wu0c2"]
+[ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="12_ay0he"]
+[ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="12_x2a8b"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Node2D" parent="." instance=ExtResource("1_53yng")]
+[node name="Player" parent="." instance=ExtResource("1_mc1td")]
+position = Vector2(120, 224)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(182, 229)
+zoom = Vector2(2, 2)
+script = ExtResource("11_wu0c2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mc1td")
+volume_db = -20.0
+autoplay = true
+bus = &"music"
+
+[node name="ui" parent="." instance=ExtResource("9_kxfxx")]
+
+[node name="background_01" type="TextureRect" parent="."]
+z_index = -20
+offset_left = -3458.9998
+offset_top = -2095.0
+offset_right = -1537.9998
+offset_bottom = -1013.0
+scale = Vector2(4.3200006, 4.3200006)
+texture = ExtResource("7_7rcka")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="GoalTrigger" parent="." instance=ExtResource("12_ay0he")]
+position = Vector2(384, 292)
+next_scene = null
+
+[node name="==PLATFORMS==" type="Node2D" parent="."]
+
+[node name="=SPIKED=" type="Node2D" parent="==PLATFORMS=="]
+
+[node name="==ENEMIES==" type="Node2D" parent="."]
+
+[node name="Node2D" parent="." instance=ExtResource("12_x2a8b")]
+position = Vector2(136, 1104)
+scale = Vector2(8.44, 1)
+metadata/_edit_lock_ = true
+
+[node name="platform_01" parent="." instance=ExtResource("6_4auen")]
+position = Vector2(114, 386)
+
+[node name="platform_05" parent="." instance=ExtResource("6_4auen")]
+position = Vector2(-99, 386)
+
+[node name="platform_04" parent="." instance=ExtResource("6_4auen")]
+position = Vector2(114, 331)
+
+[node name="platform_02" parent="." instance=ExtResource("6_4auen")]
+position = Vector2(329, 386)

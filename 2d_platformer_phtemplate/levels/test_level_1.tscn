@@ -1,14 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=15 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="3_kql2n"]
 [ext_resource type="AudioStream" uid="uid://fgy4bfppp3hi" path="res://audio/music/bill_music/My DA (why).mp3" id="3_t58ta"]
+[ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="4_02ec3"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="5_5vfu0"]
+[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_kgy88"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="7_aupmd"]
-[ext_resource type="PackedScene" uid="uid://cari2tg1labr3" path="res://menus/WinMenu.tscn" id="7_grhbk"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
+[ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
+[ext_resource type="PackedScene" uid="uid://by5ey1qvje21g" path="res://level_components/spiked_platform_01.tscn" id="12_5vfu0"]
+[ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
 [ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="15_t58ta"]
+[ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_pickup_01.tscn" id="19_d31dk"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -40,18 +45,59 @@ stretch_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
-position = Vector2(423, 349)
-next_scene = ExtResource("7_grhbk")
+position = Vector2(-9, 155)
+next_scene = ExtResource("13_aupmd")
 
 [node name="==PLATFORMS==" type="Node2D" parent="."]
 
 [node name="=SPIKED=" type="Node2D" parent="==PLATFORMS=="]
 
+[node name="SpikedPlatform_01" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(233, 288)
+
+[node name="SpikedPlatform_02" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
+position = Vector2(327, 262)
+
+[node name="==PICKUPS==" type="Node2D" parent="."]
+position = Vector2(293, 281)
+
+[node name="coin" parent="==PICKUPS==" instance=ExtResource("4_02ec3")]
+position = Vector2(264, 115)
+
+[node name="coin2" parent="==PICKUPS==" instance=ExtResource("4_02ec3")]
+position = Vector2(218, 110)
+
+[node name="coin3" parent="==PICKUPS==" instance=ExtResource("4_02ec3")]
+position = Vector2(-323, 109)
+
+[node name="HealthPickup_01" parent="==PICKUPS==" instance=ExtResource("19_d31dk")]
+position = Vector2(-195, 116)
+scale = Vector2(0.6023685, 0.6023685)
+
+[node name="HealthPickup_02" parent="==PICKUPS==" instance=ExtResource("19_d31dk")]
+position = Vector2(-149, 111)
+health_amount = 3
+
 [node name="==ENEMIES==" type="Node2D" parent="."]
 
+[node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
+position = Vector2(625, 358)
+drop_item = ExtResource("4_02ec3")
+
+[node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
+position = Vector2(374, 358)
+
+[node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
+position = Vector2(-129, 310)
+drop_item = ExtResource("4_02ec3")
+
+[node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
+position = Vector2(346, 197)
+
 [node name="Node2D" parent="." instance=ExtResource("15_t58ta")]
-position = Vector2(136, 573)
-scale = Vector2(4.1600013, 1)
+position = Vector2(136, 1362)
+scale = Vector2(9.919998, 1)
+metadata/_edit_lock_ = true
 
 [node name="platform_01" parent="." instance=ExtResource("2_grhbk")]
 position = Vector2(145, 447)
@@ -64,6 +110,15 @@ position = Vector2(-280, 447)
 
 [node name="platform_04" parent="." instance=ExtResource("2_grhbk")]
 position = Vector2(114, 331)
+
+[node name="platform_07" parent="." instance=ExtResource("2_grhbk")]
+position = Vector2(-280, 393)
+
+[node name="platform_08" parent="." instance=ExtResource("2_grhbk")]
+position = Vector2(-280, 340)
+
+[node name="platform_09" parent="." instance=ExtResource("2_grhbk")]
+position = Vector2(-280, 287)
 
 [node name="platform_02" parent="." instance=ExtResource("2_grhbk")]
 position = Vector2(360, 447)

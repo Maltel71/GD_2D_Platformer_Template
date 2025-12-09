@@ -249,11 +249,14 @@ func _process(_delta):
 		anim.scale.x = animScaleLock.x
 		$BulletSpawnPoint.position.x = abs($BulletSpawnPoint.position.x)
 		$BulletSpawnPoint/WeaponSprite.scale.x = abs($BulletSpawnPoint/WeaponSprite.scale.x)
+		if MuzzleFlash:
+			MuzzleFlash.scale.x = abs(MuzzleFlash.scale.x)
 	if leftHold and !latched:
-		MuzzleFlash.scale.x = abs(MuzzleFlash.scale.x)
 		anim.scale.x = animScaleLock.x * -1
 		$BulletSpawnPoint.position.x = -abs($BulletSpawnPoint.position.x)
 		$BulletSpawnPoint/WeaponSprite.scale.x = -abs($BulletSpawnPoint/WeaponSprite.scale.x)
+		if MuzzleFlash:
+			MuzzleFlash.scale.x = -abs(MuzzleFlash.scale.x)
 	
 	if run and idle and !dashing and !crouching:
 		if abs(velocity.x) > 0.1 and is_on_floor() and !is_on_wall():
@@ -653,15 +656,18 @@ func _shoot():
 	can_shoot_now = false
 	_play_sound(shoot_sound, shoot_volume)
 	
+	# Determine shoot direction
+	var shoot_direction = 1 if anim.scale.x > 0 else -1
+	
 	# Play muzzle flash animation (non-blocking)
 	if MuzzleFlash:
+		MuzzleFlash.scale.x = abs(MuzzleFlash.scale.x) * shoot_direction
 		MuzzleFlash.visible = true
 		MuzzleFlash.play("muzzleflash")
 		_hide_muzzle_flash_when_done()
 	
 	var bullet = bullet_scene.instantiate()
 	var spawn_point = $BulletSpawnPoint
-	var shoot_direction = 1 if anim.scale.x > 0 else -1
 	
 	bullet.global_position = spawn_point.global_position
 	bullet.set_direction(shoot_direction)
