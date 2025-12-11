@@ -1,13 +1,19 @@
 extends AnimatableBody2D
 
-class_name MovingPlatform
+@export_group("Movement")
+@export var move_distance_x: float = 0.0
+@export var move_distance_y: float = 0.0
+@export var move_duration: float = 2.0
 
-@export var sequence: Array = []
+@export_group("Rotation")
+@export var rotate_degrees: float = 0.0
+@export var rotate_duration: float = 1.0
+
+@export_group("Settings")
 @export var loop: bool = true
+@export var ping_pong: bool = false
 @export var start_delay: float = 0.0
 
-var current_index: int = 0
-var is_moving: bool = false
 var start_position: Vector2
 var start_rotation: float
 
@@ -18,63 +24,58 @@ func _ready():
 	if start_delay > 0:
 		await get_tree().create_timer(start_delay).timeout
 	
-	if sequence.size() > 0:
-		_execute_sequence()
+	_execute_movement()
 
-func _execute_sequence():
-	is_moving = true
-	
-	while is_moving:
-		if current_index >= sequence.size():
-			if loop:
-				current_index = 0
-				global_position = start_position
-				rotation = start_rotation
-			else:
-				is_moving = false
-				break
+func _execute_movement():
+	while true:
+		# Move forward
+		if move_distance_x != 0.0 or move_distance_y != 0.0:
+			await _move(move_distance_x, move_distance_y, move_duration)
 		
-		var action = sequence[current_index]
-		await _perform_action(action)
-		current_index += 1
+		# Rotate forward
+		if rotate_degrees != 0.0:
+			await _rotate(rotate_degrees, rotate_duration)
+		
+		if not loop:
+			break
+		
+		if ping_pong:
+			# Move back
+			if move_distance_x != 0.0 or move_distance_y != 0.0:
+				await _move(-move_distance_x, -move_distance_y, move_duration)
+			
+			# Rotate back
+			if rotate_degrees != 0.0:
+				await _rotate(-rotate_degrees, rotate_duration)
+		else:
+			# Teleport to start
+			global_position = start_position
+			rotation = start_rotation
 
-func _perform_action(action: PlatformAction):
-	if action.type == "move_x":
-		await _move_axis("x", action.distance, action.duration)
-	elif action.type == "move_y":
-		await _move_axis("y", action.distance, action.duration)
-	elif action.type == "rotate":
-		await _rotate_platform(action.degrees, action.duration)
-	elif action.type == "wait":
-		await get_tree().create_timer(action.duration).timeout
-
-func _move_axis(axis: String, distance: float, duration: float):
+func _move(x: float, y: float, duration: float):
 	var start_pos = global_position
-	var target_pos = start_pos
-	
-	if axis == "x":
-		target_pos.x += distance
-	elif axis == "y":
-		target_pos.y += distance
+	var target_pos = start_pos + Vector2(x, y)
 	
 	var elapsed = 0.0
 	while elapsed < duration:
-		elapsed += get_process_delta_time()
+		var delta = get_physics_process_delta_time()
+		elapsed += delta
 		var t = clamp(elapsed / duration, 0.0, 1.0)
 		global_position = start_pos.lerp(target_pos, t)
-		await get_tree().process_frame
+		await get_tree().physics_frame
 	
 	global_position = target_pos
 
-func _rotate_platform(degrees: float, duration: float):
+func _rotate(degrees: float, duration: float):
 	var start_rot = rotation
 	var target_rot = start_rot + deg_to_rad(degrees)
 	
 	var elapsed = 0.0
 	while elapsed < duration:
-		elapsed += get_process_delta_time()
+		var delta = get_physics_process_delta_time()
+		elapsed += delta
 		var t = clamp(elapsed / duration, 0.0, 1.0)
 		rotation = lerp_angle(start_rot, target_rot, t)
-		await get_tree().process_frame
+		await get_tree().physics_frame
 	
 	rotation = target_rot

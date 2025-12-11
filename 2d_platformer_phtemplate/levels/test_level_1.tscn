@@ -128,4 +128,4 @@ position = Vector2(360, 447)
 position = Vector2(576, 447)
 
 [node name="AnimatableBody2D" parent="." instance=ExtResource("15_1j1kj")]
-position = Vector2(160, 153)
+position = Vector2(22, 276)

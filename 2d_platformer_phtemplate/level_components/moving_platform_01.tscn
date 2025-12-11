@@ -7,10 +7,12 @@
 size = Vector2(72, 24)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D"]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_n2fj6")
-sequence = [{
-20.0: 30.0
-}]
+move_distance_x = 20.0
+move_duration = 1.0
+ping_pong = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_n2fj6")
