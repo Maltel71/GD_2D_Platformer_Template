@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://2sbchijd2mjp"]
+[gd_scene load_steps=7 format=3 uid="uid://2sbchijd2mjp"]
 
 [ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://scripts/enemy.gd" id="1_laejb"]
 [ext_resource type="Texture2D" uid="uid://b65cmo60xybp4" path="res://graphics/enemies/enemy1/enemy1_sprite_01.png" id="2_laejb"]
+[ext_resource type="Texture2D" uid="uid://c7jo7l0ed3ce0" path="res://graphics/enemies/enemy1/enemy1_sprite_02.png" id="3_yl8y7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
 radius = 21.0
@@ -10,12 +11,35 @@ height = 44.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
 radius = 20.0087
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ge483"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_laejb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_laejb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yl8y7")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
 [node name="Enemy_01" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_laejb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(1.0869565, 1.0869565)
 texture = ExtResource("2_laejb")
@@ -50,3 +74,9 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_ld2qc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_ge483")
+animation = &"walk"
+frame_progress = 0.98511744

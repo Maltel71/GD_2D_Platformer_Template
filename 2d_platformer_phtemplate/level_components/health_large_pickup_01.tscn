@@ -8,6 +8,7 @@
 size = Vector2(185.36586, 146.34146)
 
 [node name="HealthPickup_01" type="Node2D" node_paths=PackedStringArray("sprite")]
+z_index = -2
 script = ExtResource("1_vwfrb")
 pickup_sound = ExtResource("2_6pflf")
 sprite = NodePath("PlaceholderSprite01")

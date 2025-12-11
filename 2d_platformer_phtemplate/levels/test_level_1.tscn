@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=17 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
 [ext_resource type="PackedScene" uid="uid://cjcgk4n02khmg" path="res://level_components/health_large_pickup_01.tscn" id="9_t58ta"]
 [ext_resource type="PackedScene" uid="uid://by5ey1qvje21g" path="res://level_components/spiked_platform_01.tscn" id="12_5vfu0"]
+[ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
 [ext_resource type="PackedScene" uid="uid://cymiqket15ttm" path="res://level_components/moving_platform_01.tscn" id="15_1j1kj"]
 [ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="15_t58ta"]
 [ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_small_pickup_01.tscn" id="19_d31dk"]
@@ -20,11 +21,14 @@
 
 [node name="Player" parent="." instance=ExtResource("1_plkrb")]
 position = Vector2(120, 224)
+shoot_cooldown = 0.2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(182, 229)
 zoom = Vector2(1.5, 1.5)
 script = ExtResource("7_aupmd")
+shake_intensity = 30.0
+shake_duration = 0.2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_t58ta")
@@ -35,6 +39,7 @@ bus = &"music"
 [node name="ui" parent="." instance=ExtResource("5_5vfu0")]
 
 [node name="background_01" type="TextureRect" parent="."]
+modulate = Color(0.4440063, 0.51458937, 0.29913345, 1)
 z_index = -20
 offset_left = -3458.9998
 offset_top = -2095.0
@@ -83,19 +88,9 @@ position = Vector2(-94, 127)
 
 [node name="==ENEMIES==" type="Node2D" parent="."]
 
-[node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
-position = Vector2(625, 358)
-drop_item = ExtResource("4_02ec3")
-
-[node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
-position = Vector2(374, 358)
-
-[node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
-position = Vector2(-129, 310)
-drop_item = ExtResource("4_02ec3")
-
 [node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
 position = Vector2(346, 197)
+scale = Vector2(1.4738091, 1.4738091)
 
 [node name="Node2D" parent="." instance=ExtResource("15_t58ta")]
 position = Vector2(136, 1362)
@@ -134,8 +129,21 @@ position = Vector2(576, 447)
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
 position = Vector2(574, 372)
+next_scene = ExtResource("13_aupmd")
 metadata/_edit_lock_ = true
 
 [node name="MovingPlatform" parent="." instance=ExtResource("15_1j1kj")]
 position = Vector2(269, 259)
 scale = Vector2(1.430079, 1.430079)
+
+[node name="MovingPlatform2" parent="." instance=ExtResource("15_1j1kj")]
+position = Vector2(401, 259)
+scale = Vector2(1.430079, 1.430079)
+
+[node name="Enemy_01" parent="." instance=ExtResource("6_kgy88")]
+position = Vector2(366, 398)
+drop_item = ExtResource("4_02ec3")
+
+[node name="Enemy_02" parent="." instance=ExtResource("6_kgy88")]
+position = Vector2(34, 398)
+drop_item = ExtResource("19_d31dk")

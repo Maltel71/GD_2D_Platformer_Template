@@ -7,7 +7,6 @@ class_name PlatformerController2D
 @export_category("Necesary Child Nodes")
 @export var PlayerSprite: AnimatedSprite2D
 @export var PlayerCollider: CollisionShape2D
-@export var MuzzleFlash: AnimatedSprite2D
 
 @export_category("L/R Movement")
 @export_range(50, 500) var maxSpeed: float = 200.0
@@ -66,6 +65,8 @@ class_name PlatformerController2D
 
 @export_category("Health")
 @export var max_health: int = 3
+@export var invincibility_duration: float = 2.0
+@export var blink_interval: float = 0.1
 
 @export_category("Sound Effects")
 @export var jump_sound: AudioStream
@@ -139,6 +140,8 @@ var shoot_tap
 
 var current_health: int
 var is_dead: bool = false
+var is_invincible: bool = false
+var blink_white: bool = false
 
 var upHold
 var downHold
@@ -167,7 +170,6 @@ func _ready():
 	# Add audio player node
 	var audio_player = AudioStreamPlayer.new()
 	audio_player.name = "AudioPlayer"
-	audio_player.bus = "sfx" 
 	add_child(audio_player)
 	
 	_updateData()
@@ -238,6 +240,12 @@ func _updateData():
 		eightWayDash = true
 
 func _process(_delta):
+	# Handle invincibility blink
+	if is_invincible:
+		anim.self_modulate = Color(10, 10, 10, 1) if blink_white else Color.WHITE
+	else:
+		anim.self_modulate = Color.WHITE
+	
 	if is_on_wall() and !is_on_floor() and latch and wallLatching and ((wallLatchingModifer and latchHold) or !wallLatchingModifer):
 		latched = true
 	else:
@@ -249,14 +257,16 @@ func _process(_delta):
 		anim.scale.x = animScaleLock.x
 		$BulletSpawnPoint.position.x = abs($BulletSpawnPoint.position.x)
 		$BulletSpawnPoint/WeaponSprite.scale.x = abs($BulletSpawnPoint/WeaponSprite.scale.x)
-		if MuzzleFlash:
-			MuzzleFlash.scale.x = abs(MuzzleFlash.scale.x)
+		var muzzle = $BulletSpawnPoint.get_node_or_null("AnimatedSprite2D_MuzzleFlash")
+		if muzzle:
+			muzzle.scale.x = abs(muzzle.scale.x)
 	if leftHold and !latched:
 		anim.scale.x = animScaleLock.x * -1
 		$BulletSpawnPoint.position.x = -abs($BulletSpawnPoint.position.x)
 		$BulletSpawnPoint/WeaponSprite.scale.x = -abs($BulletSpawnPoint/WeaponSprite.scale.x)
-		if MuzzleFlash:
-			MuzzleFlash.scale.x = -abs(MuzzleFlash.scale.x)
+		var muzzle = $BulletSpawnPoint.get_node_or_null("AnimatedSprite2D_MuzzleFlash")
+		if muzzle:
+			muzzle.scale.x = -abs(muzzle.scale.x)
 	
 	if run and idle and !dashing and !crouching:
 		if abs(velocity.x) > 0.1 and is_on_floor() and !is_on_wall():
@@ -656,18 +666,16 @@ func _shoot():
 	can_shoot_now = false
 	_play_sound(shoot_sound, shoot_volume)
 	
-	# Determine shoot direction
-	var shoot_direction = 1 if anim.scale.x > 0 else -1
-	
-	# Play muzzle flash animation (non-blocking)
-	if MuzzleFlash:
-		MuzzleFlash.scale.x = abs(MuzzleFlash.scale.x) * shoot_direction
-		MuzzleFlash.visible = true
-		MuzzleFlash.play("muzzleflash")
-		_hide_muzzle_flash_when_done()
+	# Trigger muzzle flash
+	var muzzle_flash = $BulletSpawnPoint.get_node_or_null("AnimatedSprite2D_MuzzleFlash")
+	if muzzle_flash:
+		muzzle_flash.visible = true
+		muzzle_flash.play()
+		muzzle_flash.animation_finished.connect(func(): muzzle_flash.visible = false, CONNECT_ONE_SHOT)
 	
 	var bullet = bullet_scene.instantiate()
 	var spawn_point = $BulletSpawnPoint
+	var shoot_direction = 1 if anim.scale.x > 0 else -1
 	
 	bullet.global_position = spawn_point.global_position
 	bullet.set_direction(shoot_direction)
@@ -676,14 +684,13 @@ func _shoot():
 	await get_tree().create_timer(shoot_cooldown).timeout
 	can_shoot_now = true
 
-func _hide_muzzle_flash_when_done():
-	await MuzzleFlash.animation_finished
-	MuzzleFlash.visible = false
-
 func _placeHolder():
 	print("")
 	
 func take_damage(amount: int) -> void:
+	if is_invincible or is_dead:
+		return
+	
 	current_health -= amount
 	_play_sound(damage_sound, damage_volume)
 	
@@ -694,6 +701,8 @@ func take_damage(amount: int) -> void:
 	
 	if current_health <= 0:
 		_die()
+	else:
+		_start_invincibility()
 
 func _die():
 	is_dead = true
@@ -718,6 +727,19 @@ func _die():
 	# Wait then remove
 	await get_tree().create_timer(1.5).timeout
 	queue_free()
+
+func _start_invincibility():
+	is_invincible = true
+	_blink_sprite()
+	await get_tree().create_timer(invincibility_duration).timeout
+	is_invincible = false
+
+func _blink_sprite():
+	while is_invincible:
+		blink_white = true
+		await get_tree().create_timer(blink_interval).timeout
+		blink_white = false
+		await get_tree().create_timer(blink_interval).timeout
 
 func _play_sound(sound: AudioStream, volume: float = 0.0):
 	if sound:

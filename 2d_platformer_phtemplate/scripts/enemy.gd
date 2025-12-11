@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var wall_detection_distance: float = 30.0
 @export var damage_to_player: int = 1
 @export var drop_item: PackedScene  # Assign coin, health pickup, etc.
+@export var sprite_faces_right: bool = true  # Set to false if your sprite art faces left
 
 var direction: int = 1  # 1 = right, -1 = left
 var gravity: float = 980.0
@@ -16,7 +17,7 @@ var damage_cooldown: float = 1.0
 @onready var ledge_ray_right = $LedgeRayRight
 @onready var ledge_ray_left = $LedgeRayLeft
 @onready var attack_area = $AttackArea
-@onready var sprite = $Sprite2D  # or AnimatedSprite2D
+@onready var anim_sprite = $AnimatedSprite2D
 
 func _ready():
 	# Set raycast distances
@@ -50,7 +51,17 @@ func _physics_process(delta):
 	
 	# Move
 	velocity.x = speed * direction
-	sprite.scale.x = abs(sprite.scale.x) * direction
+	# Flip sprite based on direction and which way it originally faces
+	if sprite_faces_right:
+		anim_sprite.flip_h = direction < 0
+	else:
+		anim_sprite.flip_h = direction > 0
+	
+	# Play animations
+	if velocity.x != 0:
+		anim_sprite.play("walk")
+	else:
+		anim_sprite.play("idle")
 	
 	move_and_slide()
 

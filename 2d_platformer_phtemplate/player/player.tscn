@@ -77,13 +77,13 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider", "MuzzleFlash")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
 collision_mask = 10
 script = ExtResource("1_rkbax")
 PlayerSprite = NodePath("AnimatedSprite2D_Player")
 PlayerCollider = NodePath("CollisionShape2D")
-MuzzleFlash = NodePath("BulletSpawnPoint/AnimatedSprite2D_MuzzleFlash")
 bullet_scene = ExtResource("2_yw30f")
+invincibility_duration = 1.0
 jump_sound = ExtResource("3_rgyib")
 jump_volume = -25.0
 damage_sound = ExtResource("4_hg6s5")
@@ -111,11 +111,11 @@ scale = Vector2(0.079990916, 0.03604869)
 texture = ExtResource("3_g1dw6")
 
 [node name="AnimatedSprite2D_MuzzleFlash" type="AnimatedSprite2D" parent="BulletSpawnPoint"]
+visible = false
 z_index = 2
 sprite_frames = SubResource("SpriteFrames_ebec5")
 animation = &"muzzleflash"
-frame = 1
-frame_progress = 0.52455634
+frame_progress = 0.47451738
 
 [node name="AnimatedSprite2D_Player" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, 0)
