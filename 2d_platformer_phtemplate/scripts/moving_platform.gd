@@ -16,6 +16,8 @@ extends AnimatableBody2D
 
 var start_position: Vector2
 var start_rotation: float
+var time_elapsed: float = 0.0
+var current_phase: int = 0  # 0=move_forward, 1=rotate_forward, 2=move_back, 3=rotate_back
 
 func _ready():
 	start_position = global_position
@@ -23,59 +25,71 @@ func _ready():
 	
 	if start_delay > 0:
 		await get_tree().create_timer(start_delay).timeout
-	
-	_execute_movement()
 
-func _execute_movement():
-	while true:
-		# Move forward
-		if move_distance_x != 0.0 or move_distance_y != 0.0:
-			await _move(move_distance_x, move_distance_y, move_duration)
-		
-		# Rotate forward
-		if rotate_degrees != 0.0:
-			await _rotate(rotate_degrees, rotate_duration)
-		
-		if not loop:
-			break
-		
-		if ping_pong:
-			# Move back
+func _physics_process(delta):
+	if not loop and current_phase >= (4 if ping_pong else 2):
+		return
+	
+	time_elapsed += delta
+	
+	match current_phase:
+		0:  # Move forward
 			if move_distance_x != 0.0 or move_distance_y != 0.0:
-				await _move(-move_distance_x, -move_distance_y, move_duration)
-			
-			# Rotate back
+				_update_movement(move_distance_x, move_distance_y, move_duration)
+			else:
+				_next_phase()
+		1:  # Rotate forward
 			if rotate_degrees != 0.0:
-				await _rotate(-rotate_degrees, rotate_duration)
-		else:
-			# Teleport to start
-			global_position = start_position
-			rotation = start_rotation
+				_update_rotation(rotate_degrees, rotate_duration)
+			else:
+				_next_phase()
+		2:  # Move back (ping pong)
+			if ping_pong:
+				_update_movement(-move_distance_x, -move_distance_y, move_duration)
+			else:
+				_reset_to_start()
+		3:  # Rotate back (ping pong)
+			if ping_pong:
+				_update_rotation(-rotate_degrees, rotate_duration)
+			else:
+				current_phase = 0
+				time_elapsed = 0.0
 
-func _move(x: float, y: float, duration: float):
-	var start_pos = global_position
-	var target_pos = start_pos + Vector2(x, y)
+func _update_movement(x: float, y: float, duration: float):
+	var t = clamp(time_elapsed / duration, 0.0, 1.0)
 	
-	var elapsed = 0.0
-	while elapsed < duration:
-		var delta = get_physics_process_delta_time()
-		elapsed += delta
-		var t = clamp(elapsed / duration, 0.0, 1.0)
-		global_position = start_pos.lerp(target_pos, t)
-		await get_tree().physics_frame
+	if current_phase == 0:
+		global_position = start_position.lerp(start_position + Vector2(x, y), t)
+	else:  # phase 2 - moving back
+		var end_pos = start_position + Vector2(move_distance_x, move_distance_y)
+		global_position = end_pos.lerp(start_position, t)
 	
-	global_position = target_pos
+	if t >= 1.0:
+		_next_phase()
 
-func _rotate(degrees: float, duration: float):
-	var start_rot = rotation
-	var target_rot = start_rot + deg_to_rad(degrees)
+func _update_rotation(degrees: float, duration: float):
+	var t = clamp(time_elapsed / duration, 0.0, 1.0)
 	
-	var elapsed = 0.0
-	while elapsed < duration:
-		var delta = get_physics_process_delta_time()
-		elapsed += delta
-		var t = clamp(elapsed / duration, 0.0, 1.0)
-		rotation = lerp_angle(start_rot, target_rot, t)
-		await get_tree().physics_frame
+	if current_phase == 1:
+		rotation = lerp_angle(start_rotation, start_rotation + deg_to_rad(degrees), t)
+	else:  # phase 3 - rotating back
+		var end_rot = start_rotation + deg_to_rad(rotate_degrees)
+		rotation = lerp_angle(end_rot, start_rotation, t)
 	
-	rotation = target_rot
+	if t >= 1.0:
+		_next_phase()
+
+func _next_phase():
+	time_elapsed = 0.0
+	current_phase += 1
+	
+	if ping_pong and current_phase >= 4:
+		current_phase = 0
+	elif not ping_pong and current_phase >= 2:
+		_reset_to_start()
+
+func _reset_to_start():
+	global_position = start_position
+	rotation = start_rotation
+	current_phase = 0
+	time_elapsed = 0.0
