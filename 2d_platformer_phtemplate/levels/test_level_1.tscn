@@ -92,11 +92,6 @@ position = Vector2(-94, 127)
 position = Vector2(346, 197)
 scale = Vector2(1.4738091, 1.4738091)
 
-[node name="Node2D" parent="." instance=ExtResource("15_t58ta")]
-position = Vector2(136, 1362)
-scale = Vector2(9.919998, 1)
-metadata/_edit_lock_ = true
-
 [node name="platform_01" parent="." instance=ExtResource("2_grhbk")]
 position = Vector2(145, 447)
 
@@ -147,3 +142,8 @@ drop_item = ExtResource("4_02ec3")
 [node name="Enemy_02" parent="." instance=ExtResource("6_kgy88")]
 position = Vector2(34, 398)
 drop_item = ExtResource("19_d31dk")
+
+[node name="LevelResetTrigger" parent="." instance=ExtResource("15_t58ta")]
+position = Vector2(185, 728.99994)
+scale = Vector2(8.128466, -0.93434733)
+metadata/_edit_lock_ = true
