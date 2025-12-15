@@ -21,7 +21,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8rf1"]
-bg_color = Color(0.62252575, 0.58918977, 0.61161435, 1)
+bg_color = Color(0.31723443, 0.2909478, 0.3085607, 1)
 
 [resource]
 Button/styles/focus = null

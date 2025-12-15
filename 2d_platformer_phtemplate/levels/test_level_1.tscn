@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=18 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
 [ext_resource type="PackedScene" uid="uid://cymiqket15ttm" path="res://level_components/moving_platform_01.tscn" id="15_1j1kj"]
 [ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="15_t58ta"]
+[ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="17_pmbwx"]
 [ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_small_pickup_01.tscn" id="19_d31dk"]
 
 [node name="Node2D" type="Node2D"]
@@ -56,11 +57,6 @@ metadata/_edit_lock_ = true
 
 [node name="SpikedPlatform_01" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
 position = Vector2(-11.000015, 182)
-scale = Vector2(2.2751071, 2.2751071)
-
-[node name="SpikedPlatform_03" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
-position = Vector2(-29, 330)
-rotation = 3.140856
 scale = Vector2(2.2751071, 2.2751071)
 
 [node name="SpikedPlatform_02" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
@@ -147,3 +143,6 @@ drop_item = ExtResource("19_d31dk")
 position = Vector2(185, 728.99994)
 scale = Vector2(8.128466, -0.93434733)
 metadata/_edit_lock_ = true
+
+[node name="Enemy_03" parent="." instance=ExtResource("17_pmbwx")]
+position = Vector2(42, 266)

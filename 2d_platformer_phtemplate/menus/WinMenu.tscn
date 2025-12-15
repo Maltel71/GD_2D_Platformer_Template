@@ -33,12 +33,17 @@ scale = Vector2(0.683747, 0.683747)
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("4_eaowb")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 117
-text = "Restart game"
+text = "Restart"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("4_eaowb")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 117
 text = "Quit"
 
