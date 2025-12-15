@@ -3,8 +3,8 @@ extends Control
 @export var game_scene_path: String = "res://path/to/your/game.tscn"
 @export var hover_sound: AudioStream
 
-@onready var start_button = $StartButton
-@onready var quit_button = $QuitButton
+@onready var start_button = $VBoxContainer/StartButton
+@onready var quit_button = $VBoxContainer/QuitButton
 @onready var audio_player = $AudioStreamPlayer
 
 func _ready():

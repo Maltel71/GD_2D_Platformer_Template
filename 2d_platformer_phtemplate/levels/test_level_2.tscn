@@ -29,6 +29,7 @@ bus = &"music"
 [node name="ui" parent="." instance=ExtResource("9_kxfxx")]
 
 [node name="background_01" type="TextureRect" parent="."]
+modulate = Color(0.44313726, 0.5137255, 0.29803923, 1)
 z_index = -20
 offset_left = -3458.9998
 offset_top = -2095.0
