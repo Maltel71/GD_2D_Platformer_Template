@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cari2tg1labr3"]
+[gd_scene load_steps=5 format=3 uid="uid://cari2tg1labr3"]
 
 [ext_resource type="Script" uid="uid://csjbu0ksq5dmp" path="res://scripts/start_menu.gd" id="1_74ymc"]
 [ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/sfx/click/click (1).wav" id="2_pivjg"]
 [ext_resource type="Script" uid="uid://dy8bwfirpr11v" path="res://scripts/score_display.gd" id="4_74ymc"]
 [ext_resource type="Theme" uid="uid://bsgj6bos7rqas" path="res://menus/button_theme_01.tres" id="4_eaowb"]
-[ext_resource type="Texture2D" uid="uid://coe3csc8hjmr1" path="res://graphics/placeholders/9slicepanel_speechbubbel_v1.png" id="5_pivjg"]
 
 [node name="WinMenu" type="Control"]
 layout_mode = 3
@@ -69,27 +68,6 @@ text = "Settings"
 layout_mode = 2
 theme = ExtResource("4_eaowb")
 text = "Quit"
-
-[node name="NinePatchRect_TEST" type="NinePatchRect" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 403.0
-offset_top = 164.0
-offset_right = 1318.0
-offset_bottom = 678.0
-texture = ExtResource("5_pivjg")
-patch_margin_left = 128
-patch_margin_top = 128
-patch_margin_right = 128
-patch_margin_bottom = 128
-
-[node name="Label" type="Label" parent="NinePatchRect_TEST"]
-layout_mode = 0
-offset_left = 251.0
-offset_top = 142.0
-offset_right = 705.0
-offset_bottom = 344.0
-text = "ASdasdoaodomasdmasoaodadnwe"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 

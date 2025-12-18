@@ -14,39 +14,57 @@ hover_sound = ExtResource("3_uqa4f")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = -22.0
-offset_top = -25.0
-offset_right = 1953.0
-offset_bottom = 1101.0
+offset_right = 1919.0
+offset_bottom = 1081.0
+theme = ExtResource("3_wns2j")
 
-[node name="StartButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 834.0
-offset_top = 347.0
-offset_right = 1117.0
-offset_bottom = 516.0
-theme_override_font_sizes/font_size = 117
-text = "Start"
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.335
+anchor_top = 0.289
+anchor_right = 0.665
+anchor_bottom = 0.711
+offset_left = -0.86499023
+offset_top = 0.09100342
+offset_right = 0.86499023
+offset_bottom = -0.09100342
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="QuitButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 834.0
-offset_top = 555.0
-offset_right = 1117.0
-offset_bottom = 724.0
-theme_override_font_sizes/font_size = 117
+[node name="Header" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_wns2j")
+text = "Brehznick"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_wns2j")
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_wns2j")
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_wns2j")
 text = "Quit"
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 553.0
-offset_top = -161.0
-offset_right = 1325.0
-offset_bottom = -24.0
+[node name="Header2" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
 theme = ExtResource("3_wns2j")
-theme_override_font_sizes/font_size = 100
-text = "My Game Name"
+text = "Made by Malte"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(957, 539)
