@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=19 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="4_02ec3"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="5_5vfu0"]
 [ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_kgy88"]
+[ext_resource type="Texture2D" uid="uid://coe3csc8hjmr1" path="res://graphics/placeholders/9slicepanel_speechbubbel_v1.png" id="6_lgfx6"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="7_aupmd"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
@@ -51,6 +52,36 @@ texture = ExtResource("3_kql2n")
 stretch_mode = 1
 metadata/_edit_lock_ = true
 
+[node name="NinePatchRect_TEST" type="NinePatchRect" parent="."]
+visible = false
+offset_left = 382.0
+offset_top = -39.0
+offset_right = 638.0
+offset_bottom = 217.0
+texture = ExtResource("6_lgfx6")
+patch_margin_left = 128
+patch_margin_top = 128
+patch_margin_right = 128
+patch_margin_bottom = 128
+
+[node name="Label" type="Label" parent="NinePatchRect_TEST"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 142.0
+offset_right = 705.0
+offset_bottom = 344.0
+text = "ASdasdoaodomasdmasoaodadnwe"
+
+[node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
+position = Vector2(574, 372)
+next_scene = ExtResource("13_aupmd")
+metadata/_edit_lock_ = true
+
+[node name="LevelResetTrigger" parent="." instance=ExtResource("15_t58ta")]
+position = Vector2(185, 728.99994)
+scale = Vector2(8.128466, -0.93434733)
+metadata/_edit_lock_ = true
+
 [node name="==PLATFORMS==" type="Node2D" parent="."]
 
 [node name="=SPIKED=" type="Node2D" parent="==PLATFORMS=="]
@@ -62,6 +93,44 @@ scale = Vector2(2.2751071, 2.2751071)
 [node name="SpikedPlatform_02" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
 position = Vector2(-87, 236)
 scale = Vector2(2.2751071, 2.2751071)
+
+[node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(145, 447)
+
+[node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(-68, 447)
+
+[node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(-280, 447)
+
+[node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(114, 331)
+
+[node name="platform_07" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(-280, 393)
+
+[node name="platform_08" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(-280, 340)
+
+[node name="platform_09" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(-280, 287)
+
+[node name="platform_10" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(-280, 232)
+
+[node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(360, 447)
+
+[node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(576, 447)
+
+[node name="MovingPlatform" parent="==PLATFORMS==" instance=ExtResource("15_1j1kj")]
+position = Vector2(269, 259)
+scale = Vector2(1.430079, 1.430079)
+
+[node name="MovingPlatform2" parent="==PLATFORMS==" instance=ExtResource("15_1j1kj")]
+position = Vector2(401, 259)
+scale = Vector2(1.430079, 1.430079)
 
 [node name="==PICKUPS==" type="Node2D" parent="."]
 position = Vector2(293, 281)
@@ -88,61 +157,13 @@ position = Vector2(-94, 127)
 position = Vector2(346, 197)
 scale = Vector2(1.4738091, 1.4738091)
 
-[node name="platform_01" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(145, 447)
-
-[node name="platform_05" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(-68, 447)
-
-[node name="platform_06" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(-280, 447)
-
-[node name="platform_04" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(114, 331)
-
-[node name="platform_07" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(-280, 393)
-
-[node name="platform_08" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(-280, 340)
-
-[node name="platform_09" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(-280, 287)
-
-[node name="platform_10" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(-280, 232)
-
-[node name="platform_02" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(360, 447)
-
-[node name="platform_03" parent="." instance=ExtResource("2_grhbk")]
-position = Vector2(576, 447)
-
-[node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
-position = Vector2(574, 372)
-next_scene = ExtResource("13_aupmd")
-metadata/_edit_lock_ = true
-
-[node name="MovingPlatform" parent="." instance=ExtResource("15_1j1kj")]
-position = Vector2(269, 259)
-scale = Vector2(1.430079, 1.430079)
-
-[node name="MovingPlatform2" parent="." instance=ExtResource("15_1j1kj")]
-position = Vector2(401, 259)
-scale = Vector2(1.430079, 1.430079)
-
-[node name="Enemy_01" parent="." instance=ExtResource("6_kgy88")]
+[node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
 position = Vector2(366, 398)
 drop_item = ExtResource("4_02ec3")
 
-[node name="Enemy_02" parent="." instance=ExtResource("6_kgy88")]
+[node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
 position = Vector2(34, 398)
 drop_item = ExtResource("19_d31dk")
 
-[node name="LevelResetTrigger" parent="." instance=ExtResource("15_t58ta")]
-position = Vector2(185, 728.99994)
-scale = Vector2(8.128466, -0.93434733)
-metadata/_edit_lock_ = true
-
-[node name="Enemy_03" parent="." instance=ExtResource("17_pmbwx")]
+[node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("17_pmbwx")]
 position = Vector2(42, 266)
