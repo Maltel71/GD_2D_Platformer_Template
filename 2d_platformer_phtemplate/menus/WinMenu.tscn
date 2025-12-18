@@ -31,12 +31,11 @@ offset_right = 0.86499023
 offset_bottom = -0.09100342
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="Header" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("4_eaowb")
-text = "Mission Complete"
+text = "Mission Complete!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -68,6 +67,13 @@ text = "Settings"
 layout_mode = 2
 theme = ExtResource("4_eaowb")
 text = "Quit"
+
+[node name="Credits" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_eaowb")
+text = "Made by Malte"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 

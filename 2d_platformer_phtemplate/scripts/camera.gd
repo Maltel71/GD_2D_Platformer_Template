@@ -1,3 +1,4 @@
+# camera.gd
 extends Camera2D
 
 @export var smoothing_speed: float = 5.0
@@ -10,8 +11,8 @@ var shake_offset: Vector2 = Vector2.ZERO
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-	if player:
-		player.connect("player_hurt", _on_player_hurt)
+	if player and player.has_signal("player_hurt"):
+		player.player_hurt.connect(_on_player_hurt)
 
 func _process(delta):
 	# Handle shake

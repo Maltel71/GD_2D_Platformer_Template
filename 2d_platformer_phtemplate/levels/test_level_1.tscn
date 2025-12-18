@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_kgy88"]
 [ext_resource type="Texture2D" uid="uid://coe3csc8hjmr1" path="res://graphics/placeholders/9slicepanel_speechbubbel_v1.png" id="6_lgfx6"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="7_aupmd"]
+[ext_resource type="PackedScene" uid="uid://cari2tg1labr3" path="res://menus/WinMenu.tscn" id="8_lgfx6"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
 [ext_resource type="PackedScene" uid="uid://cjcgk4n02khmg" path="res://level_components/health_large_pickup_01.tscn" id="9_t58ta"]
 [ext_resource type="PackedScene" uid="uid://by5ey1qvje21g" path="res://level_components/spiked_platform_01.tscn" id="12_5vfu0"]
-[ext_resource type="PackedScene" uid="uid://cu1jrfb7oi86" path="res://levels/test_level_2.tscn" id="13_aupmd"]
 [ext_resource type="PackedScene" uid="uid://cymiqket15ttm" path="res://level_components/moving_platform_01.tscn" id="15_1j1kj"]
 [ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="15_t58ta"]
 [ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="17_pmbwx"]
@@ -74,7 +74,7 @@ text = "ASdasdoaodomasdmasoaodadnwe"
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
 position = Vector2(574, 372)
-next_scene = ExtResource("13_aupmd")
+next_scene = ExtResource("8_lgfx6")
 metadata/_edit_lock_ = true
 
 [node name="LevelResetTrigger" parent="." instance=ExtResource("15_t58ta")]

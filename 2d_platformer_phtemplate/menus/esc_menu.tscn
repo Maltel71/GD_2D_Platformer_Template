@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bfijjwfqxgs76" path="res://scripts/esc_menu.gd" id="1_tpjvt"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="EscMenu" type="CanvasLayer"]
 script = ExtResource("1_tpjvt")
 
 [node name="ColorRect" type="ColorRect" parent="."]

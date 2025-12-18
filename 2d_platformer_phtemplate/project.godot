@@ -18,7 +18,8 @@ config/icon="res://graphics/placeholders/icon.svg"
 [autoload]
 
 GameManager="*res://scripts/game_manager.gd"
-EscMenu="*res://level_components/esc_menu.tscn"
+EscMenu="*res://menus/esc_menu.tscn"
+SettingsMenu="*res://menus/settings_menu.tscn"
 
 [display]
 

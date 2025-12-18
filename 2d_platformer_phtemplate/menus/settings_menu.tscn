@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0f4a5nl2jjl2"]
+
+[ext_resource type="Theme" uid="uid://bsgj6bos7rqas" path="res://menus/button_theme_01.tres" id="1_83qjl"]
+
+[node name="SettingsMenu" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 546.0
+offset_top = 19.0
+offset_right = 1373.0
+offset_bottom = 1040.0
+theme = ExtResource("1_83qjl")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.335
+anchor_top = 0.289
+anchor_right = 0.665
+anchor_bottom = 0.711
+offset_left = -0.86499023
+offset_top = 0.09100342
+offset_right = 0.86499023
+offset_bottom = -0.09100342
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Header" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+text = "Play Again"
+
+[node name="MainMenuButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+text = "Main Menu"
+
+[node name="SettingsButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+text = "Quit"
+
+[node name="MasterLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterVolume" type="HSlider" parent="Panel/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.8
+
+[node name="MusicLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicVolume" type="HSlider" parent="Panel/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.8
+
+[node name="SFXLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="SFXVolume" type="HSlider" parent="Panel/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.8

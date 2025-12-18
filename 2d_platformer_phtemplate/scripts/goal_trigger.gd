@@ -12,7 +12,5 @@ func _on_body_entered(body):
 		_trigger_goal()
 
 func _trigger_goal():
-	if next_scene:
-		get_tree().change_scene_to_packed(next_scene)
-	else:
-		push_warning("GoalTrigger: No next_scene assigned")
+	var win_menu = preload("res://menus/WinMenu.tscn").instantiate()
+	get_tree().root.add_child(win_menu)
