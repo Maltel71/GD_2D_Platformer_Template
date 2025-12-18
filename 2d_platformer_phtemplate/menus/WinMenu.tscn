@@ -1,34 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://cari2tg1labr3"]
+[gd_scene load_steps=4 format=3 uid="uid://cari2tg1labr3"]
 
-[ext_resource type="Script" uid="uid://csjbu0ksq5dmp" path="res://scripts/start_menu.gd" id="1_74ymc"]
-[ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/sfx/click/click (1).wav" id="2_pivjg"]
+[ext_resource type="Script" uid="uid://bfuluy0qw7agw" path="res://scripts/win_menu.gd" id="1_vundp"]
 [ext_resource type="Script" uid="uid://dy8bwfirpr11v" path="res://scripts/score_display.gd" id="4_74ymc"]
 [ext_resource type="Theme" uid="uid://bsgj6bos7rqas" path="res://menus/button_theme_01.tres" id="4_eaowb"]
 
 [node name="WinMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_74ymc")
-game_scene_path = "res://levels/test_level_1.tscn"
-hover_sound = ExtResource("2_pivjg")
+script = ExtResource("1_vundp")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 offset_right = 1919.0
 offset_bottom = 1081.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("4_eaowb")
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.335
-anchor_top = 0.289
+anchor_left = 0.32900003
+anchor_top = 0.128
 anchor_right = 0.665
-anchor_bottom = 0.711
-offset_left = -0.86499023
-offset_top = 0.09100342
+anchor_bottom = 0.87200004
+offset_left = 10.648926
+offset_top = 174.13199
 offset_right = 0.86499023
-offset_bottom = -0.09100342
+offset_bottom = -174.13202
 grow_horizontal = 2
 grow_vertical = 2
 

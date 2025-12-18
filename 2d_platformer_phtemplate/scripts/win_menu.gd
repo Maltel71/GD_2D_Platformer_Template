@@ -3,7 +3,7 @@ extends Control
 
 @export var main_menu_scene: String = "res://path/to/main_menu.tscn"
 
-@onready var score_label = $Panel/VBoxContainer/Header/ScoreLabel
+@onready var score_label = $Panel/VBoxContainer/ScoreLabel
 @onready var play_again_button = $Panel/VBoxContainer/PlayAgainButton
 @onready var main_menu_button = $Panel/VBoxContainer/MainMenuButton
 @onready var settings_button = $Panel/VBoxContainer/SettingsButton

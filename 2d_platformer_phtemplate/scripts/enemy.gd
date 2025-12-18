@@ -71,8 +71,8 @@ func _turn_around():
 func take_damage(amount: int):
 	health -= amount
 	if health <= 0:
-		_drop_item()
-		queue_free()
+		call_deferred("_drop_item")
+		call_deferred("queue_free")
 
 func _drop_item():
 	if drop_item:
