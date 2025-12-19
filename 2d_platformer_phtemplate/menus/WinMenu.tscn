@@ -1,13 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cari2tg1labr3"]
+[gd_scene load_steps=6 format=3 uid="uid://cari2tg1labr3"]
 
 [ext_resource type="Script" uid="uid://bfuluy0qw7agw" path="res://scripts/win_menu.gd" id="1_vundp"]
 [ext_resource type="Script" uid="uid://dy8bwfirpr11v" path="res://scripts/score_display.gd" id="4_74ymc"]
 [ext_resource type="Theme" uid="uid://bsgj6bos7rqas" path="res://menus/button_theme_01.tres" id="4_eaowb"]
 
+[sub_resource type="InputEventKey" id="InputEventKey_vundp"]
+device = -1
+keycode = 80
+unicode = 112
+
+[sub_resource type="Shortcut" id="Shortcut_74ymc"]
+events = [SubResource("InputEventKey_vundp")]
+
 [node name="WinMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_vundp")
+main_menu_scene = "res://menus/StartMenu.tscn"
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -50,6 +59,7 @@ script = ExtResource("4_74ymc")
 layout_mode = 2
 theme = ExtResource("4_eaowb")
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+shortcut = SubResource("Shortcut_74ymc")
 text = "Play Again"
 
 [node name="MainMenuButton" type="Button" parent="Panel/VBoxContainer"]

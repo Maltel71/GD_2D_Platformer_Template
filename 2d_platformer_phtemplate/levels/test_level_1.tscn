@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=18 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_kgy88"]
 [ext_resource type="Texture2D" uid="uid://coe3csc8hjmr1" path="res://graphics/placeholders/9slicepanel_speechbubbel_v1.png" id="6_lgfx6"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="7_aupmd"]
-[ext_resource type="PackedScene" uid="uid://cari2tg1labr3" path="res://menus/WinMenu.tscn" id="8_lgfx6"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
 [ext_resource type="PackedScene" uid="uid://cjcgk4n02khmg" path="res://level_components/health_large_pickup_01.tscn" id="9_t58ta"]
@@ -74,7 +73,7 @@ text = "ASdasdoaodomasdmasoaodadnwe"
 
 [node name="GoalTrigger" parent="." instance=ExtResource("8_t58ta")]
 position = Vector2(574, 372)
-next_scene = ExtResource("8_lgfx6")
+next_scene = "res://menus/WinMenu.tscn"
 metadata/_edit_lock_ = true
 
 [node name="LevelResetTrigger" parent="." instance=ExtResource("15_t58ta")]
@@ -154,11 +153,11 @@ position = Vector2(-94, 127)
 [node name="==ENEMIES==" type="Node2D" parent="."]
 
 [node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("9_grhbk")]
-position = Vector2(346, 197)
+position = Vector2(334.00003, 120.00001)
 scale = Vector2(1.4738091, 1.4738091)
 
 [node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
-position = Vector2(366, 398)
+position = Vector2(-121, 396)
 drop_item = ExtResource("4_02ec3")
 
 [node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("6_kgy88")]
@@ -166,4 +165,4 @@ position = Vector2(34, 398)
 drop_item = ExtResource("19_d31dk")
 
 [node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("17_pmbwx")]
-position = Vector2(42, 266)
+position = Vector2(-355, 181)

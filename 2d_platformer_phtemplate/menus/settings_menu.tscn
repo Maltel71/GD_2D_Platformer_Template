@@ -1,18 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0f4a5nl2jjl2"]
+[gd_scene load_steps=3 format=3 uid="uid://b0f4a5nl2jjl2"]
 
 [ext_resource type="Theme" uid="uid://bsgj6bos7rqas" path="res://menus/button_theme_01.tres" id="1_83qjl"]
+[ext_resource type="Script" uid="uid://cxphptqssyocr" path="res://scripts/settings_menu.gd" id="1_v0bl3"]
 
-[node name="SettingsMenu" type="Node2D"]
+[node name="SettingsMenu" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_v0bl3")
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = 546.0
-offset_top = 19.0
-offset_right = 1373.0
-offset_bottom = 1040.0
+modulate = Color(0.45846003, 0.8554673, 0.99999994, 1)
+layout_mode = 0
+offset_left = 500.0
+offset_right = 1327.0
+offset_bottom = 1021.0
 theme = ExtResource("1_83qjl")
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+z_index = 6
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.335
@@ -34,28 +41,11 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayAgainButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="GodModeToggle" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_83qjl")
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-text = "Play Again"
-
-[node name="MainMenuButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("1_83qjl")
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-text = "Main Menu"
-
-[node name="SettingsButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("1_83qjl")
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-text = "Settings"
-
-[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("1_83qjl")
-text = "Quit"
+text = "God mode"
 
 [node name="MasterLabel" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -86,3 +76,9 @@ layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 0.8
+
+[node name="OKButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+text = "OK"

@@ -9,7 +9,6 @@ layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("3_wns2j")
 script = ExtResource("1_1mllw")
-game_scene_path = "res://levels/test_level_1.tscn"
 hover_sound = ExtResource("3_uqa4f")
 
 [node name="Panel" type="Panel" parent="."]
@@ -21,14 +20,14 @@ theme = ExtResource("3_wns2j")
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.335
-anchor_top = 0.289
-anchor_right = 0.665
-anchor_bottom = 0.711
-offset_left = -0.86499023
-offset_top = 0.09100342
-offset_right = 0.86499023
-offset_bottom = -0.09100342
+anchor_left = 0.305
+anchor_top = 0.23500001
+anchor_right = 0.69500005
+anchor_bottom = 0.76500005
+offset_left = 56.704956
+offset_top = 58.46498
+offset_right = -56.70508
+offset_bottom = -58.465027
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
