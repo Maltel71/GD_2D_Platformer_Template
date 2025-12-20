@@ -26,7 +26,7 @@ func _on_play_again_pressed():
 		get_tree().change_scene_to_file(game_scene_path)
 
 func _on_settings_pressed():
-	SettingsMenu.show_menu()
+	get_tree().change_scene_to_file("res://menus/settings_menu.tscn")
 
 func _on_quit_pressed():
 	get_tree().quit()

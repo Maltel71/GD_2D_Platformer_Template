@@ -10,7 +10,6 @@ anchors_preset = 0
 script = ExtResource("1_v0bl3")
 
 [node name="Panel" type="Panel" parent="."]
-modulate = Color(0.45846003, 0.8554673, 0.99999994, 1)
 layout_mode = 0
 offset_left = 500.0
 offset_right = 1327.0
@@ -26,10 +25,10 @@ anchor_left = 0.335
 anchor_top = 0.289
 anchor_right = 0.665
 anchor_bottom = 0.711
-offset_left = -0.86499023
-offset_top = 0.09100342
-offset_right = 0.86499023
-offset_bottom = -0.09100342
+offset_left = -129.545
+offset_top = -154.56898
+offset_right = 208.45502
+offset_bottom = 330.43103
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true

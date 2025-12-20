@@ -1,4 +1,4 @@
-# settings_menu.gd (AutoLoad as "SettingsMenu")
+# settings_menu.gd
 extends Control
 
 @onready var master_volume = $Panel/VBoxContainer/MasterVolume
@@ -10,15 +10,18 @@ extends Control
 var god_mode_enabled: bool = false
 
 func _ready():
-	process_mode = Node.PROCESS_MODE_ALWAYS
-	visible = false  # Changed from panel.visible
+	# Load saved volumes BEFORE connecting signals
+	master_volume.value = db_to_linear(AudioServer.get_bus_volume_db(0))
+	sfx_volume.value = db_to_linear(AudioServer.get_bus_volume_db(2))
+	music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(1))
 	
+	# Now connect signals
 	master_volume.value_changed.connect(_on_master_volume_changed)
 	sfx_volume.value_changed.connect(_on_sfx_volume_changed)
 	music_volume.value_changed.connect(_on_music_volume_changed)
 	
 	god_mode_toggle.toggled.connect(_on_god_mode_toggled)
-	ok_button.pressed.connect(hide_menu)
+	ok_button.pressed.connect(_on_back_pressed)
 	
 	master_volume.min_value = 0
 	master_volume.max_value = 1
@@ -26,16 +29,9 @@ func _ready():
 	sfx_volume.max_value = 1
 	music_volume.min_value = 0
 	music_volume.max_value = 1
-	
-	master_volume.value = 0.8
-	sfx_volume.value = 0.8
-	music_volume.value = 0.8
-	
-func show_menu():
-	visible = true  # Changed from panel.visible
 
-func hide_menu():
-	visible = false  # Changed from panel.visible
+func _on_back_pressed():
+	get_tree().change_scene_to_file("res://menus/StartMenu.tscn")
 
 func _on_master_volume_changed(value: float):
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))

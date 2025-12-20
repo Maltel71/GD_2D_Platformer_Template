@@ -68,12 +68,6 @@ theme = ExtResource("4_eaowb")
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
 text = "Main Menu"
 
-[node name="SettingsButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("4_eaowb")
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-text = "Settings"
-
 [node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("4_eaowb")
