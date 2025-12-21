@@ -1,75 +1,94 @@
-[gd_scene load_steps=2 format=3 uid="uid://cswsstxolvh11"]
+[gd_scene load_steps=3 format=3 uid="uid://cswsstxolvh11"]
 
 [ext_resource type="Script" uid="uid://bfijjwfqxgs76" path="res://scripts/esc_menu.gd" id="1_tpjvt"]
+[ext_resource type="Theme" uid="uid://bsgj6bos7rqas" path="res://menus/button_theme_01.tres" id="2_0jm85"]
 
 [node name="EscMenu" type="CanvasLayer"]
 script = ExtResource("1_tpjvt")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -369.00006
-offset_top = -470.0
-offset_right = -329.00006
-offset_bottom = -422.46957
+offset_left = -368.0
+offset_top = -451.0
+offset_right = 314.0
+offset_bottom = 455.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(20.968714, 19.797844)
-color = Color(0.40196836, 0.40196842, 0.40196836, 1)
+theme = ExtResource("2_0jm85")
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 0.9418106
-offset_top = 0.9597001
-offset_right = 39.05819
-offset_bottom = 46.621235
-color = Color(0.2824075, 0.28240746, 0.28240746, 1)
+offset_left = 42.000008
+offset_top = 37.999996
+offset_right = 618.19214
+offset_bottom = 860.85815
+scale = Vector2(1.037, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
-layout_mode = 0
-offset_left = 8.48884
-offset_top = 4.1418653
-offset_right = 130.2767
-offset_bottom = 211.14186
-scale = Vector2(0.19579166, 0.18941447)
-
-[node name="ResumeButton" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Resume"
 
-[node name="QuitButton" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
-[node name="MasterLabel" type="Label" parent="ColorRect/VBoxContainer"]
+[node name="MasterLabel" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Master Volume"
 
-[node name="MasterVolume" type="HSlider" parent="ColorRect/VBoxContainer"]
+[node name="MasterVolume" type="HSlider" parent="Panel/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 0.8
 
-[node name="MusicLabel" type="Label" parent="ColorRect/VBoxContainer"]
+[node name="MusicLabel" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Music Volume"
 
-[node name="MusicVolume" type="HSlider" parent="ColorRect/VBoxContainer"]
+[node name="MusicVolume" type="HSlider" parent="Panel/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 0.8
 
-[node name="SFXLabel" type="Label" parent="ColorRect/VBoxContainer"]
+[node name="SFXLabel" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "SFX Volume"
 
-[node name="SFXVolume" type="HSlider" parent="ColorRect/VBoxContainer"]
+[node name="SFXVolume" type="HSlider" parent="Panel/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 0.8
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 1282.0
+offset_top = 89.0
+offset_right = 1861.0
+offset_bottom = 998.0
+theme = ExtResource("2_0jm85")
+
+[node name="Header_Keybinds" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 39.0
+offset_right = 461.0
+offset_bottom = 147.0
+text = "Keybinds:"
+
+[node name="KeybindsText" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 184.0
+offset_right = 453.0
+offset_bottom = 413.0
+theme_override_font_sizes/font_size = 40
+text = "WASD=Move
+SPACE=Shoot
+P=Replay
+ESC=PauseMenu"
