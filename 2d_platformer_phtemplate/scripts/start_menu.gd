@@ -3,6 +3,7 @@ extends Control
 
 @export var game_scene_path: String = "res://levels/test_level_1.tscn"
 @export var hover_sound: AudioStream
+@export_range(-80, 24) var hover_volume: float = 0.0
 
 @onready var play_again_button = $Panel/VBoxContainer/PlayAgainButton
 @onready var settings_button = $Panel/VBoxContainer/SettingsButton
@@ -11,6 +12,10 @@ extends Control
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	# Set audio player to SFX bus
+	if audio_player:
+		audio_player.bus = "SFX"
 	
 	play_again_button.pressed.connect(_on_play_again_pressed)
 	settings_button.pressed.connect(_on_settings_pressed)
@@ -34,4 +39,5 @@ func _on_quit_pressed():
 func _on_button_hover():
 	if hover_sound and audio_player:
 		audio_player.stream = hover_sound
+		audio_player.volume_db = hover_volume
 		audio_player.play()

@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cswsstxolvh11"]
+[gd_scene load_steps=4 format=3 uid="uid://cswsstxolvh11"]
 
 [ext_resource type="Script" uid="uid://bfijjwfqxgs76" path="res://scripts/esc_menu.gd" id="1_tpjvt"]
 [ext_resource type="Theme" uid="uid://bsgj6bos7rqas" path="res://menus/button_theme_01.tres" id="2_0jm85"]
+[ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/sfx/click/click (1).wav" id="2_wgmhh"]
 
 [node name="EscMenu" type="CanvasLayer"]
 script = ExtResource("1_tpjvt")
+hover_sound = ExtResource("2_wgmhh")
+hover_volume = -20.0
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 8
@@ -12,10 +15,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -368.0
-offset_top = -451.0
-offset_right = 314.0
-offset_bottom = 455.0
+offset_left = -649.0
+offset_top = -497.0
+offset_right = 33.0
+offset_bottom = 479.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_0jm85")
@@ -31,6 +34,10 @@ scale = Vector2(1.037, 1)
 [node name="ResumeButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Resume"
+
+[node name="MainMenuButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "MainMenu"
 
 [node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -67,10 +74,10 @@ step = 0.01
 value = 0.8
 
 [node name="Panel2" type="Panel" parent="."]
-offset_left = 1282.0
-offset_top = 89.0
-offset_right = 1861.0
-offset_bottom = 998.0
+offset_left = 1001.0
+offset_top = 43.0
+offset_right = 1580.0
+offset_bottom = 806.0
 theme = ExtResource("2_0jm85")
 
 [node name="Header_Keybinds" type="Label" parent="Panel2"]
@@ -88,7 +95,9 @@ offset_top = 184.0
 offset_right = 453.0
 offset_bottom = 413.0
 theme_override_font_sizes/font_size = 40
-text = "WASD=Move
-SPACE=Shoot
-P=Replay
-ESC=PauseMenu"
+text = "WASD = Move
+SPACE = Shoot
+ENTER = Replay
+ESC = PauseMenu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

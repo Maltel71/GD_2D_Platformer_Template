@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cari2tg1labr3"]
+[gd_scene load_steps=7 format=3 uid="uid://cari2tg1labr3"]
 
 [ext_resource type="Script" uid="uid://bfuluy0qw7agw" path="res://scripts/win_menu.gd" id="1_vundp"]
+[ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/sfx/click/click (1).wav" id="2_74ymc"]
 [ext_resource type="Script" uid="uid://dy8bwfirpr11v" path="res://scripts/score_display.gd" id="4_74ymc"]
 [ext_resource type="Theme" uid="uid://bsgj6bos7rqas" path="res://menus/button_theme_01.tres" id="4_eaowb"]
 
@@ -17,6 +18,8 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_vundp")
 main_menu_scene = "res://menus/StartMenu.tscn"
+hover_sound = ExtResource("2_74ymc")
+hover_volume = -20.0
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -80,7 +83,7 @@ text = "Made by Malte"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(957, 539)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

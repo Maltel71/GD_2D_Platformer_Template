@@ -10,6 +10,7 @@ anchors_preset = 0
 theme = ExtResource("3_wns2j")
 script = ExtResource("1_1mllw")
 hover_sound = ExtResource("3_uqa4f")
+hover_volume = -20.0
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
