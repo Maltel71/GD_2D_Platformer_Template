@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="15_t58ta"]
 [ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="17_pmbwx"]
 [ext_resource type="PackedScene" uid="uid://cjby65q1mj1d7" path="res://dialogue_trigger.tscn" id="18_lgfx6"]
-[ext_resource type="AudioStream" uid="uid://cpgff5po1ijfl" path="res://audio/sfx/jump/jump (1).wav" id="19_5iaa6"]
+[ext_resource type="AudioStream" uid="uid://p0mmiwqheptu" path="res://audio/sfx/dialogue/mumble_01_v1.mp3" id="19_5iaa6"]
 [ext_resource type="Texture2D" uid="uid://b65cmo60xybp4" path="res://graphics/enemies/enemy1/enemy1_sprite_01.png" id="19_6q8gj"]
 [ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_small_pickup_01.tscn" id="19_d31dk"]
 
@@ -189,6 +189,7 @@ section_2_label_2 = NodePath("../Label4")
 section_2_label_2_duration = 2.0
 section_2_label_2_delay = 2.0
 speaking_sound = ExtResource("19_5iaa6")
+speaking_volume = -10.0
 
 [node name="Label1" type="Label" parent="==NPCS===/RoachieRomaggio"]
 offset_left = -44.0
