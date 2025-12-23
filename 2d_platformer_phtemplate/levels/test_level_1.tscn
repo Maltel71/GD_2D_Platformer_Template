@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=21 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://cymiqket15ttm" path="res://level_components/moving_platform_01.tscn" id="15_1j1kj"]
 [ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="15_t58ta"]
 [ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="17_pmbwx"]
+[ext_resource type="PackedScene" uid="uid://cjby65q1mj1d7" path="res://dialogue_trigger.tscn" id="18_lgfx6"]
+[ext_resource type="AudioStream" uid="uid://cpgff5po1ijfl" path="res://audio/sfx/jump/jump (1).wav" id="19_5iaa6"]
+[ext_resource type="Texture2D" uid="uid://b65cmo60xybp4" path="res://graphics/enemies/enemy1/enemy1_sprite_01.png" id="19_6q8gj"]
 [ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_small_pickup_01.tscn" id="19_d31dk"]
 
 [node name="Node2D" type="Node2D"]
@@ -166,3 +169,57 @@ drop_item = ExtResource("19_d31dk")
 
 [node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("17_pmbwx")]
 position = Vector2(-355, 181)
+
+[node name="==NPCS===" type="Node2D" parent="."]
+position = Vector2(43, 278)
+
+[node name="RoachieRomaggio" type="Node2D" parent="==NPCS==="]
+
+[node name="dialogue_trigger" parent="==NPCS===/RoachieRomaggio" node_paths=PackedStringArray("section_1_label_1", "section_1_label_2", "section_2_label_1", "section_2_label_2") instance=ExtResource("18_lgfx6")]
+section_1_label_1 = NodePath("../Label1")
+section_1_label_1_duration = 2.0
+section_1_label_1_delay = 0.0
+section_1_label_2 = NodePath("../Label2")
+section_1_label_2_duration = 2.0
+section_1_label_2_delay = 2.0
+section_2_label_1 = NodePath("../Label3")
+section_2_label_1_duration = 2.0
+section_2_label_1_delay = 0.0
+section_2_label_2 = NodePath("../Label4")
+section_2_label_2_duration = 2.0
+section_2_label_2_delay = 2.0
+speaking_sound = ExtResource("19_5iaa6")
+
+[node name="Label1" type="Label" parent="==NPCS===/RoachieRomaggio"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 23.0
+offset_bottom = -29.0
+text = "Hi there!"
+
+[node name="Label2" type="Label" parent="==NPCS===/RoachieRomaggio"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 155.0
+offset_bottom = -29.0
+text = "Nice with some company."
+
+[node name="Label3" type="Label" parent="==NPCS===/RoachieRomaggio"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 108.0
+offset_bottom = -29.0
+text = "Oh, youre still here!"
+
+[node name="Label4" type="Label" parent="==NPCS===/RoachieRomaggio"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 176.0
+offset_bottom = -29.0
+text = "Ehrm.. Well, you smell nice..."
+
+[node name="Enemy1Sprite01" type="Sprite2D" parent="==NPCS===/RoachieRomaggio"]
+position = Vector2(-16, 11)
+rotation = 1.6647534
+scale = Vector2(0.8490911, -1.060967)
+texture = ExtResource("19_6q8gj")
