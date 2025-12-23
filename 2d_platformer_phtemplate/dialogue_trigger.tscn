@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bguco4mo8et26" path="res://scripts/dialogue_trigger.gd" id="1_mui1w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8rud"]
-radius = 50.01
+radius = 41.725292
 
 [node name="dialogue_trigger" type="Node2D"]
 script = ExtResource("1_mui1w")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=22 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://p0mmiwqheptu" path="res://audio/sfx/dialogue/mumble_01_v1.mp3" id="19_5iaa6"]
 [ext_resource type="Texture2D" uid="uid://b65cmo60xybp4" path="res://graphics/enemies/enemy1/enemy1_sprite_01.png" id="19_6q8gj"]
 [ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_small_pickup_01.tscn" id="19_d31dk"]
+[ext_resource type="Theme" uid="uid://b1gawxyi82u3g" path="res://menus/dialogue_theme_01.tres" id="20_5iaa6"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -167,6 +168,51 @@ drop_item = ExtResource("4_02ec3")
 position = Vector2(34, 398)
 drop_item = ExtResource("19_d31dk")
 
+[node name="dialogue_trigger" parent="==ENEMIES==/Enemy_02" node_paths=PackedStringArray("section_1_label_1", "dr_label_1", "dr_label_2", "dr_label_3") instance=ExtResource("18_lgfx6")]
+position = Vector2(86, 0)
+section_1_label_1 = NodePath("Label1")
+section_1_label_1_duration = 2.0
+section_1_label_1_delay = 0.0
+section_1_label_2_duration = 2.0
+section_1_label_2_delay = 2.0
+section_2_label_1_duration = 2.0
+section_2_label_1_delay = 0.0
+section_2_label_2_duration = 2.0
+section_2_label_2_delay = 2.0
+dr_label_1 = NodePath("dr_Label1")
+dr_label_2 = NodePath("dr_Label2")
+dr_label_3 = NodePath("dr_Label3")
+speaking_sound = ExtResource("19_5iaa6")
+speaking_volume = -10.0
+
+[node name="Label1" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger"]
+offset_left = -125.0
+offset_top = -47.0
+offset_right = -40.0
+offset_bottom = -24.0
+text = "ILL GET YA!"
+
+[node name="dr_Label1" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger"]
+offset_left = -125.0
+offset_top = -47.0
+offset_right = 95.0
+offset_bottom = -24.0
+text = "AAAARGHH"
+
+[node name="dr_Label2" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger"]
+offset_left = -125.0
+offset_top = -47.0
+offset_right = 95.0
+offset_bottom = -24.0
+text = "SLORPNGG"
+
+[node name="dr_Label3" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger"]
+offset_left = -125.0
+offset_top = -47.0
+offset_right = 111.0
+offset_bottom = -24.0
+text = "GNURRKK"
+
 [node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("17_pmbwx")]
 position = Vector2(-355, 181)
 
@@ -175,49 +221,80 @@ position = Vector2(43, 278)
 
 [node name="RoachieRomaggio" type="Node2D" parent="==NPCS==="]
 
-[node name="dialogue_trigger" parent="==NPCS===/RoachieRomaggio" node_paths=PackedStringArray("section_1_label_1", "section_1_label_2", "section_2_label_1", "section_2_label_2") instance=ExtResource("18_lgfx6")]
-section_1_label_1 = NodePath("../Label1")
+[node name="dialogue_trigger" parent="==NPCS===/RoachieRomaggio" node_paths=PackedStringArray("section_1_label_1", "section_1_label_2", "section_2_label_1", "section_2_label_2", "dr_label_1", "dr_label_2", "dr_label_3") instance=ExtResource("18_lgfx6")]
+section_1_label_1 = NodePath("Label1")
 section_1_label_1_duration = 2.0
 section_1_label_1_delay = 0.0
-section_1_label_2 = NodePath("../Label2")
+section_1_label_2 = NodePath("Label2")
 section_1_label_2_duration = 2.0
 section_1_label_2_delay = 2.0
-section_2_label_1 = NodePath("../Label3")
+section_2_label_1 = NodePath("Label3")
 section_2_label_1_duration = 2.0
 section_2_label_1_delay = 0.0
-section_2_label_2 = NodePath("../Label4")
+section_2_label_2 = NodePath("Label4")
 section_2_label_2_duration = 2.0
 section_2_label_2_delay = 2.0
+dr_label_1 = NodePath("dr_label1")
+dr_label_2 = NodePath("dr_label2")
+dr_label_3 = NodePath("dr_label3")
 speaking_sound = ExtResource("19_5iaa6")
 speaking_volume = -10.0
 
-[node name="Label1" type="Label" parent="==NPCS===/RoachieRomaggio"]
+[node name="Label1" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger"]
 offset_left = -44.0
 offset_top = -52.0
 offset_right = 23.0
 offset_bottom = -29.0
+theme = ExtResource("20_5iaa6")
 text = "Hi there!"
 
-[node name="Label2" type="Label" parent="==NPCS===/RoachieRomaggio"]
+[node name="Label2" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger"]
 offset_left = -44.0
 offset_top = -52.0
 offset_right = 155.0
 offset_bottom = -29.0
+theme = ExtResource("20_5iaa6")
 text = "Nice with some company."
 
-[node name="Label3" type="Label" parent="==NPCS===/RoachieRomaggio"]
+[node name="Label3" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger"]
 offset_left = -44.0
 offset_top = -52.0
 offset_right = 108.0
 offset_bottom = -29.0
+theme = ExtResource("20_5iaa6")
 text = "Oh, youre still here!"
 
-[node name="Label4" type="Label" parent="==NPCS===/RoachieRomaggio"]
+[node name="Label4" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger"]
 offset_left = -44.0
 offset_top = -52.0
 offset_right = 176.0
 offset_bottom = -29.0
+theme = ExtResource("20_5iaa6")
 text = "Ehrm.. Well, you smell nice..."
+
+[node name="dr_label1" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 176.0
+offset_bottom = -29.0
+theme = ExtResource("20_5iaa6")
+text = "Hi again!"
+
+[node name="dr_label2" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 176.0
+offset_bottom = -29.0
+theme = ExtResource("20_5iaa6")
+text = "Here to hang out with me?"
+
+[node name="dr_label3" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 176.0
+offset_bottom = -29.0
+theme = ExtResource("20_5iaa6")
+text = "Hi friend!"
 
 [node name="Enemy1Sprite01" type="Sprite2D" parent="==NPCS===/RoachieRomaggio"]
 position = Vector2(-16, 11)
