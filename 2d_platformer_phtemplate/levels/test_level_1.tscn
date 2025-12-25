@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=23 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://b65cmo60xybp4" path="res://graphics/enemies/enemy1/enemy1_sprite_01.png" id="19_6q8gj"]
 [ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_small_pickup_01.tscn" id="19_d31dk"]
 [ext_resource type="Theme" uid="uid://b1gawxyi82u3g" path="res://menus/dialogue_theme_01.tres" id="20_5iaa6"]
+[ext_resource type="PackedScene" uid="uid://cm8xtc6srl3gy" path="res://level_components/jumppad.tscn" id="22_5au7l"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -149,7 +150,6 @@ position = Vector2(-324, 116)
 
 [node name="HealthPickup_01" parent="==PICKUPS==" instance=ExtResource("19_d31dk")]
 position = Vector2(-164, 129)
-scale = Vector2(0.6023685, 0.6023685)
 
 [node name="HealthPickup_03" parent="==PICKUPS==" instance=ExtResource("9_t58ta")]
 position = Vector2(-94, 127)
@@ -169,7 +169,7 @@ position = Vector2(34, 398)
 drop_item = ExtResource("19_d31dk")
 
 [node name="dialogue_trigger" parent="==ENEMIES==/Enemy_02" node_paths=PackedStringArray("section_1_label_1", "dr_label_1", "dr_label_2", "dr_label_3") instance=ExtResource("18_lgfx6")]
-position = Vector2(86, 0)
+position = Vector2(69, 0)
 section_1_label_1 = NodePath("Label1")
 section_1_label_1_duration = 2.0
 section_1_label_1_delay = 0.0
@@ -186,30 +186,30 @@ speaking_sound = ExtResource("19_5iaa6")
 speaking_volume = -10.0
 
 [node name="Label1" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger"]
-offset_left = -125.0
+offset_left = -104.0
 offset_top = -47.0
-offset_right = -40.0
+offset_right = -19.0
 offset_bottom = -24.0
 text = "ILL GET YA!"
 
 [node name="dr_Label1" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger"]
-offset_left = -125.0
+offset_left = -104.0
 offset_top = -47.0
-offset_right = 95.0
+offset_right = 116.0
 offset_bottom = -24.0
 text = "AAAARGHH"
 
 [node name="dr_Label2" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger"]
-offset_left = -125.0
+offset_left = -104.0
 offset_top = -47.0
-offset_right = 95.0
+offset_right = 116.0
 offset_bottom = -24.0
 text = "SLORPNGG"
 
 [node name="dr_Label3" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger"]
-offset_left = -125.0
+offset_left = -104.0
 offset_top = -47.0
-offset_right = 111.0
+offset_right = 132.0
 offset_bottom = -24.0
 text = "GNURRKK"
 
@@ -301,3 +301,6 @@ position = Vector2(-16, 11)
 rotation = 1.6647534
 scale = Vector2(0.8490911, -1.060967)
 texture = ExtResource("19_6q8gj")
+
+[node name="JumpPad" parent="." instance=ExtResource("22_5au7l")]
+position = Vector2(176, 298)

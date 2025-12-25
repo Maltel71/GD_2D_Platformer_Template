@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://djf0yaxtcnqv0" path="res://graphics/health_small_sprite_01.png" id="3_cc5jb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4v1y"]
-size = Vector2(151.21951, 146.34146)
+size = Vector2(88.82688, 92.11676)
 
 [node name="HealthPickup_01" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_wglma")
@@ -22,7 +22,6 @@ shape = SubResource("RectangleShape2D_e4v1y")
 
 [node name="PlaceholderSprite01" type="Sprite2D" parent="."]
 z_index = -2
-scale = Vector2(1.6267308, 1.6267304)
 texture = ExtResource("3_cc5jb")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

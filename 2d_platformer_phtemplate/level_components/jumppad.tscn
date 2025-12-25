@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cm8xtc6srl3gy"]
+
+[ext_resource type="Script" uid="uid://dto1tevwh3fr2" path="res://scripts/jumppad.gd" id="1_kon50"]
+[ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/sfx/click/click (1).wav" id="2_sya8y"]
+[ext_resource type="Texture2D" uid="uid://cifsl51oklgbk" path="res://graphics/jumppad1_sprite_02_v1.png" id="3_148fp"]
+[ext_resource type="Texture2D" uid="uid://co2pa7di4a8nv" path="res://graphics/jumppad1_sprite_01_v1.png" id="4_uhjyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sya8y"]
+size = Vector2(38, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8uvnd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_uhjyp")
+}],
+"loop": false,
+"name": &"activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_148fp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="JumpPad" type="Node2D"]
+script = ExtResource("1_kon50")
+boost_sound = ExtResource("2_sya8y")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -3)
+shape = SubResource("RectangleShape2D_sya8y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8uvnd")
+animation = &"idle"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

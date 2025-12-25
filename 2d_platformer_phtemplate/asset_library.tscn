@@ -1,0 +1,79 @@
+[gd_scene load_steps=18 format=3 uid="uid://xm4mrn3xnpw"]
+
+[ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="1_bnb56"]
+[ext_resource type="PackedScene" uid="uid://cjcgk4n02khmg" path="res://level_components/health_large_pickup_01.tscn" id="2_byuh4"]
+[ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_small_pickup_01.tscn" id="3_vqhc3"]
+[ext_resource type="PackedScene" uid="uid://cm8xtc6srl3gy" path="res://level_components/jumppad.tscn" id="4_i7npw"]
+[ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="5_d4f8j"]
+[ext_resource type="PackedScene" uid="uid://cymiqket15ttm" path="res://level_components/moving_platform_01.tscn" id="6_x68k1"]
+[ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="7_wsab0"]
+[ext_resource type="PackedScene" uid="uid://dn28jqjtuhjse" path="res://level_components/oneway_platform_01.tscn" id="8_mtpxy"]
+[ext_resource type="PackedScene" uid="uid://by5ey1qvje21g" path="res://level_components/spiked_platform_01.tscn" id="9_d4f8j"]
+[ext_resource type="PackedScene" uid="uid://cjby65q1mj1d7" path="res://dialogue_trigger.tscn" id="10_onssu"]
+[ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="11_cgi6m"]
+[ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="12_o87d4"]
+[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="13_ox4b8"]
+[ext_resource type="PackedScene" uid="uid://t6qqpcoyy6dm" path="res://enemy/enemy_bullet.tscn" id="14_d0cef"]
+[ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="15_j7oox"]
+[ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="16_lv7tp"]
+[ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="17_85x07"]
+
+[node name="Asset_Library" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -50
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.7807016, 0.7807017, 0.7807016, 1)
+metadata/_edit_lock_ = true
+
+[node name="GoalTrigger" parent="." instance=ExtResource("1_bnb56")]
+position = Vector2(137, 110)
+
+[node name="HealthPickup_01" parent="." instance=ExtResource("2_byuh4")]
+position = Vector2(62, 236)
+
+[node name="HealthPickup_02" parent="." instance=ExtResource("3_vqhc3")]
+position = Vector2(122, 234)
+
+[node name="JumpPad" parent="." instance=ExtResource("4_i7npw")]
+position = Vector2(156, 286)
+
+[node name="LevelResetTrigger" parent="." instance=ExtResource("5_d4f8j")]
+position = Vector2(245, 994)
+
+[node name="MovingPlatform" parent="." instance=ExtResource("6_x68k1")]
+position = Vector2(74, 289)
+
+[node name="platform_01" parent="." instance=ExtResource("7_wsab0")]
+position = Vector2(142, 364)
+
+[node name="platform_02" parent="." instance=ExtResource("8_mtpxy")]
+position = Vector2(82, 450)
+
+[node name="SpikedPlatform_01" parent="." instance=ExtResource("9_d4f8j")]
+position = Vector2(315, 385)
+
+[node name="dialogue_trigger" parent="." instance=ExtResource("10_onssu")]
+position = Vector2(55, 865)
+
+[node name="bullet" parent="." instance=ExtResource("11_cgi6m")]
+position = Vector2(121, 773)
+
+[node name="Player" parent="." instance=ExtResource("12_o87d4")]
+position = Vector2(52, 770)
+
+[node name="Enemy_01" parent="." instance=ExtResource("13_ox4b8")]
+position = Vector2(226, 662)
+
+[node name="EnemyBullet" parent="." instance=ExtResource("14_d0cef")]
+position = Vector2(295, 585)
+
+[node name="Enemy_Floating" parent="." instance=ExtResource("15_j7oox")]
+position = Vector2(321, 664)
+
+[node name="EnemyShooting" parent="." instance=ExtResource("16_lv7tp")]
+position = Vector2(229, 577)
+
+[node name="coin" parent="." instance=ExtResource("17_85x07")]
+position = Vector2(158, 232)
