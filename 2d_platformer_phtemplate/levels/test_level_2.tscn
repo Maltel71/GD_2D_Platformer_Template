@@ -4,8 +4,8 @@
 [ext_resource type="AudioStream" uid="uid://fgy4bfppp3hi" path="res://audio/music/bill_music/My DA (why).mp3" id="3_mc1td"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="6_4auen"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="7_7rcka"]
-[ext_resource type="PackedScene" uid="uid://cari2tg1labr3" path="res://menus/WinMenu.tscn" id="7_mimsd"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="9_kxfxx"]
+[ext_resource type="PackedScene" uid="uid://cymiqket15ttm" path="res://level_components/moving_platform_01.tscn" id="10_gtf73"]
 [ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="10_ryfec"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="11_wu0c2"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="12_ay0he"]
@@ -14,7 +14,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_mc1td")]
-position = Vector2(69, 309)
+position = Vector2(-974, 141)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(182, 229)
@@ -43,7 +43,6 @@ metadata/_edit_lock_ = true
 
 [node name="GoalTrigger" parent="." instance=ExtResource("12_ay0he")]
 position = Vector2(320, 307)
-next_scene = ExtResource("7_mimsd")
 
 [node name="==PLATFORMS==" type="Node2D" parent="."]
 
@@ -55,18 +54,32 @@ next_scene = ExtResource("7_mimsd")
 position = Vector2(114, 386)
 
 [node name="platform_05" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(-99, 386)
+position = Vector2(-996, 223)
 
 [node name="platform_06" parent="." instance=ExtResource("6_4auen")]
-position = Vector2(-310, 386)
+position = Vector2(-627, 231)
 
 [node name="platform_02" parent="." instance=ExtResource("6_4auen")]
 position = Vector2(329, 386)
 
 [node name="LevelResetTrigger" parent="." instance=ExtResource("12_x2a8b")]
-position = Vector2(85, 990)
+position = Vector2(114, 683)
 scale = Vector2(7.4800014, 1)
-metadata/_edit_lock_ = true
 
 [node name="Enemy_01" parent="." instance=ExtResource("10_ryfec")]
-position = Vector2(-66, 329)
+position = Vector2(176, 337)
+
+[node name="MovingPlatform" parent="." instance=ExtResource("10_gtf73")]
+position = Vector2(-413, 191.00002)
+scale = Vector2(1.430079, 1.430079)
+move_distance_x = 80.0
+
+[node name="MovingPlatform3" parent="." instance=ExtResource("10_gtf73")]
+position = Vector2(50, 188)
+scale = Vector2(1.430079, 1.430079)
+move_distance_x = -300.0
+move_duration = 3.0
+
+[node name="MovingPlatform2" parent="." instance=ExtResource("10_gtf73")]
+position = Vector2(-814, 185)
+scale = Vector2(1.430079, 1.430079)

@@ -1,0 +1,415 @@
+[gd_scene load_steps=23 format=3 uid="uid://q30ki86seb2o"]
+
+[ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_wlixy"]
+[ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="2_re1hj"]
+[ext_resource type="AudioStream" uid="uid://fgy4bfppp3hi" path="res://audio/music/bill_music/My DA (why).mp3" id="3_68kt0"]
+[ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="4_tpf22"]
+[ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="5_fdf58"]
+[ext_resource type="Texture2D" uid="uid://coe3csc8hjmr1" path="res://graphics/placeholders/9slicepanel_speechbubbel_v1.png" id="6_vpde2"]
+[ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="7_nnloa"]
+[ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="8_58jeu"]
+[ext_resource type="PackedScene" uid="uid://by5ey1qvje21g" path="res://level_components/spiked_platform_01.tscn" id="9_eihth"]
+[ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="10_82o75"]
+[ext_resource type="PackedScene" uid="uid://cymiqket15ttm" path="res://level_components/moving_platform_01.tscn" id="11_vg63b"]
+[ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="12_1ts46"]
+[ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_small_pickup_01.tscn" id="13_4ljp6"]
+[ext_resource type="PackedScene" uid="uid://cjcgk4n02khmg" path="res://level_components/health_large_pickup_01.tscn" id="14_6sa2i"]
+[ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="15_xlh55"]
+[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="16_surwq"]
+[ext_resource type="PackedScene" uid="uid://cjby65q1mj1d7" path="res://level_components/dialogue_trigger.tscn" id="17_tk5o0"]
+[ext_resource type="AudioStream" uid="uid://p0mmiwqheptu" path="res://audio/sfx/dialogue/mumble_01_v1.mp3" id="18_fuj1a"]
+[ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="19_o8q0m"]
+[ext_resource type="Theme" uid="uid://b1gawxyi82u3g" path="res://menus/dialogue_theme_01.tres" id="20_i6twi"]
+[ext_resource type="Texture2D" uid="uid://b65cmo60xybp4" path="res://graphics/enemies/enemy1/enemy1_sprite_01.png" id="21_g0ibv"]
+[ext_resource type="PackedScene" uid="uid://cm8xtc6srl3gy" path="res://level_components/jumppad.tscn" id="22_41ykt"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_wlixy")]
+position = Vector2(120, 224)
+shoot_cooldown = 0.2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(182, 229)
+zoom = Vector2(1.5, 1.5)
+script = ExtResource("2_re1hj")
+shake_intensity = 30.0
+shake_duration = 0.2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_68kt0")
+volume_db = -20.0
+autoplay = true
+bus = &"music"
+
+[node name="ui" parent="." instance=ExtResource("4_tpf22")]
+
+[node name="background_01" type="TextureRect" parent="."]
+modulate = Color(0.4440063, 0.51458937, 0.29913345, 1)
+z_index = -20
+offset_left = -3458.9998
+offset_top = -2095.0
+offset_right = -1537.9998
+offset_bottom = -1013.0
+scale = Vector2(4.3200006, 4.3200006)
+texture = ExtResource("5_fdf58")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect_TEST" type="NinePatchRect" parent="."]
+visible = false
+offset_left = 382.0
+offset_top = -39.0
+offset_right = 638.0
+offset_bottom = 217.0
+texture = ExtResource("6_vpde2")
+patch_margin_left = 128
+patch_margin_top = 128
+patch_margin_right = 128
+patch_margin_bottom = 128
+
+[node name="Label" type="Label" parent="NinePatchRect_TEST"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 142.0
+offset_right = 705.0
+offset_bottom = 344.0
+text = "ASdasdoaodomasdmasoaodadnwe"
+
+[node name="GoalTrigger" parent="." instance=ExtResource("7_nnloa")]
+position = Vector2(574, 372)
+next_scene = "res://menus/WinMenu.tscn"
+metadata/_edit_lock_ = true
+
+[node name="LevelResetTrigger" parent="." instance=ExtResource("8_58jeu")]
+position = Vector2(185, 728.99994)
+scale = Vector2(8.128466, -0.93434733)
+metadata/_edit_lock_ = true
+
+[node name="==PLATFORMS==" type="Node2D" parent="."]
+
+[node name="=SPIKED=" type="Node2D" parent="==PLATFORMS=="]
+
+[node name="SpikedPlatform_01" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("9_eihth")]
+position = Vector2(-11.000015, 182)
+
+[node name="SpikedPlatform_02" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("9_eihth")]
+position = Vector2(-87, 236)
+
+[node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(145, 447)
+
+[node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(-68, 447)
+
+[node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(-280, 447)
+
+[node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(114, 331)
+
+[node name="platform_07" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(-280, 393)
+
+[node name="platform_08" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(-280, 340)
+
+[node name="platform_09" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(-280, 287)
+
+[node name="platform_10" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(-280, 232)
+
+[node name="platform_11" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(-504, 229)
+
+[node name="platform_12" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(-725, 230)
+
+[node name="platform_14" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(-872.00006, 31)
+rotation = -1.5546434
+scale = Vector2(0.35363775, 0.15151516)
+
+[node name="platform_15" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(-601.00006, 43.000008)
+rotation = -1.5546434
+scale = Vector2(0.43268546, 0.21137208)
+
+[node name="platform_17" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(-617.99994, -52.999996)
+rotation = -1.5546434
+scale = Vector2(0.39484984, 0.15106924)
+
+[node name="platform_16" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(-751.00006, -13)
+rotation = 0.010684252
+scale = Vector2(1.032258, 0.15151516)
+
+[node name="platform_13" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(-940, 233)
+
+[node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(360, 447)
+
+[node name="platform_03" parent="==PLATFORMS==" instance=ExtResource("10_82o75")]
+position = Vector2(576, 447)
+
+[node name="MovingPlatform" parent="==PLATFORMS==" instance=ExtResource("11_vg63b")]
+position = Vector2(269, 259)
+scale = Vector2(1.430079, 1.430079)
+
+[node name="MovingPlatform2" parent="==PLATFORMS==" instance=ExtResource("11_vg63b")]
+position = Vector2(401, 259)
+scale = Vector2(1.430079, 1.430079)
+
+[node name="==PICKUPS==" type="Node2D" parent="."]
+position = Vector2(293, 281)
+
+[node name="coin" parent="==PICKUPS==" instance=ExtResource("12_1ts46")]
+position = Vector2(-39, 118)
+
+[node name="coin2" parent="==PICKUPS==" instance=ExtResource("12_1ts46")]
+position = Vector2(-110, -2)
+
+[node name="coin3" parent="==PICKUPS==" instance=ExtResource("12_1ts46")]
+position = Vector2(-324, 116)
+
+[node name="HealthPickup_01" parent="==PICKUPS==" instance=ExtResource("13_4ljp6")]
+position = Vector2(-164, 129)
+
+[node name="HealthPickup_03" parent="==PICKUPS==" instance=ExtResource("14_6sa2i")]
+position = Vector2(-94, 127)
+
+[node name="==ENEMIES==" type="Node2D" parent="."]
+
+[node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("15_xlh55")]
+position = Vector2(334.00003, 120.00001)
+scale = Vector2(1.4738091, 1.4738091)
+
+[node name="Enemy_01" parent="==ENEMIES==" instance=ExtResource("16_surwq")]
+position = Vector2(-121, 396)
+drop_item = ExtResource("12_1ts46")
+
+[node name="Enemy_02" parent="==ENEMIES==" instance=ExtResource("16_surwq")]
+position = Vector2(34, 398)
+drop_item = ExtResource("13_4ljp6")
+
+[node name="dialogue_trigger" parent="==ENEMIES==/Enemy_02" node_paths=PackedStringArray("section_1_label_1", "dr_label_1", "dr_label_2", "dr_label_3") instance=ExtResource("17_tk5o0")]
+position = Vector2(69, 0)
+section_1_label_1 = NodePath("Label1")
+section_1_label_1_duration = 2.0
+section_1_label_1_delay = 0.0
+section_1_label_2_duration = 2.0
+section_1_label_2_delay = 2.0
+section_2_label_1_duration = 2.0
+section_2_label_1_delay = 0.0
+section_2_label_2_duration = 2.0
+section_2_label_2_delay = 2.0
+dr_label_1 = NodePath("dr_Label1")
+dr_label_2 = NodePath("dr_Label2")
+dr_label_3 = NodePath("dr_Label3")
+speaking_sound = ExtResource("18_fuj1a")
+speaking_volume = -10.0
+
+[node name="Label1" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger"]
+offset_left = -104.0
+offset_top = -47.0
+offset_right = -19.0
+offset_bottom = -24.0
+text = "ILL GET YA!"
+
+[node name="dr_Label1" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger"]
+offset_left = -104.0
+offset_top = -47.0
+offset_right = 116.0
+offset_bottom = -24.0
+text = "AAAARGHH"
+
+[node name="dr_Label2" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger"]
+offset_left = -104.0
+offset_top = -47.0
+offset_right = 116.0
+offset_bottom = -24.0
+text = "SLORPNGG"
+
+[node name="dr_Label3" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger"]
+offset_left = -104.0
+offset_top = -47.0
+offset_right = 132.0
+offset_bottom = -24.0
+text = "GNURRKK"
+
+[node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("19_o8q0m")]
+position = Vector2(-355, 181)
+
+[node name="==NPCS===" type="Node2D" parent="."]
+position = Vector2(43, 278)
+
+[node name="RoachieRomaggio" type="Node2D" parent="==NPCS==="]
+
+[node name="dialogue_trigger" parent="==NPCS===/RoachieRomaggio" node_paths=PackedStringArray("section_1_label_1", "section_1_label_2", "section_2_label_1", "section_2_label_2", "dr_label_1", "dr_label_2", "dr_label_3") instance=ExtResource("17_tk5o0")]
+section_1_label_1 = NodePath("Label1")
+section_1_label_1_duration = 2.0
+section_1_label_1_delay = 0.0
+section_1_label_2 = NodePath("Label2")
+section_1_label_2_duration = 2.0
+section_1_label_2_delay = 2.0
+section_2_label_1 = NodePath("Label3")
+section_2_label_1_duration = 2.0
+section_2_label_1_delay = 0.0
+section_2_label_2 = NodePath("Label4")
+section_2_label_2_duration = 2.0
+section_2_label_2_delay = 2.0
+dr_label_1 = NodePath("dr_label1")
+dr_label_2 = NodePath("dr_label2")
+dr_label_3 = NodePath("dr_label3")
+speaking_sound = ExtResource("18_fuj1a")
+speaking_volume = -10.0
+
+[node name="Label1" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 23.0
+offset_bottom = -29.0
+theme = ExtResource("20_i6twi")
+text = "Hi there!"
+
+[node name="Label2" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 155.0
+offset_bottom = -29.0
+theme = ExtResource("20_i6twi")
+text = "Nice with some company."
+
+[node name="Label3" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 108.0
+offset_bottom = -29.0
+theme = ExtResource("20_i6twi")
+text = "Oh, youre still here!"
+
+[node name="Label4" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 176.0
+offset_bottom = -29.0
+theme = ExtResource("20_i6twi")
+text = "Ehrm.. Well, you smell nice..."
+
+[node name="dr_label1" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 176.0
+offset_bottom = -29.0
+theme = ExtResource("20_i6twi")
+text = "Hi again!"
+
+[node name="dr_label2" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 176.0
+offset_bottom = -29.0
+theme = ExtResource("20_i6twi")
+text = "Here to hang out with me?"
+
+[node name="dr_label3" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 176.0
+offset_bottom = -29.0
+theme = ExtResource("20_i6twi")
+text = "Hi friend!"
+
+[node name="Enemy1Sprite01" type="Sprite2D" parent="==NPCS===/RoachieRomaggio"]
+position = Vector2(-16, 11)
+rotation = 1.6647534
+scale = Vector2(0.8490911, -1.060967)
+texture = ExtResource("21_g0ibv")
+
+[node name="dialogue_trigger2" parent="==NPCS===/RoachieRomaggio" node_paths=PackedStringArray("section_1_label_1", "section_1_label_2", "section_2_label_1", "section_2_label_2", "dr_label_1", "dr_label_2", "dr_label_3") instance=ExtResource("17_tk5o0")]
+position = Vector2(-838.83765, -120.27815)
+section_1_label_1 = NodePath("Label1")
+section_1_label_1_duration = 2.0
+section_1_label_1_delay = 0.0
+section_1_label_2 = NodePath("Label2")
+section_1_label_2_duration = 2.0
+section_1_label_2_delay = 2.0
+section_2_label_1 = NodePath("Label3")
+section_2_label_1_duration = 2.0
+section_2_label_1_delay = 0.0
+section_2_label_2 = NodePath("Label4")
+section_2_label_2_duration = 2.0
+section_2_label_2_delay = 2.0
+dr_label_1 = NodePath("dr_label1")
+dr_label_2 = NodePath("dr_label2")
+dr_label_3 = NodePath("dr_label3")
+speaking_sound = ExtResource("18_fuj1a")
+speaking_volume = -10.0
+
+[node name="Label1" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger2"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 23.0
+offset_bottom = -29.0
+theme = ExtResource("20_i6twi")
+text = "Hi there!"
+
+[node name="Label2" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger2"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 155.0
+offset_bottom = -29.0
+theme = ExtResource("20_i6twi")
+text = "Nice with some company."
+
+[node name="Label3" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger2"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 108.0
+offset_bottom = -29.0
+theme = ExtResource("20_i6twi")
+text = "Oh, youre still here!"
+
+[node name="Label4" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger2"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 176.0
+offset_bottom = -29.0
+theme = ExtResource("20_i6twi")
+text = "Ehrm.. Well, you smell nice..."
+
+[node name="dr_label1" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger2"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 176.0
+offset_bottom = -29.0
+theme = ExtResource("20_i6twi")
+text = "Hi again!"
+
+[node name="dr_label2" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger2"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 176.0
+offset_bottom = -29.0
+theme = ExtResource("20_i6twi")
+text = "Here to hang out with me?"
+
+[node name="dr_label3" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger2"]
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 176.0
+offset_bottom = -29.0
+theme = ExtResource("20_i6twi")
+text = "Hi friend!"
+
+[node name="Enemy1Sprite02" type="Sprite2D" parent="==NPCS===/RoachieRomaggio"]
+position = Vector2(-854.83765, -109.27815)
+rotation = 1.6647534
+scale = Vector2(0.8490911, -1.060967)
+texture = ExtResource("21_g0ibv")
+
+[node name="JumpPad" parent="." instance=ExtResource("22_41ykt")]
+position = Vector2(176, 298)
