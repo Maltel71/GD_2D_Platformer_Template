@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clefkqsga7c0u" path="res://scripts/health_pickup.gd" id="1_vwfrb"]
 [ext_resource type="AudioStream" uid="uid://cdbwupu6r0c4l" path="res://audio/sfx/power_up/powerUp (1).wav" id="2_6pflf"]
-[ext_resource type="Texture2D" uid="uid://cvtmv35ybuqk1" path="res://graphics/health_large_sprite_01.png" id="3_vwfrb"]
+[ext_resource type="Texture2D" uid="uid://cvtmv35ybuqk1" path="res://graphics/pickups/health_large_sprite_01.png" id="3_vwfrb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4v1y"]
 size = Vector2(169.56268, 144.12828)

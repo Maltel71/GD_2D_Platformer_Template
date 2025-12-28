@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvtmv35ybuqk1"
-path="res://.godot/imported/health_large_sprite_01.png-92f3ce49c95deb5784465356fe4b1a9e.ctex"
+uid="uid://co2pa7di4a8nv"
+path="res://.godot/imported/jumppad1_sprite_01_v1.png-b33fdccb8dabfe4c573583adb7c17ce8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/health_large_sprite_01.png"
-dest_files=["res://.godot/imported/health_large_sprite_01.png-92f3ce49c95deb5784465356fe4b1a9e.ctex"]
+source_file="res://graphics/enviroment/jumppad1_sprite_01_v1.png"
+dest_files=["res://.godot/imported/jumppad1_sprite_01_v1.png-b33fdccb8dabfe4c573583adb7c17ce8.ctex"]
 
 [params]
 

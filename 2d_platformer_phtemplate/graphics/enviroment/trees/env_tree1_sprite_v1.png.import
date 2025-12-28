@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djf0yaxtcnqv0"
-path="res://.godot/imported/health_small_sprite_01.png-a22356eafaad0fe57ce055afa8616cae.ctex"
+uid="uid://dtdudg4aktjta"
+path="res://.godot/imported/env_tree1_sprite_v1.png-9a4d048edca7bef7bd587b19a0a640f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/health_small_sprite_01.png"
-dest_files=["res://.godot/imported/health_small_sprite_01.png-a22356eafaad0fe57ce055afa8616cae.ctex"]
+source_file="res://graphics/enviroment/trees/env_tree1_sprite_v1.png"
+dest_files=["res://.godot/imported/env_tree1_sprite_v1.png-9a4d048edca7bef7bd587b19a0a640f8.ctex"]
 
 [params]
 

@@ -41,7 +41,6 @@ jump_interval = 0.1
 max_health = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.95569116, 0, 0.32053667, 1)
 z_index = 2
 rotation = 3.1415927
 scale = Vector2(0.59284145, -0.5928415)

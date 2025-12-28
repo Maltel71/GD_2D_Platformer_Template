@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cifsl51oklgbk"
-path="res://.godot/imported/jumppad1_sprite_02_v1.png-f734782df855ef83c0bd2ae300c6adc6.ctex"
+uid="uid://btj3mnkrhhvm8"
+path="res://.godot/imported/enemy_huskhill_idle_sprite_01_v1.png-aec2547e2f40fbc158cae42a19d5fb3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/jumppad1_sprite_02_v1.png"
-dest_files=["res://.godot/imported/jumppad1_sprite_02_v1.png-f734782df855ef83c0bd2ae300c6adc6.ctex"]
+source_file="res://graphics/enemies/enemytusks/enemy_huskhill_idle_sprite_01_v1.png"
+dest_files=["res://.godot/imported/enemy_huskhill_idle_sprite_01_v1.png-aec2547e2f40fbc158cae42a19d5fb3a.ctex"]
 
 [params]
 

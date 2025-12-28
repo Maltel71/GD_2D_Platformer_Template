@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8joqemsmk4pe"
-path="res://.godot/imported/entrance1_sprite_01.png-03a6ddf633254f80247978f3a0614311.ctex"
+uid="uid://brwlagsk6te48"
+path="res://.godot/imported/spiked_platform_01.png-3606886b03302067a791c10c6988a8db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/entrance1_sprite_01.png"
-dest_files=["res://.godot/imported/entrance1_sprite_01.png-03a6ddf633254f80247978f3a0614311.ctex"]
+source_file="res://graphics/enviroment/spiked_platform_01.png"
+dest_files=["res://.godot/imported/spiked_platform_01.png-3606886b03302067a791c10c6988a8db.ctex"]
 
 [params]
 

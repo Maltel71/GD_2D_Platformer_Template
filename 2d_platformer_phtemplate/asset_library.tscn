@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://xm4mrn3xnpw"]
+[gd_scene load_steps=24 format=3 uid="uid://xm4mrn3xnpw"]
 
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="1_bnb56"]
 [ext_resource type="PackedScene" uid="uid://cjcgk4n02khmg" path="res://level_components/health_large_pickup_01.tscn" id="2_byuh4"]
@@ -17,6 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="15_j7oox"]
 [ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="16_lv7tp"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="17_85x07"]
+[ext_resource type="Texture2D" uid="uid://uco156qdrxc6" path="res://graphics/enviroment/plants/env_plant1_sprite_v1.png" id="18_lv7tp"]
+[ext_resource type="Texture2D" uid="uid://bdq3cntqcrsto" path="res://graphics/enviroment/plants/env_plant2_sprite_v1.png" id="19_85x07"]
+[ext_resource type="Texture2D" uid="uid://cqh71chmof8sv" path="res://graphics/enviroment/plants/env_plant3_sprite_v1.png" id="20_amfs5"]
+[ext_resource type="Texture2D" uid="uid://d0qbncxx1xw1s" path="res://graphics/enviroment/plants/env_plant4_sprite_v1.png" id="21_bq1tt"]
+[ext_resource type="Texture2D" uid="uid://dwqtkbaen67f8" path="res://graphics/enviroment/plants/env_plant5_sprite_v1.png" id="22_lvs0b"]
+[ext_resource type="Texture2D" uid="uid://pq22fgge31p0" path="res://graphics/enviroment/plants/env_plant6_sprite_v1.png" id="23_710x1"]
 
 [node name="Asset_Library" type="Node2D"]
 
@@ -119,3 +125,27 @@ offset_right = 282.0
 offset_bottom = 307.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "platforms"
+
+[node name="EnvPlant1SpriteV1" type="Sprite2D" parent="."]
+position = Vector2(709, 117)
+texture = ExtResource("18_lv7tp")
+
+[node name="EnvPlant2SpriteV1" type="Sprite2D" parent="."]
+position = Vector2(771, 118)
+texture = ExtResource("19_85x07")
+
+[node name="EnvPlant3SpriteV1" type="Sprite2D" parent="."]
+position = Vector2(847, 98)
+texture = ExtResource("20_amfs5")
+
+[node name="EnvPlant4SpriteV1" type="Sprite2D" parent="."]
+position = Vector2(910, 106)
+texture = ExtResource("21_bq1tt")
+
+[node name="EnvPlant5SpriteV1" type="Sprite2D" parent="."]
+position = Vector2(973, 103)
+texture = ExtResource("22_lvs0b")
+
+[node name="EnvPlant6SpriteV1" type="Sprite2D" parent="."]
+position = Vector2(1039, 98)
+texture = ExtResource("23_710x1")

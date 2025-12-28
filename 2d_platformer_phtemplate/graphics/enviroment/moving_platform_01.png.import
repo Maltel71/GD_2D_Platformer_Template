@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg1ndoogegcpl"
-path="res://.godot/imported/platform_01.png-8efe9b7ae191e613d442177e3a8a93f2.ctex"
+uid="uid://c1dxe8p737kwg"
+path="res://.godot/imported/moving_platform_01.png-0a7472b646d8a9853dd1a2166e118c9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/platform_01.png"
-dest_files=["res://.godot/imported/platform_01.png-8efe9b7ae191e613d442177e3a8a93f2.ctex"]
+source_file="res://graphics/enviroment/moving_platform_01.png"
+dest_files=["res://.godot/imported/moving_platform_01.png-0a7472b646d8a9853dd1a2166e118c9e.ctex"]
 
 [params]
 

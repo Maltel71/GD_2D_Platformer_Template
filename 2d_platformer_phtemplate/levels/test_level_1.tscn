@@ -45,7 +45,8 @@ bus = &"music"
 
 [node name="ui" parent="." instance=ExtResource("5_5vfu0")]
 
-[node name="background_01" type="TextureRect" parent="."]
+[node name="background_green" type="TextureRect" parent="."]
+visible = false
 modulate = Color(0.4440063, 0.51458937, 0.29913345, 1)
 z_index = -20
 offset_left = -3458.9998
@@ -56,6 +57,17 @@ scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("3_kql2n")
 stretch_mode = 1
 metadata/_edit_lock_ = true
+
+[node name="background_green2" type="TextureRect" parent="."]
+modulate = Color(0.78039217, 0.78039217, 0.78039217, 1)
+z_index = -20
+offset_left = -3458.9998
+offset_top = -2095.0
+offset_right = -1537.9998
+offset_bottom = -1013.0
+scale = Vector2(4.3200006, 4.3200006)
+texture = ExtResource("3_kql2n")
+stretch_mode = 1
 
 [node name="NinePatchRect_TEST" type="NinePatchRect" parent="."]
 visible = false

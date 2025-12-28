@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://co2pa7di4a8nv"
-path="res://.godot/imported/jumppad1_sprite_01_v1.png-eb5f4e8ff1a6ceb49643657fc9990b24.ctex"
+uid="uid://ccn1sh35jbb3y"
+path="res://.godot/imported/env_tower1_v1.png-a0bf700dbb8ce9ccf1f1fe774a6f02a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/jumppad1_sprite_01_v1.png"
-dest_files=["res://.godot/imported/jumppad1_sprite_01_v1.png-eb5f4e8ff1a6ceb49643657fc9990b24.ctex"]
+source_file="res://graphics/enviroment/buildings/env_tower1_v1.png"
+dest_files=["res://.godot/imported/env_tower1_v1.png-a0bf700dbb8ce9ccf1f1fe774a6f02a6.ctex"]
 
 [params]
 
