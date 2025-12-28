@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=24 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -22,11 +22,12 @@
 [ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_small_pickup_01.tscn" id="19_d31dk"]
 [ext_resource type="Theme" uid="uid://b1gawxyi82u3g" path="res://menus/dialogue_theme_01.tres" id="20_5iaa6"]
 [ext_resource type="PackedScene" uid="uid://cm8xtc6srl3gy" path="res://level_components/jumppad.tscn" id="22_5au7l"]
+[ext_resource type="PackedScene" uid="uid://boqr2431f515h" path="res://enemy/enemy_jumping_01.tscn" id="23_rr58p"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_plkrb")]
-position = Vector2(120, 224)
+position = Vector2(4, 50)
 shoot_cooldown = 0.2
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -92,11 +93,9 @@ metadata/_edit_lock_ = true
 
 [node name="SpikedPlatform_01" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
 position = Vector2(-11.000015, 182)
-scale = Vector2(2.2751071, 2.2751071)
 
 [node name="SpikedPlatform_02" parent="==PLATFORMS==/=SPIKED=" instance=ExtResource("12_5vfu0")]
 position = Vector2(-87, 236)
-scale = Vector2(2.2751071, 2.2751071)
 
 [node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
 position = Vector2(145, 447)
@@ -304,3 +303,24 @@ texture = ExtResource("19_6q8gj")
 
 [node name="JumpPad" parent="." instance=ExtResource("22_5au7l")]
 position = Vector2(176, 298)
+
+[node name="Enemy_Jumping_01" parent="." instance=ExtResource("23_rr58p")]
+position = Vector2(154, 151)
+
+[node name="Enemy_Jumping_02" parent="." instance=ExtResource("23_rr58p")]
+position = Vector2(206, 151)
+
+[node name="Enemy_Jumping_03" parent="." instance=ExtResource("23_rr58p")]
+position = Vector2(259, 166)
+
+[node name="Enemy_Jumping_04" parent="." instance=ExtResource("23_rr58p")]
+position = Vector2(290, 186)
+
+[node name="Enemy_Jumping_05" parent="." instance=ExtResource("23_rr58p")]
+position = Vector2(329, 189)
+
+[node name="Enemy_Jumping_06" parent="." instance=ExtResource("23_rr58p")]
+position = Vector2(370, 187)
+
+[node name="Enemy_Jumping_07" parent="." instance=ExtResource("23_rr58p")]
+position = Vector2(398, 187)

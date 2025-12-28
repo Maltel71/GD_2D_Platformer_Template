@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://boqr2431f515h"]
+
+[ext_resource type="Script" uid="uid://ciolxcympoldl" path="res://scripts/enemy_jumping.gd" id="1_0qe6k"]
+[ext_resource type="Texture2D" uid="uid://b65cmo60xybp4" path="res://graphics/enemies/enemy1/enemy1_sprite_01.png" id="2_h8ayp"]
+[ext_resource type="Texture2D" uid="uid://c7jo7l0ed3ce0" path="res://graphics/enemies/enemy1/enemy1_sprite_02.png" id="3_qqxp7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ge483"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h8ayp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h8ayp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qqxp7")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
+radius = 16.0
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
+radius = 11.5
+
+[node name="Enemy_Jumping_01" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_0qe6k")
+jump_interval = 0.1
+max_health = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.95569116, 0, 0.32053667, 1)
+z_index = 2
+rotation = 3.1415927
+scale = Vector2(0.59284145, -0.5928415)
+sprite_frames = SubResource("SpriteFrames_ge483")
+animation = &"walk"
+frame_progress = 0.98511744
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ffj3o")
+
+[node name="WallRayRight" type="RayCast2D" parent="."]
+rotation = -1.5708
+target_position = Vector2(0, 35)
+collision_mask = 9
+
+[node name="WallRayLeft" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(0, 35)
+collision_mask = 9
+
+[node name="LedgeRayRight" type="RayCast2D" parent="."]
+position = Vector2(20, 0)
+target_position = Vector2(0, 48.03)
+collision_mask = 9
+
+[node name="LedgeRayLeft" type="RayCast2D" parent="."]
+position = Vector2(-20, 0)
+target_position = Vector2(0, 48.03)
+collision_mask = 9
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(0, 10)
+scale = Vector2(2, 2)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_ld2qc")
