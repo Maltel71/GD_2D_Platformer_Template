@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=29 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://fgy4bfppp3hi" path="res://audio/music/bill_music/My DA (why).mp3" id="3_t58ta"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="4_02ec3"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="5_5vfu0"]
-[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="6_kgy88"]
+[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/greysugga_enemy.tscn" id="6_kgy88"]
 [ext_resource type="Texture2D" uid="uid://coe3csc8hjmr1" path="res://graphics/placeholders/9slicepanel_speechbubbel_v1.png" id="6_lgfx6"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="7_aupmd"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
@@ -23,6 +23,11 @@
 [ext_resource type="Theme" uid="uid://b1gawxyi82u3g" path="res://menus/dialogue_theme_01.tres" id="20_5iaa6"]
 [ext_resource type="PackedScene" uid="uid://cm8xtc6srl3gy" path="res://level_components/jumppad.tscn" id="22_5au7l"]
 [ext_resource type="PackedScene" uid="uid://boqr2431f515h" path="res://enemy/enemy_jumping_01.tscn" id="23_rr58p"]
+[ext_resource type="PackedScene" uid="uid://bcko51m0txpbs" path="res://enemy/tusked_enemy.tscn" id="24_yoilj"]
+[ext_resource type="PackedScene" uid="uid://cc2a46k0nigv6" path="res://enemy/tazerdude_enemy.tscn" id="25_tworg"]
+[ext_resource type="Texture2D" uid="uid://dtdudg4aktjta" path="res://graphics/enviroment/trees/env_tree1_sprite_v1.png" id="26_ly28y"]
+[ext_resource type="Texture2D" uid="uid://dgny148suge8x" path="res://graphics/enviroment/trees/env_tree2_sprite_v1.png" id="27_wh4jk"]
+[ext_resource type="Texture2D" uid="uid://cv82mki65jhcr" path="res://graphics/enviroment/trees/env_tree3_sprite_v1.png" id="28_h5kva"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -95,7 +100,7 @@ next_scene = "res://menus/WinMenu.tscn"
 metadata/_edit_lock_ = true
 
 [node name="LevelResetTrigger" parent="." instance=ExtResource("15_t58ta")]
-position = Vector2(185, 728.99994)
+position = Vector2(185, 935)
 scale = Vector2(8.128466, -0.93434733)
 metadata/_edit_lock_ = true
 
@@ -118,20 +123,17 @@ position = Vector2(-68, 447)
 [node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
 position = Vector2(-280, 447)
 
+[node name="platform_08" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(-491, 447)
+
+[node name="platform_09" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
+position = Vector2(-702, 447)
+
 [node name="platform_04" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
 position = Vector2(114, 331)
 
 [node name="platform_07" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(-280, 393)
-
-[node name="platform_08" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(-280, 340)
-
-[node name="platform_09" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(-280, 287)
-
-[node name="platform_10" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
-position = Vector2(-280, 232)
+position = Vector2(-385, 393)
 
 [node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("2_grhbk")]
 position = Vector2(360, 447)
@@ -227,6 +229,15 @@ text = "GNURRKK"
 [node name="Enemy_03" parent="==ENEMIES==" instance=ExtResource("17_pmbwx")]
 position = Vector2(-355, 181)
 
+[node name="Enemy_04" parent="==ENEMIES==" instance=ExtResource("24_yoilj")]
+position = Vector2(-578, 388)
+
+[node name="Tazerdude_enemy" parent="==ENEMIES==" instance=ExtResource("25_tworg")]
+position = Vector2(394, 381)
+
+[node name="Enemy_Jumping_01" parent="==ENEMIES==" instance=ExtResource("23_rr58p")]
+position = Vector2(316, 378)
+
 [node name="==NPCS===" type="Node2D" parent="."]
 position = Vector2(43, 278)
 
@@ -316,23 +327,22 @@ texture = ExtResource("19_6q8gj")
 [node name="JumpPad" parent="." instance=ExtResource("22_5au7l")]
 position = Vector2(176, 298)
 
-[node name="Enemy_Jumping_01" parent="." instance=ExtResource("23_rr58p")]
-position = Vector2(154, 151)
+[node name="JumpPad2" parent="." instance=ExtResource("22_5au7l")]
+position = Vector2(-287, 341)
+rotation = 0.7050612
 
-[node name="Enemy_Jumping_02" parent="." instance=ExtResource("23_rr58p")]
-position = Vector2(206, 151)
+[node name="EnvTree1SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-463, 215)
+texture = ExtResource("26_ly28y")
+metadata/_edit_lock_ = true
 
-[node name="Enemy_Jumping_03" parent="." instance=ExtResource("23_rr58p")]
-position = Vector2(259, 166)
+[node name="EnvTree2SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-405, 309)
+texture = ExtResource("27_wh4jk")
 
-[node name="Enemy_Jumping_04" parent="." instance=ExtResource("23_rr58p")]
-position = Vector2(290, 186)
-
-[node name="Enemy_Jumping_05" parent="." instance=ExtResource("23_rr58p")]
-position = Vector2(329, 189)
-
-[node name="Enemy_Jumping_06" parent="." instance=ExtResource("23_rr58p")]
-position = Vector2(370, 187)
-
-[node name="Enemy_Jumping_07" parent="." instance=ExtResource("23_rr58p")]
-position = Vector2(398, 187)
+[node name="EnvTree3SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(113, 127)
+texture = ExtResource("28_h5kva")

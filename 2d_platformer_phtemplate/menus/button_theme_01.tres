@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dslcwb4vk0m6c" path="res://graphics/grabber_v2.png" id="2_r1sf5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1sf5"]
-bg_color = Color(0.73333335, 0.47843137, 0.15686275, 1)
+bg_color = Color(0.7135178, 0.71351784, 0.7135176, 1)
 border_width_left = 100
 border_width_top = 5
 border_width_right = 5
@@ -17,7 +17,7 @@ corner_radius_bottom_left = 5
 shadow_color = Color(0, 0, 0, 0.64705884)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pivjg"]
-bg_color = Color(0.73333335, 0.47843137, 0.15686275, 1)
+bg_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -29,7 +29,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eaowb"]
-bg_color = Color(0.73526746, 0.47845995, 0.1583777, 1)
+bg_color = Color(0.8175212, 0.81752133, 0.8175211, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
@@ -37,7 +37,7 @@ border_width_bottom = 10
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgv8a"]
-bg_color = Color(0.73333335, 0.47843137, 0.15686275, 1)
+bg_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -55,7 +55,7 @@ border_color = Color(0, 0, 0, 1)
 expand_margin_bottom = 31.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unr3d"]
-bg_color = Color(0.44313726, 0.5137255, 0.29803923, 1)
+bg_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
 border_width_left = 10
 border_width_top = 5
 border_width_right = 10

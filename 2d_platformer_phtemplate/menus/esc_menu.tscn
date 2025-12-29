@@ -101,3 +101,8 @@ ENTER = Replay
 ESC = PauseMenu"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Panel3" type="Panel" parent="."]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0

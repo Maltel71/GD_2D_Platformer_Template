@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://xm4mrn3xnpw"]
+[gd_scene load_steps=30 format=3 uid="uid://xm4mrn3xnpw"]
 
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="1_bnb56"]
 [ext_resource type="PackedScene" uid="uid://cjcgk4n02khmg" path="res://level_components/health_large_pickup_01.tscn" id="2_byuh4"]
@@ -12,17 +12,23 @@
 [ext_resource type="PackedScene" uid="uid://cjby65q1mj1d7" path="res://level_components/dialogue_trigger.tscn" id="10_onssu"]
 [ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="11_cgi6m"]
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="12_o87d4"]
-[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/enemy_01.tscn" id="13_ox4b8"]
+[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/greysugga_enemy.tscn" id="13_ox4b8"]
 [ext_resource type="PackedScene" uid="uid://t6qqpcoyy6dm" path="res://enemy/enemy_bullet.tscn" id="14_d0cef"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="15_j7oox"]
 [ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="16_lv7tp"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="17_85x07"]
+[ext_resource type="PackedScene" uid="uid://bcko51m0txpbs" path="res://enemy/tusked_enemy.tscn" id="18_710x1"]
 [ext_resource type="Texture2D" uid="uid://uco156qdrxc6" path="res://graphics/enviroment/plants/env_plant1_sprite_v1.png" id="18_lv7tp"]
 [ext_resource type="Texture2D" uid="uid://bdq3cntqcrsto" path="res://graphics/enviroment/plants/env_plant2_sprite_v1.png" id="19_85x07"]
 [ext_resource type="Texture2D" uid="uid://cqh71chmof8sv" path="res://graphics/enviroment/plants/env_plant3_sprite_v1.png" id="20_amfs5"]
 [ext_resource type="Texture2D" uid="uid://d0qbncxx1xw1s" path="res://graphics/enviroment/plants/env_plant4_sprite_v1.png" id="21_bq1tt"]
 [ext_resource type="Texture2D" uid="uid://dwqtkbaen67f8" path="res://graphics/enviroment/plants/env_plant5_sprite_v1.png" id="22_lvs0b"]
 [ext_resource type="Texture2D" uid="uid://pq22fgge31p0" path="res://graphics/enviroment/plants/env_plant6_sprite_v1.png" id="23_710x1"]
+[ext_resource type="Texture2D" uid="uid://dtdudg4aktjta" path="res://graphics/enviroment/trees/env_tree1_sprite_v1.png" id="24_bq1tt"]
+[ext_resource type="Texture2D" uid="uid://dgny148suge8x" path="res://graphics/enviroment/trees/env_tree2_sprite_v1.png" id="25_lvs0b"]
+[ext_resource type="Texture2D" uid="uid://cv82mki65jhcr" path="res://graphics/enviroment/trees/env_tree3_sprite_v1.png" id="26_710x1"]
+[ext_resource type="PackedScene" uid="uid://boqr2431f515h" path="res://enemy/enemy_jumping_01.tscn" id="27_lvs0b"]
+[ext_resource type="PackedScene" uid="uid://cc2a46k0nigv6" path="res://enemy/tazerdude_enemy.tscn" id="29_iojvw"]
 
 [node name="Asset_Library" type="Node2D"]
 
@@ -69,7 +75,7 @@ position = Vector2(121, 773)
 [node name="Player" parent="." instance=ExtResource("12_o87d4")]
 position = Vector2(52, 770)
 
-[node name="Enemy_01" parent="." instance=ExtResource("13_ox4b8")]
+[node name="Greysugga_Enemy" parent="." instance=ExtResource("13_ox4b8")]
 position = Vector2(226, 662)
 
 [node name="EnemyBullet" parent="." instance=ExtResource("14_d0cef")]
@@ -95,12 +101,20 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "player"
 
 [node name="Label2" type="Label" parent="==LABELS=="]
-offset_left = 196.0
-offset_top = 513.0
-offset_right = 262.0
-offset_bottom = 536.0
+offset_left = 194.0
+offset_top = 492.0
+offset_right = 260.0
+offset_bottom = 515.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Enemies"
+
+[node name="Label6" type="Label" parent="==LABELS=="]
+offset_left = 385.0
+offset_top = 617.0
+offset_right = 451.0
+offset_bottom = 640.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "jumping"
 
 [node name="Label4" type="Label" parent="==LABELS=="]
 offset_left = 169.0
@@ -126,26 +140,56 @@ offset_bottom = 307.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "platforms"
 
+[node name="Enemy_01" parent="==LABELS==" instance=ExtResource("18_710x1")]
+position = Vector2(524, 666)
+
 [node name="EnvPlant1SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(709, 117)
 texture = ExtResource("18_lv7tp")
 
 [node name="EnvPlant2SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(771, 118)
 texture = ExtResource("19_85x07")
 
 [node name="EnvPlant3SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(847, 98)
 texture = ExtResource("20_amfs5")
 
 [node name="EnvPlant4SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(910, 106)
 texture = ExtResource("21_bq1tt")
 
 [node name="EnvPlant5SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(973, 103)
 texture = ExtResource("22_lvs0b")
 
 [node name="EnvPlant6SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(1039, 98)
 texture = ExtResource("23_710x1")
+
+[node name="EnvTree1SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(764, 360)
+texture = ExtResource("24_bq1tt")
+
+[node name="EnvTree2SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(888, 447)
+texture = ExtResource("25_lvs0b")
+
+[node name="EnvTree3SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(1000, 342)
+texture = ExtResource("26_710x1")
+
+[node name="Enemy_Jumping_01" parent="." instance=ExtResource("27_lvs0b")]
+position = Vector2(417, 667)
+
+[node name="Tazerdude_enemy" parent="." instance=ExtResource("29_iojvw")]
+position = Vector2(145, 661)
