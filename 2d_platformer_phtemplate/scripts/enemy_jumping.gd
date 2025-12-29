@@ -28,10 +28,7 @@ var jump_timer: float = 0.0
 var current_health: int
 
 func _ready():
-	# Initialize health
 	current_health = max_health
-	
-	# Connect the AttackArea signal to detect the player
 	attack_area.body_entered.connect(_on_attack_area_body_entered)
 	
 	if sprite.sprite_frames.has_animation("idle"):
@@ -66,14 +63,17 @@ func _prepare_jump():
 	
 	velocity.y = -jump_force
 	velocity.x = direction * horizontal_speed
-	
-	if sprite.sprite_frames.has_animation("jump"):
-		sprite.play("jump")
 
 func _update_visuals():
 	sprite.flip_h = (direction == -1)
-	if is_on_floor() and abs(velocity.x) < 1.0:
-		if sprite.animation != "idle" and sprite.sprite_frames.has_animation("idle"):
+	
+	# Play jump animation in air
+	if not is_on_floor():
+		if sprite.animation != "jump":
+			sprite.play("jump")
+	# Play idle animation on ground
+	else:
+		if sprite.animation != "idle":
 			sprite.play("idle")
 
 ## Call this function from your player's attack script to hurt the enemy

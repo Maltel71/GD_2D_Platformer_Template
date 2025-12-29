@@ -14,7 +14,8 @@ func _ready():
 
 func _on_body_entered(body):
 	if body is PlatformerController2D:
-		body.velocity.y = -jump_boost
+		var boost_direction = -global_transform.y.normalized()
+		body.velocity = boost_direction * jump_boost
 		
 		if anim_sprite:
 			anim_sprite.play("activated")

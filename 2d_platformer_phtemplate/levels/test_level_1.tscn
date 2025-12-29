@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=35 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -28,6 +28,12 @@
 [ext_resource type="Texture2D" uid="uid://dtdudg4aktjta" path="res://graphics/enviroment/trees/env_tree1_sprite_v1.png" id="26_ly28y"]
 [ext_resource type="Texture2D" uid="uid://dgny148suge8x" path="res://graphics/enviroment/trees/env_tree2_sprite_v1.png" id="27_wh4jk"]
 [ext_resource type="Texture2D" uid="uid://cv82mki65jhcr" path="res://graphics/enviroment/trees/env_tree3_sprite_v1.png" id="28_h5kva"]
+[ext_resource type="Texture2D" uid="uid://uco156qdrxc6" path="res://graphics/enviroment/plants/env_plant1_sprite_v1.png" id="29_75rtf"]
+[ext_resource type="Texture2D" uid="uid://bdq3cntqcrsto" path="res://graphics/enviroment/plants/env_plant2_sprite_v1.png" id="30_h8sgn"]
+[ext_resource type="Texture2D" uid="uid://cqh71chmof8sv" path="res://graphics/enviroment/plants/env_plant3_sprite_v1.png" id="31_5w0hf"]
+[ext_resource type="Texture2D" uid="uid://d0qbncxx1xw1s" path="res://graphics/enviroment/plants/env_plant4_sprite_v1.png" id="32_kx420"]
+[ext_resource type="Texture2D" uid="uid://dwqtkbaen67f8" path="res://graphics/enviroment/plants/env_plant5_sprite_v1.png" id="33_8qcgp"]
+[ext_resource type="Texture2D" uid="uid://pq22fgge31p0" path="res://graphics/enviroment/plants/env_plant6_sprite_v1.png" id="34_epd4w"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -66,10 +72,10 @@ metadata/_edit_lock_ = true
 [node name="background_green2" type="TextureRect" parent="."]
 modulate = Color(0.78039217, 0.78039217, 0.78039217, 1)
 z_index = -20
-offset_left = -3458.9998
-offset_top = -2095.0
-offset_right = -1537.9998
-offset_bottom = -1013.0
+offset_left = -3686.9998
+offset_top = -1985.0
+offset_right = -1765.9998
+offset_bottom = -903.0
 scale = Vector2(4.3200006, 4.3200006)
 texture = ExtResource("3_kql2n")
 stretch_mode = 1
@@ -327,9 +333,12 @@ texture = ExtResource("19_6q8gj")
 [node name="JumpPad" parent="." instance=ExtResource("22_5au7l")]
 position = Vector2(176, 298)
 
+[node name="JumpPad3" parent="." instance=ExtResource("22_5au7l")]
+position = Vector2(-249, 413)
+
 [node name="JumpPad2" parent="." instance=ExtResource("22_5au7l")]
-position = Vector2(-287, 341)
-rotation = 0.7050612
+position = Vector2(-68, 178.99998)
+rotation = -0.7760756
 
 [node name="EnvTree1SpriteV1" type="Sprite2D" parent="."]
 z_index = -2
@@ -346,3 +355,33 @@ texture = ExtResource("27_wh4jk")
 z_index = -2
 position = Vector2(113, 127)
 texture = ExtResource("28_h5kva")
+
+[node name="EnvPlant1SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-315, 357)
+texture = ExtResource("29_75rtf")
+
+[node name="EnvPlant2SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-64, 413)
+texture = ExtResource("30_h8sgn")
+
+[node name="EnvPlant3SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-208, 391)
+texture = ExtResource("31_5w0hf")
+
+[node name="EnvPlant4SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(134, 286)
+texture = ExtResource("32_kx420")
+
+[node name="EnvPlant5SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-108, 183)
+texture = ExtResource("33_8qcgp")
+
+[node name="EnvPlant6SpriteV1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(267, 397)
+texture = ExtResource("34_epd4w")

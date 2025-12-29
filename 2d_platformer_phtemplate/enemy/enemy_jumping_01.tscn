@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://boqr2431f515h"]
 
 [ext_resource type="Script" uid="uid://ciolxcympoldl" path="res://scripts/enemy_jumping.gd" id="1_0qe6k"]
-[ext_resource type="Texture2D" uid="uid://b65cmo60xybp4" path="res://graphics/enemies/enemy1/enemy1_sprite_01.png" id="2_h8ayp"]
-[ext_resource type="Texture2D" uid="uid://c7jo7l0ed3ce0" path="res://graphics/enemies/enemy1/enemy1_sprite_02.png" id="3_qqxp7"]
+[ext_resource type="Texture2D" uid="uid://cdmp5lycy7xb" path="res://graphics/enemies/rabbido/enemy_rabbido_idle_sprite_01_v1.png" id="2_0qe6k"]
+[ext_resource type="Texture2D" uid="uid://dd7esuy0r5ii0" path="res://graphics/enemies/rabbido/enemy_rabbido_jump_sprite_01_v1.png" id="3_h8ayp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ge483"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_h8ayp")
+"texture": ExtResource("2_0qe6k")
 }],
 "loop": true,
 "name": &"idle",
@@ -16,13 +16,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_h8ayp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_qqxp7")
+"texture": ExtResource("3_h8ayp")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"jump",
 "speed": 12.0
 }]
 
@@ -43,10 +40,10 @@ max_health = 1
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
 rotation = 3.1415927
-scale = Vector2(0.59284145, -0.5928415)
 sprite_frames = SubResource("SpriteFrames_ge483")
-animation = &"walk"
-frame_progress = 0.98511744
+animation = &"jump"
+flip_h = true
+flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ffj3o")

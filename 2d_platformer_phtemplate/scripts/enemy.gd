@@ -18,6 +18,7 @@ var damage_cooldown: float = 1.0
 @onready var ledge_ray_left = $LedgeRayLeft
 @onready var attack_area = $AttackArea
 @onready var anim_sprite = $AnimatedSprite2D
+@onready var blood_splatter = $BloodSplatter
 
 func _ready():
 	# Set raycast distances
@@ -26,6 +27,10 @@ func _ready():
 	
 	# Connect attack area
 	attack_area.body_entered.connect(_on_attack_area_entered)
+	
+	# Hide blood splatter initially
+	if blood_splatter:
+		blood_splatter.visible = false
 
 func _physics_process(delta):
 	# Apply gravity
@@ -71,8 +76,26 @@ func _turn_around():
 func take_damage(amount: int):
 	health -= amount
 	if health <= 0:
-		call_deferred("_drop_item")
-		call_deferred("queue_free")
+		_die()
+
+func _die():
+	# Hide main sprite
+	anim_sprite.visible = false
+	
+	# Disable collision
+	set_physics_process(false)
+	attack_area.set_deferred("monitoring", false)
+	
+	# Play blood splatter
+	if blood_splatter:
+		blood_splatter.visible = true
+		blood_splatter.play()
+		await blood_splatter.animation_finished
+	
+	# Drop item
+	_drop_item()
+	
+	queue_free()
 
 func _drop_item():
 	if drop_item:
