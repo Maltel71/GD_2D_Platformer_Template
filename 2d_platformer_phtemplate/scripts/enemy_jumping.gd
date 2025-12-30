@@ -20,6 +20,7 @@ extends CharacterBody2D
 @onready var ledge_ray_right = $LedgeRayRight
 @onready var ledge_ray_left = $LedgeRayLeft
 @onready var attack_area = $AttackArea
+@onready var blood_splatter = $BloodSplatter
 
 # Use project gravity settings to keep physics consistent
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -33,6 +34,10 @@ func _ready():
 	
 	if sprite.sprite_frames.has_animation("idle"):
 		sprite.play("idle")
+	
+	# Hide blood splatter initially
+	if blood_splatter:
+		blood_splatter.visible = false
 
 func _physics_process(delta):
 	# Apply gravity if in the air
@@ -84,7 +89,19 @@ func take_damage(amount: int):
 		_die()
 
 func _die():
-	# Similar to the health pickup, we remove the node when it's "done" 
+	# Hide main sprite
+	sprite.visible = false
+	
+	# Disable collision
+	set_physics_process(false)
+	attack_area.set_deferred("monitoring", false)
+	
+	# Play blood splatter
+	if blood_splatter:
+		blood_splatter.visible = true
+		blood_splatter.play()
+		await blood_splatter.animation_finished
+	
 	queue_free()
 
 func _on_attack_area_body_entered(body):

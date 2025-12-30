@@ -25,6 +25,7 @@ var player_detected: bool = false
 @onready var detection_ray_right = $DetectionRayRight
 @onready var detection_ray_left = $DetectionRayLeft
 @onready var bullet_spawn = $BulletSpawnPoint
+@onready var blood_splatter = $BloodSplatter
 
 func _ready():
 	wall_ray_right.target_position.x = wall_detection_distance
@@ -32,6 +33,10 @@ func _ready():
 	detection_ray_right.enabled = true
 	detection_ray_left.enabled = true
 	attack_area.body_entered.connect(_on_attack_area_entered)
+	
+	# Hide blood splatter initially
+	if blood_splatter:
+		blood_splatter.visible = false
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -105,8 +110,26 @@ func _shoot():
 func take_damage(amount: int):
 	health -= amount
 	if health <= 0:
-		_drop_item()
-		queue_free()
+		_die()
+
+func _die():
+	# Hide main sprite
+	anim_sprite.visible = false
+	
+	# Disable collision
+	set_physics_process(false)
+	attack_area.set_deferred("monitoring", false)
+	
+	# Play blood splatter
+	if blood_splatter:
+		blood_splatter.visible = true
+		blood_splatter.play()
+		await blood_splatter.animation_finished
+	
+	# Drop item
+	_drop_item()
+	
+	queue_free()
 
 func _drop_item():
 	if drop_item:

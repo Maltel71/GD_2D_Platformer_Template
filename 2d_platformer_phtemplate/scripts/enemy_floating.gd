@@ -13,9 +13,14 @@ var damage_cooldown: float = 1.0
 
 @onready var attack_area = $AttackArea
 @onready var anim_sprite = $AnimatedSprite2D
+@onready var blood_splatter = $BloodSplatter
 
 func _ready():
 	attack_area.body_entered.connect(_on_attack_area_entered)
+	
+	# Hide blood splatter initially
+	if blood_splatter:
+		blood_splatter.visible = false
 
 func _physics_process(delta):
 	# Update patrol timer
@@ -47,7 +52,23 @@ func _turn_around():
 func take_damage(amount: int):
 	health -= amount
 	if health <= 0:
-		queue_free()
+		_die()
+
+func _die():
+	# Hide main sprite
+	anim_sprite.visible = false
+	
+	# Disable collision
+	set_physics_process(false)
+	attack_area.set_deferred("monitoring", false)
+	
+	# Play blood splatter
+	if blood_splatter:
+		blood_splatter.visible = true
+		blood_splatter.play()
+		await blood_splatter.animation_finished
+	
+	queue_free()
 
 func _on_attack_area_entered(body):
 	if body is PlatformerController2D and can_damage:

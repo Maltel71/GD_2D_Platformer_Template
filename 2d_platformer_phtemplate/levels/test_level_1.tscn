@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=36 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://d0qbncxx1xw1s" path="res://graphics/enviroment/plants/env_plant4_sprite_v1.png" id="32_kx420"]
 [ext_resource type="Texture2D" uid="uid://dwqtkbaen67f8" path="res://graphics/enviroment/plants/env_plant5_sprite_v1.png" id="33_8qcgp"]
 [ext_resource type="Texture2D" uid="uid://pq22fgge31p0" path="res://graphics/enviroment/plants/env_plant6_sprite_v1.png" id="34_epd4w"]
+[ext_resource type="PackedScene" uid="uid://cov4w0kwt1gjj" path="res://level_components/mine.tscn" id="35_h8sgn"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -385,3 +386,7 @@ texture = ExtResource("33_8qcgp")
 z_index = -2
 position = Vector2(267, 397)
 texture = ExtResource("34_epd4w")
+
+[node name="Node2D" parent="." instance=ExtResource("35_h8sgn")]
+position = Vector2(-3, 164)
+knockback_strength = 700.0

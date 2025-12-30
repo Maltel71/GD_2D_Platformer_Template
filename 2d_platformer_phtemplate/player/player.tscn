@@ -83,6 +83,7 @@ script = ExtResource("1_rkbax")
 PlayerSprite = NodePath("AnimatedSprite2D_Player")
 PlayerCollider = NodePath("CollisionShape2D")
 bullet_scene = ExtResource("2_yw30f")
+max_health = 10
 invincibility_duration = 0.3
 jump_sound = ExtResource("3_rgyib")
 jump_volume = -25.0

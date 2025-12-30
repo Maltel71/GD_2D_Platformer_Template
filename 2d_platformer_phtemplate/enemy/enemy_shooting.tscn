@@ -1,9 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8tl5dqihnok2"]
+[gd_scene load_steps=15 format=3 uid="uid://b8tl5dqihnok2"]
 
 [ext_resource type="Script" uid="uid://dqwdw4o4d26ya" path="res://scripts/enemy_shooter.gd" id="1_y1hi4"]
 [ext_resource type="PackedScene" uid="uid://t6qqpcoyy6dm" path="res://enemy/enemy_bullet.tscn" id="2_x8wwt"]
 [ext_resource type="Texture2D" uid="uid://b65cmo60xybp4" path="res://graphics/enemies/enemy1/enemy1_sprite_01.png" id="2_y1hi4"]
 [ext_resource type="Texture2D" uid="uid://c7jo7l0ed3ce0" path="res://graphics/enemies/enemy1/enemy1_sprite_02.png" id="3_x8wwt"]
+[ext_resource type="Texture2D" uid="uid://cnsq1c6nh0v6w" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_01_v1.png" id="5_450rj"]
+[ext_resource type="Texture2D" uid="uid://kmklbde4dcvn" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_02_v1.png" id="6_sfu42"]
+[ext_resource type="Texture2D" uid="uid://mwg3rxasoq7l" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_03_v1.png" id="7_m8tk7"]
+[ext_resource type="Texture2D" uid="uid://b2sqoexe2p14y" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_04_v1.png" id="8_5wtk3"]
+[ext_resource type="Texture2D" uid="uid://dicx17w4j5dg4" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_05_v1.png" id="9_rgq2c"]
+[ext_resource type="Texture2D" uid="uid://dn04hog0ktrk4" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_06_v1.png" id="10_sok6x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
 radius = 21.0
@@ -32,6 +38,32 @@ animations = [{
 "loop": true,
 "name": &"walk",
 "speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3m4hl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_450rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sfu42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_m8tk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5wtk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rgq2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sok6x")
+}],
+"loop": false,
+"name": &"bloodsplatter",
+"speed": 24.0
 }]
 
 [node name="EnemyShooting" type="CharacterBody2D"]
@@ -97,3 +129,8 @@ target_position = Vector2(0, 235.765)
 position = Vector2(0, -13)
 rotation = 1.5707964
 target_position = Vector2(0, 235.765)
+
+[node name="BloodSplatter" type="AnimatedSprite2D" parent="."]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_3m4hl")
+animation = &"bloodsplatter"
