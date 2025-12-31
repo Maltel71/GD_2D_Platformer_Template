@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cov4w0kwt1gjj"]
+[gd_scene load_steps=15 format=3 uid="uid://cov4w0kwt1gjj"]
 
 [ext_resource type="Script" uid="uid://3d670oklf7d" path="res://scripts/mine.gd" id="1_0101b"]
 [ext_resource type="Texture2D" uid="uid://dnc6x5037p5nb" path="res://graphics/enviroment/mine_sprite_01_v1.png" id="1_j3sak"]
 [ext_resource type="AudioStream" uid="uid://b15ej3l852a86" path="res://audio/sfx/laser_shoot/laserShoot (4).wav" id="2_6eiy8"]
 [ext_resource type="Texture2D" uid="uid://ba4qq5mwhp6qf" path="res://graphics/vfx/explotion1/vfx_explotion1_01_v1.png" id="2_njchp"]
 [ext_resource type="Texture2D" uid="uid://ecn64mn8jfay" path="res://graphics/vfx/explotion1/vfx_explotion1_02_v1.png" id="3_6eiy8"]
+[ext_resource type="AudioStream" uid="uid://1aoyxrsaw25k" path="res://audio/sfx/blip_select/blipSelect (1).wav" id="3_rdvos"]
 [ext_resource type="Texture2D" uid="uid://c5ae1sntnio3q" path="res://graphics/vfx/explotion1/vfx_explotion1_03_v1.png" id="4_rdvos"]
 [ext_resource type="Texture2D" uid="uid://7uxfcamvqocj" path="res://graphics/vfx/explotion1/vfx_explotion1_04_v1.png" id="5_rw4eu"]
 [ext_resource type="Texture2D" uid="uid://5ywfa754hkgd" path="res://graphics/vfx/explotion1/vfx_explotion1_05_v1.png" id="6_nd1h2"]
@@ -49,7 +50,9 @@ animations = [{
 [node name="Mine" type="Node2D"]
 script = ExtResource("1_0101b")
 knockback_strength = 1200.0
+blink_interval_start = 0.2
 explosion_sound = ExtResource("2_6eiy8")
+fuse_sound = ExtResource("3_rdvos")
 
 [node name="TriggerArea2D" type="Area2D" parent="."]
 
