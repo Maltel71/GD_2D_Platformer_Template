@@ -9,7 +9,23 @@ extends CharacterBody2D
 @export var bullet_scene: PackedScene
 @export var shoot_cooldown: float = 1.0
 
+@export_category("Sound Effects")
+@export var idle_sound: AudioStream
+@export_range(-80, 24) var idle_volume: float = 0.0
+@export var hurt_sound: AudioStream
+@export_range(-80, 24) var hurt_volume: float = 0.0
+@export var death_sound: AudioStream
+@export_range(-80, 24) var death_volume: float = 0.0
+@export var walk_sound_1: AudioStream
+@export var walk_sound_2: AudioStream
+@export var walk_sound_3: AudioStream
+@export_range(-80, 24) var walk_volume: float = 0.0
+@export_range(0.1, 2.0) var footstep_interval: float = 0.5
+@export var shoot_sound: AudioStream
+@export_range(-80, 24) var shoot_volume: float = 0.0
+
 var direction: int = 1
+var footstep_timer: float = 0.0
 var gravity: float = 980.0
 var can_damage: bool = true
 var can_shoot: bool = true
@@ -26,6 +42,8 @@ var player_detected: bool = false
 @onready var detection_ray_left = $DetectionRayLeft
 @onready var bullet_spawn = $BulletSpawnPoint
 @onready var blood_splatter = $BloodSplatter
+@onready var idle_player = $IdlePlayer
+@onready var sfx_player = $SFXPlayer
 
 func _ready():
 	wall_ray_right.target_position.x = wall_detection_distance
@@ -37,6 +55,17 @@ func _ready():
 	# Hide blood splatter initially
 	if blood_splatter:
 		blood_splatter.visible = false
+	
+	# Set audio bus and start idle loop
+	if idle_player:
+		idle_player.bus = "SFX"
+		if idle_sound:
+			idle_player.stream = idle_sound
+			idle_player.volume_db = idle_volume
+			idle_player.play()
+	
+	if sfx_player:
+		sfx_player.bus = "SFX"
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -77,10 +106,17 @@ func _physics_process(delta):
 	# Animations
 	if player_detected:
 		anim_sprite.play("idle")
+		footstep_timer = 0.0
 	elif velocity.x != 0:
 		anim_sprite.play("walk")
+		# Footstep sounds
+		footstep_timer += delta
+		if footstep_timer >= footstep_interval:
+			_play_footstep()
+			footstep_timer = 0.0
 	else:
 		anim_sprite.play("idle")
+		footstep_timer = 0.0
 	
 	# Melee damage
 	if can_damage and attack_area.has_overlapping_bodies():
@@ -98,6 +134,7 @@ func _turn_around():
 
 func _shoot():
 	can_shoot = false
+	_play_sound(shoot_sound, shoot_volume)
 	
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = bullet_spawn.global_position
@@ -109,10 +146,18 @@ func _shoot():
 
 func take_damage(amount: int):
 	health -= amount
+	_play_sound(hurt_sound, hurt_volume)
 	if health <= 0:
 		_die()
 
 func _die():
+	# Stop idle sound
+	if idle_player:
+		idle_player.stop()
+	
+	# Play death sound
+	_play_sound(death_sound, death_volume)
+	
 	# Hide main sprite
 	anim_sprite.visible = false
 	
@@ -146,3 +191,22 @@ func _on_attack_area_entered(body):
 func _reset_damage_cooldown():
 	await get_tree().create_timer(damage_cooldown).timeout
 	can_damage = true
+
+func _play_sound(sound: AudioStream, volume: float):
+	if sound and sfx_player:
+		sfx_player.stream = sound
+		sfx_player.volume_db = volume
+		sfx_player.play()
+
+func _play_footstep():
+	var sounds = []
+	if walk_sound_1:
+		sounds.append(walk_sound_1)
+	if walk_sound_2:
+		sounds.append(walk_sound_2)
+	if walk_sound_3:
+		sounds.append(walk_sound_3)
+	
+	if sounds.size() > 0:
+		var random_sound = sounds[randi() % sounds.size()]
+		_play_sound(random_sound, walk_volume)

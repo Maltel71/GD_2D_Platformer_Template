@@ -390,14 +390,6 @@ z_index = -2
 position = Vector2(267, 397)
 texture = ExtResource("34_epd4w")
 
-[node name="Node2D" parent="." instance=ExtResource("35_h8sgn")]
-position = Vector2(-103, 177)
-knockback_strength = 700.0
-
 [node name="Node2D2" parent="." instance=ExtResource("35_h8sgn")]
-position = Vector2(-33, 144)
-knockback_strength = 700.0
-
-[node name="Node2D3" parent="." instance=ExtResource("35_h8sgn")]
-position = Vector2(68, 139)
+position = Vector2(-39, 153)
 knockback_strength = 700.0

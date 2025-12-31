@@ -1,9 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvbm0b511iwl"]
+[gd_scene load_steps=18 format=3 uid="uid://bvbm0b511iwl"]
 
 [ext_resource type="Script" uid="uid://de1abq5qky54f" path="res://scripts/enemy_floating.gd" id="1_17dft"]
 [ext_resource type="Texture2D" uid="uid://5r81nqc7hb1e" path="res://graphics/enemies/enemyflying/enemyflying_sprite_01.png" id="2_17dft"]
+[ext_resource type="AudioStream" uid="uid://sfe75pkghb70" path="res://audio/sfx/sfx_enemy_idle1.mp3" id="2_u2qnw"]
 [ext_resource type="Texture2D" uid="uid://d2vmqdsp11qwj" path="res://graphics/enemies/enemyflying/enemyflying_sprite_02.png" id="3_acpmn"]
+[ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/sfx/hit_hurt/hitHurt (1).wav" id="3_ok3ko"]
 [ext_resource type="Texture2D" uid="uid://cnsq1c6nh0v6w" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_01_v1.png" id="4_5cc5i"]
+[ext_resource type="AudioStream" uid="uid://rghhmxcvoo5d" path="res://audio/sfx/hit_hurt/hitHurt (3).wav" id="4_y28m0"]
+[ext_resource type="AudioStream" uid="uid://c12w3by5o8wna" path="res://audio/sfx/sfx_enemy_fly_small1_v2.mp3" id="5_u2qnw"]
 [ext_resource type="Texture2D" uid="uid://kmklbde4dcvn" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_02_v1.png" id="5_ulei4"]
 [ext_resource type="Texture2D" uid="uid://mwg3rxasoq7l" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_03_v1.png" id="6_aj8ag"]
 [ext_resource type="Texture2D" uid="uid://b2sqoexe2p14y" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_04_v1.png" id="7_0al0j"]
@@ -70,12 +74,14 @@ collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_17dft")
 patrol_time = 4.0
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, 3.8147e-06)
-scale = Vector2(-0.794, 0.794)
-texture = ExtResource("2_17dft")
+idle_sound = ExtResource("2_u2qnw")
+idle_volume = -10.0
+hurt_sound = ExtResource("3_ok3ko")
+hurt_volume = -10.0
+death_sound = ExtResource("4_y28m0")
+death_volume = -10.0
+flying_sound = ExtResource("5_u2qnw")
+flying_volume = -10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ffj3o")
@@ -100,3 +106,12 @@ z_index = -1
 position = Vector2(-1, 6)
 sprite_frames = SubResource("SpriteFrames_y28m0")
 animation = &"bloodsplatter"
+
+[node name="IdlePlayer" type="AudioStreamPlayer2D" parent="."]
+max_distance = 500.0
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+max_distance = 500.0
+
+[node name="FlyingPlayer" type="AudioStreamPlayer2D" parent="."]
+max_distance = 500.0

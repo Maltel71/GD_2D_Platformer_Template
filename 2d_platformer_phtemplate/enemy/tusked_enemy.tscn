@@ -1,10 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcko51m0txpbs"]
+[gd_scene load_steps=15 format=3 uid="uid://bcko51m0txpbs"]
 
 [ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://scripts/enemy.gd" id="1_8lywj"]
 [ext_resource type="Texture2D" uid="uid://btj3mnkrhhvm8" path="res://graphics/enemies/enemytusks/enemy_huskhill_idle_sprite_01_v1.png" id="2_1vfe0"]
+[ext_resource type="AudioStream" uid="uid://bwndn3fupn3f3" path="res://audio/sfx/sfx_enemy_idle_large1_v1.mp3" id="2_pocfd"]
 [ext_resource type="Texture2D" uid="uid://dc8pffvudc7uj" path="res://graphics/enemies/enemytusks/enemy_huskhill_idle_sprite_02_v1.png" id="3_4k5qo"]
+[ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/sfx/hit_hurt/hitHurt (1).wav" id="3_laq04"]
 [ext_resource type="Texture2D" uid="uid://cf5qjotvbs3rc" path="res://graphics/enemies/enemytusks/enemy_huskhill_walk_sprite_01_v1.png" id="4_7p2tp"]
+[ext_resource type="AudioStream" uid="uid://rghhmxcvoo5d" path="res://audio/sfx/hit_hurt/hitHurt (3).wav" id="4_ou6ss"]
+[ext_resource type="AudioStream" uid="uid://d1nm5cmdpstd" path="res://audio/sfx/Footsteps_U/grass_001_23185.mp3" id="5_nclol"]
 [ext_resource type="Texture2D" uid="uid://bhfenohbsheix" path="res://graphics/enemies/enemytusks/enemy_huskhill_walk_sprite_02_v1.png" id="5_wyawc"]
+[ext_resource type="AudioStream" uid="uid://d8qata64535u" path="res://audio/sfx/Footsteps_U/grass_011_23195.mp3" id="6_ksth2"]
+[ext_resource type="AudioStream" uid="uid://b8phaudywrgq0" path="res://audio/sfx/Footsteps_U/grass_013_23197.mp3" id="7_7xwa0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ge483"]
 animations = [{
@@ -32,12 +38,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
-radius = 17.0
+radius = 22.0
 height = 198.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vfe0"]
 radius = 14.102564
-height = 38.88889
+height = 60.000004
 
 [node name="Tusked_Enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -45,6 +51,16 @@ collision_mask = 8
 script = ExtResource("1_8lywj")
 speed = 50.0
 health = 20
+idle_sound = ExtResource("2_pocfd")
+idle_volume = -20.0
+hurt_sound = ExtResource("3_laq04")
+hurt_volume = -20.0
+death_sound = ExtResource("4_ou6ss")
+death_volume = -5.0
+walk_sound_1 = ExtResource("5_nclol")
+walk_sound_2 = ExtResource("6_ksth2")
+walk_sound_3 = ExtResource("7_7xwa0")
+walk_volume = -20.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1
@@ -82,6 +98,12 @@ scale = Vector2(1.8, 1.56)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(18.88889, -8.97436)
+position = Vector2(0.55555534, -8.97436)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_1vfe0")
+
+[node name="IdlePlayer" type="AudioStreamPlayer2D" parent="."]
+max_distance = 500.0
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+max_distance = 500.0

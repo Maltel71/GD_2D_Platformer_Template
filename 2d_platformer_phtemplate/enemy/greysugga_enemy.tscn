@@ -1,9 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://2sbchijd2mjp"]
+[gd_scene load_steps=20 format=3 uid="uid://2sbchijd2mjp"]
 
 [ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://scripts/enemy.gd" id="1_laejb"]
+[ext_resource type="AudioStream" uid="uid://sfe75pkghb70" path="res://audio/sfx/sfx_enemy_idle1.mp3" id="2_dlgde"]
 [ext_resource type="Texture2D" uid="uid://b65cmo60xybp4" path="res://graphics/enemies/enemy1/enemy1_sprite_01.png" id="2_laejb"]
+[ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/sfx/hit_hurt/hitHurt (1).wav" id="3_c8i7w"]
+[ext_resource type="AudioStream" uid="uid://d1nm5cmdpstd" path="res://audio/sfx/Footsteps_U/grass_001_23185.mp3" id="3_lp7u7"]
 [ext_resource type="Texture2D" uid="uid://c7jo7l0ed3ce0" path="res://graphics/enemies/enemy1/enemy1_sprite_02.png" id="3_yl8y7"]
+[ext_resource type="AudioStream" uid="uid://d8qata64535u" path="res://audio/sfx/Footsteps_U/grass_011_23195.mp3" id="4_c8i7w"]
+[ext_resource type="AudioStream" uid="uid://bf65jj4hxa28c" path="res://audio/sfx/hit_hurt/hitHurt.wav" id="4_lj04j"]
 [ext_resource type="Texture2D" uid="uid://cnsq1c6nh0v6w" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_01_v1.png" id="4_mwleb"]
+[ext_resource type="AudioStream" uid="uid://b8phaudywrgq0" path="res://audio/sfx/Footsteps_U/grass_013_23197.mp3" id="5_lj04j"]
 [ext_resource type="Texture2D" uid="uid://kmklbde4dcvn" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_02_v1.png" id="5_n64h8"]
 [ext_resource type="Texture2D" uid="uid://mwg3rxasoq7l" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_03_v1.png" id="6_gkrt6"]
 [ext_resource type="Texture2D" uid="uid://b2sqoexe2p14y" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_04_v1.png" id="7_ojg72"]
@@ -69,6 +75,17 @@ animations = [{
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_laejb")
+idle_sound = ExtResource("2_dlgde")
+idle_volume = -10.0
+hurt_sound = ExtResource("3_c8i7w")
+hurt_volume = -10.0
+death_sound = ExtResource("4_lj04j")
+death_volume = -10.0
+walk_sound_1 = ExtResource("3_lp7u7")
+walk_sound_2 = ExtResource("4_c8i7w")
+walk_sound_3 = ExtResource("5_lj04j")
+walk_volume = -20.0
+footstep_interval = 0.2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -120,3 +137,9 @@ sprite_frames = SubResource("SpriteFrames_c8i7w")
 animation = &"bloodsplatter"
 frame = 5
 frame_progress = 1.0
+
+[node name="IdlePlayer" type="AudioStreamPlayer2D" parent="."]
+max_distance = 500.0
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+max_distance = 500.0
