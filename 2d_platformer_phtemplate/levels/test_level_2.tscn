@@ -105,7 +105,6 @@ position = Vector2(109, 314)
 [node name="Tusked_Enemy" parent="==ENEMIES==" instance=ExtResource("11_gm8vl")]
 position = Vector2(176, 139)
 idle_volume = 1.0
-walk_volume = -20.0
 footstep_interval = 0.4
 
 [node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("12_gm8vl")]

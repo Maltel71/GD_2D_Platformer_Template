@@ -41,6 +41,7 @@
 [node name="Player" parent="." instance=ExtResource("1_plkrb")]
 position = Vector2(4, 50)
 shoot_cooldown = 0.2
+footstep_interval = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(182, 229)

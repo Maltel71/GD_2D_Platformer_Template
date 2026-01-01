@@ -79,6 +79,11 @@ signal player_hurt
 @export_range(-80, 24) var shoot_volume: float = 0.0
 @export var death_sound: AudioStream
 @export_range(-80, 24) var death_volume: float = 0.0
+@export var footstep_sound_1: AudioStream
+@export var footstep_sound_2: AudioStream
+@export var footstep_sound_3: AudioStream
+@export_range(-80, 24) var footstep_volume: float = 0.0
+@export_range(0.1, 2.0) var footstep_interval: float = 0.5
 
 @export_category("Animations (Check Box if has animation)")
 @export var run: bool
@@ -145,6 +150,8 @@ var is_dead: bool = false
 var is_invincible: bool = false
 var blink_white: bool = false
 
+var footstep_timer: float = 0.0
+
 var upHold
 var downHold
 var leftHold
@@ -162,17 +169,15 @@ var rollTap
 var downTap
 var twirlTap
 
+@onready var audio_player = $AudioPlayer
+@onready var footstep_player = $FootstepPlayer
+
 func _ready():
 	add_to_group("player")
 	wasMovingR = true
 	anim = PlayerSprite
 	col = PlayerCollider
 	current_health = max_health
-	
-	# Add audio player node
-	var audio_player = AudioStreamPlayer.new()
-	audio_player.name = "AudioPlayer"
-	add_child(audio_player)
 	
 	_updateData()
 	
@@ -577,6 +582,19 @@ func _physics_process(delta):
 			position.x += correctionAmount
 		if velocity.y < 0 and !leftRaycast.is_colliding() and rightRaycast.is_colliding() and !middleRaycast.is_colliding():
 			position.x -= correctionAmount
+	
+	# Footstep sounds
+	if abs(velocity.x) > 0.1 and is_on_floor():
+		if footstep_timer == 0.0:  # Play immediately on first step
+			_play_footstep()
+		footstep_timer += delta
+		if footstep_timer >= footstep_interval:
+			_play_footstep()
+			footstep_timer = 0.0
+	else:
+		footstep_timer = 0.0
+		if footstep_player:
+			footstep_player.stop()
 			
 	if groundPound and downTap and !is_on_floor() and !is_on_wall():
 		groundPounding = true
@@ -605,7 +623,10 @@ func _jump():
 		velocity.y = -jumpMagnitude
 		jumpCount += -1
 		jumpWasPressed = false
-		_play_sound(jump_sound, jump_volume)
+		if jump_sound and audio_player:
+			audio_player.stream = jump_sound
+			audio_player.volume_db = jump_volume
+			audio_player.play()
 		
 func _wallJump():
 	var horizontalWallKick = abs(jumpMagnitude * cos(wallKickAngle * (PI / 180)))
@@ -621,7 +642,10 @@ func _wallJump():
 	if inputPauseAfterWallJump != 0:
 		movementInputMonitoring = Vector2(false, false)
 		_inputPauseReset(inputPauseAfterWallJump)
-	_play_sound(jump_sound, jump_volume)
+	if jump_sound and audio_player:
+		audio_player.stream = jump_sound
+		audio_player.volume_db = jump_volume
+		audio_player.play()
 			
 func _setLatch(delay, setBool):
 	await get_tree().create_timer(delay).timeout
@@ -666,7 +690,10 @@ func _endGroundPound():
 
 func _shoot():
 	can_shoot_now = false
-	_play_sound(shoot_sound, shoot_volume)
+	if shoot_sound and audio_player:
+		audio_player.stream = shoot_sound
+		audio_player.volume_db = shoot_volume
+		audio_player.play()
 	
 	# Trigger muzzle flash
 	var muzzle_flash = $BulletSpawnPoint.get_node_or_null("AnimatedSprite2D_MuzzleFlash")
@@ -686,6 +713,21 @@ func _shoot():
 	await get_tree().create_timer(shoot_cooldown).timeout
 	can_shoot_now = true
 
+func _play_footstep():
+	var sounds = []
+	if footstep_sound_1:
+		sounds.append(footstep_sound_1)
+	if footstep_sound_2:
+		sounds.append(footstep_sound_2)
+	if footstep_sound_3:
+		sounds.append(footstep_sound_3)
+	
+	if sounds.size() > 0 and footstep_player:
+		footstep_player.stop()
+		footstep_player.stream = sounds[randi() % sounds.size()]
+		footstep_player.volume_db = footstep_volume
+		footstep_player.play()
+
 func _placeHolder():
 	print("")
 	
@@ -694,7 +736,10 @@ func take_damage(amount: int) -> void:
 		return
 	
 	current_health -= amount
-	_play_sound(damage_sound, damage_volume)
+	if damage_sound and audio_player:
+		audio_player.stream = damage_sound
+		audio_player.volume_db = damage_volume
+		audio_player.play()
 	player_hurt.emit()
 	
 	var knockback_force = 300.0
@@ -709,7 +754,10 @@ func take_damage(amount: int) -> void:
 
 func _die():
 	is_dead = true
-	_play_sound(death_sound, death_volume)
+	if death_sound and audio_player:
+		audio_player.stream = death_sound
+		audio_player.volume_db = death_volume
+		audio_player.play()
 	
 	# Disable the collision shape directly
 	if PlayerCollider:
@@ -743,11 +791,3 @@ func _blink_sprite():
 		await get_tree().create_timer(blink_interval).timeout
 		blink_white = false
 		await get_tree().create_timer(blink_interval).timeout
-
-func _play_sound(sound: AudioStream, volume: float = 0.0):
-	if sound:
-		var player = get_node_or_null("AudioPlayer")
-		if player:
-			player.stream = sound
-			player.volume_db = volume
-			player.play()
