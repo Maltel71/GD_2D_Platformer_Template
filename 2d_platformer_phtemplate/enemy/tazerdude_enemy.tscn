@@ -1,11 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://cc2a46k0nigv6"]
+[gd_scene load_steps=15 format=3 uid="uid://cc2a46k0nigv6"]
 
 [ext_resource type="Script" uid="uid://cg4wfcmidjxac" path="res://scripts/enemy.gd" id="1_nmc0m"]
-[ext_resource type="Texture2D" uid="uid://b65cmo60xybp4" path="res://graphics/enemies/enemy1/enemy1_sprite_01.png" id="2_mnfax"]
+[ext_resource type="AudioStream" uid="uid://sfe75pkghb70" path="res://audio/sfx/sfx_enemy_idle1.mp3" id="2_dlhv6"]
 [ext_resource type="Texture2D" uid="uid://t70ywwfvo4hj" path="res://graphics/enemies/tazerdude/enemy_tazerdude1_idle_sprite_01_v1.png" id="3_na27b"]
+[ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/sfx/hit_hurt/hitHurt (1).wav" id="3_rvfc6"]
 [ext_resource type="Texture2D" uid="uid://btxnnod6poao0" path="res://graphics/enemies/tazerdude/enemy_tazerdude1_idle_sprite_02_v1.png" id="4_mhgfs"]
+[ext_resource type="AudioStream" uid="uid://rghhmxcvoo5d" path="res://audio/sfx/hit_hurt/hitHurt (3).wav" id="4_qykna"]
+[ext_resource type="AudioStream" uid="uid://d1nm5cmdpstd" path="res://audio/sfx/Footsteps_U/grass_001_23185.mp3" id="5_jcls6"]
 [ext_resource type="Texture2D" uid="uid://csd6aaxpc0ds2" path="res://graphics/enemies/tazerdude/enemy_tazerdude1_walk_sprite_01_v1.png" id="5_qd3nd"]
+[ext_resource type="AudioStream" uid="uid://d8qata64535u" path="res://audio/sfx/Footsteps_U/grass_011_23195.mp3" id="6_6ylgd"]
 [ext_resource type="Texture2D" uid="uid://du425o8vg1k5p" path="res://graphics/enemies/tazerdude/enemy_tazerdude1_walk_sprite_02_v1.png" id="6_44b4h"]
+[ext_resource type="AudioStream" uid="uid://b8phaudywrgq0" path="res://audio/sfx/Footsteps_U/grass_013_23197.mp3" id="7_kmpmo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
 radius = 21.0
@@ -43,13 +48,17 @@ animations = [{
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_nmc0m")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, 3.8147e-06)
-scale = Vector2(1.0869565, 1.0869565)
-texture = ExtResource("2_mnfax")
-flip_h = true
+idle_sound = ExtResource("2_dlhv6")
+idle_volume = -20.0
+hurt_sound = ExtResource("3_rvfc6")
+hurt_volume = -20.0
+death_sound = ExtResource("4_qykna")
+death_volume = -20.0
+walk_sound_1 = ExtResource("5_jcls6")
+walk_sound_2 = ExtResource("6_6ylgd")
+walk_sound_3 = ExtResource("7_kmpmo")
+walk_volume = -20.0
+footstep_interval = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ffj3o")
@@ -88,3 +97,9 @@ scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_ge483")
 animation = &"idle"
 offset = Vector2(-17.507248, 0.16810226)
+
+[node name="IdlePlayer" type="AudioStreamPlayer2D" parent="."]
+max_distance = 500.0
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+max_distance = 500.0

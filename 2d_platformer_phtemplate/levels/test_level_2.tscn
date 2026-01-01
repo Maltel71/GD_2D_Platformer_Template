@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="12_ay0he"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="12_gm8vl"]
 [ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="12_x2a8b"]
-[ext_resource type="PackedScene" uid="uid://boqr2431f515h" path="res://enemy/enemy_jumping_01.tscn" id="14_ukqis"]
+[ext_resource type="PackedScene" uid="uid://cc2a46k0nigv6" path="res://enemy/tazerdude_enemy.tscn" id="14_ukqis"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -114,5 +114,5 @@ position = Vector2(292, 189)
 position = Vector2(118, 254)
 footstep_interval = 0.30000000000000004
 
-[node name="Enemy_Jumping_01" parent="==ENEMIES==" instance=ExtResource("14_ukqis")]
-position = Vector2(-1687, 144)
+[node name="Tazerdude_enemy" parent="." instance=ExtResource("14_ukqis")]
+position = Vector2(-1599, 123)
