@@ -40,4 +40,4 @@ text = "Health:"
 [node name="ScoreLabel" type="Label" parent="Panel/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 65
-text = "Score: 0"
+text = "Meat: 0"
