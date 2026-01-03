@@ -1,27 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjs1iiy85voo6"]
+[gd_scene load_steps=3 format=3 uid="uid://bjs1iiy85voo6"]
 
 [ext_resource type="Script" uid="uid://bw3cnixhoe7m4" path="res://scripts/ui.gd" id="1_43qpl"]
+[ext_resource type="Theme" uid="uid://bsgj6bos7rqas" path="res://menus/button_theme_01.tres" id="2_2qd2j"]
 
 [node name="ui" type="CanvasLayer"]
 script = ExtResource("1_43qpl")
 
-[node name="ScoreLabel" type="Label" parent="."]
-offset_left = 1031.0
-offset_top = 30.0
-offset_right = 1276.0
-offset_bottom = 213.0
-scale = Vector2(0.6400024, 0.6400024)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 65
-text = "Score: 0
-"
+[node name="Panel" type="Panel" parent="."]
+z_index = 10
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -457.0
+offset_top = 12.0
+offset_right = 457.0
+offset_bottom = 130.0
+grow_horizontal = 2
+scale = Vector2(0.60596514, 0.60596514)
+pivot_offset = Vector2(457, 1)
+theme = ExtResource("2_2qd2j")
 
-[node name="HealthLabel" type="Label" parent="."]
-offset_left = 671.0
-offset_top = 30.0
-offset_right = 898.0
-offset_bottom = 120.0
-scale = Vector2(0.6400024, 0.6400024)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -413.5
+offset_right = 413.5
+offset_bottom = 90.0
+grow_horizontal = 2
+theme_override_constants/separation = 330
+alignment = 1
+
+[node name="HealthLabel" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 65
 text = "Health:"
+
+[node name="ScoreLabel" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 65
+text = "Score: 0"

@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var score_label = $ScoreLabel
-@onready var health_label = $HealthLabel
+@onready var score_label = $Panel/HBoxContainer/ScoreLabel
+@onready var health_label = $Panel/HBoxContainer/HealthLabel
 
 func _ready():
 	GameManager.score_changed.connect(_on_score_changed)

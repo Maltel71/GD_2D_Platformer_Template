@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cswsstxolvh11"]
+[gd_scene load_steps=5 format=3 uid="uid://cswsstxolvh11"]
 
 [ext_resource type="Script" uid="uid://bfijjwfqxgs76" path="res://scripts/esc_menu.gd" id="1_tpjvt"]
 [ext_resource type="Theme" uid="uid://bsgj6bos7rqas" path="res://menus/button_theme_01.tres" id="2_0jm85"]
 [ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/sfx/click/click (1).wav" id="2_wgmhh"]
+[ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="4_4v7l0"]
 
 [node name="EscMenu" type="CanvasLayer"]
 script = ExtResource("1_tpjvt")
 hover_sound = ExtResource("2_wgmhh")
 hover_volume = -20.0
+
+[node name="PanelBG_C" type="Panel" parent="."]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 8
@@ -16,9 +22,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -649.0
-offset_top = -497.0
+offset_top = -448.0
 offset_right = 33.0
-offset_bottom = 479.0
+offset_bottom = 528.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_0jm85")
@@ -75,9 +81,9 @@ value = 0.8
 
 [node name="Panel2" type="Panel" parent="."]
 offset_left = 1001.0
-offset_top = 43.0
+offset_top = 92.0
 offset_right = 1580.0
-offset_bottom = 806.0
+offset_bottom = 855.0
 theme = ExtResource("2_0jm85")
 
 [node name="Header_Keybinds" type="Label" parent="Panel2"]
@@ -102,7 +108,5 @@ ESC = PauseMenu"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="Panel3" type="Panel" parent="."]
-z_index = -1
-offset_right = 1920.0
-offset_bottom = 1080.0
+[node name="ui" parent="." instance=ExtResource("4_4v7l0")]
+visible = false
