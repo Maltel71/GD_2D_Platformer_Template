@@ -196,6 +196,11 @@ cache/0/90/0/descent = 0.0
 cache/0/90/0/underline_position = 0.0
 cache/0/90/0/underline_thickness = 0.0
 cache/0/90/0/scale = 1.0
+cache/0/65/0/ascent = 0.0
+cache/0/65/0/descent = 0.0
+cache/0/65/0/underline_position = 0.0
+cache/0/65/0/underline_thickness = 0.0
+cache/0/65/0/scale = 1.0
 
 [resource]
 default_font = SubResource("FontFile_a8rf1")
