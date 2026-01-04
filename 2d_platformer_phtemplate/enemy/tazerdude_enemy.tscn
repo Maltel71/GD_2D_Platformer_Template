@@ -17,7 +17,7 @@ radius = 21.0
 height = 44.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
-radius = 26.142567
+radius = 42.08803
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ge483"]
 animations = [{
@@ -82,17 +82,15 @@ position = Vector2(-20, 0)
 collision_mask = 9
 
 [node name="AttackArea" type="Area2D" parent="."]
-position = Vector2(0, 10)
-scale = Vector2(1.8, 1.56)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(13.888889, -18.589745)
+position = Vector2(15, -21)
 shape = SubResource("CircleShape2D_ld2qc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1
-position = Vector2(0, -16)
+position = Vector2(-15, -16)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_ge483")
 animation = &"idle"

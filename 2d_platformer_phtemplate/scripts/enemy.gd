@@ -105,6 +105,11 @@ func _physics_process(delta):
 
 func _turn_around():
 	direction *= -1
+	# Flip AttackArea's CollisionShape2D
+	if attack_area:
+		var collision_shape = attack_area.get_node("CollisionShape2D")
+		if collision_shape:
+			collision_shape.position.x = -collision_shape.position.x
 
 func take_damage(amount: int):
 	health -= amount

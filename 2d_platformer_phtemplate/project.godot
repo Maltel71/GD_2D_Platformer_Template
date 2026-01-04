@@ -20,6 +20,7 @@ config/icon="res://graphics/placeholders/icon.svg"
 GameManager="*res://scripts/game_manager.gd"
 EscMenu="*res://menus/esc_menu.tscn"
 LevelReset="*res://scripts/level_reset.gd"
+GizmoEnabler="*res://scripts/gizmo_enabler.gd"
 
 [display]
 

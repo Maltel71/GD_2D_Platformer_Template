@@ -42,8 +42,8 @@ radius = 22.0
 height = 198.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vfe0"]
-radius = 14.102564
-height = 60.000004
+radius = 28.973999
+height = 59.947998
 
 [node name="Tusked_Enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -93,13 +93,10 @@ position = Vector2(-20, 0)
 collision_mask = 9
 
 [node name="AttackArea" type="Area2D" parent="."]
-position = Vector2(0, 10)
-scale = Vector2(1.8, 1.56)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0.55555534, -8.97436)
-rotation = 1.5707964
+position = Vector2(37, -8)
 shape = SubResource("CapsuleShape2D_1vfe0")
 
 [node name="IdlePlayer" type="AudioStreamPlayer2D" parent="."]
