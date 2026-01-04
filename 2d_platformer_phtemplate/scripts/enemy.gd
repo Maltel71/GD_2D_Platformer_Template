@@ -110,6 +110,11 @@ func _turn_around():
 		var collision_shape = attack_area.get_node("CollisionShape2D")
 		if collision_shape:
 			collision_shape.position.x = -collision_shape.position.x
+	
+	# Flip main CollisionShape2D
+	var main_collision = $CollisionShape2D
+	if main_collision:
+		main_collision.position.x = -main_collision.position.x
 
 func take_damage(amount: int):
 	health -= amount

@@ -61,6 +61,7 @@ walk_volume = -20.0
 footstep_interval = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-15, 2)
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
