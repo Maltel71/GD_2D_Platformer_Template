@@ -211,6 +211,7 @@ Button/styles/focus = null
 Button/styles/hover = SubResource("StyleBoxFlat_r1sf5")
 Button/styles/normal = SubResource("StyleBoxFlat_pivjg")
 Button/styles/pressed = SubResource("StyleBoxFlat_eaowb")
+CheckButton/styles/normal = null
 HSlider/icons/grabber = ExtResource("1_unr3d")
 HSlider/icons/grabber_disabled = null
 HSlider/icons/grabber_highlight = ExtResource("2_r1sf5")

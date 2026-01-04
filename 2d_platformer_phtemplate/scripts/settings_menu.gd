@@ -7,11 +7,9 @@ extends Control
 @onready var master_volume = $Panel/VBoxContainer/MasterVolume
 @onready var sfx_volume = $Panel/VBoxContainer/SFXVolume
 @onready var music_volume = $Panel/VBoxContainer/MusicVolume
-@onready var god_mode_toggle = $Panel/VBoxContainer/GodModeToggle
+@onready var god_mode_toggle = $Panel/VBoxContainer/god_mode_toggle
 @onready var ok_button = $Panel/VBoxContainer/OKButton
 @onready var audio_player = $AudioStreamPlayer
-
-var god_mode_enabled: bool = false
 
 func _ready():
 	# Set audio player to SFX bus
@@ -23,11 +21,13 @@ func _ready():
 	sfx_volume.value = db_to_linear(AudioServer.get_bus_volume_db(2))
 	music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(1))
 	
+	# Load saved god mode state
+	god_mode_toggle.button_pressed = GlobalSettings.god_mode_enabled
+	
 	# Now connect signals
 	master_volume.value_changed.connect(_on_master_volume_changed)
 	sfx_volume.value_changed.connect(_on_sfx_volume_changed)
 	music_volume.value_changed.connect(_on_music_volume_changed)
-	
 	god_mode_toggle.toggled.connect(_on_god_mode_toggled)
 	ok_button.pressed.connect(_on_back_pressed)
 	
@@ -54,7 +54,7 @@ func _on_music_volume_changed(value: float):
 	AudioServer.set_bus_volume_db(1, linear_to_db(value))
 
 func _on_god_mode_toggled(toggled: bool):
-	god_mode_enabled = toggled
+	GlobalSettings.god_mode_enabled = toggled
 
 func _on_button_hover():
 	if hover_sound and audio_player:

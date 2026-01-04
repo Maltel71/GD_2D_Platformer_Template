@@ -41,10 +41,8 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GodModeToggle" type="Button" parent="Panel/VBoxContainer"]
+[node name="god_mode_toggle" type="CheckButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_83qjl")
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
 text = "God mode"
 
 [node name="MasterLabel" type="Label" parent="Panel/VBoxContainer"]

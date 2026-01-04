@@ -340,6 +340,12 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 		
+		# God Mode handling
+	if GlobalSettings.god_mode_enabled:
+		_handle_god_mode(delta)
+		move_and_slide()
+		return
+		
 	leftHold = Input.is_action_pressed("left")
 	rightHold = Input.is_action_pressed("right")
 	upHold = Input.is_action_pressed("up")
@@ -732,7 +738,7 @@ func _placeHolder():
 	print("")
 	
 func take_damage(amount: int) -> void:
-	if is_invincible or is_dead:
+	if is_invincible or is_dead or GlobalSettings.god_mode_enabled:
 		return
 	
 	current_health -= amount
@@ -791,3 +797,26 @@ func _blink_sprite():
 		await get_tree().create_timer(blink_interval).timeout
 		blink_white = false
 		await get_tree().create_timer(blink_interval).timeout
+		
+func _handle_god_mode(_delta):
+	var fly_speed = maxSpeed * 2
+	var input_dir = Vector2.ZERO
+	
+	if Input.is_action_pressed("left"):
+		input_dir.x -= 1
+	if Input.is_action_pressed("right"):
+		input_dir.x += 1
+	if Input.is_action_pressed("up"):
+		input_dir.y -= 1
+	if Input.is_action_pressed("down"):
+		input_dir.y += 1
+	
+	velocity = input_dir.normalized() * fly_speed
+	
+	# Flip sprite based on direction
+	if input_dir.x != 0:
+		anim.scale.x = animScaleLock.x * sign(input_dir.x)
+	
+	# Allow shooting in god mode
+	if can_shoot and Input.is_action_just_pressed("shoot") and can_shoot_now and bullet_scene:
+		_shoot()

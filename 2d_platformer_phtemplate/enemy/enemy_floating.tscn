@@ -21,28 +21,6 @@ height = 44.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
 radius = 20.0087
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_17dft"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_17dft")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_17dft")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_acpmn")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 12.0
-}]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_y28m0"]
 animations = [{
 "frames": [{
@@ -67,6 +45,28 @@ animations = [{
 "loop": false,
 "name": &"bloodsplatter",
 "speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_17dft"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_17dft")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_17dft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_acpmn")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
 }]
 
 [node name="Enemy_Floating" type="CharacterBody2D"]
@@ -95,17 +95,17 @@ collision_layer = 2
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_ld2qc")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 3.8147e-06)
-scale = Vector2(-0.794, 0.794)
-sprite_frames = SubResource("SpriteFrames_17dft")
-animation = &"walk"
-
 [node name="BloodSplatter" type="AnimatedSprite2D" parent="."]
 z_index = -1
 position = Vector2(-1, 6)
 sprite_frames = SubResource("SpriteFrames_y28m0")
 animation = &"bloodsplatter"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(-0.794, 0.794)
+sprite_frames = SubResource("SpriteFrames_17dft")
+animation = &"walk"
 
 [node name="IdlePlayer" type="AudioStreamPlayer2D" parent="."]
 max_distance = 500.0

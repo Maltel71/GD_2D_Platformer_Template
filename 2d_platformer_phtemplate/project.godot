@@ -21,6 +21,7 @@ GameManager="*res://scripts/game_manager.gd"
 EscMenu="*res://menus/esc_menu.tscn"
 LevelReset="*res://scripts/level_reset.gd"
 GizmoEnabler="*res://scripts/gizmo_enabler.gd"
+GlobalSettings="*res://scripts/global_settings.gd"
 
 [display]
 
