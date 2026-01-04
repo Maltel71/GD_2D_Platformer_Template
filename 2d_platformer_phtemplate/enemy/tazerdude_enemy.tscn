@@ -95,7 +95,7 @@ position = Vector2(-15, -16)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_ge483")
 animation = &"idle"
-offset = Vector2(-17.507248, 0.16810226)
+offset = Vector2(-15.942, 0.168)
 
 [node name="IdlePlayer" type="AudioStreamPlayer2D" parent="."]
 max_distance = 500.0

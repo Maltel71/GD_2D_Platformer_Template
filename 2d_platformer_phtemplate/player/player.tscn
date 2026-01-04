@@ -127,7 +127,6 @@ animation = &"muzzleflash"
 frame_progress = 0.47451738
 
 [node name="AnimatedSprite2D_Player" type="AnimatedSprite2D" parent="."]
-position = Vector2(3, 0)
 scale = Vector2(1.1132813, 1.1132813)
 sprite_frames = SubResource("SpriteFrames_1abo5")
 animation = &"walk"
