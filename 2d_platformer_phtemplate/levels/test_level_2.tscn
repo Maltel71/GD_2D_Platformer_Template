@@ -101,14 +101,12 @@ scale = Vector2(1.430079, 1.430079)
 [node name="Greysugga_Enemy" parent="==ENEMIES==" instance=ExtResource("11_gtf73")]
 position = Vector2(109, 314)
 
-[node name="Tusked_Enemy" parent="==ENEMIES==" instance=ExtResource("11_gm8vl")]
-position = Vector2(176, 139)
-idle_volume = 1.0
-footstep_interval = 0.4
-
 [node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("12_gm8vl")]
 position = Vector2(292, 189)
 
 [node name="EnemyShooting" parent="==ENEMIES==" instance=ExtResource("10_ryfec")]
 position = Vector2(118, 254)
 footstep_interval = 0.30000000000000004
+
+[node name="Tusked_Enemy" parent="." instance=ExtResource("11_gm8vl")]
+position = Vector2(-1497, 156)
