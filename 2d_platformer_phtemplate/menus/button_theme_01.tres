@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bsgj6bos7rqas"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://bsgj6bos7rqas"]
 
+[ext_resource type="Texture2D" uid="uid://c5uvl0fddbeku" path="res://graphics/ui_button_toggle1_on_sprite_v1.png" id="1_7o0au"]
 [ext_resource type="Texture2D" uid="uid://bfebusi80v6oi" path="res://graphics/grabber_v1.png" id="1_unr3d"]
+[ext_resource type="Texture2D" uid="uid://dawq0irns7b7m" path="res://graphics/ui_button_toggle1_off_sprite_v1.png" id="2_54jfn"]
 [ext_resource type="Texture2D" uid="uid://dslcwb4vk0m6c" path="res://graphics/grabber_v2.png" id="2_r1sf5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1sf5"]
@@ -30,7 +32,7 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eaowb"]
 bg_color = Color(0.8175212, 0.81752133, 0.8175211, 1)
-border_width_left = 10
+border_width_left = 100
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
@@ -211,6 +213,8 @@ Button/styles/focus = null
 Button/styles/hover = SubResource("StyleBoxFlat_r1sf5")
 Button/styles/normal = SubResource("StyleBoxFlat_pivjg")
 Button/styles/pressed = SubResource("StyleBoxFlat_eaowb")
+CheckButton/icons/checked = ExtResource("1_7o0au")
+CheckButton/icons/unchecked = ExtResource("2_54jfn")
 CheckButton/styles/normal = null
 HSlider/icons/grabber = ExtResource("1_unr3d")
 HSlider/icons/grabber_disabled = null

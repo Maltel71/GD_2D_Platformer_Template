@@ -33,6 +33,7 @@ func _ready():
 	
 	if hover_sound:
 		ok_button.mouse_entered.connect(_on_button_hover)
+		god_mode_toggle.mouse_entered.connect(_on_button_hover)
 	
 	master_volume.min_value = 0
 	master_volume.max_value = 1
