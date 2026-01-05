@@ -156,6 +156,8 @@ animation = &"bloodsplatter"
 
 [node name="IdlePlayer" type="AudioStreamPlayer2D" parent="."]
 max_distance = 500.0
+bus = &"sfx"
 
 [node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
 max_distance = 500.0
+bus = &"sfx"

@@ -37,18 +37,18 @@ func _ready():
 	
 	# Set audio bus and start idle loop
 	if idle_player:
-		idle_player.bus = "SFX"
+		idle_player.bus = "sfx"
 		if idle_sound:
 			idle_player.stream = idle_sound
 			idle_player.volume_db = idle_volume
 			idle_player.play()
 	
 	if sfx_player:
-		sfx_player.bus = "SFX"
+		sfx_player.bus = "sfx"
 	
 	# Start flying sound loop
 	if flying_player:
-		flying_player.bus = "SFX"
+		flying_player.bus = "sfx"
 		if flying_sound:
 			flying_player.stream = flying_sound
 			flying_player.volume_db = flying_volume

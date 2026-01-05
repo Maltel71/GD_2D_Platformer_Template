@@ -59,17 +59,17 @@ func _ready():
 	
 	# Set audio bus and start idle loop
 	if idle_player:
-		idle_player.bus = "SFX"
+		idle_player.bus = "sfx"
 		if idle_sound:
 			idle_player.stream = idle_sound
 			idle_player.volume_db = idle_volume
 			idle_player.play()
 	
 	if sfx_player:
-		sfx_player.bus = "SFX"
+		sfx_player.bus = "sfx"
 	
 	if in_air_player:
-		in_air_player.bus = "SFX"
+		in_air_player.bus = "sfx"
 
 func _physics_process(delta):
 	# Track air state for landing detection

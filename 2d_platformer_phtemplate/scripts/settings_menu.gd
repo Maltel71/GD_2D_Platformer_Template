@@ -18,8 +18,8 @@ func _ready():
 	
 	# Load saved volumes BEFORE connecting signals
 	master_volume.value = db_to_linear(AudioServer.get_bus_volume_db(0))
-	sfx_volume.value = db_to_linear(AudioServer.get_bus_volume_db(2))
 	music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(1))
+	sfx_volume.value = db_to_linear(AudioServer.get_bus_volume_db(2))
 	
 	# Load saved god mode state
 	god_mode_toggle.button_pressed = GlobalSettings.god_mode_enabled
