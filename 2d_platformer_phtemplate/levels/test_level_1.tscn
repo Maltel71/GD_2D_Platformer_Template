@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=37 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://dwqtkbaen67f8" path="res://graphics/enviroment/plants/env_plant5_sprite_v1.png" id="33_8qcgp"]
 [ext_resource type="Texture2D" uid="uid://pq22fgge31p0" path="res://graphics/enviroment/plants/env_plant6_sprite_v1.png" id="34_epd4w"]
 [ext_resource type="PackedScene" uid="uid://cov4w0kwt1gjj" path="res://level_components/mine.tscn" id="35_h8sgn"]
+[ext_resource type="PackedScene" uid="uid://cyn8u2w3idu3q" path="res://level_components/parallax_bg.tscn" id="36_5w0hf"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -71,9 +72,9 @@ texture = ExtResource("3_kql2n")
 stretch_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="background_green2" type="TextureRect" parent="."]
+[node name="background_grey" type="TextureRect" parent="."]
 modulate = Color(0.78039217, 0.78039217, 0.78039217, 1)
-z_index = -20
+z_index = -50
 offset_left = -3686.9998
 offset_top = -1985.0
 offset_right = -1765.9998
@@ -394,3 +395,6 @@ texture = ExtResource("34_epd4w")
 [node name="Node2D2" parent="." instance=ExtResource("35_h8sgn")]
 position = Vector2(-39, 153)
 knockback_strength = 700.0
+
+[node name="Node2D" parent="." instance=ExtResource("36_5w0hf")]
+position = Vector2(-214, -45)

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyn8u2w3idu3q"]
+
+[ext_resource type="Texture2D" uid="uid://cfxrrhdjgqx53" path="res://graphics/enviroment/BG/env_bg1_sprite_01_v1.png" id="1_qovcj"]
+[ext_resource type="Texture2D" uid="uid://7a1isffjh6c2" path="res://graphics/enviroment/BG/env_bg2_sprite_01_v1.png" id="2_f00ni"]
+[ext_resource type="Texture2D" uid="uid://bw0vfni7js0b" path="res://graphics/enviroment/BG/env_bg3_sprite_01_v1.png" id="3_a4rfn"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+z_index = -28
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="BG1" type="TextureRect" parent="Parallax2D"]
+offset_right = 3049.0
+offset_bottom = 1024.0
+texture = ExtResource("1_qovcj")
+stretch_mode = 1
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+z_index = -29
+scroll_scale = Vector2(0.4, 0.4)
+
+[node name="BG2" type="TextureRect" parent="Parallax2D2"]
+offset_right = 3049.0
+offset_bottom = 1024.0
+texture = ExtResource("2_f00ni")
+stretch_mode = 1
+
+[node name="Parallax2D3" type="Parallax2D" parent="."]
+z_index = -30
+scroll_scale = Vector2(0.3, 0.3)
+
+[node name="BG3" type="TextureRect" parent="Parallax2D3"]
+offset_right = 3049.0
+offset_bottom = 1024.0
+texture = ExtResource("3_a4rfn")
+stretch_mode = 1
