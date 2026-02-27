@@ -24,3 +24,10 @@ position = Vector2(0, 1.90735e-06)
 rotation = 1.5708
 scale = Vector2(0.009147256, 0.04650318)
 texture = ExtResource("2_j40gx")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Area2D"]
+z_index = -1
+position = Vector2(-2, 2.2737368e-13)
+rotation = 1.5708
+scale = Vector2(0.007178552, 0.04901729)
+texture = ExtResource("2_j40gx")

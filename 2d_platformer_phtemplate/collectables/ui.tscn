@@ -41,3 +41,26 @@ text = "Health:"
 layout_mode = 2
 theme_override_font_sizes/font_size = 65
 text = "Meat: 0"
+
+[node name="Info" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = -1100.8455
+offset_top = 12.551758
+offset_right = -309.84546
+offset_bottom = 464.55176
+scale = Vector2(0.66979206, 0.66979206)
+theme_override_font_sizes/font_size = 65
+text = "CONTROLLS
+Move: WASD or Arrow Keys
+Shoot: SPACE
+Restart level: ENTER
+Menu: ESC"
+
+[node name="Info2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 1087.3992
+offset_top = 47.207275
+offset_right = 1949.3992
+offset_bottom = 499.20728
+theme_override_font_sizes/font_size = 65
+text = "Det här är inte ett färdigt spel."

@@ -396,5 +396,6 @@ texture = ExtResource("34_epd4w")
 position = Vector2(-39, 153)
 knockback_strength = 700.0
 
-[node name="Node2D" parent="." instance=ExtResource("36_5w0hf")]
+[node name="Parallax" parent="." instance=ExtResource("36_5w0hf")]
+visible = false
 position = Vector2(-214, -45)
