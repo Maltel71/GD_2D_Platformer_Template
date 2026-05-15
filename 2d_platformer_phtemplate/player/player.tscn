@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dagyi6jlwbb0w"]
+[gd_scene load_steps=15 format=3 uid="uid://dagyi6jlwbb0w"]
 
 [ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://scripts/UltimatePlatformerController.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_yw30f"]
@@ -9,14 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://bimb12dxnnxm0" path="res://audio/sfx/synth/synth (1).wav" id="6_2ieo8"]
 [ext_resource type="AudioStream" uid="uid://d1nm5cmdpstd" path="res://audio/sfx/Footsteps_U/grass_001_23185.mp3" id="7_tqiix"]
 [ext_resource type="AudioStream" uid="uid://d8qata64535u" path="res://audio/sfx/Footsteps_U/grass_011_23195.mp3" id="8_e7oew"]
-[ext_resource type="Texture2D" uid="uid://combsgjmuvrko" path="res://graphics/player/sprites/idle/player_idle_02.png" id="8_ebec5"]
 [ext_resource type="AudioStream" uid="uid://b8phaudywrgq0" path="res://audio/sfx/Footsteps_U/grass_013_23197.mp3" id="9_c35mf"]
-[ext_resource type="Texture2D" uid="uid://b0dgcoca74g4w" path="res://graphics/player/sprites/idle/player_idle_01.png" id="9_yllr7"]
-[ext_resource type="Texture2D" uid="uid://duggw1ty8d7h2" path="res://graphics/player/sprites/jump/player_jump_01.png" id="10_kb6p2"]
-[ext_resource type="Texture2D" uid="uid://cv1k4wf2s7jdh" path="res://graphics/player/sprites/walk/player_walk_01.png" id="11_wodsf"]
-[ext_resource type="Texture2D" uid="uid://ckyokqqhogsnd" path="res://graphics/player/sprites/walk/player_walk_02.png" id="12_32hag"]
-[ext_resource type="Texture2D" uid="uid://mn00whqu4hnm" path="res://graphics/player/muzzleflash/gun_muzzleflash_01.png" id="13_kb6p2"]
-[ext_resource type="Texture2D" uid="uid://kv6vke2tvtq8" path="res://graphics/player/muzzleflash/gun_muzzleflash_02.png" id="14_wodsf"]
+[ext_resource type="Texture2D" uid="uid://r5oguwp1051q" path="res://graphics/placeholders/icon.svg" id="13_yllr7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
 radius = 14.0
@@ -26,10 +20,10 @@ height = 64.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_kb6p2")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_wodsf")
+"texture": null
 }],
 "loop": false,
 "name": &"muzzleflash",
@@ -40,10 +34,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_ebec5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_yllr7")
+"texture": ExtResource("13_yllr7")
 }],
 "loop": true,
 "name": &"idle",
@@ -51,7 +42,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_kb6p2")
+"texture": ExtResource("13_yllr7")
 }],
 "loop": true,
 "name": &"jump",
@@ -59,10 +50,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_wodsf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_32hag")
+"texture": ExtResource("13_yllr7")
 }],
 "loop": true,
 "name": &"run",
@@ -70,17 +58,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_wodsf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_32hag")
+"texture": ExtResource("13_yllr7")
 }],
 "loop": true,
 "name": &"walk",
 "speed": 12.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
 collision_mask = 10
 script = ExtResource("1_rkbax")
 PlayerSprite = NodePath("AnimatedSprite2D_Player")
@@ -127,11 +112,9 @@ animation = &"muzzleflash"
 frame_progress = 0.47451738
 
 [node name="AnimatedSprite2D_Player" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.1132813, 1.1132813)
+scale = Vector2(0.18750001, 0.48437503)
 sprite_frames = SubResource("SpriteFrames_1abo5")
-animation = &"walk"
-frame = 1
-frame_progress = 0.19595402
+animation = &"jump"
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
 bus = &"sfx"

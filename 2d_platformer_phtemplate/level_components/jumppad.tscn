@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cm8xtc6srl3gy"]
+[gd_scene load_steps=7 format=3 uid="uid://cm8xtc6srl3gy"]
 
 [ext_resource type="Script" uid="uid://dto1tevwh3fr2" path="res://scripts/jumppad.gd" id="1_kon50"]
 [ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/sfx/click/click (1).wav" id="2_sya8y"]
-[ext_resource type="Texture2D" uid="uid://cifsl51oklgbk" path="res://graphics/enviroment/jumppad1_sprite_02_v1.png" id="3_148fp"]
-[ext_resource type="Texture2D" uid="uid://co2pa7di4a8nv" path="res://graphics/enviroment/jumppad1_sprite_01_v1.png" id="4_uhjyp"]
+[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="3_8uvnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sya8y"]
 size = Vector2(38, 10)
@@ -12,7 +11,7 @@ size = Vector2(38, 10)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_uhjyp")
+"texture": ExtResource("3_8uvnd")
 }],
 "loop": false,
 "name": &"activated",
@@ -20,7 +19,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_148fp")
+"texture": ExtResource("3_8uvnd")
 }],
 "loop": true,
 "name": &"idle",
@@ -41,8 +40,11 @@ position = Vector2(1, -3)
 shape = SubResource("RectangleShape2D_sya8y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.8567807, 0.6420391, 0.36363795, 1)
+position = Vector2(0.99999994, 3.0000002)
+scale = Vector2(0.08203125, 0.039062504)
 sprite_frames = SubResource("SpriteFrames_8uvnd")
-animation = &"idle"
+animation = &"activated"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 bus = &"sfx"

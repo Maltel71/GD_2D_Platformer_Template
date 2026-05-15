@@ -1,0 +1,241 @@
+[gd_scene load_steps=22 format=3 uid="uid://xm4mrn3xnpw"]
+
+[ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_eirof"]
+[ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_fvpuq"]
+[ext_resource type="PackedScene" uid="uid://cjby65q1mj1d7" path="res://level_components/dialogue_trigger.tscn" id="3_q3o2m"]
+[ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="4_4lgyx"]
+[ext_resource type="PackedScene" uid="uid://dn28jqjtuhjse" path="res://level_components/oneway_platform_01.tscn" id="5_5hlme"]
+[ext_resource type="PackedScene" uid="uid://cm8xtc6srl3gy" path="res://level_components/jumppad.tscn" id="6_twfqs"]
+[ext_resource type="PackedScene" uid="uid://cymiqket15ttm" path="res://level_components/moving_platform_01.tscn" id="7_b5p2i"]
+[ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_da0h5"]
+[ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="9_6bsew"]
+[ext_resource type="PackedScene" uid="uid://by5ey1qvje21g" path="res://level_components/spiked_platform_01.tscn" id="10_05dlg"]
+[ext_resource type="PackedScene" uid="uid://cjcgk4n02khmg" path="res://level_components/health_large_pickup_01.tscn" id="11_hmv5t"]
+[ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_small_pickup_01.tscn" id="12_125ls"]
+[ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://level_components/collectables/coin.tscn" id="13_3tjt2"]
+[ext_resource type="PackedScene" uid="uid://boqr2431f515h" path="res://enemy/enemy_jumping_01.tscn" id="14_veti7"]
+[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/greysugga_enemy.tscn" id="15_gmsk5"]
+[ext_resource type="PackedScene" uid="uid://t6qqpcoyy6dm" path="res://enemy/enemy_bullet.tscn" id="16_e8c0v"]
+[ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="17_5rk73"]
+[ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="18_ajy58"]
+[ext_resource type="PackedScene" uid="uid://cc2a46k0nigv6" path="res://enemy/tazerdude_enemy.tscn" id="19_rsv5g"]
+[ext_resource type="PackedScene" uid="uid://cov4w0kwt1gjj" path="res://level_components/mine.tscn" id="20_be4hq"]
+[ext_resource type="PackedScene" uid="uid://bcko51m0txpbs" path="res://enemy/tusked_enemy.tscn" id="21_vgdf1"]
+
+[node name="Asset_Library" type="Node2D"]
+
+[node name="BG" type="ColorRect" parent="."]
+z_index = -50
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.7807016, 0.7807017, 0.7807016, 1)
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("1_eirof")]
+position = Vector2(52, 770)
+
+[node name="bullet" parent="." instance=ExtResource("2_fvpuq")]
+position = Vector2(121, 773)
+
+[node name="dialogue_trigger" parent="." instance=ExtResource("3_q3o2m")]
+position = Vector2(68, 872)
+
+[node name="==ENVIROMENT==" type="Node2D" parent="."]
+
+[node name="platform_01" parent="==ENVIROMENT==" instance=ExtResource("4_4lgyx")]
+position = Vector2(142, 364)
+
+[node name="platform_02" parent="==ENVIROMENT==" instance=ExtResource("5_5hlme")]
+position = Vector2(82, 450)
+
+[node name="JumpPad" parent="==ENVIROMENT==" instance=ExtResource("6_twfqs")]
+position = Vector2(156, 286)
+
+[node name="MovingPlatform" parent="==ENVIROMENT==" instance=ExtResource("7_b5p2i")]
+position = Vector2(74, 289)
+
+[node name="GoalTrigger" parent="==ENVIROMENT==" instance=ExtResource("8_da0h5")]
+position = Vector2(137, 110)
+
+[node name="LevelResetTrigger" parent="==ENVIROMENT==" instance=ExtResource("9_6bsew")]
+position = Vector2(240, 1006)
+
+[node name="SpikedPlatform_01" parent="==ENVIROMENT==" instance=ExtResource("10_05dlg")]
+position = Vector2(315, 385)
+
+[node name="==PICKUPS==" type="Node2D" parent="."]
+
+[node name="HealthPickup_01" parent="==PICKUPS==" instance=ExtResource("11_hmv5t")]
+position = Vector2(49, 235)
+
+[node name="HealthPickup_02" parent="==PICKUPS==" instance=ExtResource("12_125ls")]
+position = Vector2(116, 235)
+
+[node name="coin" parent="==PICKUPS==" instance=ExtResource("13_3tjt2")]
+position = Vector2(172, 235)
+
+[node name="==ENEMIES==" type="Node2D" parent="."]
+
+[node name="Enemy_Jumping_01" parent="==ENEMIES==" instance=ExtResource("14_veti7")]
+position = Vector2(417, 667)
+
+[node name="Greysugga_Enemy" parent="==ENEMIES==" instance=ExtResource("15_gmsk5")]
+position = Vector2(226, 662)
+
+[node name="EnemyBullet" parent="==ENEMIES==" instance=ExtResource("16_e8c0v")]
+position = Vector2(295, 585)
+
+[node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("17_5rk73")]
+position = Vector2(321, 664)
+
+[node name="EnemyShooting" parent="==ENEMIES==" instance=ExtResource("18_ajy58")]
+position = Vector2(229, 577)
+
+[node name="Tazerdude_enemy" parent="==ENEMIES==" instance=ExtResource("19_rsv5g")]
+position = Vector2(114, 663)
+
+[node name="Mine" parent="==ENEMIES==" instance=ExtResource("20_be4hq")]
+position = Vector2(724, 680)
+
+[node name="==LABELS==" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="==LABELS=="]
+offset_left = 26.0
+offset_top = 702.0
+offset_right = 75.0
+offset_bottom = 725.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "player"
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="==LABELS=="]
+offset_left = 184.0
+offset_top = 495.0
+offset_right = 250.0
+offset_bottom = 518.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Enemies"
+metadata/_edit_lock_ = true
+
+[node name="Label6" type="Label" parent="==LABELS=="]
+offset_left = 385.0
+offset_top = 617.0
+offset_right = 451.0
+offset_bottom = 640.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "jumping"
+metadata/_edit_lock_ = true
+
+[node name="Label15" type="Label" parent="==LABELS=="]
+offset_left = 483.0
+offset_top = 698.0
+offset_right = 583.0
+offset_bottom = 721.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Large Enemy"
+metadata/_edit_lock_ = true
+
+[node name="Label7" type="Label" parent="==LABELS=="]
+offset_left = 289.0
+offset_top = 605.0
+offset_right = 355.0
+offset_bottom = 628.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Floating"
+metadata/_edit_lock_ = true
+
+[node name="Label8" type="Label" parent="==LABELS=="]
+offset_left = 192.0
+offset_top = 607.0
+offset_right = 258.0
+offset_bottom = 630.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "normal"
+metadata/_edit_lock_ = true
+
+[node name="Label9" type="Label" parent="==LABELS=="]
+offset_left = 198.0
+offset_top = 522.0
+offset_right = 264.0
+offset_bottom = 545.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "shooting"
+metadata/_edit_lock_ = true
+
+[node name="Label4" type="Label" parent="==LABELS=="]
+offset_left = 169.0
+offset_top = 911.0
+offset_right = 305.0
+offset_bottom = 934.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Levelreset trigger"
+metadata/_edit_lock_ = true
+
+[node name="Label5" type="Label" parent="==LABELS=="]
+offset_left = 16.0
+offset_top = 810.0
+offset_right = 152.0
+offset_bottom = 833.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "dialogue trigger"
+metadata/_edit_lock_ = true
+
+[node name="Label3" type="Label" parent="==LABELS=="]
+offset_left = 216.0
+offset_top = 284.0
+offset_right = 292.0
+offset_bottom = 307.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "platforms"
+metadata/_edit_lock_ = true
+
+[node name="Label14" type="Label" parent="==LABELS=="]
+offset_left = 114.0
+offset_top = 12.0
+offset_right = 190.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Goal Trigger"
+metadata/_edit_lock_ = true
+
+[node name="Label11" type="Label" parent="==LABELS=="]
+offset_left = 157.0
+offset_top = 201.0
+offset_right = 190.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "coin"
+metadata/_edit_lock_ = true
+
+[node name="Label12" type="Label" parent="==LABELS=="]
+offset_left = 91.0
+offset_top = 172.0
+offset_right = 143.0
+offset_bottom = 221.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Health
+Small"
+metadata/_edit_lock_ = true
+
+[node name="Label13" type="Label" parent="==LABELS=="]
+offset_left = 23.0
+offset_top = 168.0
+offset_right = 75.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Health
+Large"
+metadata/_edit_lock_ = true
+
+[node name="Label10" type="Label" parent="==LABELS=="]
+offset_left = 88.0
+offset_top = 581.0
+offset_right = 144.0
+offset_bottom = 604.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "melee"
+metadata/_edit_lock_ = true
+
+[node name="Enemy_01" parent="==LABELS==" instance=ExtResource("21_vgdf1")]
+position = Vector2(524, 666)

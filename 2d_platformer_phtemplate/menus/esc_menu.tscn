@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bfijjwfqxgs76" path="res://scripts/esc_menu.gd" id="1_tpjvt"]
 [ext_resource type="Theme" uid="uid://bsgj6bos7rqas" path="res://menus/button_theme_01.tres" id="2_0jm85"]
 [ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/sfx/click/click (1).wav" id="2_wgmhh"]
-[ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="4_4v7l0"]
+[ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://level_components/collectables/ui.tscn" id="4_4v7l0"]
 
 [node name="EscMenu" type="CanvasLayer"]
 script = ExtResource("1_tpjvt")

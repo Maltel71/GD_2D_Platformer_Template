@@ -1,13 +1,12 @@
-[gd_scene load_steps=37 format=3 uid="uid://dkt0cxd2qefpc"]
+[gd_scene load_steps=26 format=3 uid="uid://dkt0cxd2qefpc"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="3_kql2n"]
 [ext_resource type="AudioStream" uid="uid://fgy4bfppp3hi" path="res://audio/music/bill_music/My DA (why).mp3" id="3_t58ta"]
-[ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="4_02ec3"]
-[ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="5_5vfu0"]
+[ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://level_components/collectables/coin.tscn" id="4_02ec3"]
+[ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://level_components/collectables/ui.tscn" id="5_5vfu0"]
 [ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/greysugga_enemy.tscn" id="6_kgy88"]
-[ext_resource type="Texture2D" uid="uid://coe3csc8hjmr1" path="res://graphics/placeholders/9slicepanel_speechbubbel_v1.png" id="6_lgfx6"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="7_aupmd"]
 [ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
@@ -18,28 +17,18 @@
 [ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="17_pmbwx"]
 [ext_resource type="PackedScene" uid="uid://cjby65q1mj1d7" path="res://level_components/dialogue_trigger.tscn" id="18_lgfx6"]
 [ext_resource type="AudioStream" uid="uid://p0mmiwqheptu" path="res://audio/sfx/dialogue/mumble_01_v1.mp3" id="19_5iaa6"]
-[ext_resource type="Texture2D" uid="uid://b65cmo60xybp4" path="res://graphics/enemies/enemy1/enemy1_sprite_01.png" id="19_6q8gj"]
 [ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_small_pickup_01.tscn" id="19_d31dk"]
 [ext_resource type="Theme" uid="uid://b1gawxyi82u3g" path="res://menus/dialogue_theme_01.tres" id="20_5iaa6"]
 [ext_resource type="PackedScene" uid="uid://cm8xtc6srl3gy" path="res://level_components/jumppad.tscn" id="22_5au7l"]
 [ext_resource type="PackedScene" uid="uid://boqr2431f515h" path="res://enemy/enemy_jumping_01.tscn" id="23_rr58p"]
 [ext_resource type="PackedScene" uid="uid://bcko51m0txpbs" path="res://enemy/tusked_enemy.tscn" id="24_yoilj"]
 [ext_resource type="PackedScene" uid="uid://cc2a46k0nigv6" path="res://enemy/tazerdude_enemy.tscn" id="25_tworg"]
-[ext_resource type="Texture2D" uid="uid://dtdudg4aktjta" path="res://graphics/enviroment/trees/env_tree1_sprite_v1.png" id="26_ly28y"]
-[ext_resource type="Texture2D" uid="uid://dgny148suge8x" path="res://graphics/enviroment/trees/env_tree2_sprite_v1.png" id="27_wh4jk"]
-[ext_resource type="Texture2D" uid="uid://cv82mki65jhcr" path="res://graphics/enviroment/trees/env_tree3_sprite_v1.png" id="28_h5kva"]
-[ext_resource type="Texture2D" uid="uid://uco156qdrxc6" path="res://graphics/enviroment/plants/env_plant1_sprite_v1.png" id="29_75rtf"]
-[ext_resource type="Texture2D" uid="uid://bdq3cntqcrsto" path="res://graphics/enviroment/plants/env_plant2_sprite_v1.png" id="30_h8sgn"]
-[ext_resource type="Texture2D" uid="uid://cqh71chmof8sv" path="res://graphics/enviroment/plants/env_plant3_sprite_v1.png" id="31_5w0hf"]
-[ext_resource type="Texture2D" uid="uid://d0qbncxx1xw1s" path="res://graphics/enviroment/plants/env_plant4_sprite_v1.png" id="32_kx420"]
-[ext_resource type="Texture2D" uid="uid://dwqtkbaen67f8" path="res://graphics/enviroment/plants/env_plant5_sprite_v1.png" id="33_8qcgp"]
-[ext_resource type="Texture2D" uid="uid://pq22fgge31p0" path="res://graphics/enviroment/plants/env_plant6_sprite_v1.png" id="34_epd4w"]
 [ext_resource type="PackedScene" uid="uid://cov4w0kwt1gjj" path="res://level_components/mine.tscn" id="35_h8sgn"]
 [ext_resource type="PackedScene" uid="uid://cyn8u2w3idu3q" path="res://level_components/parallax_bg.tscn" id="36_5w0hf"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_plkrb")]
+[node name="player" parent="." instance=ExtResource("1_plkrb")]
 position = Vector2(4, 50)
 shoot_cooldown = 0.2
 footstep_interval = 0.5
@@ -89,7 +78,6 @@ offset_left = 382.0
 offset_top = -39.0
 offset_right = 638.0
 offset_bottom = 217.0
-texture = ExtResource("6_lgfx6")
 patch_margin_left = 128
 patch_margin_top = 128
 patch_margin_right = 128
@@ -334,7 +322,6 @@ text = "Hi friend!"
 position = Vector2(-16, 11)
 rotation = 1.6647534
 scale = Vector2(0.8490911, -1.060967)
-texture = ExtResource("19_6q8gj")
 
 [node name="JumpPad" parent="." instance=ExtResource("22_5au7l")]
 position = Vector2(176, 298)
@@ -349,48 +336,39 @@ rotation = -0.7760756
 [node name="EnvTree1SpriteV1" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(-463, 215)
-texture = ExtResource("26_ly28y")
 metadata/_edit_lock_ = true
 
 [node name="EnvTree2SpriteV1" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(-405, 309)
-texture = ExtResource("27_wh4jk")
 
 [node name="EnvTree3SpriteV1" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(113, 127)
-texture = ExtResource("28_h5kva")
 
 [node name="EnvPlant1SpriteV1" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(-315, 357)
-texture = ExtResource("29_75rtf")
 
 [node name="EnvPlant2SpriteV1" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(-64, 413)
-texture = ExtResource("30_h8sgn")
 
 [node name="EnvPlant3SpriteV1" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(-208, 391)
-texture = ExtResource("31_5w0hf")
 
 [node name="EnvPlant4SpriteV1" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(134, 286)
-texture = ExtResource("32_kx420")
 
 [node name="EnvPlant5SpriteV1" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(-108, 183)
-texture = ExtResource("33_8qcgp")
 
 [node name="EnvPlant6SpriteV1" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(267, 397)
-texture = ExtResource("34_epd4w")
 
 [node name="Node2D2" parent="." instance=ExtResource("35_h8sgn")]
 position = Vector2(-39, 153)
