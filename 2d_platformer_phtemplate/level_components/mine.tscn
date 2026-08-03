@@ -1,16 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cov4w0kwt1gjj"]
+[gd_scene format=3 uid="uid://cov4w0kwt1gjj"]
 
 [ext_resource type="Script" uid="uid://3d670oklf7d" path="res://scripts/mine.gd" id="1_0101b"]
-[ext_resource type="Texture2D" uid="uid://dnc6x5037p5nb" path="res://graphics/enviroment/mine_sprite_01_v1.png" id="1_j3sak"]
 [ext_resource type="AudioStream" uid="uid://b15ej3l852a86" path="res://audio/sfx/laser_shoot/laserShoot (4).wav" id="2_6eiy8"]
-[ext_resource type="Texture2D" uid="uid://ba4qq5mwhp6qf" path="res://graphics/vfx/explotion1/vfx_explotion1_01_v1.png" id="2_njchp"]
-[ext_resource type="Texture2D" uid="uid://ecn64mn8jfay" path="res://graphics/vfx/explotion1/vfx_explotion1_02_v1.png" id="3_6eiy8"]
 [ext_resource type="AudioStream" uid="uid://1aoyxrsaw25k" path="res://audio/sfx/blip_select/blipSelect (1).wav" id="3_rdvos"]
-[ext_resource type="Texture2D" uid="uid://c5ae1sntnio3q" path="res://graphics/vfx/explotion1/vfx_explotion1_03_v1.png" id="4_rdvos"]
-[ext_resource type="Texture2D" uid="uid://7uxfcamvqocj" path="res://graphics/vfx/explotion1/vfx_explotion1_04_v1.png" id="5_rw4eu"]
-[ext_resource type="Texture2D" uid="uid://5ywfa754hkgd" path="res://graphics/vfx/explotion1/vfx_explotion1_05_v1.png" id="6_nd1h2"]
-[ext_resource type="Texture2D" uid="uid://b80mfu36j8yrr" path="res://graphics/vfx/explotion1/vfx_explotion1_06_v1.png" id="7_jn8hl"]
-[ext_resource type="Texture2D" uid="uid://m7x24owrm6e0" path="res://graphics/vfx/explotion1/vfx_explotion1_07_v1.png" id="8_l31av"]
+[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="11_6eiy8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ku1sl"]
 radius = 25.0
@@ -22,58 +15,43 @@ radius = 96.00521
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_njchp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_6eiy8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_rdvos")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_rw4eu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_nd1h2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_jn8hl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_l31av")
+"texture": ExtResource("11_6eiy8")
 }],
-"loop": false,
+"loop": 0,
 "name": &"explode",
 "speed": 24.0
 }]
 
-[node name="Mine" type="Node2D"]
+[node name="Mine" type="Node2D" unique_id=1999293426]
 script = ExtResource("1_0101b")
 knockback_strength = 1200.0
 blink_interval_start = 0.2
 explosion_sound = ExtResource("2_6eiy8")
 fuse_sound = ExtResource("3_rdvos")
 
-[node name="TriggerArea2D" type="Area2D" parent="."]
+[node name="TriggerArea2D" type="Area2D" parent="." unique_id=1397519805]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea2D" unique_id=1819067791]
 shape = SubResource("CircleShape2D_ku1sl")
 
-[node name="BlastArea2D" type="Area2D" parent="."]
+[node name="BlastArea2D" type="Area2D" parent="." unique_id=786297390]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BlastArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlastArea2D" unique_id=892491375]
 shape = SubResource("CircleShape2D_72ocb")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=284960018]
 volume_db = -20.0
 bus = &"sfx"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=51638685]
 visible = false
+modulate = Color(0.7827301, 0.3514629, 0.12750125, 1)
+scale = Vector2(0.31640625, 0.31640625)
 sprite_frames = SubResource("SpriteFrames_ee03v")
 animation = &"explode"
 autoplay = "explode"
 
-[node name="MineSprite01V1" type="Sprite2D" parent="."]
-position = Vector2(0, -9)
-texture = ExtResource("1_j3sak")
+[node name="MineSprite01V1" type="Sprite2D" parent="." unique_id=1484898042]
+modulate = Color(0.73392826, 0.569446, 0.1907681, 1)
+scale = Vector2(0.07421875, 0.07421875)
+texture = ExtResource("11_6eiy8")

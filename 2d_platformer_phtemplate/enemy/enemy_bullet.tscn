@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://t6qqpcoyy6dm"]
+[gd_scene format=3 uid="uid://t6qqpcoyy6dm"]
 
 [ext_resource type="Script" uid="uid://blysyranoa4rw" path="res://scripts/Bullet.gd" id="1_5w8ll"]
 [ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="2_q77md"]
@@ -7,17 +7,17 @@
 radius = 3.0
 height = 23.999992
 
-[node name="EnemyBullet" type="Node2D"]
+[node name="EnemyBullet" type="Node2D" unique_id=286999630]
 script = ExtResource("1_5w8ll")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=324959880]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1709675782]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6bq6f")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-modulate = Color(0, 0, 0, 1)
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=11537727]
+modulate = Color(0.33660764, 0.3366076, 0.3366076, 1)
 position = Vector2(0, 1.90735e-06)
 rotation = 1.5708
 scale = Vector2(0.009147256, 0.04650318)

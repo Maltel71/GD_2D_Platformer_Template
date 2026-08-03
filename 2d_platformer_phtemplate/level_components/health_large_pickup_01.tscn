@@ -1,29 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjcgk4n02khmg"]
+[gd_scene format=3 uid="uid://cjcgk4n02khmg"]
 
 [ext_resource type="Script" uid="uid://clefkqsga7c0u" path="res://scripts/health_pickup.gd" id="1_vwfrb"]
 [ext_resource type="AudioStream" uid="uid://cdbwupu6r0c4l" path="res://audio/sfx/power_up/powerUp (1).wav" id="2_6pflf"]
-[ext_resource type="Texture2D" uid="uid://cvtmv35ybuqk1" path="res://graphics/pickups/health_large_sprite_01.png" id="3_vwfrb"]
+[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="3_vwfrb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4v1y"]
 size = Vector2(169.56268, 144.12828)
 
-[node name="HealthPickup_01" type="Node2D" node_paths=PackedStringArray("sprite")]
+[node name="HealthPickup_01" type="Node2D" unique_id=765101406 node_paths=PackedStringArray("sprite")]
 z_index = -2
 script = ExtResource("1_vwfrb")
 pickup_sound = ExtResource("2_6pflf")
 sprite = NodePath("PlaceholderSprite01")
 
-[node name="PlaceholderSprite01" type="Sprite2D" parent="."]
+[node name="PlaceholderSprite01" type="Sprite2D" parent="." unique_id=1516568913]
+modulate = Color(0.8352941, 0.8745098, 0.7058824, 1)
+position = Vector2(-1, 0)
+scale = Vector2(0.087890625, 0.07226562)
 texture = ExtResource("3_vwfrb")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=872669461]
 scale = Vector2(0.205, 0.205)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1120528706]
 position = Vector2(-4.8780494, 0)
 scale = Vector2(1.1507365, 1.1507365)
 shape = SubResource("RectangleShape2D_e4v1y")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1777307455]
 volume_db = -20.0
 bus = &"sfx"

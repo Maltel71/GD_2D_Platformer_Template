@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cm8xtc6srl3gy"]
+[gd_scene format=3 uid="uid://cm8xtc6srl3gy"]
 
 [ext_resource type="Script" uid="uid://dto1tevwh3fr2" path="res://scripts/jumppad.gd" id="1_kon50"]
 [ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/sfx/click/click (1).wav" id="2_sya8y"]
-[ext_resource type="Texture2D" uid="uid://cifsl51oklgbk" path="res://graphics/enviroment/jumppad1_sprite_02_v1.png" id="3_148fp"]
-[ext_resource type="Texture2D" uid="uid://co2pa7di4a8nv" path="res://graphics/enviroment/jumppad1_sprite_01_v1.png" id="4_uhjyp"]
+[ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="3_148fp"]
+[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="4_uhjyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sya8y"]
 size = Vector2(38, 10)
@@ -12,17 +12,17 @@ size = Vector2(38, 10)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_uhjyp")
+"texture": ExtResource("3_148fp")
 }],
-"loop": false,
+"loop": 0,
 "name": &"activated",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_148fp")
+"texture": ExtResource("4_uhjyp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }]
@@ -30,27 +30,30 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_148fp"]
 size = Vector2(45, 1)
 
-[node name="JumpPad" type="Node2D"]
+[node name="JumpPad" type="Node2D" unique_id=1115444364]
 script = ExtResource("1_kon50")
 boost_sound = ExtResource("2_sya8y")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1024811593]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1895425146]
 position = Vector2(1, -3)
 shape = SubResource("RectangleShape2D_sya8y")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1375512343]
+modulate = Color(0.17775786, 0.51494306, 0.5288616, 1)
+position = Vector2(1.0000007, 3.5)
+scale = Vector2(0.078125, 0.04492188)
 sprite_frames = SubResource("SpriteFrames_8uvnd")
 animation = &"idle"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1792760065]
 bus = &"sfx"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=413918103]
 collision_layer = 10
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1884704480]
 position = Vector2(0.5, 14.5)
 shape = SubResource("RectangleShape2D_148fp")

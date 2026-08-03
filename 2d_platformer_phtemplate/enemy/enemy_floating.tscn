@@ -1,18 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvbm0b511iwl"]
+[gd_scene format=3 uid="uid://bvbm0b511iwl"]
 
 [ext_resource type="Script" uid="uid://de1abq5qky54f" path="res://scripts/enemy_floating.gd" id="1_17dft"]
-[ext_resource type="Texture2D" uid="uid://5r81nqc7hb1e" path="res://graphics/enemies/enemyflying/enemyflying_sprite_01.png" id="2_17dft"]
 [ext_resource type="AudioStream" uid="uid://sfe75pkghb70" path="res://audio/sfx/sfx_enemy_idle1.mp3" id="2_u2qnw"]
-[ext_resource type="Texture2D" uid="uid://d2vmqdsp11qwj" path="res://graphics/enemies/enemyflying/enemyflying_sprite_02.png" id="3_acpmn"]
 [ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/sfx/hit_hurt/hitHurt (1).wav" id="3_ok3ko"]
-[ext_resource type="Texture2D" uid="uid://cnsq1c6nh0v6w" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_01_v1.png" id="4_5cc5i"]
 [ext_resource type="AudioStream" uid="uid://rghhmxcvoo5d" path="res://audio/sfx/hit_hurt/hitHurt (3).wav" id="4_y28m0"]
 [ext_resource type="AudioStream" uid="uid://c12w3by5o8wna" path="res://audio/sfx/sfx_enemy_fly_small1_v2.mp3" id="5_u2qnw"]
-[ext_resource type="Texture2D" uid="uid://kmklbde4dcvn" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_02_v1.png" id="5_ulei4"]
-[ext_resource type="Texture2D" uid="uid://mwg3rxasoq7l" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_03_v1.png" id="6_aj8ag"]
-[ext_resource type="Texture2D" uid="uid://b2sqoexe2p14y" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_04_v1.png" id="7_0al0j"]
-[ext_resource type="Texture2D" uid="uid://dicx17w4j5dg4" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_05_v1.png" id="8_u2qnw"]
-[ext_resource type="Texture2D" uid="uid://dn04hog0ktrk4" path="res://graphics/vfx/bloodsplat/vfx_bloodsplat_06_v1.png" id="9_ok3ko"]
+[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="12_0al0j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
 radius = 21.0
@@ -25,24 +18,9 @@ radius = 20.0087
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_5cc5i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_ulei4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_aj8ag")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_0al0j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_u2qnw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_ok3ko")
+"texture": ExtResource("12_0al0j")
 }],
-"loop": false,
+"loop": 0,
 "name": &"bloodsplatter",
 "speed": 24.0
 }]
@@ -51,25 +29,22 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_17dft")
+"texture": ExtResource("12_0al0j")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_17dft")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_acpmn")
+"texture": ExtResource("12_0al0j")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 12.0
 }]
 
-[node name="Enemy_Floating" type="CharacterBody2D"]
+[node name="Enemy_Floating" type="CharacterBody2D" unique_id=1190693441]
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_17dft")
@@ -83,38 +58,39 @@ death_volume = -10.0
 flying_sound = ExtResource("5_u2qnw")
 flying_volume = -10.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1097423200]
 shape = SubResource("CapsuleShape2D_ffj3o")
 
-[node name="AttackArea" type="Area2D" parent="."]
+[node name="AttackArea" type="Area2D" parent="." unique_id=299867316]
 position = Vector2(0, 10)
 scale = Vector2(1.8, 1.56)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1509926006]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_ld2qc")
 
-[node name="BloodSplatter" type="AnimatedSprite2D" parent="."]
+[node name="BloodSplatter" type="AnimatedSprite2D" parent="." unique_id=1735319225]
+modulate = Color(0.84297335, 0.27685776, 0.32302925, 1)
 z_index = -1
-position = Vector2(-1, 6)
+scale = Vector2(0.1171875, 0.1171875)
 sprite_frames = SubResource("SpriteFrames_y28m0")
 animation = &"bloodsplatter"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2009600208]
 position = Vector2(0, 3.8147e-06)
-scale = Vector2(-0.794, 0.794)
+scale = Vector2(-0.09360945, 0.09360949)
 sprite_frames = SubResource("SpriteFrames_17dft")
 animation = &"walk"
 
-[node name="IdlePlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="IdlePlayer" type="AudioStreamPlayer2D" parent="." unique_id=1041363132]
 max_distance = 500.0
 bus = &"sfx"
 
-[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=732985074]
 max_distance = 500.0
 bus = &"sfx"
 
-[node name="FlyingPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="FlyingPlayer" type="AudioStreamPlayer2D" parent="." unique_id=222801986]
 max_distance = 500.0
 bus = &"sfx"
