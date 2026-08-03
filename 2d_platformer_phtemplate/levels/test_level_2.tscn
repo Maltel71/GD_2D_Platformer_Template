@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cu1jrfb7oi86"]
+[gd_scene format=3 uid="uid://cu1jrfb7oi86"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_mc1td"]
 [ext_resource type="AudioStream" uid="uid://fgy4bfppp3hi" path="res://audio/music/bill_music/My DA (why).mp3" id="3_mc1td"]
@@ -14,24 +14,24 @@
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="12_gm8vl"]
 [ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="12_x2a8b"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=464546399]
 
-[node name="Player" parent="." instance=ExtResource("1_mc1td")]
+[node name="Player" parent="." unique_id=1645244188 instance=ExtResource("1_mc1td")]
 position = Vector2(-994, 45)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1268879031]
 position = Vector2(182, 229)
 zoom = Vector2(1.5, 1.5)
 script = ExtResource("11_wu0c2")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=641726457]
 stream = ExtResource("3_mc1td")
 volume_db = -20.0
 bus = &"music"
 
-[node name="ui" parent="." instance=ExtResource("9_kxfxx")]
+[node name="ui" parent="." unique_id=1680676423 instance=ExtResource("9_kxfxx")]
 
-[node name="background_01" type="TextureRect" parent="."]
+[node name="background_01" type="TextureRect" parent="." unique_id=802281495]
 modulate = Color(0.78039217, 0.78039217, 0.78039217, 1)
 z_index = -20
 offset_left = -3458.9998
@@ -43,70 +43,70 @@ texture = ExtResource("7_7rcka")
 stretch_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="LevelResetTrigger" parent="." instance=ExtResource("12_x2a8b")]
+[node name="LevelResetTrigger" parent="." unique_id=186656227 instance=ExtResource("12_x2a8b")]
 position = Vector2(114, 683)
 scale = Vector2(7.4800014, 1)
 
-[node name="GoalTrigger" parent="." instance=ExtResource("12_ay0he")]
+[node name="GoalTrigger" parent="." unique_id=514804137 instance=ExtResource("12_ay0he")]
 position = Vector2(320, 307)
 
-[node name="==PLATFORMS==" type="Node2D" parent="."]
+[node name="==PLATFORMS==" type="Node2D" parent="." unique_id=1555823026]
 
-[node name="=SPIKED=" type="Node2D" parent="==PLATFORMS=="]
+[node name="=SPIKED=" type="Node2D" parent="==PLATFORMS==" unique_id=980779634]
 
-[node name="platform_01" parent="==PLATFORMS==" instance=ExtResource("6_4auen")]
+[node name="platform_01" parent="==PLATFORMS==" unique_id=2079603060 instance=ExtResource("6_4auen")]
 position = Vector2(114, 386)
 
-[node name="platform_05" parent="==PLATFORMS==" instance=ExtResource("6_4auen")]
+[node name="platform_05" parent="==PLATFORMS==" unique_id=1075842037 instance=ExtResource("6_4auen")]
 position = Vector2(-996, 223)
 
-[node name="platform_07" parent="==PLATFORMS==" instance=ExtResource("6_4auen")]
+[node name="platform_07" parent="==PLATFORMS==" unique_id=481344174 instance=ExtResource("6_4auen")]
 position = Vector2(-1205, 223)
 
-[node name="platform_10" parent="==PLATFORMS==" instance=ExtResource("6_4auen")]
+[node name="platform_10" parent="==PLATFORMS==" unique_id=1460594718 instance=ExtResource("6_4auen")]
 position = Vector2(-992, 108)
 
-[node name="platform_11" parent="==PLATFORMS==" instance=ExtResource("6_4auen")]
+[node name="platform_11" parent="==PLATFORMS==" unique_id=61885944 instance=ExtResource("6_4auen")]
 position = Vector2(-1203, 108)
 
-[node name="platform_08" parent="==PLATFORMS==" instance=ExtResource("6_4auen")]
+[node name="platform_08" parent="==PLATFORMS==" unique_id=100206723 instance=ExtResource("6_4auen")]
 position = Vector2(-1414, 223)
 
-[node name="platform_09" parent="==PLATFORMS==" instance=ExtResource("6_4auen")]
+[node name="platform_09" parent="==PLATFORMS==" unique_id=543852517 instance=ExtResource("6_4auen")]
 position = Vector2(-1624, 223)
 
-[node name="platform_06" parent="==PLATFORMS==" instance=ExtResource("6_4auen")]
+[node name="platform_06" parent="==PLATFORMS==" unique_id=928967296 instance=ExtResource("6_4auen")]
 position = Vector2(-627, 231)
 
-[node name="platform_02" parent="==PLATFORMS==" instance=ExtResource("6_4auen")]
+[node name="platform_02" parent="==PLATFORMS==" unique_id=1160050193 instance=ExtResource("6_4auen")]
 position = Vector2(329, 386)
 
-[node name="MovingPlatform" parent="==PLATFORMS==" instance=ExtResource("10_gtf73")]
+[node name="MovingPlatform" parent="==PLATFORMS==" unique_id=1830591575 instance=ExtResource("10_gtf73")]
 position = Vector2(-413, 191.00002)
 scale = Vector2(1.430079, 1.430079)
 move_distance_x = 80.0
 
-[node name="MovingPlatform3" parent="==PLATFORMS==" instance=ExtResource("10_gtf73")]
+[node name="MovingPlatform3" parent="==PLATFORMS==" unique_id=1881853454 instance=ExtResource("10_gtf73")]
 position = Vector2(50, 188)
 scale = Vector2(1.430079, 1.430079)
 move_distance_x = -300.0
 move_duration = 3.0
 
-[node name="MovingPlatform2" parent="==PLATFORMS==" instance=ExtResource("10_gtf73")]
+[node name="MovingPlatform2" parent="==PLATFORMS==" unique_id=1135488110 instance=ExtResource("10_gtf73")]
 position = Vector2(-814, 185)
 scale = Vector2(1.430079, 1.430079)
 
-[node name="==ENEMIES==" type="Node2D" parent="."]
+[node name="==ENEMIES==" type="Node2D" parent="." unique_id=1030846455]
 
-[node name="Greysugga_Enemy" parent="==ENEMIES==" instance=ExtResource("11_gtf73")]
+[node name="Greysugga_Enemy" parent="==ENEMIES==" unique_id=1495669413 instance=ExtResource("11_gtf73")]
 position = Vector2(109, 314)
 
-[node name="Enemy_Floating" parent="==ENEMIES==" instance=ExtResource("12_gm8vl")]
+[node name="Enemy_Floating" parent="==ENEMIES==" unique_id=1402380115 instance=ExtResource("12_gm8vl")]
 position = Vector2(292, 189)
 
-[node name="EnemyShooting" parent="==ENEMIES==" instance=ExtResource("10_ryfec")]
+[node name="EnemyShooting" parent="==ENEMIES==" unique_id=2026623362 instance=ExtResource("10_ryfec")]
 position = Vector2(118, 254)
 footstep_interval = 0.30000000000000004
 
-[node name="Tusked_Enemy" parent="." instance=ExtResource("11_gm8vl")]
+[node name="Tusked_Enemy" parent="." unique_id=975977853 instance=ExtResource("11_gm8vl")]
 position = Vector2(-1497, 156)
