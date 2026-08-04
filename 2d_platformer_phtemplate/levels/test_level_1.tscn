@@ -48,9 +48,7 @@ metadata/_edit_lock_ = true
 
 [node name="==PLATFORMS==" type="Node2D" parent="." unique_id=189828871]
 
-[node name="=SPIKED=" type="Node2D" parent="==PLATFORMS==" unique_id=1854033367]
+[node name="platform_01" parent="==PLATFORMS==" unique_id=1872192627 instance=ExtResource("2_grhbk")]
+position = Vector2(6, 16)
 
 [node name="==ENEMIES==" type="Node2D" parent="." unique_id=1401050374]
-
-[node name="platform_01" parent="." unique_id=1872192627 instance=ExtResource("2_grhbk")]
-position = Vector2(6, 16)

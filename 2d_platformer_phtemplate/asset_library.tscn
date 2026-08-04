@@ -18,81 +18,72 @@
 [ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="16_lv7tp"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="17_85x07"]
 [ext_resource type="PackedScene" uid="uid://bcko51m0txpbs" path="res://enemy/tusked_enemy.tscn" id="18_710x1"]
-[ext_resource type="Texture2D" path="res://graphics/enviroment/plants/env_plant1_sprite_v1.png" id="18_lv7tp"]
-[ext_resource type="Texture2D" path="res://graphics/enviroment/plants/env_plant2_sprite_v1.png" id="19_85x07"]
-[ext_resource type="Texture2D" path="res://graphics/enviroment/plants/env_plant3_sprite_v1.png" id="20_amfs5"]
-[ext_resource type="Texture2D" path="res://graphics/enviroment/plants/env_plant4_sprite_v1.png" id="21_bq1tt"]
-[ext_resource type="Texture2D" path="res://graphics/enviroment/plants/env_plant5_sprite_v1.png" id="22_lvs0b"]
-[ext_resource type="Texture2D" path="res://graphics/enviroment/plants/env_plant6_sprite_v1.png" id="23_710x1"]
-[ext_resource type="Texture2D" path="res://graphics/enviroment/trees/env_tree1_sprite_v1.png" id="24_bq1tt"]
-[ext_resource type="Texture2D" path="res://graphics/enviroment/trees/env_tree2_sprite_v1.png" id="25_lvs0b"]
-[ext_resource type="Texture2D" path="res://graphics/enviroment/trees/env_tree3_sprite_v1.png" id="26_710x1"]
 [ext_resource type="PackedScene" uid="uid://boqr2431f515h" path="res://enemy/enemy_jumping_01.tscn" id="27_lvs0b"]
 [ext_resource type="PackedScene" uid="uid://cc2a46k0nigv6" path="res://enemy/tazerdude_enemy.tscn" id="29_iojvw"]
 
-[node name="Asset_Library" type="Node2D"]
+[node name="Asset_Library" type="Node2D" unique_id=375088225]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1313497935]
 z_index = -50
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.7807016, 0.7807017, 0.7807016, 1)
 metadata/_edit_lock_ = true
 
-[node name="GoalTrigger" parent="." instance=ExtResource("1_bnb56")]
+[node name="GoalTrigger" parent="." unique_id=1848373382 instance=ExtResource("1_bnb56")]
 position = Vector2(137, 110)
 
-[node name="HealthPickup_01" parent="." instance=ExtResource("2_byuh4")]
+[node name="HealthPickup_01" parent="." unique_id=2019925274 instance=ExtResource("2_byuh4")]
 position = Vector2(62, 236)
 
-[node name="HealthPickup_02" parent="." instance=ExtResource("3_vqhc3")]
+[node name="HealthPickup_02" parent="." unique_id=1839739245 instance=ExtResource("3_vqhc3")]
 position = Vector2(122, 234)
 
-[node name="JumpPad" parent="." instance=ExtResource("4_i7npw")]
+[node name="JumpPad" parent="." unique_id=1870525843 instance=ExtResource("4_i7npw")]
 position = Vector2(156, 286)
 
-[node name="LevelResetTrigger" parent="." instance=ExtResource("5_d4f8j")]
+[node name="LevelResetTrigger" parent="." unique_id=1715171649 instance=ExtResource("5_d4f8j")]
 position = Vector2(240, 1006)
 
-[node name="MovingPlatform" parent="." instance=ExtResource("6_x68k1")]
+[node name="MovingPlatform" parent="." unique_id=1176991370 instance=ExtResource("6_x68k1")]
 position = Vector2(74, 289)
 
-[node name="platform_01" parent="." instance=ExtResource("7_wsab0")]
+[node name="platform_01" parent="." unique_id=2038798897 instance=ExtResource("7_wsab0")]
 position = Vector2(142, 364)
 
-[node name="platform_02" parent="." instance=ExtResource("8_mtpxy")]
+[node name="platform_02" parent="." unique_id=1833254159 instance=ExtResource("8_mtpxy")]
 position = Vector2(82, 450)
 
-[node name="SpikedPlatform_01" parent="." instance=ExtResource("9_d4f8j")]
+[node name="SpikedPlatform_01" parent="." unique_id=778627895 instance=ExtResource("9_d4f8j")]
 position = Vector2(315, 385)
 
-[node name="dialogue_trigger" parent="." instance=ExtResource("10_onssu")]
+[node name="dialogue_trigger" parent="." unique_id=1552912085 instance=ExtResource("10_onssu")]
 position = Vector2(68, 872)
 
-[node name="bullet" parent="." instance=ExtResource("11_cgi6m")]
+[node name="bullet" parent="." unique_id=1459929044 instance=ExtResource("11_cgi6m")]
 position = Vector2(121, 773)
 
-[node name="Player" parent="." instance=ExtResource("12_o87d4")]
+[node name="Player" parent="." unique_id=65476520 instance=ExtResource("12_o87d4")]
 position = Vector2(52, 770)
 
-[node name="Greysugga_Enemy" parent="." instance=ExtResource("13_ox4b8")]
+[node name="Greysugga_Enemy" parent="." unique_id=1257974448 instance=ExtResource("13_ox4b8")]
 position = Vector2(226, 662)
 
-[node name="EnemyBullet" parent="." instance=ExtResource("14_d0cef")]
+[node name="EnemyBullet" parent="." unique_id=2088528335 instance=ExtResource("14_d0cef")]
 position = Vector2(295, 585)
 
-[node name="Enemy_Floating" parent="." instance=ExtResource("15_j7oox")]
+[node name="Enemy_Floating" parent="." unique_id=1564607489 instance=ExtResource("15_j7oox")]
 position = Vector2(321, 664)
 
-[node name="EnemyShooting" parent="." instance=ExtResource("16_lv7tp")]
+[node name="EnemyShooting" parent="." unique_id=1708823962 instance=ExtResource("16_lv7tp")]
 position = Vector2(229, 577)
 
-[node name="coin" parent="." instance=ExtResource("17_85x07")]
-position = Vector2(158, 232)
+[node name="coin" parent="." unique_id=503686748 instance=ExtResource("17_85x07")]
+position = Vector2(207, 234)
 
-[node name="==LABELS==" type="Node2D" parent="."]
+[node name="==LABELS==" type="Node2D" parent="." unique_id=313121798]
 
-[node name="Label" type="Label" parent="==LABELS=="]
+[node name="Label" type="Label" parent="==LABELS==" unique_id=1779330618]
 offset_left = 26.0
 offset_top = 702.0
 offset_right = 75.0
@@ -100,23 +91,137 @@ offset_bottom = 725.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "player"
 
-[node name="Label2" type="Label" parent="==LABELS=="]
-offset_left = 194.0
-offset_top = 492.0
-offset_right = 260.0
-offset_bottom = 515.0
+[node name="Label8" type="Label" parent="==LABELS==" unique_id=838123675]
+offset_left = 98.0
+offset_top = 740.0
+offset_right = 147.0
+offset_bottom = 763.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Enemies"
+text = "Bulletq"
 
-[node name="Label6" type="Label" parent="==LABELS=="]
-offset_left = 385.0
-offset_top = 617.0
-offset_right = 451.0
-offset_bottom = 640.0
+[node name="Label2" type="Label" parent="==LABELS==" unique_id=402197418]
+offset_left = 167.0
+offset_top = 481.0
+offset_right = 305.0
+offset_bottom = 528.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "jumping"
+theme_override_font_sizes/font_size = 34
+text = "Fiender"
 
-[node name="Label4" type="Label" parent="==LABELS=="]
+[node name="Label6" type="Label" parent="==LABELS==" unique_id=432885828]
+offset_left = 377.0
+offset_top = 616.0
+offset_right = 458.0
+offset_bottom = 639.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hoppande"
+
+[node name="Label7" type="Label" parent="==LABELS==" unique_id=485653967]
+offset_left = 285.0
+offset_top = 601.0
+offset_right = 351.0
+offset_bottom = 624.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Flygande"
+
+[node name="Label9" type="Label" parent="==LABELS==" unique_id=1888325090]
+offset_left = 187.0
+offset_top = 522.0
+offset_right = 265.0
+offset_bottom = 545.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Skjutande"
+
+[node name="Label12" type="Label" parent="==LABELS==" unique_id=1980451551]
+offset_left = 43.0
+offset_top = 408.0
+offset_right = 121.0
+offset_bottom = 431.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "OneWay"
+
+[node name="Label13" type="Label" parent="==LABELS==" unique_id=1469833065]
+offset_left = 95.0
+offset_top = 314.0
+offset_right = 188.0
+offset_bottom = 337.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "platform_01"
+
+[node name="Label14" type="Label" parent="==LABELS==" unique_id=1957765356]
+offset_left = 289.0
+offset_top = 325.0
+offset_right = 382.0
+offset_bottom = 348.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Spiked"
+
+[node name="Label15" type="Label" parent="==LABELS==" unique_id=839275994]
+offset_left = 46.0
+offset_top = 257.0
+offset_right = 116.0
+offset_bottom = 280.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Moving"
+
+[node name="Label16" type="Label" parent="==LABELS==" unique_id=1644933697]
+offset_left = 137.0
+offset_top = 256.0
+offset_right = 207.0
+offset_bottom = 279.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Studs"
+
+[node name="Label17" type="Label" parent="==LABELS==" unique_id=1607804733]
+offset_left = 16.0
+offset_top = 192.0
+offset_right = 86.0
+offset_bottom = 215.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "HP Large"
+
+[node name="Label18" type="Label" parent="==LABELS==" unique_id=2120184249]
+offset_left = 97.0
+offset_top = 194.0
+offset_right = 167.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "HP Small"
+
+[node name="Label19" type="Label" parent="==LABELS==" unique_id=923168932]
+offset_left = 184.0
+offset_top = 203.0
+offset_right = 254.0
+offset_bottom = 226.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Point"
+
+[node name="Label20" type="Label" parent="==LABELS==" unique_id=1739799362]
+offset_left = 90.0
+offset_top = 8.0
+offset_right = 189.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level switch Trigger"
+
+[node name="Label10" type="Label" parent="==LABELS==" unique_id=1997362343]
+offset_left = 200.0
+offset_top = 609.0
+offset_right = 259.0
+offset_bottom = 632.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Vanlig"
+
+[node name="Label11" type="Label" parent="==LABELS==" unique_id=1204805704]
+offset_left = 71.0
+offset_top = 560.0
+offset_right = 160.0
+offset_bottom = 609.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Ocentrerad
+hitbox"
+
+[node name="Label4" type="Label" parent="==LABELS==" unique_id=842699758]
 offset_left = 169.0
 offset_top = 911.0
 offset_right = 305.0
@@ -124,7 +229,7 @@ offset_bottom = 934.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Levelreset trigger"
 
-[node name="Label5" type="Label" parent="==LABELS=="]
+[node name="Label5" type="Label" parent="==LABELS==" unique_id=1313813687]
 offset_left = 16.0
 offset_top = 810.0
 offset_right = 152.0
@@ -132,64 +237,56 @@ offset_bottom = 833.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "dialogue trigger"
 
-[node name="Label3" type="Label" parent="==LABELS=="]
-offset_left = 216.0
-offset_top = 284.0
-offset_right = 282.0
-offset_bottom = 307.0
+[node name="Label3" type="Label" parent="==LABELS==" unique_id=276949896]
+offset_left = 219.0
+offset_top = 263.0
+offset_right = 403.0
+offset_bottom = 317.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "platforms"
+theme_override_font_sizes/font_size = 39
+text = "Platforms"
 
-[node name="Enemy_01" parent="==LABELS==" instance=ExtResource("18_710x1")]
+[node name="Enemy_01" parent="==LABELS==" unique_id=1140690813 instance=ExtResource("18_710x1")]
 position = Vector2(524, 666)
 
-[node name="EnvPlant1SpriteV1" type="Sprite2D" parent="."]
+[node name="EnvPlant1SpriteV1" type="Sprite2D" parent="." unique_id=1401903210]
 z_index = -2
 position = Vector2(709, 117)
-texture = ExtResource("18_lv7tp")
 
-[node name="EnvPlant2SpriteV1" type="Sprite2D" parent="."]
+[node name="EnvPlant2SpriteV1" type="Sprite2D" parent="." unique_id=1319714089]
 z_index = -2
 position = Vector2(771, 118)
-texture = ExtResource("19_85x07")
 
-[node name="EnvPlant3SpriteV1" type="Sprite2D" parent="."]
+[node name="EnvPlant3SpriteV1" type="Sprite2D" parent="." unique_id=1124429170]
 z_index = -2
 position = Vector2(847, 98)
-texture = ExtResource("20_amfs5")
 
-[node name="EnvPlant4SpriteV1" type="Sprite2D" parent="."]
+[node name="EnvPlant4SpriteV1" type="Sprite2D" parent="." unique_id=2094520800]
 z_index = -2
 position = Vector2(910, 106)
-texture = ExtResource("21_bq1tt")
 
-[node name="EnvPlant5SpriteV1" type="Sprite2D" parent="."]
+[node name="EnvPlant5SpriteV1" type="Sprite2D" parent="." unique_id=1902277972]
 z_index = -2
 position = Vector2(973, 103)
-texture = ExtResource("22_lvs0b")
 
-[node name="EnvPlant6SpriteV1" type="Sprite2D" parent="."]
+[node name="EnvPlant6SpriteV1" type="Sprite2D" parent="." unique_id=1646419957]
 z_index = -2
 position = Vector2(1039, 98)
-texture = ExtResource("23_710x1")
 
-[node name="EnvTree1SpriteV1" type="Sprite2D" parent="."]
+[node name="EnvTree1SpriteV1" type="Sprite2D" parent="." unique_id=1603844288]
 z_index = -2
 position = Vector2(764, 360)
-texture = ExtResource("24_bq1tt")
 
-[node name="EnvTree2SpriteV1" type="Sprite2D" parent="."]
+[node name="EnvTree2SpriteV1" type="Sprite2D" parent="." unique_id=1940976535]
 z_index = -2
 position = Vector2(888, 447)
-texture = ExtResource("25_lvs0b")
 
-[node name="EnvTree3SpriteV1" type="Sprite2D" parent="."]
+[node name="EnvTree3SpriteV1" type="Sprite2D" parent="." unique_id=1075926427]
 z_index = -2
 position = Vector2(1000, 342)
-texture = ExtResource("26_710x1")
 
-[node name="Enemy_Jumping_01" parent="." instance=ExtResource("27_lvs0b")]
+[node name="Enemy_Jumping_01" parent="." unique_id=485379266 instance=ExtResource("27_lvs0b")]
 position = Vector2(417, 667)
 
-[node name="Tazerdude_enemy" parent="." instance=ExtResource("29_iojvw")]
+[node name="Tazerdude_enemy" parent="." unique_id=889100948 instance=ExtResource("29_iojvw")]
 position = Vector2(114, 663)
