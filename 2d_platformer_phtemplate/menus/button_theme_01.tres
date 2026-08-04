@@ -1,10 +1,5 @@
 [gd_resource type="Theme" format=3 uid="uid://bsgj6bos7rqas"]
 
-[ext_resource type="Texture2D" uid="uid://c5uvl0fddbeku" path="res://graphics/ui_button_toggle1_on_sprite_v1.png" id="1_7o0au"]
-[ext_resource type="Texture2D" uid="uid://bfebusi80v6oi" path="res://graphics/grabber_v1.png" id="1_unr3d"]
-[ext_resource type="Texture2D" uid="uid://dawq0irns7b7m" path="res://graphics/ui_button_toggle1_off_sprite_v1.png" id="2_54jfn"]
-[ext_resource type="Texture2D" uid="uid://dslcwb4vk0m6c" path="res://graphics/grabber_v2.png" id="2_r1sf5"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1sf5"]
 bg_color = Color(0.7135178, 0.71351784, 0.7135176, 1)
 border_width_left = 100
@@ -222,12 +217,12 @@ Button/styles/focus = null
 Button/styles/hover = SubResource("StyleBoxFlat_r1sf5")
 Button/styles/normal = SubResource("StyleBoxFlat_pivjg")
 Button/styles/pressed = SubResource("StyleBoxFlat_eaowb")
-CheckButton/icons/checked = ExtResource("1_7o0au")
-CheckButton/icons/unchecked = ExtResource("2_54jfn")
+CheckButton/icons/checked = null
+CheckButton/icons/unchecked = null
 CheckButton/styles/normal = null
-HSlider/icons/grabber = ExtResource("1_unr3d")
+HSlider/icons/grabber = null
 HSlider/icons/grabber_disabled = null
-HSlider/icons/grabber_highlight = ExtResource("2_r1sf5")
+HSlider/icons/grabber_highlight = null
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_vgv8a")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_vgv8a")
 HSlider/styles/slider = SubResource("StyleBoxFlat_54jfn")

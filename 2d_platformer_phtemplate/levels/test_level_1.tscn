@@ -3,50 +3,33 @@
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_plkrb"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="2_grhbk"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="3_kql2n"]
-[ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="4_02ec3"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="5_5vfu0"]
-[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/greysugga_enemy.tscn" id="6_kgy88"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="7_aupmd"]
-[ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="8_t58ta"]
-[ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="9_grhbk"]
-[ext_resource type="PackedScene" uid="uid://cjcgk4n02khmg" path="res://level_components/health_large_pickup_01.tscn" id="9_t58ta"]
-[ext_resource type="PackedScene" uid="uid://by5ey1qvje21g" path="res://level_components/spiked_platform_01.tscn" id="12_5vfu0"]
-[ext_resource type="PackedScene" uid="uid://cymiqket15ttm" path="res://level_components/moving_platform_01.tscn" id="15_1j1kj"]
 [ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="15_t58ta"]
-[ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="17_pmbwx"]
-[ext_resource type="PackedScene" uid="uid://cjby65q1mj1d7" path="res://level_components/dialogue_trigger.tscn" id="18_lgfx6"]
-[ext_resource type="AudioStream" uid="uid://p0mmiwqheptu" path="res://audio/sfx/dialogue/mumble_01_v1.mp3" id="19_5iaa6"]
-[ext_resource type="PackedScene" uid="uid://d3qgg876pbv03" path="res://level_components/health_small_pickup_01.tscn" id="19_d31dk"]
-[ext_resource type="Theme" uid="uid://b1gawxyi82u3g" path="res://menus/dialogue_theme_01.tres" id="20_5iaa6"]
-[ext_resource type="PackedScene" uid="uid://cm8xtc6srl3gy" path="res://level_components/jumppad.tscn" id="22_5au7l"]
-[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="22_yoilj"]
-[ext_resource type="PackedScene" uid="uid://boqr2431f515h" path="res://enemy/enemy_jumping_01.tscn" id="23_rr58p"]
-[ext_resource type="PackedScene" uid="uid://bcko51m0txpbs" path="res://enemy/tusked_enemy.tscn" id="24_yoilj"]
-[ext_resource type="PackedScene" uid="uid://cc2a46k0nigv6" path="res://enemy/tazerdude_enemy.tscn" id="25_tworg"]
-[ext_resource type="PackedScene" uid="uid://cov4w0kwt1gjj" path="res://level_components/mine.tscn" id="35_h8sgn"]
 
-[node name="Node2D" type="Node2D" unique_id=103730185]
+[node name="Level_01" type="Node2D" unique_id=103730185]
 
 [node name="Player" parent="." unique_id=228637972 instance=ExtResource("1_plkrb")]
-position = Vector2(4, 50)
+position = Vector2(4, -50)
 shoot_cooldown = 0.2
 footstep_interval = 0.5
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=267179120]
-position = Vector2(182, 229)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1496188053]
+position = Vector2(-2, -97)
 zoom = Vector2(1.5, 1.5)
 script = ExtResource("7_aupmd")
 shake_intensity = 30.0
 shake_duration = 0.2
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=58915070]
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=58915070]
 volume_db = -20.0
 autoplay = true
 bus = &"music"
 
 [node name="ui" parent="." unique_id=1430004135 instance=ExtResource("5_5vfu0")]
+visible = false
 
-[node name="background_grey" type="TextureRect" parent="." unique_id=264791573]
+[node name="BG_Grey" type="TextureRect" parent="." unique_id=264791573]
 modulate = Color(0.78039217, 0.78039217, 0.78039217, 1)
 z_index = -50
 offset_left = -3686.9998
@@ -58,12 +41,7 @@ texture = ExtResource("3_kql2n")
 stretch_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="GoalTrigger" parent="." unique_id=879891930 instance=ExtResource("8_t58ta")]
-position = Vector2(574, 387)
-next_scene = "res://menus/WinMenu.tscn"
-metadata/_edit_lock_ = true
-
-[node name="LevelResetTrigger" parent="." unique_id=1936391256 instance=ExtResource("15_t58ta")]
+[node name="LevelReset" parent="." unique_id=1936391256 instance=ExtResource("15_t58ta")]
 position = Vector2(185, 935)
 scale = Vector2(8.128466, -0.93434733)
 metadata/_edit_lock_ = true
@@ -72,235 +50,7 @@ metadata/_edit_lock_ = true
 
 [node name="=SPIKED=" type="Node2D" parent="==PLATFORMS==" unique_id=1854033367]
 
-[node name="SpikedPlatform_01" parent="==PLATFORMS==/=SPIKED=" unique_id=340342416 instance=ExtResource("12_5vfu0")]
-position = Vector2(-11.000015, 182)
-
-[node name="SpikedPlatform_03" parent="==PLATFORMS==/=SPIKED=" unique_id=860179674 instance=ExtResource("12_5vfu0")]
-position = Vector2(58, 182)
-
-[node name="SpikedPlatform_02" parent="==PLATFORMS==/=SPIKED=" unique_id=666612138 instance=ExtResource("12_5vfu0")]
-position = Vector2(-87, 236)
-
-[node name="platform_01" parent="==PLATFORMS==" unique_id=574041450 instance=ExtResource("2_grhbk")]
-position = Vector2(145, 447)
-
-[node name="platform_05" parent="==PLATFORMS==" unique_id=411622368 instance=ExtResource("2_grhbk")]
-position = Vector2(-68, 447)
-
-[node name="platform_06" parent="==PLATFORMS==" unique_id=1025577127 instance=ExtResource("2_grhbk")]
-position = Vector2(-280, 447)
-
-[node name="platform_08" parent="==PLATFORMS==" unique_id=299985204 instance=ExtResource("2_grhbk")]
-position = Vector2(-491, 447)
-
-[node name="platform_09" parent="==PLATFORMS==" unique_id=1707052097 instance=ExtResource("2_grhbk")]
-position = Vector2(-702, 447)
-
-[node name="platform_04" parent="==PLATFORMS==" unique_id=1442426868 instance=ExtResource("2_grhbk")]
-position = Vector2(114, 331)
-
-[node name="platform_07" parent="==PLATFORMS==" unique_id=393387670 instance=ExtResource("2_grhbk")]
-position = Vector2(-385, 393)
-
-[node name="platform_02" parent="==PLATFORMS==" unique_id=2112507619 instance=ExtResource("2_grhbk")]
-position = Vector2(360, 447)
-
-[node name="platform_03" parent="==PLATFORMS==" unique_id=378820327 instance=ExtResource("2_grhbk")]
-position = Vector2(576, 447)
-
-[node name="MovingPlatform" parent="==PLATFORMS==" unique_id=375521130 instance=ExtResource("15_1j1kj")]
-position = Vector2(269, 259)
-scale = Vector2(1.430079, 1.430079)
-
-[node name="MovingPlatform2" parent="==PLATFORMS==" unique_id=994815094 instance=ExtResource("15_1j1kj")]
-position = Vector2(401, 259)
-scale = Vector2(1.430079, 1.430079)
-
-[node name="==PICKUPS==" type="Node2D" parent="." unique_id=1067848113]
-position = Vector2(293, 281)
-
-[node name="coin" parent="==PICKUPS==" unique_id=746989951 instance=ExtResource("4_02ec3")]
-position = Vector2(-39, 118)
-
-[node name="coin2" parent="==PICKUPS==" unique_id=564526825 instance=ExtResource("4_02ec3")]
-position = Vector2(-110, -2)
-
-[node name="coin3" parent="==PICKUPS==" unique_id=2023041731 instance=ExtResource("4_02ec3")]
-position = Vector2(-324, 116)
-
-[node name="HealthPickup_01" parent="==PICKUPS==" unique_id=1672428613 instance=ExtResource("19_d31dk")]
-position = Vector2(-164, 129)
-
-[node name="HealthPickup_03" parent="==PICKUPS==" unique_id=562687985 instance=ExtResource("9_t58ta")]
-position = Vector2(-94, 127)
-
 [node name="==ENEMIES==" type="Node2D" parent="." unique_id=1401050374]
 
-[node name="Enemy_Floating" parent="==ENEMIES==" unique_id=120267392 instance=ExtResource("9_grhbk")]
-position = Vector2(334.00003, 120.00001)
-scale = Vector2(1.4738091, 1.4738091)
-
-[node name="Enemy_01" parent="==ENEMIES==" unique_id=820677268 instance=ExtResource("6_kgy88")]
-position = Vector2(-121, 396)
-drop_item = ExtResource("4_02ec3")
-
-[node name="Enemy_02" parent="==ENEMIES==" unique_id=1568335005 instance=ExtResource("6_kgy88")]
-position = Vector2(34, 398)
-drop_item = ExtResource("19_d31dk")
-
-[node name="dialogue_trigger" parent="==ENEMIES==/Enemy_02" unique_id=1046707629 node_paths=PackedStringArray("section_1_label_1", "dr_label_1", "dr_label_2", "dr_label_3") instance=ExtResource("18_lgfx6")]
-position = Vector2(69, 0)
-section_1_label_1 = NodePath("Label1")
-section_1_label_1_duration = 2.0
-section_1_label_1_delay = 0.0
-section_1_label_2_duration = 2.0
-section_1_label_2_delay = 2.0
-section_2_label_1_duration = 2.0
-section_2_label_1_delay = 0.0
-section_2_label_2_duration = 2.0
-section_2_label_2_delay = 2.0
-dr_label_1 = NodePath("dr_Label1")
-dr_label_2 = NodePath("dr_Label2")
-dr_label_3 = NodePath("dr_Label3")
-speaking_sound = ExtResource("19_5iaa6")
-speaking_volume = -10.0
-
-[node name="Label1" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger" unique_id=612757871]
-offset_left = -104.0
-offset_top = -47.0
-offset_right = -19.0
-offset_bottom = -24.0
-text = "ILL GET YA!"
-
-[node name="dr_Label1" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger" unique_id=1529161514]
-offset_left = -104.0
-offset_top = -47.0
-offset_right = 116.0
-offset_bottom = -24.0
-text = "AAAARGHH"
-
-[node name="dr_Label2" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger" unique_id=1208671040]
-offset_left = -104.0
-offset_top = -47.0
-offset_right = 116.0
-offset_bottom = -24.0
-text = "SLORPNGG"
-
-[node name="dr_Label3" type="Label" parent="==ENEMIES==/Enemy_02/dialogue_trigger" unique_id=1846324567]
-offset_left = -104.0
-offset_top = -47.0
-offset_right = 132.0
-offset_bottom = -24.0
-text = "GNURRKK"
-
-[node name="Enemy_03" parent="==ENEMIES==" unique_id=701490536 instance=ExtResource("17_pmbwx")]
-position = Vector2(-355, 181)
-
-[node name="Enemy_04" parent="==ENEMIES==" unique_id=561814891 instance=ExtResource("24_yoilj")]
-position = Vector2(-578, 388)
-
-[node name="Tazerdude_enemy" parent="==ENEMIES==" unique_id=159847189 instance=ExtResource("25_tworg")]
-position = Vector2(394, 381)
-
-[node name="Enemy_Jumping_01" parent="==ENEMIES==" unique_id=166018366 instance=ExtResource("23_rr58p")]
-position = Vector2(316, 378)
-
-[node name="==NPCS===" type="Node2D" parent="." unique_id=258519392]
-position = Vector2(43, 278)
-
-[node name="RoachieRomaggio" type="Node2D" parent="==NPCS===" unique_id=1515125367]
-
-[node name="dialogue_trigger" parent="==NPCS===/RoachieRomaggio" unique_id=2031032187 node_paths=PackedStringArray("section_1_label_1", "section_1_label_2", "section_2_label_1", "section_2_label_2", "dr_label_1", "dr_label_2", "dr_label_3") instance=ExtResource("18_lgfx6")]
-section_1_label_1 = NodePath("Label1")
-section_1_label_1_duration = 2.0
-section_1_label_1_delay = 0.0
-section_1_label_2 = NodePath("Label2")
-section_1_label_2_duration = 2.0
-section_1_label_2_delay = 2.0
-section_2_label_1 = NodePath("Label3")
-section_2_label_1_duration = 2.0
-section_2_label_1_delay = 0.0
-section_2_label_2 = NodePath("Label4")
-section_2_label_2_duration = 2.0
-section_2_label_2_delay = 2.0
-dr_label_1 = NodePath("dr_label1")
-dr_label_2 = NodePath("dr_label2")
-dr_label_3 = NodePath("dr_label3")
-speaking_sound = ExtResource("19_5iaa6")
-speaking_volume = -10.0
-
-[node name="Label1" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger" unique_id=722978368]
-offset_left = -44.0
-offset_top = -52.0
-offset_right = 23.0
-offset_bottom = -29.0
-theme = ExtResource("20_5iaa6")
-text = "Hi there!"
-
-[node name="Label2" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger" unique_id=1586161762]
-offset_left = -44.0
-offset_top = -52.0
-offset_right = 155.0
-offset_bottom = -29.0
-theme = ExtResource("20_5iaa6")
-text = "Nice with some company."
-
-[node name="Label3" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger" unique_id=1404561468]
-offset_left = -44.0
-offset_top = -52.0
-offset_right = 108.0
-offset_bottom = -29.0
-theme = ExtResource("20_5iaa6")
-text = "Oh, youre still here!"
-
-[node name="Label4" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger" unique_id=1052994387]
-offset_left = -44.0
-offset_top = -52.0
-offset_right = 176.0
-offset_bottom = -29.0
-theme = ExtResource("20_5iaa6")
-text = "Ehrm.. Well, you smell nice..."
-
-[node name="dr_label1" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger" unique_id=630855084]
-offset_left = -44.0
-offset_top = -52.0
-offset_right = 176.0
-offset_bottom = -29.0
-theme = ExtResource("20_5iaa6")
-text = "Hi again!"
-
-[node name="dr_label2" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger" unique_id=540835991]
-offset_left = -44.0
-offset_top = -52.0
-offset_right = 176.0
-offset_bottom = -29.0
-theme = ExtResource("20_5iaa6")
-text = "Here to hang out with me?"
-
-[node name="dr_label3" type="Label" parent="==NPCS===/RoachieRomaggio/dialogue_trigger" unique_id=866098487]
-offset_left = -44.0
-offset_top = -52.0
-offset_right = 176.0
-offset_bottom = -29.0
-theme = ExtResource("20_5iaa6")
-text = "Hi friend!"
-
-[node name="Enemy1Sprite01" type="Sprite2D" parent="==NPCS===/RoachieRomaggio" unique_id=149131341]
-modulate = Color(0.40943167, 0.5513785, 0.30836168, 1)
-position = Vector2(-16, 12)
-scale = Vector2(0.054687504, 0.093750045)
-texture = ExtResource("22_yoilj")
-
-[node name="JumpPad" parent="." unique_id=767855736 instance=ExtResource("22_5au7l")]
-position = Vector2(176, 298)
-
-[node name="JumpPad3" parent="." unique_id=1668013127 instance=ExtResource("22_5au7l")]
-position = Vector2(-249, 413)
-
-[node name="JumpPad2" parent="." unique_id=288260115 instance=ExtResource("22_5au7l")]
-position = Vector2(-68, 178.99998)
-rotation = -0.7760756
-
-[node name="Node2D2" parent="." unique_id=546528772 instance=ExtResource("35_h8sgn")]
-position = Vector2(-39, 153)
-knockback_strength = 700.0
+[node name="platform_01" parent="." unique_id=1872192627 instance=ExtResource("2_grhbk")]
+position = Vector2(6, 16)

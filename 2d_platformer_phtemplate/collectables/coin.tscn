@@ -1,25 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://b745w3cdupv3v"]
+[gd_scene format=3 uid="uid://b745w3cdupv3v"]
 
 [ext_resource type="Script" uid="uid://f2shno0ghpwx" path="res://scripts/coin.gd" id="1_yjmdh"]
-[ext_resource type="AudioStream" uid="uid://cuodjbopyn2he" path="res://collectables/audio/sfx_pickup_coin_01.wav" id="2_k5m7g"]
-[ext_resource type="Texture2D" uid="uid://d31obxt3mhuku" path="res://graphics/pickups/coin_sprite_01.png" id="3_k5m7g"]
+[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="2_yjmdh"]
+
+[sub_resource type="Resource" id="Resource_yjmdh"]
+metadata/__load_path__ = "res://collectables/audio/sfx_pickup_coin_01.wav"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5uct3"]
 
-[node name="coin" type="Node2D"]
+[node name="coin" type="Node2D" unique_id=1439293361]
 script = ExtResource("1_yjmdh")
-collect_sound = ExtResource("2_k5m7g")
+collect_sound = SubResource("Resource_yjmdh")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=749123663]
+modulate = Color(0.602769, 0.7018809, 0.3551194, 1)
 z_index = 3
-scale = Vector2(0.8333333, 0.8333333)
-texture = ExtResource("3_k5m7g")
+scale = Vector2(0.03515625, 0.03515625)
+texture = ExtResource("2_yjmdh")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=443457000]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1474360713]
 shape = SubResource("CircleShape2D_5uct3")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=883132042]
 volume_db = -5.0
 bus = &"sfx"

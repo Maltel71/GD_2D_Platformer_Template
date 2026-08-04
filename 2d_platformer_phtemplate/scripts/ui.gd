@@ -11,10 +11,10 @@ func _process(_delta):
 	# Update health display every frame
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
-		health_label.text = "Health: %d" % player.current_health
+		health_label.text = "Hälsa: %d" % player.current_health
 
 func _on_score_changed(_new_score):
 	_update_score_display()
 
 func _update_score_display():
-	score_label.text = "Meat: %d" % GameManager.score
+	score_label.text = "Poäng: %d" % GameManager.score

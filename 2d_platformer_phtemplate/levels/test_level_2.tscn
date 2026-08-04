@@ -1,35 +1,30 @@
 [gd_scene format=3 uid="uid://cu1jrfb7oi86"]
 
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_mc1td"]
-[ext_resource type="AudioStream" uid="uid://fgy4bfppp3hi" path="res://audio/music/bill_music/My DA (why).mp3" id="3_mc1td"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="6_4auen"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="7_7rcka"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="9_kxfxx"]
-[ext_resource type="PackedScene" uid="uid://cymiqket15ttm" path="res://level_components/moving_platform_01.tscn" id="10_gtf73"]
-[ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="10_ryfec"]
-[ext_resource type="PackedScene" uid="uid://bcko51m0txpbs" path="res://enemy/tusked_enemy.tscn" id="11_gm8vl"]
-[ext_resource type="PackedScene" uid="uid://2sbchijd2mjp" path="res://enemy/greysugga_enemy.tscn" id="11_gtf73"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="11_wu0c2"]
-[ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="12_ay0he"]
-[ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="12_gm8vl"]
 [ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="12_x2a8b"]
 
-[node name="Node2D" type="Node2D" unique_id=464546399]
+[node name="Level_02" type="Node2D" unique_id=464546399]
 
 [node name="Player" parent="." unique_id=1645244188 instance=ExtResource("1_mc1td")]
-position = Vector2(-994, 45)
+position = Vector2(-2, -59)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1268879031]
-position = Vector2(182, 229)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=950543665]
+position = Vector2(-2, -97)
 zoom = Vector2(1.5, 1.5)
 script = ExtResource("11_wu0c2")
+shake_intensity = 30.0
+shake_duration = 0.2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=641726457]
-stream = ExtResource("3_mc1td")
 volume_db = -20.0
 bus = &"music"
 
 [node name="ui" parent="." unique_id=1680676423 instance=ExtResource("9_kxfxx")]
+visible = false
 
 [node name="background_01" type="TextureRect" parent="." unique_id=802281495]
 modulate = Color(0.78039217, 0.78039217, 0.78039217, 1)
@@ -46,67 +41,9 @@ metadata/_edit_lock_ = true
 [node name="LevelResetTrigger" parent="." unique_id=186656227 instance=ExtResource("12_x2a8b")]
 position = Vector2(114, 683)
 scale = Vector2(7.4800014, 1)
-
-[node name="GoalTrigger" parent="." unique_id=514804137 instance=ExtResource("12_ay0he")]
-position = Vector2(320, 307)
+metadata/_edit_lock_ = true
 
 [node name="==PLATFORMS==" type="Node2D" parent="." unique_id=1555823026]
 
-[node name="=SPIKED=" type="Node2D" parent="==PLATFORMS==" unique_id=980779634]
-
-[node name="platform_01" parent="==PLATFORMS==" unique_id=2079603060 instance=ExtResource("6_4auen")]
-position = Vector2(114, 386)
-
-[node name="platform_05" parent="==PLATFORMS==" unique_id=1075842037 instance=ExtResource("6_4auen")]
-position = Vector2(-996, 223)
-
-[node name="platform_07" parent="==PLATFORMS==" unique_id=481344174 instance=ExtResource("6_4auen")]
-position = Vector2(-1205, 223)
-
 [node name="platform_10" parent="==PLATFORMS==" unique_id=1460594718 instance=ExtResource("6_4auen")]
-position = Vector2(-992, 108)
-
-[node name="platform_11" parent="==PLATFORMS==" unique_id=61885944 instance=ExtResource("6_4auen")]
-position = Vector2(-1203, 108)
-
-[node name="platform_08" parent="==PLATFORMS==" unique_id=100206723 instance=ExtResource("6_4auen")]
-position = Vector2(-1414, 223)
-
-[node name="platform_09" parent="==PLATFORMS==" unique_id=543852517 instance=ExtResource("6_4auen")]
-position = Vector2(-1624, 223)
-
-[node name="platform_06" parent="==PLATFORMS==" unique_id=928967296 instance=ExtResource("6_4auen")]
-position = Vector2(-627, 231)
-
-[node name="platform_02" parent="==PLATFORMS==" unique_id=1160050193 instance=ExtResource("6_4auen")]
-position = Vector2(329, 386)
-
-[node name="MovingPlatform" parent="==PLATFORMS==" unique_id=1830591575 instance=ExtResource("10_gtf73")]
-position = Vector2(-413, 191.00002)
-scale = Vector2(1.430079, 1.430079)
-move_distance_x = 80.0
-
-[node name="MovingPlatform3" parent="==PLATFORMS==" unique_id=1881853454 instance=ExtResource("10_gtf73")]
-position = Vector2(50, 188)
-scale = Vector2(1.430079, 1.430079)
-move_distance_x = -300.0
-move_duration = 3.0
-
-[node name="MovingPlatform2" parent="==PLATFORMS==" unique_id=1135488110 instance=ExtResource("10_gtf73")]
-position = Vector2(-814, 185)
-scale = Vector2(1.430079, 1.430079)
-
-[node name="==ENEMIES==" type="Node2D" parent="." unique_id=1030846455]
-
-[node name="Greysugga_Enemy" parent="==ENEMIES==" unique_id=1495669413 instance=ExtResource("11_gtf73")]
-position = Vector2(109, 314)
-
-[node name="Enemy_Floating" parent="==ENEMIES==" unique_id=1402380115 instance=ExtResource("12_gm8vl")]
-position = Vector2(292, 189)
-
-[node name="EnemyShooting" parent="==ENEMIES==" unique_id=2026623362 instance=ExtResource("10_ryfec")]
-position = Vector2(118, 254)
-footstep_interval = 0.30000000000000004
-
-[node name="Tusked_Enemy" parent="." unique_id=975977853 instance=ExtResource("11_gm8vl")]
-position = Vector2(-1497, 156)
+position = Vector2(0, 4)

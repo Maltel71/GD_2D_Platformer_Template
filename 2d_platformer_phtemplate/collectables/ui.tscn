@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjs1iiy85voo6"]
+[gd_scene format=3 uid="uid://bjs1iiy85voo6"]
 
 [ext_resource type="Script" uid="uid://bw3cnixhoe7m4" path="res://scripts/ui.gd" id="1_43qpl"]
 [ext_resource type="Theme" uid="uid://bsgj6bos7rqas" path="res://menus/button_theme_01.tres" id="2_2qd2j"]
 
-[node name="ui" type="CanvasLayer"]
+[node name="ui" type="CanvasLayer" unique_id=803913835]
 script = ExtResource("1_43qpl")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=973340224]
 z_index = 10
 anchors_preset = 5
 anchor_left = 0.5
@@ -20,7 +20,7 @@ scale = Vector2(0.60596514, 0.60596514)
 pivot_offset = Vector2(457, 1)
 theme = ExtResource("2_2qd2j")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=442334063]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -32,17 +32,17 @@ grow_horizontal = 2
 theme_override_constants/separation = 330
 alignment = 1
 
-[node name="HealthLabel" type="Label" parent="Panel/HBoxContainer"]
+[node name="HealthLabel" type="Label" parent="Panel/HBoxContainer" unique_id=1940611097]
 layout_mode = 2
 theme_override_font_sizes/font_size = 65
-text = "Health:"
+text = "Hälsa:"
 
-[node name="ScoreLabel" type="Label" parent="Panel/HBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="Panel/HBoxContainer" unique_id=1228693682]
 layout_mode = 2
 theme_override_font_sizes/font_size = 65
-text = "Meat: 0"
+text = "Poäng: 0"
 
-[node name="Info" type="Label" parent="Panel"]
+[node name="Info" type="Label" parent="Panel" unique_id=807947212]
 layout_mode = 0
 offset_left = -1100.8455
 offset_top = 12.551758
@@ -50,17 +50,8 @@ offset_right = -309.84546
 offset_bottom = 464.55176
 scale = Vector2(0.66979206, 0.66979206)
 theme_override_font_sizes/font_size = 65
-text = "CONTROLLS
-Move: WASD or Arrow Keys
-Shoot: SPACE
-Restart level: ENTER
-Menu: ESC"
-
-[node name="Info2" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 1087.3992
-offset_top = 47.207275
-offset_right = 1949.3992
-offset_bottom = 499.20728
-theme_override_font_sizes/font_size = 65
-text = "Det här är inte ett färdigt spel."
+text = "Kontroller:
+Gå: WASD or Arrow Keys
+Skjut: SPACE
+Starta om level: ENTER
+Meny: ESC"
