@@ -1,17 +1,15 @@
 [gd_scene format=3 uid="uid://80wdm0gne172"]
 
 [ext_resource type="Script" uid="uid://f2shno0ghpwx" path="res://scripts/coin.gd" id="1_8wobe"]
-[ext_resource type="Texture2D" uid="uid://vevu00e2tu7e" path="res://graphics/anton/pickup_kristall_blå.png" id="2_8wobe"]
-
-[sub_resource type="Resource" id="Resource_yjmdh"]
-metadata/__load_path__ = "res://collectables/audio/sfx_pickup_coin_01.wav"
+[ext_resource type="Texture2D" uid="uid://vevu00e2tu7e" path="res://graphics/enviroment/anton/pickup_kristall_blå.png" id="2_8wobe"]
+[ext_resource type="AudioStream" uid="uid://wbx6x2nsbgmt" path="res://audio/sfx/pickup/pickupCoin (2).wav" id="2_44a08"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5uct3"]
 radius = 10.29563
 
 [node name="coin" type="Node2D" unique_id=1439293361]
 script = ExtResource("1_8wobe")
-collect_sound = SubResource("Resource_yjmdh")
+collect_sound = ExtResource("2_44a08")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=749123663]
 modulate = Color(0.602769, 0.7018809, 0.3551194, 1)
@@ -26,5 +24,5 @@ shape = SubResource("CircleShape2D_5uct3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=883132042]
 position = Vector2(-1, 0)
-volume_db = -5.0
+volume_db = -14.0
 bus = &"sfx"

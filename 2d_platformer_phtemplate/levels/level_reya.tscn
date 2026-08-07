@@ -6,12 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="4_nrmdd"]
 [ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="5_4i1m4"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="6_jqp1r"]
+[ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="7_xcj33"]
 [ext_resource type="Texture2D" uid="uid://cl0kfwst2h62j" path="res://graphics/env_sakura_tree_01_sprite.png" id="7_y0mfq"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="8_bsgdp"]
 [ext_resource type="Texture2D" uid="uid://cxfobqj2am3hj" path="res://graphics/env_blomma_01_sprite.png" id="9_4onv7"]
 [ext_resource type="Texture2D" uid="uid://38yekjsiuj4k" path="res://graphics/env_blomma_02_sprite.png" id="10_omg30"]
 [ext_resource type="Texture2D" uid="uid://crogpwd1ea0tu" path="res://graphics/env_bg_02_sprite.png" id="11_7x5wy"]
 [ext_resource type="PackedScene" uid="uid://boqr2431f515h" path="res://enemy/enemy_jumping_01.tscn" id="12_5grpg"]
+[ext_resource type="AudioStream" uid="uid://byqxrf441qp4m" path="res://audio/Alex skräcklåt.mp3" id="14_bf6jt"]
 
 [node name="Level_01" type="Node2D" unique_id=103730185]
 
@@ -54,11 +56,6 @@ zoom = Vector2(1.5, 1.5)
 script = ExtResource("2_xcj33")
 shake_intensity = 30.0
 shake_duration = 0.2
-
-[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=58915070]
-volume_db = -20.0
-autoplay = true
-bus = &"music"
 
 [node name="ui" parent="." unique_id=1430004135 instance=ExtResource("3_bf6jt")]
 
@@ -122,6 +119,14 @@ rotation = -0.048796237
 position = Vector2(-107.00003, 20.000004)
 rotation = -0.048796237
 
+[node name="platform_14" parent="==PLATFORMS==" unique_id=1269391765 instance=ExtResource("6_jqp1r")]
+position = Vector2(29, 19)
+rotation = -0.048796237
+
+[node name="platform_15" parent="==PLATFORMS==" unique_id=1125073256 instance=ExtResource("6_jqp1r")]
+position = Vector2(93, 16)
+rotation = -0.048796237
+
 [node name="platform_13" parent="==PLATFORMS==" unique_id=1613873393 instance=ExtResource("6_jqp1r")]
 position = Vector2(-217, 17)
 rotation = -0.048796237
@@ -130,10 +135,15 @@ rotation = -0.048796237
 position = Vector2(-269, -145)
 rotation = -0.041627765
 
+[node name="GoalTrigger" parent="==PLATFORMS==" unique_id=401836813 instance=ExtResource("7_xcj33")]
+position = Vector2(112, -57)
+next_scene = "res://levels/level_anton.tscn"
+
 [node name="==ENEMIES==" type="Node2D" parent="." unique_id=1401050374]
 
 [node name="EnvSakuraTree01Sprite" type="Sprite2D" parent="." unique_id=687546394]
-position = Vector2(-94, -80.000015)
+z_index = -10
+position = Vector2(-103, -72)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_y0mfq")
 
@@ -161,7 +171,7 @@ position = Vector2(-411, -97)
 point_value = 10
 
 [node name="coin4" parent="." unique_id=1389184267 instance=ExtResource("8_bsgdp")]
-position = Vector2(-122, -21)
+position = Vector2(-132, -26)
 point_value = 10
 
 [node name="EnvBlomma01Sprite" type="Sprite2D" parent="." unique_id=1762505969]
@@ -189,6 +199,13 @@ offset_right = 4836.0
 offset_bottom = 2755.0
 texture = ExtResource("11_7x5wy")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Enemy_Jumping_01" parent="." unique_id=1398974539 instance=ExtResource("12_5grpg")]
 position = Vector2(-406, -412)
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=2057154267]
+stream = ExtResource("14_bf6jt")
+volume_db = -15.0
+autoplay = true
+bus = &"music"

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_cxmc6"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="2_wjyqk"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="3_nlnoe"]
+[ext_resource type="AudioStream" uid="uid://byqxrf441qp4m" path="res://audio/Alex skräcklåt.mp3" id="3_r0rrc"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="4_r0rrc"]
 [ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="5_3eiqx"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="6_kjhr2"]
@@ -18,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://di6tfu2dxvkg6" path="res://graphics/env_svamp_01.png" id="16_tlcb0"]
 [ext_resource type="Texture2D" uid="uid://b4hbhmwawdf8m" path="res://graphics/env_svamp_02.png" id="17_svg4j"]
 [ext_resource type="PackedScene" uid="uid://boqr2431f515h" path="res://enemy/enemy_jumping_01.tscn" id="18_0utd1"]
+[ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="19_wjyqk"]
 
 [node name="Level_01" type="Node2D" unique_id=103730185]
 metadata/_edit_horizontal_guides_ = [-911.0]
@@ -35,7 +37,8 @@ shake_intensity = 30.0
 shake_duration = 0.2
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=58915070]
-volume_db = -20.0
+stream = ExtResource("3_r0rrc")
+volume_db = -15.0
 autoplay = true
 bus = &"music"
 
@@ -323,7 +326,7 @@ texture = ExtResource("14_mto16")
 
 [node name="EnvBlomma02Sprite2" type="Sprite2D" parent="." unique_id=431302828]
 z_index = -10
-position = Vector2(-292.99997, 379)
+position = Vector2(-438.99997, 375.00003)
 scale = Vector2(0.425, 0.51086956)
 texture = ExtResource("11_oakhv")
 
@@ -344,3 +347,7 @@ position = Vector2(-268, -166)
 
 [node name="Enemy_Jumping_04" parent="." unique_id=1425143977 instance=ExtResource("18_0utd1")]
 position = Vector2(-67, -314)
+
+[node name="GoalTrigger" parent="." unique_id=401836813 instance=ExtResource("19_wjyqk")]
+position = Vector2(-257, 401)
+next_scene = "res://levels/level_milo.tscn"

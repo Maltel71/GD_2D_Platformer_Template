@@ -23,9 +23,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_1oxq4")
-}, {
-"duration": 1.0,
 "texture": ExtResource("9_48mj4")
 }],
 "loop": 1,
@@ -72,11 +69,11 @@ landing_volume = -20.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1227467250]
 z_index = 2
+position = Vector2(-6.0000005, -5)
 rotation = 3.1415927
-scale = Vector2(0.065525524, 0.06552557)
+scale = Vector2(0.12642573, 0.12642582)
 sprite_frames = SubResource("SpriteFrames_ge483")
 animation = &"jump"
-frame_progress = 0.4357486
 flip_h = true
 flip_v = true
 

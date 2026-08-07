@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byqxrf441qp4m"
+path="res://.godot/imported/Alex skräcklåt.mp3-e03e51bff66796c1892997603b78daca.mp3str"
+
+[deps]
+
+source_file="res://audio/Alex skräcklåt.mp3"
+dest_files=["res://.godot/imported/Alex skräcklåt.mp3-e03e51bff66796c1892997603b78daca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

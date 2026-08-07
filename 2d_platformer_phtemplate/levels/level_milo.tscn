@@ -9,11 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://u2ekq32qpurf" path="res://level_components/platform_02.tscn" id="7_4go8g"]
 [ext_resource type="Texture2D" uid="uid://cp02g2pdd60b6" path="res://graphics/Milo/env_platform_grass_01_sprite.png" id="8_u8k2e"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="9_jydku"]
-[ext_resource type="AudioStream" uid="uid://djjfua45vw2b1" path="res://audio/music/downloaded/arcade-beat-323176.mp3" id="10_cojuc"]
 [ext_resource type="Texture2D" uid="uid://cbt4elies3sv5" path="res://graphics/malte/env_bg_01_sprite.png" id="11_rmgo5"]
 [ext_resource type="PackedScene" uid="uid://80wdm0gne172" path="res://collectables/kristall_blå.tscn" id="12_r73tc"]
 [ext_resource type="PackedScene" uid="uid://bkuylb46fthob" path="res://level_components/kristall_lila.tscn" id="13_iqqd2"]
 [ext_resource type="PackedScene" uid="uid://boqr2431f515h" path="res://enemy/enemy_jumping_01.tscn" id="14_nktr1"]
+[ext_resource type="PackedScene" uid="uid://ci5f2w8ckk06a" path="res://level_components/goal_trigger/goal_trigger.tscn" id="15_7u2q8"]
+[ext_resource type="AudioStream" uid="uid://byqxrf441qp4m" path="res://audio/Alex skräcklåt.mp3" id="15_81pav"]
+
+[sub_resource type="Resource" id="Resource_yjmdh"]
+metadata/__load_path__ = "res://collectables/audio/sfx_pickup_coin_01.wav"
 
 [node name="Level_01" type="Node2D" unique_id=103730185]
 
@@ -91,8 +95,32 @@ rotation = 0.11470741
 position = Vector2(422.3433, -1464.4656)
 rotation = 0.11470741
 
+[node name="platform_52" parent="==PLATFORMS==" unique_id=1924962416 instance=ExtResource("5_jat7j")]
+position = Vector2(692.632, -1149.5781)
+rotation = 0.11470741
+
+[node name="platform_53" parent="==PLATFORMS==" unique_id=1991576964 instance=ExtResource("5_jat7j")]
+position = Vector2(620.8414, -1094.459)
+rotation = 0.11470741
+
+[node name="platform_54" parent="==PLATFORMS==" unique_id=663534864 instance=ExtResource("5_jat7j")]
+position = Vector2(519.3645, -1012.98254)
+rotation = 0.11470741
+
 [node name="platform_25" parent="==PLATFORMS==" unique_id=511980037 instance=ExtResource("5_jat7j")]
 position = Vector2(1186.709, -1432.6364)
+rotation = 0.11470741
+
+[node name="platform_55" parent="==PLATFORMS==" unique_id=753592439 instance=ExtResource("5_jat7j")]
+position = Vector2(1117.9432, -1385.1887)
+rotation = 0.11470741
+
+[node name="platform_56" parent="==PLATFORMS==" unique_id=504888002 instance=ExtResource("5_jat7j")]
+position = Vector2(1252.2771, -1425.0314)
+rotation = 0.11470741
+
+[node name="platform_57" parent="==PLATFORMS==" unique_id=794050277 instance=ExtResource("5_jat7j")]
+position = Vector2(1316.8536, -1417.5566)
 rotation = 0.11470741
 
 [node name="platform_26" parent="==PLATFORMS==" unique_id=1221355585 instance=ExtResource("5_jat7j")]
@@ -262,33 +290,29 @@ texture = ExtResource("6_n3jqg")
 
 [node name="StaticBody2D" parent="==PLATFORMS==2" unique_id=2059721591 instance=ExtResource("7_4go8g")]
 position = Vector2(48, -764)
-collision_layer = 8
-collision_mask = 0
 
 [node name="StaticBody2D4" parent="==PLATFORMS==2" unique_id=1760040722 instance=ExtResource("7_4go8g")]
-position = Vector2(343, -202)
-collision_layer = 8
-collision_mask = 0
+position = Vector2(347, -216.00002)
+scale = Vector2(1.3344676, 0.84984255)
 
 [node name="StaticBody2D3" parent="==PLATFORMS==2" unique_id=1817351884 instance=ExtResource("7_4go8g")]
 position = Vector2(-179, -1577)
-collision_layer = 8
-collision_mask = 0
 
 [node name="StaticBody2D5" parent="==PLATFORMS==2" unique_id=1537878951 instance=ExtResource("7_4go8g")]
 position = Vector2(775, -1473)
-collision_layer = 8
-collision_mask = 0
+
+[node name="StaticBody2D7" parent="==PLATFORMS==2" unique_id=1962645470 instance=ExtResource("7_4go8g")]
+position = Vector2(742, -1388)
+
+[node name="StaticBody2D8" parent="==PLATFORMS==2" unique_id=137039421 instance=ExtResource("7_4go8g")]
+position = Vector2(810, -1411)
+rotation = 3.1415927
 
 [node name="StaticBody2D6" parent="==PLATFORMS==2" unique_id=2081274041 instance=ExtResource("7_4go8g")]
 position = Vector2(2428, -1798)
-collision_layer = 8
-collision_mask = 0
 
 [node name="StaticBody2D2" parent="==PLATFORMS==2" unique_id=803312343 instance=ExtResource("7_4go8g")]
 position = Vector2(-326, -939)
-collision_layer = 8
-collision_mask = 0
 
 [node name="EnvPlatformGrass01Sprite" type="Sprite2D" parent="==PLATFORMS==2" unique_id=381691294]
 position = Vector2(-55.00006, -147.00003)
@@ -296,7 +320,7 @@ scale = Vector2(0.12, 0.12)
 texture = ExtResource("8_u8k2e")
 
 [node name="coin6" parent="==PLATFORMS==2" unique_id=196359814 instance=ExtResource("9_jydku")]
-position = Vector2(341, -281)
+position = Vector2(144, -229)
 
 [node name="coin7" parent="==PLATFORMS==2" unique_id=1439293361 instance=ExtResource("9_jydku")]
 position = Vector2(47, -836)
@@ -310,18 +334,12 @@ position = Vector2(-339, -1019)
 [node name="==ENEMIES==" type="Node2D" parent="." unique_id=1401050374]
 position = Vector2(-4509, 23)
 
-[node name="Musik_01" type="AudioStreamPlayer2D" parent="." unique_id=1539062860]
-position = Vector2(-2, -144)
-stream = ExtResource("10_cojuc")
-volume_db = -9.831
-autoplay = true
-max_distance = 4096.0
-
 [node name="EnvBg01Sprite" type="Sprite2D" parent="." unique_id=1760091238]
 z_index = -50
 position = Vector2(-404, 372)
-scale = Vector2(8.745, 8.745)
+scale = Vector2(8.979862, 8.745)
 texture = ExtResource("11_rmgo5")
+metadata/_edit_lock_ = true
 
 [node name="coin" parent="." unique_id=1290277427 instance=ExtResource("12_r73tc")]
 position = Vector2(-1745, -2272)
@@ -336,13 +354,26 @@ point_value = 3
 [node name="coin2" parent="." unique_id=699767641 instance=ExtResource("13_iqqd2")]
 position = Vector2(-1704, -2272)
 point_value = 5
+collect_sound = SubResource("Resource_yjmdh")
 
 [node name="coin4" parent="." unique_id=1651555949 instance=ExtResource("13_iqqd2")]
 position = Vector2(2429, -1901)
 point_value = 10
+collect_sound = SubResource("Resource_yjmdh")
 
 [node name="Enemy_Jumping_01" parent="." unique_id=1398974539 instance=ExtResource("14_nktr1")]
 position = Vector2(-1650, -2273)
 
 [node name="Enemy_Jumping_02" parent="." unique_id=1572951487 instance=ExtResource("14_nktr1")]
 position = Vector2(1522, -1851)
+
+[node name="GoalTrigger" parent="." unique_id=401836813 instance=ExtResource("15_7u2q8")]
+position = Vector2(398, -302)
+next_scene = "res://levels/level_reya.tscn"
+metadata/_edit_lock_ = true
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=504239304]
+stream = ExtResource("15_81pav")
+volume_db = -15.0
+autoplay = true
+bus = &"music"

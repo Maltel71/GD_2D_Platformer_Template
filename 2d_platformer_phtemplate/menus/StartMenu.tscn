@@ -1,18 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cin8nd38hbd17"]
+[gd_scene format=3 uid="uid://cin8nd38hbd17"]
 
 [ext_resource type="Script" uid="uid://csjbu0ksq5dmp" path="res://scripts/start_menu.gd" id="1_1mllw"]
 [ext_resource type="AudioStream" uid="uid://b0g1qoa26mqc3" path="res://audio/sfx/click/click (1).wav" id="3_uqa4f"]
 [ext_resource type="Theme" uid="uid://bsgj6bos7rqas" path="res://menus/button_theme_01.tres" id="3_wns2j"]
 
-[node name="StartMenu" type="Control"]
+[node name="StartMenu" type="Control" unique_id=159290028]
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("3_wns2j")
 script = ExtResource("1_1mllw")
+game_scene_path = "res://levels/level_linnea.tscn"
 hover_sound = ExtResource("3_uqa4f")
 hover_volume = -20.0
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1461920153]
 layout_mode = 0
 offset_left = -29.0
 offset_top = -20.0
@@ -20,7 +21,7 @@ offset_right = 1950.0
 offset_bottom = 1110.0
 theme = ExtResource("3_wns2j")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1337347105]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.305
@@ -35,38 +36,41 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Header" type="Label" parent="Panel/VBoxContainer"]
+[node name="Header" type="Label" parent="Panel/VBoxContainer" unique_id=1262292330]
 layout_mode = 2
 theme = ExtResource("3_wns2j")
-text = "2DPlatformerShooter"
+text = "2D platform game:
+\"The Magical Bunny\""
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayAgainButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="PlayAgainButton" type="Button" parent="Panel/VBoxContainer" unique_id=967898323]
 layout_mode = 2
 theme = ExtResource("3_wns2j")
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
 text = "Play"
 
-[node name="SettingsButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="Panel/VBoxContainer" unique_id=1523154109]
 layout_mode = 2
 theme = ExtResource("3_wns2j")
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer" unique_id=625772759]
 layout_mode = 2
 theme = ExtResource("3_wns2j")
 text = "Quit"
 
-[node name="Credits" type="Label" parent="Panel/VBoxContainer"]
+[node name="Credits" type="Label" parent="Panel/VBoxContainer" unique_id=185915737]
 layout_mode = 2
 theme = ExtResource("3_wns2j")
-text = "Made by Malte"
+text = "Made by students of
+\"Prova på spelskapande 2026\"
+Kulturskolan Hallonbergen"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1658509942]
 position = Vector2(957, 539)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1605019174]

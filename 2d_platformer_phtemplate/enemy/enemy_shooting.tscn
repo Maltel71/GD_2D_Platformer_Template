@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8tl5dqihnok2"]
 
 [ext_resource type="Script" uid="uid://dqwdw4o4d26ya" path="res://scripts/enemy_shooter.gd" id="1_y1hi4"]
+[ext_resource type="PackedScene" uid="uid://80wdm0gne172" path="res://collectables/kristall_blå.tscn" id="2_m8tk7"]
 [ext_resource type="PackedScene" uid="uid://t6qqpcoyy6dm" path="res://enemy/enemy_bullet.tscn" id="2_x8wwt"]
 [ext_resource type="AudioStream" uid="uid://sfe75pkghb70" path="res://audio/sfx/sfx_enemy_idle1.mp3" id="3_v7sir"]
 [ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/sfx/hit_hurt/hitHurt (1).wav" id="4_58hks"]
@@ -9,15 +10,15 @@
 [ext_resource type="AudioStream" uid="uid://d8qata64535u" path="res://audio/sfx/Footsteps_U/grass_011_23195.mp3" id="7_m10nu"]
 [ext_resource type="AudioStream" uid="uid://b8phaudywrgq0" path="res://audio/sfx/Footsteps_U/grass_013_23197.mp3" id="8_7wl3g"]
 [ext_resource type="AudioStream" uid="uid://d3xekf1n6wys2" path="res://audio/sfx/laser_shoot/laserShoot (1).wav" id="9_xthaw"]
-[ext_resource type="Texture2D" uid="uid://h0g8hy0fdjnv" path="res://graphics/anton/troll_02.png" id="10_sfu42"]
+[ext_resource type="Texture2D" uid="uid://h0g8hy0fdjnv" path="res://graphics/enviroment/anton/troll_02.png" id="10_sfu42"]
 [ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="11_v7sir"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
 radius = 21.0
-height = 44.0
+height = 96.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ld2qc"]
-radius = 75.96346
+radius = 20.803938
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ge483"]
 animations = [{
@@ -53,6 +54,7 @@ animations = [{
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_y1hi4")
+drop_item = ExtResource("2_m8tk7")
 bullet_scene = ExtResource("2_x8wwt")
 idle_sound = ExtResource("3_v7sir")
 idle_volume = -10.0
@@ -68,16 +70,17 @@ shoot_sound = ExtResource("9_xthaw")
 shoot_volume = -15.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2117754087]
+position = Vector2(0, -29)
 shape = SubResource("CapsuleShape2D_ffj3o")
 
 [node name="WallRayRight" type="RayCast2D" parent="." unique_id=2127506618]
 rotation = -1.5708
-target_position = Vector2(0, 35)
+target_position = Vector2(0, 34.75)
 collision_mask = 9
 
 [node name="WallRayLeft" type="RayCast2D" parent="." unique_id=635768856]
 rotation = 1.5708
-target_position = Vector2(0, 35)
+target_position = Vector2(0, 34.75)
 collision_mask = 9
 
 [node name="LedgeRayRight" type="RayCast2D" parent="." unique_id=134122638]
@@ -94,34 +97,34 @@ scale = Vector2(1.8, 1.56)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=2019086320]
-position = Vector2(40.555557, -82.051285)
+position = Vector2(8.888889, -19.23077)
 shape = SubResource("CircleShape2D_ld2qc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1210393187]
 z_index = -1
-position = Vector2(71.38458, -121.58904)
-scale = Vector2(-0.19021372, 0.19229934)
+position = Vector2(5, -30)
+scale = Vector2(-0.097873785, 0.09894693)
 sprite_frames = SubResource("SpriteFrames_ge483")
 animation = &"walk"
 
 [node name="BulletSpawnPoint" type="Node2D" parent="." unique_id=2037329833]
-position = Vector2(51, 0)
+position = Vector2(16, -37)
 rotation = -1.5707964
 
 [node name="DetectionRayRight" type="RayCast2D" parent="." unique_id=108434290]
-position = Vector2(0, -13)
+position = Vector2(0, -65)
 rotation = -1.5707964
 target_position = Vector2(0, 235.765)
 
 [node name="DetectionRayLeft" type="RayCast2D" parent="." unique_id=1523620698]
-position = Vector2(0, -13)
+position = Vector2(0, -65)
 rotation = 1.5707964
 target_position = Vector2(0, 235.765)
 
 [node name="BloodSplatter" type="AnimatedSprite2D" parent="." unique_id=449549384]
 modulate = Color(0.71777576, 0.24084798, 0.22097102, 1)
 z_index = -1
-position = Vector2(70, -119)
+position = Vector2(5, -21.999992)
 scale = Vector2(0.10937501, 0.10937501)
 sprite_frames = SubResource("SpriteFrames_3m4hl")
 animation = &"bloodsplatter"
