@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/sfx/hit_hurt/hitHurt (1).wav" id="3_ok3ko"]
 [ext_resource type="AudioStream" uid="uid://rghhmxcvoo5d" path="res://audio/sfx/hit_hurt/hitHurt (3).wav" id="4_y28m0"]
 [ext_resource type="AudioStream" uid="uid://c12w3by5o8wna" path="res://audio/sfx/sfx_enemy_fly_small1_v2.mp3" id="5_u2qnw"]
+[ext_resource type="Texture2D" uid="uid://dkknio4a51vl6" path="res://graphics/anton/troll_01.png" id="7_wpbb4"]
 [ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="12_0al0j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffj3o"]
@@ -29,7 +30,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_0al0j")
+"texture": ExtResource("7_wpbb4")
 }],
 "loop": 1,
 "name": &"idle",
@@ -37,7 +38,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_0al0j")
+"texture": ExtResource("7_wpbb4")
 }],
 "loop": 1,
 "name": &"walk",
@@ -92,5 +93,6 @@ max_distance = 500.0
 bus = &"sfx"
 
 [node name="FlyingPlayer" type="AudioStreamPlayer2D" parent="." unique_id=222801986]
+position = Vector2(1, 2)
 max_distance = 500.0
 bus = &"sfx"
