@@ -1,21 +1,20 @@
 [gd_scene format=3 uid="uid://bvjwkkynww5uf"]
 
-[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="1_j3sib"]
+[ext_resource type="Texture2D" uid="uid://dxxapt3ryks1e" path="res://enemy/env_platform_grass_01_sprite.png" id="1_j3sib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmrlc"]
-size = Vector2(212, 53)
+size = Vector2(65, 48)
 
 [node name="platform_01" type="StaticBody2D" unique_id=1872192627]
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844983296]
-position = Vector2(0, 12.5)
+position = Vector2(-3, 5)
 shape = SubResource("RectangleShape2D_hmrlc")
 one_way_collision = true
 
-[node name="Graphics_PH" type="Sprite2D" parent="." unique_id=1038241247]
+[node name="sprite" type="Sprite2D" parent="." unique_id=1038241247]
 z_index = -5
-position = Vector2(0, 11)
-scale = Vector2(0.44531244, 0.125)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("1_j3sib")

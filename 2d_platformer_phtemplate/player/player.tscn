@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://d1nm5cmdpstd" path="res://audio/sfx/Footsteps_U/grass_001_23185.mp3" id="7_tqiix"]
 [ext_resource type="AudioStream" uid="uid://d8qata64535u" path="res://audio/sfx/Footsteps_U/grass_011_23195.mp3" id="8_e7oew"]
 [ext_resource type="AudioStream" uid="uid://b8phaudywrgq0" path="res://audio/sfx/Footsteps_U/grass_013_23197.mp3" id="9_c35mf"]
+[ext_resource type="Texture2D" uid="uid://bh8gtuib0nfl6" path="res://graphics/char_kanin_01_sprite.png" id="11_2ieo8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
 radius = 14.0
@@ -26,11 +27,14 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2ieo8"]
+load_path = "res://.godot/imported/char_kanin_01_sprite.png-50ef93c84c8e36c043917033fd6912b6.ctex"
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_1abo5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("11_2ieo8")
 }],
 "loop": 1,
 "name": &"idle",
@@ -38,7 +42,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("11_2ieo8")
 }],
 "loop": 1,
 "name": &"jump",
@@ -46,7 +50,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": SubResource("CompressedTexture2D_2ieo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2ieo8")
 }],
 "loop": 1,
 "name": &"run",
@@ -54,7 +61,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": SubResource("CompressedTexture2D_2ieo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2ieo8")
 }],
 "loop": 1,
 "name": &"walk",
@@ -110,8 +120,8 @@ animation = &"muzzleflash"
 frame_progress = 0.47451738
 
 [node name="AnimatedSprite2D_Player" type="AnimatedSprite2D" parent="." unique_id=468592304]
-position = Vector2(0, 4.7683716e-07)
-scale = Vector2(0.05859375, 0.12499999)
+position = Vector2(1, -5.9604645e-08)
+scale = Vector2(0.13740265, 0.13740265)
 sprite_frames = SubResource("SpriteFrames_1abo5")
 animation = &"walk"
 
