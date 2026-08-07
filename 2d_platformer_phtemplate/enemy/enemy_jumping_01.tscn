@@ -7,13 +7,14 @@
 [ext_resource type="AudioStream" uid="uid://cdbwupu6r0c4l" path="res://audio/sfx/power_up/powerUp (1).wav" id="5_sg7sa"]
 [ext_resource type="AudioStream" uid="uid://cg6axmkpibph" path="res://audio/sfx/laser_shoot/laserShoot.wav" id="6_xvycj"]
 [ext_resource type="AudioStream" uid="uid://d1nm5cmdpstd" path="res://audio/sfx/Footsteps_U/grass_001_23185.mp3" id="7_rkx27"]
-[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="9_lvsbn"]
+[ext_resource type="Texture2D" uid="uid://bilvoiduuwud8" path="res://graphics/char_enemy_froglin1_01_sprite.png" id="8_1oxq4"]
+[ext_resource type="Texture2D" uid="uid://dh6rjophq7qux" path="res://graphics/char_enemy_froglin1_02_sprite.png" id="10_48mj4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ge483"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_lvsbn")
+"texture": ExtResource("8_1oxq4")
 }],
 "loop": 1,
 "name": &"idle",
@@ -21,7 +22,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_lvsbn")
+"texture": ExtResource("10_48mj4")
 }],
 "loop": 1,
 "name": &"jump",
@@ -37,10 +38,7 @@ radius = 11.5
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7k8ur"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_lvsbn")
-}],
+"frames": [],
 "loop": 0,
 "name": &"bloodsplatter",
 "speed": 24.0
@@ -70,7 +68,7 @@ z_index = 2
 rotation = 3.1415927
 scale = Vector2(0.065525524, 0.06552557)
 sprite_frames = SubResource("SpriteFrames_ge483")
-animation = &"idle"
+animation = &"jump"
 flip_h = true
 flip_v = true
 
@@ -103,12 +101,13 @@ scale = Vector2(2, 2)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1138484436]
-position = Vector2(0, -5)
+position = Vector2(0.5, -5.5)
 shape = SubResource("CircleShape2D_ld2qc")
 
 [node name="BloodSplatter" type="AnimatedSprite2D" parent="." unique_id=1626189199]
 modulate = Color(0.84313726, 0.2784314, 0.32156864, 1)
 z_index = -1
+position = Vector2(-1.1920929e-07, 1.4210855e-14)
 scale = Vector2(-0.079639316, 0.07963935)
 sprite_frames = SubResource("SpriteFrames_7k8ur")
 animation = &"bloodsplatter"

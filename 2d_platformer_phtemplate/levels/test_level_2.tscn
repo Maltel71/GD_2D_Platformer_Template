@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_mc1td"]
 [ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="6_4auen"]
 [ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="7_7rcka"]
+[ext_resource type="AudioStream" uid="uid://drje0nyd0drtf" path="res://audio/music/downloaded/jungle-ish-beat-for-video-games-314073.mp3" id="7_r5uxk"]
 [ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="9_kxfxx"]
 [ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="11_wu0c2"]
 [ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="12_x2a8b"]
@@ -46,4 +47,9 @@ metadata/_edit_lock_ = true
 [node name="==PLATFORMS==" type="Node2D" parent="." unique_id=1555823026]
 
 [node name="platform_10" parent="==PLATFORMS==" unique_id=1460594718 instance=ExtResource("6_4auen")]
-position = Vector2(0, 4)
+position = Vector2(0, 20)
+
+[node name="musik_01" type="AudioStreamPlayer2D" parent="." unique_id=1870805143]
+position = Vector2(-1079, -51)
+stream = ExtResource("7_r5uxk")
+autoplay = true

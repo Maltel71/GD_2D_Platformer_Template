@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bvbm0b511iwl" path="res://enemy/enemy_floating.tscn" id="15_j7oox"]
 [ext_resource type="PackedScene" uid="uid://b8tl5dqihnok2" path="res://enemy/enemy_shooting.tscn" id="16_lv7tp"]
 [ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="17_85x07"]
-[ext_resource type="PackedScene" uid="uid://bcko51m0txpbs" path="res://enemy/tusked_enemy.tscn" id="18_710x1"]
+[ext_resource type="PackedScene" uid="uid://bcko51m0txpbs" path="res://graphics/tusked_enemy.tscn" id="18_710x1"]
 [ext_resource type="PackedScene" uid="uid://boqr2431f515h" path="res://enemy/enemy_jumping_01.tscn" id="27_lvs0b"]
 [ext_resource type="PackedScene" uid="uid://cc2a46k0nigv6" path="res://enemy/tazerdude_enemy.tscn" id="29_iojvw"]
 
