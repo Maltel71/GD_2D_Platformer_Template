@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://u2ekq32qpurf"]
+
+[ext_resource type="Texture2D" uid="uid://b2ogrmieymma5" path="res://graphics/env_platform_stone_01_sprite.png" id="1_2eswe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8dgd"]
+size = Vector2(100, 87)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=2059721591]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1736619512]
+z_index = 1
+position = Vector2(-4, -1.5)
+shape = SubResource("RectangleShape2D_y8dgd")
+
+[node name="EnvPlatformStone01Sprite" type="Sprite2D" parent="." unique_id=291811647]
+scale = Vector2(0.23344943, 0.23344947)
+texture = ExtResource("1_2eswe")

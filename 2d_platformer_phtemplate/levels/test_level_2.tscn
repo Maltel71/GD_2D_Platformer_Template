@@ -10,7 +10,7 @@
 [node name="Level_02" type="Node2D" unique_id=464546399]
 
 [node name="Player" parent="." unique_id=1645244188 instance=ExtResource("1_mc1td")]
-position = Vector2(-2, -59)
+position = Vector2(0, -59)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=950543665]
 position = Vector2(-2, -97)

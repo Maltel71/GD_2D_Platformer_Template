@@ -10,6 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://d1nm5cmdpstd" path="res://audio/sfx/Footsteps_U/grass_001_23185.mp3" id="7_tqiix"]
 [ext_resource type="AudioStream" uid="uid://d8qata64535u" path="res://audio/sfx/Footsteps_U/grass_011_23195.mp3" id="8_e7oew"]
 [ext_resource type="AudioStream" uid="uid://b8phaudywrgq0" path="res://audio/sfx/Footsteps_U/grass_013_23197.mp3" id="9_c35mf"]
+[ext_resource type="Texture2D" uid="uid://bh8gtuib0nfl6" path="res://graphics/char_kanin_01_sprite.png" id="11_2ieo8"]
+[ext_resource type="Texture2D" uid="uid://brkuhs1ljs7y" path="res://graphics/linnea/char_kanin_02_sprite.png" id="12_ebec5"]
+[ext_resource type="Texture2D" uid="uid://cbm54jif158e2" path="res://graphics/linnea/char_kanin_01_sprite.png" id="13_yllr7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
 radius = 14.0
@@ -30,7 +33,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("11_2ieo8")
 }],
 "loop": 1,
 "name": &"idle",
@@ -38,7 +41,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("11_2ieo8")
 }],
 "loop": 1,
 "name": &"jump",
@@ -46,19 +49,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("12_ebec5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_yllr7")
 }],
 "loop": 1,
 "name": &"run",
-"speed": 12.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("12_ebec5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_yllr7")
 }],
 "loop": 1,
 "name": &"walk",
-"speed": 12.0
+"speed": 4.0
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=99875932 node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
@@ -110,10 +119,11 @@ animation = &"muzzleflash"
 frame_progress = 0.47451738
 
 [node name="AnimatedSprite2D_Player" type="AnimatedSprite2D" parent="." unique_id=468592304]
-position = Vector2(0, 4.7683716e-07)
-scale = Vector2(0.05859375, 0.12499999)
+position = Vector2(-1, -2)
+scale = Vector2(0.13164689, 0.13164689)
 sprite_frames = SubResource("SpriteFrames_1abo5")
-animation = &"walk"
+animation = &"jump"
+frame_progress = 0.7894298
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1422080975]
 bus = &"sfx"
