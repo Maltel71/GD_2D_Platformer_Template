@@ -7,13 +7,15 @@
 [ext_resource type="AudioStream" uid="uid://cdbwupu6r0c4l" path="res://audio/sfx/power_up/powerUp (1).wav" id="5_sg7sa"]
 [ext_resource type="AudioStream" uid="uid://cg6axmkpibph" path="res://audio/sfx/laser_shoot/laserShoot.wav" id="6_xvycj"]
 [ext_resource type="AudioStream" uid="uid://d1nm5cmdpstd" path="res://audio/sfx/Footsteps_U/grass_001_23185.mp3" id="7_rkx27"]
+[ext_resource type="Texture2D" uid="uid://yk80u6dkcdic" path="res://graphics/anton/char_enemy_froglin1_01_sprite.png" id="8_1oxq4"]
+[ext_resource type="Texture2D" uid="uid://c0nqyyr52cgl4" path="res://graphics/anton/char_enemy_froglin1_02_sprite.png" id="9_48mj4"]
 [ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="9_lvsbn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ge483"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_lvsbn")
+"texture": ExtResource("8_1oxq4")
 }],
 "loop": 1,
 "name": &"idle",
@@ -21,7 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_lvsbn")
+"texture": ExtResource("9_48mj4")
 }],
 "loop": 1,
 "name": &"jump",
@@ -68,9 +70,9 @@ landing_volume = -20.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1227467250]
 z_index = 2
 rotation = 3.1415927
-scale = Vector2(0.065525524, 0.06552557)
+scale = Vector2(0.120904125, 0.12090419)
 sprite_frames = SubResource("SpriteFrames_ge483")
-animation = &"idle"
+animation = &"jump"
 flip_h = true
 flip_v = true
 

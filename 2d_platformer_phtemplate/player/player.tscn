@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dvh08tiyf3c6u" path="res://scripts/UltimatePlatformerController.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://qu8m7sepra3w" path="res://player/bullet.tscn" id="2_yw30f"]
-[ext_resource type="Texture2D" uid="uid://dihegexmhaxhh" path="res://graphics/placeholders/placeholder_sprite_01.png" id="3_g1dw6"]
 [ext_resource type="AudioStream" uid="uid://cpgff5po1ijfl" path="res://audio/sfx/jump/jump (1).wav" id="3_rgyib"]
 [ext_resource type="AudioStream" uid="uid://coawmknvyg73q" path="res://audio/sfx/hit_hurt/hitHurt (1).wav" id="4_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://d3xekf1n6wys2" path="res://audio/sfx/laser_shoot/laserShoot (1).wav" id="5_8t03j"]
@@ -10,17 +9,17 @@
 [ext_resource type="AudioStream" uid="uid://d1nm5cmdpstd" path="res://audio/sfx/Footsteps_U/grass_001_23185.mp3" id="7_tqiix"]
 [ext_resource type="AudioStream" uid="uid://d8qata64535u" path="res://audio/sfx/Footsteps_U/grass_011_23195.mp3" id="8_e7oew"]
 [ext_resource type="AudioStream" uid="uid://b8phaudywrgq0" path="res://audio/sfx/Footsteps_U/grass_013_23197.mp3" id="9_c35mf"]
+[ext_resource type="Texture2D" uid="uid://cpkit63rwiy6e" path="res://graphics/anton/prop_weapon_stav_01_sprite.png" id="10_2ieo8"]
+[ext_resource type="Texture2D" uid="uid://t1qbynvhjlcp" path="res://graphics/anton/char_kanin_01_sprite.png" id="11_2ieo8"]
+[ext_resource type="Texture2D" uid="uid://d4gp0if47o2uc" path="res://graphics/anton/char_kanin_02_sprite.png" id="12_ebec5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1abo5"]
-radius = 14.0
+radius = 13.0
 height = 64.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ebec5"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_g1dw6")
-}],
+"frames": [],
 "loop": 0,
 "name": &"muzzleflash",
 "speed": 12.0
@@ -30,7 +29,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("11_2ieo8")
 }],
 "loop": 1,
 "name": &"idle",
@@ -38,7 +37,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("11_2ieo8")
 }],
 "loop": 1,
 "name": &"jump",
@@ -46,7 +45,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("11_2ieo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ebec5")
 }],
 "loop": 1,
 "name": &"run",
@@ -54,7 +56,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_g1dw6")
+"texture": ExtResource("12_ebec5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ebec5")
 }],
 "loop": 1,
 "name": &"walk",
@@ -91,14 +96,14 @@ walk = true
 shape = SubResource("CapsuleShape2D_1abo5")
 
 [node name="BulletSpawnPoint" type="Node2D" parent="." unique_id=1849826589]
-position = Vector2(37, 3)
+position = Vector2(35, 0)
 
 [node name="WeaponSprite" type="Sprite2D" parent="BulletSpawnPoint" unique_id=1807436001]
-visible = false
 modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
-position = Vector2(-4.7683716e-07, 0)
+position = Vector2(-9, 7.999999)
+rotation = -0.68642616
 scale = Vector2(0.079990916, 0.03604869)
-texture = ExtResource("3_g1dw6")
+texture = ExtResource("10_2ieo8")
 
 [node name="AnimatedSprite2D_MuzzleFlash" type="AnimatedSprite2D" parent="BulletSpawnPoint" unique_id=247684356]
 visible = false
@@ -110,10 +115,12 @@ animation = &"muzzleflash"
 frame_progress = 0.47451738
 
 [node name="AnimatedSprite2D_Player" type="AnimatedSprite2D" parent="." unique_id=468592304]
-position = Vector2(0, 4.7683716e-07)
-scale = Vector2(0.05859375, 0.12499999)
+position = Vector2(-0.40369582, 1)
+scale = Vector2(0.13335355, 0.13555953)
 sprite_frames = SubResource("SpriteFrames_1abo5")
-animation = &"walk"
+animation = &"run"
+frame = 1
+frame_progress = 0.5524784
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1422080975]
 bus = &"sfx"
