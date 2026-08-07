@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ogrmieymma5"
-path="res://.godot/imported/env_platform_stone_01_sprite.png-a39542ba2a303458945f9cb56d96b150.ctex"
+uid="uid://cfy5fdoxqms75"
+path="res://.godot/imported/pickup_kristall_turkås.png-7520a42dc97b6d26640613c2050ab98d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/env_platform_stone_01_sprite.png"
-dest_files=["res://.godot/imported/env_platform_stone_01_sprite.png-a39542ba2a303458945f9cb56d96b150.ctex"]
+source_file="res://graphics/enviroment/anton/pickup_kristall_turkås.png"
+dest_files=["res://.godot/imported/pickup_kristall_turkås.png-7520a42dc97b6d26640613c2050ab98d.ctex"]
 
 [params]
 

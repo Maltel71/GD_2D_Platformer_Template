@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://bvjwkkynww5uf"]
 
-[ext_resource type="Texture2D" uid="uid://dxxapt3ryks1e" path="res://graphics/env_platform_grass_01_sprite.png" id="1_j3sib"]
+[ext_resource type="Texture2D" uid="uid://cp02g2pdd60b6" path="res://graphics/Milo/env_platform_grass_01_sprite.png" id="1_j3sib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmrlc"]
-size = Vector2(70, 51)
+size = Vector2(66, 55)
 
 [node name="platform_01" type="StaticBody2D" unique_id=1872192627]
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844983296]
-position = Vector2(-3, 8.5)
+position = Vector2(-2, 4.5)
 shape = SubResource("RectangleShape2D_hmrlc")
 one_way_collision = true
 
-[node name="Graphics_PH" type="Sprite2D" parent="." unique_id=1038241247]
+[node name="sprite" type="Sprite2D" parent="." unique_id=1038241247]
 z_index = -5
-scale = Vector2(0.126, 0.126)
+scale = Vector2(0.12871283, 0.12871288)
 texture = ExtResource("1_j3sib")

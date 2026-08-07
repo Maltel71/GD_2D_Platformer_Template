@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ogrmieymma5"
-path="res://.godot/imported/env_platform_stone_01_sprite.png-a39542ba2a303458945f9cb56d96b150.ctex"
+uid="uid://cbxnfqxs2yi48"
+path="res://.godot/imported/env_grass_01_sprite.png-c47ffa7847f940175268c23f22093f81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/env_platform_stone_01_sprite.png"
-dest_files=["res://.godot/imported/env_platform_stone_01_sprite.png-a39542ba2a303458945f9cb56d96b150.ctex"]
+source_file="res://graphics/malte/env_grass_01_sprite.png"
+dest_files=["res://.godot/imported/env_grass_01_sprite.png-c47ffa7847f940175268c23f22093f81.ctex"]
 
 [params]
 

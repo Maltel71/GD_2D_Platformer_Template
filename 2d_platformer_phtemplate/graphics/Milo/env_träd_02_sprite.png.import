@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ogrmieymma5"
-path="res://.godot/imported/env_platform_stone_01_sprite.png-a39542ba2a303458945f9cb56d96b150.ctex"
+uid="uid://d4cfghdo8jukw"
+path="res://.godot/imported/env_träd_02_sprite.png-04e9e75588b6cb0ac9a258a4887b323a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/env_platform_stone_01_sprite.png"
-dest_files=["res://.godot/imported/env_platform_stone_01_sprite.png-a39542ba2a303458945f9cb56d96b150.ctex"]
+source_file="res://graphics/Milo/env_träd_02_sprite.png"
+dest_files=["res://.godot/imported/env_träd_02_sprite.png-04e9e75588b6cb0ac9a258a4887b323a.ctex"]
 
 [params]
 

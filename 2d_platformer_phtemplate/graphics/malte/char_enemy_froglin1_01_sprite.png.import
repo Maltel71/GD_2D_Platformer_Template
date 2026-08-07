@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ogrmieymma5"
-path="res://.godot/imported/env_platform_stone_01_sprite.png-a39542ba2a303458945f9cb56d96b150.ctex"
+uid="uid://bo62gbnwhn401"
+path="res://.godot/imported/char_enemy_froglin1_01_sprite.png-03dc769b55a1b2dd20f99d7a4c900d79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/env_platform_stone_01_sprite.png"
-dest_files=["res://.godot/imported/env_platform_stone_01_sprite.png-a39542ba2a303458945f9cb56d96b150.ctex"]
+source_file="res://graphics/malte/char_enemy_froglin1_01_sprite.png"
+dest_files=["res://.godot/imported/char_enemy_froglin1_01_sprite.png-03dc769b55a1b2dd20f99d7a4c900d79.ctex"]
 
 [params]
 

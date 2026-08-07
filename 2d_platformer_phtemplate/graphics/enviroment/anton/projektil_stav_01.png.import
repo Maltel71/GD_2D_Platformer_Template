@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ogrmieymma5"
-path="res://.godot/imported/env_platform_stone_01_sprite.png-a39542ba2a303458945f9cb56d96b150.ctex"
+uid="uid://dogayh2vs8o7t"
+path="res://.godot/imported/projektil_stav_01.png-ed4b0b82e51c08872a30536932f38248.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/env_platform_stone_01_sprite.png"
-dest_files=["res://.godot/imported/env_platform_stone_01_sprite.png-a39542ba2a303458945f9cb56d96b150.ctex"]
+source_file="res://graphics/enviroment/anton/projektil_stav_01.png"
+dest_files=["res://.godot/imported/projektil_stav_01.png-ed4b0b82e51c08872a30536932f38248.ctex"]
 
 [params]
 

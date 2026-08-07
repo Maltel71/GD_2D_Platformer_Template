@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ogrmieymma5"
-path="res://.godot/imported/env_platform_stone_01_sprite.png-a39542ba2a303458945f9cb56d96b150.ctex"
+uid="uid://f3ijq2ynsvus"
+path="res://.godot/imported/pickup_kristall_röd.png-d15e8229e6fd8ca600f9c5fce4883b25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/env_platform_stone_01_sprite.png"
-dest_files=["res://.godot/imported/env_platform_stone_01_sprite.png-a39542ba2a303458945f9cb56d96b150.ctex"]
+source_file="res://graphics/enviroment/anton/pickup_kristall_röd.png"
+dest_files=["res://.godot/imported/pickup_kristall_röd.png-d15e8229e6fd8ca600f9c5fce4883b25.ctex"]
 
 [params]
 
