@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://dv3sj0mjhy7hf"]
+
+[ext_resource type="PackedScene" uid="uid://dagyi6jlwbb0w" path="res://player/player.tscn" id="1_e8w4v"]
+[ext_resource type="Script" uid="uid://c3nx21or7lken" path="res://scripts/camera.gd" id="2_xcj33"]
+[ext_resource type="PackedScene" uid="uid://bjs1iiy85voo6" path="res://collectables/ui.tscn" id="3_bf6jt"]
+[ext_resource type="Texture2D" uid="uid://dhrurs61bclg" path="res://graphics/placeholders/white_sprite_01.png" id="4_nrmdd"]
+[ext_resource type="PackedScene" uid="uid://b8bx012vl4vv0" path="res://level_components/levelreset_trigger.tscn" id="5_4i1m4"]
+[ext_resource type="PackedScene" uid="uid://bvjwkkynww5uf" path="res://level_components/platform_01.tscn" id="6_jqp1r"]
+[ext_resource type="Texture2D" uid="uid://cl0kfwst2h62j" path="res://graphics/env_sakura_tree_01_sprite.png" id="7_y0mfq"]
+[ext_resource type="PackedScene" uid="uid://b745w3cdupv3v" path="res://collectables/coin.tscn" id="8_bsgdp"]
+[ext_resource type="Texture2D" uid="uid://cxfobqj2am3hj" path="res://graphics/env_blomma_01_sprite.png" id="9_4onv7"]
+[ext_resource type="Texture2D" uid="uid://38yekjsiuj4k" path="res://graphics/env_blomma_02_sprite.png" id="10_omg30"]
+[ext_resource type="Texture2D" uid="uid://crogpwd1ea0tu" path="res://graphics/env_bg_02_sprite.png" id="11_7x5wy"]
+[ext_resource type="PackedScene" uid="uid://boqr2431f515h" path="res://enemy/enemy_jumping_01.tscn" id="12_5grpg"]
+
+[node name="Level_01" type="Node2D" unique_id=103730185]
+
+[node name="Player" parent="." unique_id=228637972 instance=ExtResource("1_e8w4v")]
+position = Vector2(-470, -414)
+shoot_cooldown = 0.2
+footstep_interval = 0.5
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1496188053]
+position = Vector2(-2, -97)
+zoom = Vector2(1.5, 1.5)
+script = ExtResource("2_xcj33")
+shake_intensity = 30.0
+shake_duration = 0.2
+
+[node name="Camera2D2" type="Camera2D" parent="." unique_id=788139144]
+position = Vector2(40, 23)
+zoom = Vector2(1.5, 1.5)
+script = ExtResource("2_xcj33")
+shake_intensity = 30.0
+shake_duration = 0.2
+
+[node name="Camera2D3" type="Camera2D" parent="." unique_id=961689589]
+position = Vector2(355, -139)
+zoom = Vector2(1.5, 1.5)
+script = ExtResource("2_xcj33")
+shake_intensity = 30.0
+shake_duration = 0.2
+
+[node name="Camera2D4" type="Camera2D" parent="." unique_id=1104102472]
+position = Vector2(355, -139)
+zoom = Vector2(1.5, 1.5)
+script = ExtResource("2_xcj33")
+shake_intensity = 30.0
+shake_duration = 0.2
+
+[node name="Camera2D5" type="Camera2D" parent="." unique_id=958214586]
+position = Vector2(283, -108)
+zoom = Vector2(1.5, 1.5)
+script = ExtResource("2_xcj33")
+shake_intensity = 30.0
+shake_duration = 0.2
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=58915070]
+volume_db = -20.0
+autoplay = true
+bus = &"music"
+
+[node name="ui" parent="." unique_id=1430004135 instance=ExtResource("3_bf6jt")]
+
+[node name="BG_Grey" type="TextureRect" parent="." unique_id=264791573]
+modulate = Color(0.78039217, 0.78039217, 0.78039217, 1)
+z_index = -50
+offset_left = -3686.9998
+offset_top = -1985.0
+offset_right = -1765.9998
+offset_bottom = -903.0
+scale = Vector2(4.3200006, 4.3200006)
+texture = ExtResource("4_nrmdd")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="LevelReset" parent="." unique_id=1936391256 instance=ExtResource("5_4i1m4")]
+position = Vector2(185, 935)
+scale = Vector2(8.128466, -0.93434733)
+metadata/_edit_lock_ = true
+
+[node name="==PLATFORMS==" type="Node2D" parent="." unique_id=189828871]
+
+[node name="platform_01" parent="==PLATFORMS==" unique_id=1872192627 instance=ExtResource("6_jqp1r")]
+position = Vector2(-407, -56)
+rotation = -0.045013607
+
+[node name="platform_02" parent="==PLATFORMS==" unique_id=310955149 instance=ExtResource("6_jqp1r")]
+position = Vector2(-168, -308)
+rotation = -0.048796237
+
+[node name="platform_04" parent="==PLATFORMS==" unique_id=229971959 instance=ExtResource("6_jqp1r")]
+position = Vector2(-487.99997, -358.00003)
+rotation = -0.048796237
+
+[node name="platform_06" parent="==PLATFORMS==" unique_id=1797566504 instance=ExtResource("6_jqp1r")]
+position = Vector2(-336, -361)
+rotation = -0.048796237
+
+[node name="platform_07" parent="==PLATFORMS==" unique_id=1338457461 instance=ExtResource("6_jqp1r")]
+position = Vector2(-408, -361)
+rotation = -0.048796237
+
+[node name="platform_08" parent="==PLATFORMS==" unique_id=1168486601 instance=ExtResource("6_jqp1r")]
+position = Vector2(-250, -304)
+rotation = -0.048796237
+
+[node name="platform_09" parent="==PLATFORMS==" unique_id=1170265220 instance=ExtResource("6_jqp1r")]
+position = Vector2(-54.999992, -217)
+rotation = -0.048796237
+
+[node name="platform_10" parent="==PLATFORMS==" unique_id=394709624 instance=ExtResource("6_jqp1r")]
+position = Vector2(-174, -156)
+rotation = -0.048796237
+
+[node name="platform_11" parent="==PLATFORMS==" unique_id=853330410 instance=ExtResource("6_jqp1r")]
+visible = false
+position = Vector2(-318, 20)
+rotation = -0.048796237
+
+[node name="platform_12" parent="==PLATFORMS==" unique_id=924422083 instance=ExtResource("6_jqp1r")]
+position = Vector2(-107.00003, 20.000004)
+rotation = -0.048796237
+
+[node name="platform_13" parent="==PLATFORMS==" unique_id=1613873393 instance=ExtResource("6_jqp1r")]
+position = Vector2(-217, 17)
+rotation = -0.048796237
+
+[node name="platform_03" parent="==PLATFORMS==" unique_id=1172385623 instance=ExtResource("6_jqp1r")]
+position = Vector2(-269, -145)
+rotation = -0.041627765
+
+[node name="==ENEMIES==" type="Node2D" parent="." unique_id=1401050374]
+
+[node name="EnvSakuraTree01Sprite" type="Sprite2D" parent="." unique_id=687546394]
+position = Vector2(-94, -80.000015)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_y0mfq")
+
+[node name="EnvSakuraTree01Sprite2" type="Sprite2D" parent="." unique_id=1664577823]
+position = Vector2(-3554.0002, 1211)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("7_y0mfq")
+
+[node name="EnvSakuraTree01Sprite3" type="Sprite2D" parent="." unique_id=1915019771]
+position = Vector2(-489, -449)
+rotation = -0.07112471
+scale = Vector2(0.182, 0.2)
+texture = ExtResource("7_y0mfq")
+
+[node name="coin" parent="." unique_id=1439293361 instance=ExtResource("8_bsgdp")]
+position = Vector2(-328, -402)
+point_value = 10
+
+[node name="coin2" parent="." unique_id=51006623 instance=ExtResource("8_bsgdp")]
+position = Vector2(-150, -353)
+point_value = 10
+
+[node name="coin3" parent="." unique_id=523930715 instance=ExtResource("8_bsgdp")]
+position = Vector2(-411, -97)
+point_value = 10
+
+[node name="coin4" parent="." unique_id=1389184267 instance=ExtResource("8_bsgdp")]
+position = Vector2(-122, -21)
+point_value = 10
+
+[node name="EnvBlomma01Sprite" type="Sprite2D" parent="." unique_id=1762505969]
+position = Vector2(-251, -359)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_4onv7")
+
+[node name="EnvBlomma01Sprite2" type="Sprite2D" parent="." unique_id=1962878810]
+position = Vector2(-275, -191)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_4onv7")
+
+[node name="EnvBlomma02Sprite" type="Sprite2D" parent="." unique_id=1261590535]
+z_index = -10
+position = Vector2(-414, -153)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_omg30")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=894945796]
+modulate = Color(0.9920719, 0.7486121, 0.82380456, 1)
+z_index = -20
+offset_left = -3703.0
+offset_top = -2208.0
+offset_right = 4836.0
+offset_bottom = 2755.0
+texture = ExtResource("11_7x5wy")
+stretch_mode = 1
+
+[node name="Enemy_Jumping_01" parent="." unique_id=1398974539 instance=ExtResource("12_5grpg")]
+position = Vector2(-406, -412)
