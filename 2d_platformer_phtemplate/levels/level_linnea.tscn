@@ -25,7 +25,7 @@
 metadata/_edit_horizontal_guides_ = [-911.0]
 
 [node name="Player" parent="." unique_id=228637972 instance=ExtResource("1_cxmc6")]
-position = Vector2(-524, -490)
+position = Vector2(-524, -492)
 shoot_cooldown = 0.2
 footstep_interval = 0.5
 

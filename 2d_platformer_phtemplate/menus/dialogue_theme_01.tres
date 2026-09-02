@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://b1gawxyi82u3g"]
 
+[ext_resource type="FontFile" uid="uid://boyeh3k8cxoqn" path="res://Roboto-Bold.ttf" id="1_h011e"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q8gj"]
 bg_color = Color(0, 0, 0, 1)
 border_color = Color(0.43553185, 0.5306551, 0.43565124, 1)
@@ -13,4 +15,5 @@ expand_margin_bottom = 2.0
 shadow_color = Color(0, 0, 0, 0.61960787)
 
 [resource]
+default_font = ExtResource("1_h011e")
 Label/styles/normal = SubResource("StyleBoxFlat_6q8gj")
